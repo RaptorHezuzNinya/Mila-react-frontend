@@ -45,13 +45,13 @@ module.exports = {
           }]]
         }
       },
-      { test: /\.woff2?$/,      loader: "url-loader?limit=10000&minetype=application/font-woff" },
-      { test: /\.ttf$/,         loader: "file-loader" },
-      { test: /\.eot$/,         loader: "file-loader" },
-      { test: /\.svg$/,         loader: "file-loader" },
-      { test: /\.(png|gif)$/,   loader: "file-loader" },
+      { test: /\.woff2?$/,      loader: 'url-loader?limit=10000&minetype=application/font-woff' },
+      { test: /\.ttf$/,         loader: 'file-loader' },
+      { test: /\.eot$/,         loader: 'file-loader' },
+      { test: /\.svg$/,         loader: 'file-loader' },
+      { test: /\.(png|gif)$/,   loader: 'file-loader' },
       { test: /\.(sass|scss)$/, loader: 'style!css!sass'},
-      { test: /\.json$/,        loader: "json-loader"}
+      { test: /\.json$/,        loader: 'json-loader'}
     ]
   }
 };
