@@ -2,7 +2,19 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './App'
 
+import { Provider } from 'react-redux'
+import store from './store'
+
+import injectTapEventPlugin from 'react-tap-event-plugin'
+
+// Styles
+import './assets/styles/main.sass'
+
+injectTapEventPlugin()
+
 ReactDOM.render(
-  <App />,
+  <Provider store={store}>
+    <App />
+  </Provider>,
   document.getElementById('root')
 )
