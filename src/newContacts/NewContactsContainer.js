@@ -1,10 +1,15 @@
 import React, { PureComponent, PropTypes } from 'react'
 import { connect } from 'react-redux'
 
+import ContactCard from './ContactCard'
+
 export class NewContactsContainer extends PureComponent {
   render() {
     return (
-      <h1>Container!</h1>
+      <div>
+        <h1>Container!</h1>
+        <ContactCard />
+      </div>
     )
   }
 }
