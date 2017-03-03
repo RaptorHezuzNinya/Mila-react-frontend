@@ -1,10 +1,14 @@
 import React, { PureComponent, PropTypes } from 'react'
 
+// material-ui Components
 import Appbar from 'material-ui/AppBar'
 import Flatbutton from 'material-ui/FlatButton'
 
-import './Navigation.sass'
+// logos icons
 import milaLogo from '../assets/images/logo/logo-white.png'
+
+// Styles
+import './Navigation.sass'
 
 export class Navigation extends PureComponent {
   static propTypes = {
