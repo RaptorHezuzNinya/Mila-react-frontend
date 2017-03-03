@@ -16,9 +16,9 @@ const initialState = [
     companyRole: 'CEO',
     companyName: 'Compainay',
     email: 'tanja@compainay.com'
-  },
+  }
 ]
 
-export default function(state = [initialState], { type, payload } = {}) {
+export default function(state = initialState, { type, payload } = {}) {
   return state
 }
