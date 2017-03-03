@@ -22,8 +22,6 @@ export class Navigation extends PureComponent {
     const rightLinks = (
       <div>
         <Flatbutton label="Subcription" style={navButtonStyle} />
-        <Flatbutton label="New Contacts" style={navButtonStyle} />
-        <Flatbutton label="My network" style={navButtonStyle} />
       </div>
     )
 
@@ -39,4 +37,3 @@ export class Navigation extends PureComponent {
 }
 
 export default Navigation
-
