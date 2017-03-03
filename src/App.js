@@ -18,7 +18,6 @@ class App extends Component {
       <MuiThemeProvider muiTheme={muiTheme}>
         <div className="app">
           <Navigation />
-          <h1>Hello World!</h1>
         </div>
       </MuiThemeProvider>
     )
