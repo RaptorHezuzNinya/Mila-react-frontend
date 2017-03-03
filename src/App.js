@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import Navigation from './components/Navigation'
 // Material UI Components
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import muiTheme from './assets/styles/theme'
@@ -17,7 +17,7 @@ class App extends Component {
     return (
       <MuiThemeProvider muiTheme={muiTheme}>
         <div className="app">
-          <h1>Hello World!</h1>
+          <Navigation />
         </div>
       </MuiThemeProvider>
     )
