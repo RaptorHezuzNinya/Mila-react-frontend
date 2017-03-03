@@ -22,7 +22,14 @@ export const palette = {
   primary1Color: blueA,
   primary2Color: greyA,
   primary3Color: steelA,
+  accent1Color: greenA,  // secondary color
+  // accent2Color: green,
+  // accent3Color: green,
   textColor: blueA,
+  // alternateTextColor: white,
+  // canvasColor: white,
+  // borderColor: grey,
+  // disabledColor: grey30
 }
 
 export default getMuiTheme({ palette })
