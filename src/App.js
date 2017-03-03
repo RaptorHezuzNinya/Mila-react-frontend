@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 // import { Link } from 'react-router'
+import Navigation from './components/Navigation'
 
 // Material UI Components
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
@@ -18,6 +19,7 @@ class App extends Component {
     return (
       <MuiThemeProvider muiTheme={muiTheme}>
         <div className="app">
+          <Navigation />
           { this.props.children }
         </div>
       </MuiThemeProvider>

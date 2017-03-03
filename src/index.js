@@ -5,6 +5,7 @@ import { Router, Route, IndexRoute } from 'react-router'
 import store, { history } from './store'
 
 import injectTapEventPlugin from 'react-tap-event-plugin'
+import 'normalize.css'
 
 injectTapEventPlugin()
 

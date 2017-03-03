@@ -19,8 +19,8 @@ const greyB     = '#ffffff'
 
 // Palette
 export const palette = {
-  primary1Color: greenA,
-  primary2Color: blueA,
+  primary1Color: blueA,
+  primary2Color: greyA,
   primary3Color: steelA,
   textColor: blueA,
 }
