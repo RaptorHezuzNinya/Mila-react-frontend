@@ -3,11 +3,11 @@ import { connect } from 'react-redux'
 
 import ContactCard from './ContactCard'
 
-export class NewContactsContainer extends PureComponent {
+class NewContactsContainer extends PureComponent {
   render() {
     return (
       <div>
-        <h1>Container!</h1>
+        <h1>New Contact Container!</h1>
         <ContactCard />
       </div>
     )

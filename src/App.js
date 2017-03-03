@@ -1,11 +1,9 @@
 import React, { Component } from 'react'
+// import { Link } from 'react-router'
 
 // Material UI Components
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import muiTheme from './assets/styles/theme'
-
-// Components
-import NewContactsContainer from './newContacts/NewContactsContainer'
 
 class App extends Component {
   static childContextTypes = {
@@ -20,8 +18,7 @@ class App extends Component {
     return (
       <MuiThemeProvider muiTheme={muiTheme}>
         <div className="app">
-          <h1>Hello World!</h1>
-          <NewContactsContainer />
+          { this.props.children }
         </div>
       </MuiThemeProvider>
     )

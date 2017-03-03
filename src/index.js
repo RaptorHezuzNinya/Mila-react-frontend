@@ -1,20 +1,32 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import App from './App'
-
 import { Provider } from 'react-redux'
-import store from './store'
+import { Router, Route, IndexRoute } from 'react-router'
+import store, { history } from './store'
 
 import injectTapEventPlugin from 'react-tap-event-plugin'
+
+injectTapEventPlugin()
 
 // Styles
 import './assets/styles/main.sass'
 
-injectTapEventPlugin()
+// Routes
+import routes from '~/middleware/routes'
+
+// Components
+import App from './App'
+import NewContactsContainer from './newContacts/NewContactsContainer'
+import ContactCard from './newContacts/ContactCard'
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <Router history={history}>
+      <Route path="/" component={App}>
+        <IndexRoute component={NewContactsContainer} />
+        <Route path={routes.newContactsPath} component={ContactCard} />
+      </Route>
+    </Router>
   </Provider>,
   document.getElementById('root')
 )
