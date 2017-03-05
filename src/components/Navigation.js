@@ -29,13 +29,22 @@ export class Navigation extends PureComponent {
         <Flatbutton label="Subcription" style={navButtonStyle} />
       </div>
     )
+    const rightIconLinks = (
+      <div>
+        <Link to=""><div className="wrapper-icon"><img className="user-blue" src={UserIconBlue} /></div></Link>
+        {/* <Link to=""><div className="wrapper-icon"><img className="user-grey" src={UserIconGrey} /></div></Link> */}
+      </div>
+    )
 
     return (
-      <Appbar
-        className="nav-bar"
-        iconElementLeft={<div className="wrapper-logo"><img className="logo-mila" src={milaLogo} /></div>}
-        iconElementRight={ rightLinks }
-      />
+      <header className="nav-bar">
+        <Appbar
+          className="appbar"
+          iconElementLeft={ <div className="wrapper-logo"><img className="logo-mila" src={milaLogo} /></div> }
+
+          iconElementRight={ rightIconLinks }
+        />
+      </header>
     )
 
   }
