@@ -53,7 +53,7 @@ module.exports = {
       { test: /\.(sass|scss)$/, loader: 'style!css!sass'},
       { test: /\.json$/,        loader: 'json-loader'},
       { test: /\.css$/,         loader: 'style-loader!css-loader'},
-      { test: /\.(jpg)$/,       loader: 'file-loader' },
+      { test: /\.jpg$/,       loader: 'file-loader' },
     ]
   }
 };
