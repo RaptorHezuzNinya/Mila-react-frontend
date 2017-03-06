@@ -1,7 +1,7 @@
 import newContacts from './newContacts'
-import contactCard from './contactCard'
+import contactCards from './contactCards'
 
 module.exports = {
   newContacts,
-  contactCard,
+  contactCards
 }
