@@ -35,9 +35,9 @@ export class Navigation extends PureComponent {
     return (
       <header className="nav-bar">
         <Appbar
-          className="appbar"
-          iconElementLeft={ <div className="wrapper-logo"><img className="logo-mila" src={milaLogo} /></div> }
-          iconElementRight={ rightIconLinks }
+        className="appbar"
+        iconElementLeft={ <div className="wrapper-logo"><img className="logo-mila" src={milaLogo} /></div> }
+        iconElementRight={ rightIconLinks }
         />
       </header>
     )
