@@ -17,8 +17,6 @@ import './Navigation.sass'
 import '../assets/styles/base/colors.sass'
 
 export class Navigation extends PureComponent {
-  static propTypes = {
-  }
 
   render(){
     const styles = {
