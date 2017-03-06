@@ -4,7 +4,7 @@ import chai, { expect } from 'chai'
 import chaiEnzyme from 'chai-enzyme'
 chai.use(chaiEnzyme())
 
-import wrapper from '~/../test/wrapper'
+import wrapper from '~/../test/helpers/wrapper'
 import ContactCard from './ContactCard'
 
 describe('<ContactCard />', () => {

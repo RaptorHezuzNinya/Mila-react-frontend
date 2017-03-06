@@ -1,10 +1,14 @@
 @import "../assets/styles/base/colors.sass"
 @import "../assets/styles/base/mixins.sass"
+@import "../assets/styles/base/breakpoints.sass"
 
 .nav-bar
   .appbar
     padding: 0 0 !important
     height: 60px !important
+    @include breakpoint($breakpoint-medium)
+      padding: 0 20px !important
+
   .wrapper-logo
     display: inline-block !important
     margin: 0 !important
@@ -15,6 +19,7 @@
 
   .right-icons-wrap
     margin-top: -8px
+
     .wrap-icon-blue
       display: inline-block
       background-color: $blueB
@@ -26,11 +31,14 @@
         height: 30px
         border-radius: 15px
         margin: 15px 10px 15px 10px
+
     .wrap-icon-grey
       display: inline-block
       height: 60px
       width: 50px
       vertical-align: top
+      @include breakpoint($breakpoint-medium)
+        display: none
       .user-grey
         width: 22px
         padding: 19px 15px
@@ -42,8 +50,22 @@
       display: inline-block
       z-index: 10
       margin-top: 5px
-      .sub-text
-        padding: 4px 1px
-        border: 1px solid $blueB
       &:hover
         color: white
+      .sub-text
+        padding: 4px 1px
+        border: 2px solid $blueB
+        @include breakpoint($breakpoint-medium)
+          margin-top: 5px
+          padding: 10px
+
+    .network-button, .new-contact
+      display: none !important
+      @include breakpoint($breakpoint-medium)
+        padding: 0 30px !important
+        display: inline-block !important
+        +mont-light($greyB)
+        margin-top: 11px !important
+        vertical-align: top
+        &:hover
+          color: $greenB

@@ -3,7 +3,7 @@ import { Link } from 'react-router'
 
 // material-ui Components
 import Appbar from 'material-ui/AppBar'
-import Flatbutton from 'material-ui/FlatButton'
+import FlatButton from 'material-ui/FlatButton'
 import IconButton from 'material-ui/IconButton'
 // logos icons
 import UserIconBlue from '../assets/images/icons/user-blue.jpg'
@@ -17,24 +17,22 @@ import './Navigation.sass'
 import '../assets/styles/base/colors.sass'
 
 export class Navigation extends PureComponent {
-  static propTypes = {
-  }
 
   render(){
-    // const navButtonStyle = {
-    //   color: '$greenA',
-    //   fontFamily: 'Montserrat-Light',
-    //   border: '1px solid $blueB',
-    //   verticalAlign: 'top',
-    //   marginTop: '10px'
-    //
-    // }
+    const styles = {
+      button: {
+        fontFamily: 'Montserrat-Light',
+        color: '$greyB'
+      }
+    }
 
     const rightIconLinks = (
       <div className="right-icons-wrap">
-        <Link to=""><div className="sub-button" ><p className="sub-text">295 CONTACTS FREE</p></div></Link>
-        <Link to=""><div className="wrap-icon-grey"><img className="user-grey" src={UserIconGrey} /></div></Link>
-        <Link to=""><div className="wrap-icon-blue"><img className="user-blue" src={UserIconBlue} /></div></Link>
+        <Link to="/newcontacts"><div className="sub-button" ><p className="sub-text">295 CONTACTS FREE</p></div></Link>
+        <Link><FlatButton className="new-contact" label="New Contacts" style={styles.button}/></Link>
+        <Link><FlatButton className="network-button" label="My Network" style={styles.button}/></Link>
+        <Link to="/newcontacts"><div className="wrap-icon-grey"><img className="user-grey" src={UserIconGrey} /></div></Link>
+        <Link to="/newcontacts"><div className="wrap-icon-blue"><img className="user-blue" src={UserIconBlue} /></div></Link>
       </div>
     )
 
