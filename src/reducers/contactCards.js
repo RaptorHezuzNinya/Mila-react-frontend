@@ -1,7 +1,5 @@
 import { combineReducers } from 'redux'
-
 import { CREATE_CONTACTCARD } from '~/actions/contactcards'
-import { CONTACTS_LOADED } from '~/actions/contactcards'
 
 const initialState = [
   {
@@ -24,11 +22,9 @@ const initialState = [
 
 export default function contactCards(state = initialState, { type, payload } = {}) {
   switch (type) {
-    case CONTACTS_LOADED :
-      return initialState
 
     case CREATE_CONTACTCARD :
-      return state.contact(payload)
+      return [Object.assign({}, payload)].concat(state)
 
     default :
       return state

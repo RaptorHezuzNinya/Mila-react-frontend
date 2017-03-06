@@ -2,6 +2,7 @@ import React, { PureComponent, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import routes from '~/middleware/routes'
 import contactCard from '~/reducers/contactCards'
+import { newContactCard } from '~/actions/contactcards'
 
 // Material UI Components
 import { Card, CardHeader, CardActions, CardText } from 'material-ui/Card'
@@ -10,15 +11,7 @@ import { Card, CardHeader, CardActions, CardText } from 'material-ui/Card'
 import './ContactCard.sass'
 
 class ContactCard extends PureComponent {
-  static propTypes = {
-    firstName: PropTypes.string.isRequired,
-    lastName: PropTypes.string.isRequired,
-    companyRole: PropTypes.string.isRequired,
-    companyName: PropTypes.string.isRequired,
-    email: PropTypes.string.isRequired
-  }
-
-  constructor(props) {
+   constructor(props) {
     super(props)
     this.state = {
       contactId: this.props.contactId,
@@ -34,8 +27,6 @@ class ContactCard extends PureComponent {
     this.handleCompanyRoleChange = this.handleCompanyRoleChange.bind(this)
     this.handleCompanyNameChange = this.handleCompanyNameChange.bind(this)
     this.handleEmailChange = this.handleEmailChange.bind(this)
-
-    this.onSubmit = this.onSubmit.bind(this)
   }
 
   handleFirstNameChange(event) {
@@ -68,8 +59,16 @@ class ContactCard extends PureComponent {
     })
   }
 
-  onSubmit(event) {
+  save(event) {
     event.preventDefault()
+
+    const { contactId, firstName, lastName, companyRole, companyName, email } = this.state
+
+    const contactCard = { contactId, firstName, lastName, companyRole, companyName, email }
+
+    this.props.newContactCard(contactCard)
+
+    console.log('after save', contactCard)
   }
 
   render() {
@@ -85,7 +84,7 @@ class ContactCard extends PureComponent {
             type="text"
             ref="firstName"
             placeholder="first name"
-            defaultValue={this.props.firstName}
+            defaultValue={this.state.firstName}
             onChange={this.handleFirstNameChange.bind(this)}
           />
 
@@ -93,7 +92,7 @@ class ContactCard extends PureComponent {
             type="text"
             ref="lastName"
             placeholder="last name"
-            defaultValue={this.props.lastName}
+            defaultValue={this.state.lastName}
             onChange={this.handleLastNameChange.bind(this)}
           />
 
@@ -101,7 +100,7 @@ class ContactCard extends PureComponent {
             type="text"
             ref="companyRole"
             placeholder="company role"
-            defaultValue={this.props.companyRole}
+            defaultValue={this.state.companyRole}
             onChange={this.handleCompanyRoleChange.bind(this)}
           />
 
@@ -109,7 +108,7 @@ class ContactCard extends PureComponent {
             type="text"
             ref="companyName"
             placeholder="company name"
-            defaultValue={this.props.companyName}
+            defaultValue={this.state.companyName}
             onChange={this.handleCompanyNameChange.bind(this)}
           />
 
@@ -117,13 +116,17 @@ class ContactCard extends PureComponent {
             type="text"
             ref="email"
             placeholder="email"
-            defaultValue={this.props.email}
+            defaultValue={this.state.email}
             onChange={this.handleEmailChange.bind(this)}
           />
+
+          <div className="actions">
+            <button onClick={this.save.bind(this)}>save</button>
+          </div>
         </Card>
       </div>
     )
   }
 }
 
-export default ContactCard
+export default connect(null, { newContactCard})(ContactCard)
