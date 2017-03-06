@@ -1,3 +1,33 @@
-@mixin montserrat($color: $blueA)
-  font-family: 'Montserrat', Helvetica, Arial, sans-serif
+// @import "./colors.sass"
+
+// Montserrat:
+//700 mont-bold
+//600 mont-sembold
+//500 mont-med
+//400 mont-reg
+//300 mont-light
+
+=mont-bold($color: $blueA)
+  font-family: 'Montserrat-Bold', Helvetica, Arial, sans-serif
+  letter-spacing: 0.3px
+  color: $color
+
+=mont-sembold($color: $blueA)
+  font-family: 'Montserrat-Semibold', Helvetica, Arial, sans-serif
+  letter-spacing: 0.3px
+  color: $color
+
+=mont-med($color: $blueA)
+  font-family: 'Montserrat-Regular', Helvetica, Arial, sans-serif
+  letter-spacing: 0.3px
+  color: $color
+
+=mont-reg($color: $blueA)
+  font-family: 'Montserrat-Regular', Helvetica, Arial, sans-serif
+  letter-spacing: 0.3px
+  color: $color
+
+=mont-light($color: $blueA)
+  font-family: 'Montserrat-Light', Helvetica, Arial, sans-serif
+  letter-spacing: 0.3px
   color: $color
