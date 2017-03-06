@@ -14,7 +14,7 @@ class NewContactsContainer extends PureComponent {
         <h1>New Contact Container!</h1>
         <div>
           { contactCards.map((contactCard, i) => {
-            return <ContactCard key={`contactCard-${contactCard.id}`} { ...contactCard } />
+            return <ContactCard key={`contactCard-${contactCard.contactId}`} { ...contactCard } />
           })}
         </div>
       </div>
