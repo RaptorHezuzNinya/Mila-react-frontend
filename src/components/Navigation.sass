@@ -34,6 +34,8 @@
       height: 60px
       width: 50px
       vertical-align: top
+      @include breakpoint($breakpoint-medium)
+        display: none
       .user-grey
         width: 22px
         padding: 19px 15px
@@ -53,3 +55,14 @@
         @include breakpoint($breakpoint-medium)
           margin-top: 5px
           padding: 10px
+
+    .network-button, .new-contact
+      display: none !important
+      @include breakpoint($breakpoint-medium)
+        padding: 0 30px !important
+        display: inline-block !important
+        +mont-light($greyB)
+        margin-top: 11px !important
+        vertical-align: top
+        &:hover
+          color: $greenB
