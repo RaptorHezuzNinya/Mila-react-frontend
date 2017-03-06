@@ -23,7 +23,7 @@ export const palette = {
   primary2Color: greyA,
   primary3Color: steelA,
   accent1Color: greenA,  // secondary color
-  // accent2Color: green,
+  accent2Color: greenB,
   // accent3Color: green,
   textColor: blueA,
   // alternateTextColor: white,
