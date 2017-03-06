@@ -9,5 +9,6 @@ describe('<Navigation/>', () => {
 
   it('contains a header', () => {
     expect(navigation).to.have.className('nav-bar')
+    expect(navigation).to.have.tagName('header')
   })
 })
