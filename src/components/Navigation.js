@@ -14,19 +14,25 @@ import UserCircle from 'material-ui/svg-icons/action/account-circle'
 
 // Styles
 import './Navigation.sass'
+import '../assets/styles/base/colors.sass'
 
 export class Navigation extends PureComponent {
   static propTypes = {
   }
 
   render(){
-    const navButtonStyle = {
-      color: 'white'
-    }
+    // const navButtonStyle = {
+    //   color: '$greenA',
+    //   fontFamily: 'Montserrat-Light',
+    //   border: '1px solid $blueB',
+    //   verticalAlign: 'top',
+    //   marginTop: '10px'
+    //
+    // }
 
     const rightIconLinks = (
       <div className="right-icons-wrap">
-        <Link><Flatbutton label="Subcription" style={navButtonStyle} /></Link>
+        <Link to=""><div className="sub-button" ><p className="sub-text">295 CONTACTS FREE</p></div></Link>
         <Link to=""><div className="wrap-icon-grey"><img className="user-grey" src={UserIconGrey} /></div></Link>
         <Link to=""><div className="wrap-icon-blue"><img className="user-blue" src={UserIconBlue} /></div></Link>
       </div>
