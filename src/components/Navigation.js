@@ -24,14 +24,9 @@ export class Navigation extends PureComponent {
       color: 'white'
     }
 
-    const rightLinks = (
-      <div>
-        <Flatbutton label="Subcription" style={navButtonStyle} />
-      </div>
-    )
-
     const rightIconLinks = (
       <div className="right-icons-wrap">
+        <Link><Flatbutton label="Subcription" style={navButtonStyle} /></Link>
         <Link to=""><div className="wrap-icon-grey"><img className="user-grey" src={UserIconGrey} /></div></Link>
         <Link to=""><div className="wrap-icon-blue"><img className="user-blue" src={UserIconBlue} /></div></Link>
       </div>
