@@ -1,10 +1,13 @@
 @import "../assets/styles/base/colors.sass"
 @import "../assets/styles/base/mixins.sass"
+@import "../assets/styles/base/breakpoints.sass"
 
 .nav-bar
   .appbar
     padding: 0 0 !important
     height: 60px !important
+    @include breakpoint($breakpoint-medium)
+      padding: 0 20px !important
   .wrapper-logo
     display: inline-block !important
     margin: 0 !important
@@ -42,8 +45,11 @@
       display: inline-block
       z-index: 10
       margin-top: 5px
-      .sub-text
-        padding: 4px 1px
-        border: 1px solid $blueB
       &:hover
         color: white
+      .sub-text
+        padding: 4px 1px
+        border: 2px solid $blueB
+        @include breakpoint($breakpoint-medium)
+          margin-top: 5px
+          padding: 10px
