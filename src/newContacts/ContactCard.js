@@ -1,5 +1,6 @@
 import React, { PureComponent, PropTypes } from 'react'
 import routes from '~/middleware/routes'
+import contactCard from '~/reducers/contactCards'
 
 // Material UI Components
 import { Card, CardHeader, CardActions, CardText } from 'material-ui/Card'
@@ -9,13 +10,13 @@ import './ContactCard.sass'
 
 class ContactCard extends PureComponent {
   static propTypes = {
-    firstName: PropTypes.string.isRequired,
+    firstName: PropTypes.string.isRequired
   }
 
   render() {
     const { id, firstName } = this.props
 
-    console.log('loggin props', this.props)
+    console.log('logging props', this.props)
     console.log('logging state', this.state)
 
     return (
