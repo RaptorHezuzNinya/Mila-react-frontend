@@ -3,7 +3,7 @@ import { Link } from 'react-router'
 
 // material-ui Components
 import Appbar from 'material-ui/AppBar'
-import Flatbutton from 'material-ui/FlatButton'
+import FlatButton from 'material-ui/FlatButton'
 import IconButton from 'material-ui/IconButton'
 // logos icons
 import UserIconBlue from '../assets/images/icons/user-blue.jpg'
