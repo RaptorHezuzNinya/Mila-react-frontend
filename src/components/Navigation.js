@@ -42,7 +42,6 @@ export class Navigation extends PureComponent {
         <Appbar
           className="appbar"
           iconElementLeft={ <div className="wrapper-logo"><img className="logo-mila" src={milaLogo} /></div> }
-
           iconElementRight={ rightIconLinks }
         />
       </header>
