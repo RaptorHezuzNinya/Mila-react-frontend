@@ -9,8 +9,8 @@ import IconButton from 'material-ui/IconButton'
 import UserIconBlue from '../assets/images/icons/user-blue.jpg'
 import UserIconGrey from '../assets/images/icons/user-grey.svg'
 import milaLogo from '../assets/images/logos/logo-white.png'
-import ArrowDown from 'material-ui/svg-icons/hardware/keyboard-arrow-down'
 import UserCircle from 'material-ui/svg-icons/action/account-circle'
+// import ArrowDown from 'material-ui/svg-icons/hardware/keyboard-arrow-down'
 
 // Styles
 import './Navigation.sass'
