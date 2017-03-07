@@ -11,7 +11,12 @@ import { Card, CardHeader, CardActions, CardText } from 'material-ui/Card'
 import './ContactCard.sass'
 
 class ContactCard extends PureComponent {
-   constructor(props) {
+  
+  static propTypes = {
+    updateContactCard: PropTypes.func.isRequired
+  }
+
+  constructor(props) {
     super(props)
     this.state = {
       contactId: this.props.contactId,
