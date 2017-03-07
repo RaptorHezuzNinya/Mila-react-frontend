@@ -1,7 +1,6 @@
-import newContacts from './newContacts'
-import contactCards from './contactCards'
+import contacts from './contacts'
 
 module.exports = {
-  newContacts,
-  contactCards
+  // newContacts,
+  contacts
 }
