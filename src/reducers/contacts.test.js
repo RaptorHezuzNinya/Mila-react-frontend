@@ -49,27 +49,28 @@ describe ('contact reducer initial state', () => {
 
 describe('contact', () => {
   describe(UPDATE_CONTACT, () => {
-    const initialState = deepFreeze({
+    console.log(this.state)
+    const initialState = deepFreeze([{
       firstName: 'Adrian',
       lastName: 'DePadrian',
       companyRole: 'CEO',
       companyName: 'Compainay',
       email: 'adrian@compainay.com'
-    })
+    }])
 
-    const editedContact = deepFreeze({
+    const editedContact = deepFreeze([{
       firstName: 'Unicorn',
       lastName: 'Awesomeness',
       companyRole: 'KingPing'
-    })
+    }])
 
-    const finalState = deepFreeze({
+    const finalState = deepFreeze([{
       firstName: 'Unicorn',
       lastName: 'Awesomeness',
       companyRole: 'KingPing',
       companyName: 'Compainay',
       email: 'adrian@compainay.com'
-    })
+    }])
 
     const action = deepFreeze({
       type: UPDATE_CONTACT,
@@ -77,7 +78,7 @@ describe('contact', () => {
     })
 
     it('updates the contact', () => {
-      expect(contacts(initialState, action)).to.eql(finalState)
+      expect(contact(initialState, action)).to.eql(finalState)
     })
   })
 })
