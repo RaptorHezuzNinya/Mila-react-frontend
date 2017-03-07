@@ -18,7 +18,7 @@ import routes from '~/middleware/routes'
 // Components
 import App from './App'
 import NewContactsContainer from './newContacts/NewContactsContainer'
-import ContactCard from './newContacts/ContactCard'
+import Contact from './newContacts/Contact'
 
 ReactDOM.render(
   <Provider store={store}>

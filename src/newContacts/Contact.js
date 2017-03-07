@@ -1,19 +1,19 @@
 import React, { PureComponent, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import routes from '~/middleware/routes'
-import contactCard from '~/reducers/contactCards'
-import updateContactCard from '~/actions/contactcards/update'
+import contact from '~/reducers/contacts'
+import updateContact from '~/actions/contacts/update'
 
 // Material UI Components
 import { Card, CardHeader, CardActions, CardText } from 'material-ui/Card'
 
 // Styles
-import './ContactCard.sass'
+import './Contact.sass'
 
-class ContactCard extends PureComponent {
+class Contact extends PureComponent {
 
   static propTypes = {
-    updateContactCard: PropTypes.func.isRequired
+    updateContact: PropTypes.func.isRequired
   }
 
   state = {
@@ -25,13 +25,13 @@ class ContactCard extends PureComponent {
     email: this.props.email
   }
 
-  saveContactCard(event){
+  saveContact(event){
     event.preventDefault()
     const { contactId, firstName, lastName, companyRole, companyName, email } = this.state
 
-    this.props.updateContactCard(this.state)
+    this.props.updateContact(this.state)
 
-    console.log('after save', contactCard)
+    console.log('after save', contact)
   }
 
   handleChange = (event) => {
@@ -97,7 +97,7 @@ class ContactCard extends PureComponent {
           />
 
           <div className="actions">
-            <button onClick={this.saveContactCard.bind(this)}>save</button>
+            <button onClick={this.saveContact.bind(this)}>save</button>
           </div>
         </Card>
       </div>
@@ -105,4 +105,4 @@ class ContactCard extends PureComponent {
   }
 }
 
-export default connect(null, { updateContactCard })(ContactCard)
+export default connect(null, { updateContact })(Contact)

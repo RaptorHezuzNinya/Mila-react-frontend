@@ -1,8 +1,8 @@
 import chai, { expect } from 'chai'
-import contactCards from './contactCards'
+import contacts from './contacts'
 
-describe ('contactCards reducer', () => {
-  const reducer = contactCards
+describe ('contacts reducer', () => {
+  const reducer = contacts
   const initialState = [
     {
       contactId: 1,

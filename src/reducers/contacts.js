@@ -1,4 +1,4 @@
-import { UPDATE_CONTACTCARD } from '~/actions/contactcards/update'
+import { UPDATE_CONTACT } from '~/actions/contacts/update'
 
 const initialState = [
   {
@@ -19,15 +19,15 @@ const initialState = [
   }
 ]
 
-export default function contactCards(state = initialState, { type, payload } = {}) {
+export default function contacts(state = initialState, { type, payload } = {}) {
   switch (type) {
 
-    case UPDATE_CONTACTCARD :
-      return state.map((contactCard) => {
-        if (contactCard.contactId === payload.contactId) {
+    case UPDATE_CONTACT :
+      return state.map((contact) => {
+        if (contact.contactId === payload.contactId) {
           return Object.assign({}, payload)
         }
-        return contactCard
+        return contact
       })
 
     default :
