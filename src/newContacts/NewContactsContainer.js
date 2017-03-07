@@ -1,32 +1,32 @@
 import React, { PureComponent, PropTypes } from 'react'
 import { connect } from 'react-redux'
 
-import ContactCard from './ContactCard'
+import Contact from './Contact'
 
 class NewContactsContainer extends PureComponent {
   static propTypes = {
-    contactCards: PropTypes.array.isRequired
+    contacts: PropTypes.array.isRequired
   }
 
-  renderContactCard(contactCard, index) {
-      return <ContactCard key={index} { ...contactCard } />
+  renderContact(contact, index) {
+      return <Contact key={index} { ...contact } />
   }
 
   render() {
-    const { contactCards } = this.props
-    if (!contactCards) return null
+    const { contacts } = this.props
+    if (!contacts) return null
 
     return (
       <div>
         <h1>New Contact Container!</h1>
         <div>
-          {contactCards.map(this.renderContactCard.bind(this))}
+          {contacts.map(this.renderContact.bind(this))}
         </div>
       </div>
     )
   }
 }
 
-const mapStateToProps = ({ contactCards }) => ({ contactCards })
+const mapStateToProps = ({ contacts }) => ({ contacts })
 
 export default connect(mapStateToProps)(NewContactsContainer)
