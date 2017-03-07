@@ -55,40 +55,45 @@ class ContactCard extends PureComponent {
             type="text"
             ref="firstName"
             placeholder="first name"
-            defaultValue={this.state.firstName}
-            onChange={this.handleFirstNameChange.bind(this)}
+            name="firstName"
+            value={this.state.firstName || ''}
+            onChange={this.handleChange}
           />
 
           <input
             type="text"
             ref="lastName"
             placeholder="last name"
-            defaultValue={this.state.lastName}
-            onChange={this.handleLastNameChange.bind(this)}
+            name="lastName"
+            value={this.state.lastName || ''}
+            onChange={this.handleChange}
           />
 
           <input
             type="text"
             ref="companyRole"
             placeholder="company role"
-            defaultValue={this.state.companyRole}
-            onChange={this.handleCompanyRoleChange.bind(this)}
+            name="companyRole"
+            value={this.state.companyRole || ''}
+            onChange={this.handleChange}
           />
 
           <input
             type="text"
             ref="companyName"
             placeholder="company name"
-            defaultValue={this.state.companyName}
-            onChange={this.handleCompanyNameChange.bind(this)}
+            name="companyName"
+            value={this.state.companyName || ''}
+            onChange={this.handleChange}
           />
 
           <input
             type="text"
             ref="email"
             placeholder="email"
-            defaultValue={this.state.email}
-            onChange={this.handleEmailChange.bind(this)}
+            name="email"
+            value={this.state.email || ''}
+            onChange={this.handleChange}
           />
 
           <div className="actions">
