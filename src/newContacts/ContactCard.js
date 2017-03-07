@@ -2,7 +2,7 @@ import React, { PureComponent, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import routes from '~/middleware/routes'
 import contactCard from '~/reducers/contactCards'
-import { newContactCard } from '~/actions/contactcards'
+import updateContactCard from '~/actions/contactcards/update'
 
 // Material UI Components
 import { Card, CardHeader, CardActions, CardText } from 'material-ui/Card'
