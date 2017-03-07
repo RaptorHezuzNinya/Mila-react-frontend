@@ -4,6 +4,9 @@ import { connect } from 'react-redux'
 import ContactCard from './ContactCard'
 
 class NewContactsContainer extends PureComponent {
+  static propTypes = {
+    contactCards: PropTypes.array.isRequired
+  }
 
   renderContactCard(contactCard, index){
     return <ContactCard key={index} { ...contactCard } />
@@ -24,8 +27,6 @@ class NewContactsContainer extends PureComponent {
   }
 }
 
-const mapStateToProps = ({ contactCards }) => ({
-  contactCards
-})
+const mapStateToProps = ({ contactCards }) => ({ contactCards })
 
 export default connect(mapStateToProps)(NewContactsContainer)
