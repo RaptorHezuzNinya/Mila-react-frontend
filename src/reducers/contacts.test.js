@@ -1,7 +1,7 @@
 import chai, { expect } from 'chai'
 import contacts from './contacts'
 
-describe ('contacts reducer', () => {
+describe ('contacts reducer initial state', () => {
   const reducer = contacts
   const initialState = [
     {
