@@ -46,6 +46,4 @@ describe ('contacts reducer initial state', () => {
 
 describe('contact', () => {
 
-
-
 })
