@@ -83,6 +83,7 @@ class ContactCard extends PureComponent {
     console.log('logging state', this.state)
 
     return (
+
       <div className="card">
         <Card>
           <input
@@ -125,13 +126,13 @@ class ContactCard extends PureComponent {
             onChange={this.handleEmailChange.bind(this)}
           />
 
-          {/* <div className="actions">
-            <button onClick={this.save.bind(this)}>save</button>
-          </div> */}
+          <div className="actions">
+            <button onClick={this.saveContactCard.bind(this)}>save</button>
+          </div>
         </Card>
       </div>
     )
   }
 }
 
-export default connect(null, { newContactCard})(ContactCard)
+export default connect(null, { updateContactCard })(ContactCard)
