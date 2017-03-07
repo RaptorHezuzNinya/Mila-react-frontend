@@ -5,17 +5,19 @@ import ContactCard from './ContactCard'
 
 class NewContactsContainer extends PureComponent {
 
+  renderContactCard(contactCard, index){
+    return <ContactCard key={index} { ...contactCard } />
+  }
+
   render() {
     const { contactCards } = this.props
+    if (!contactCards) return null
 
-    // console.log(this.props)
     return (
       <div>
         <h1>New Contact Container!</h1>
         <div>
-          { contactCards.map((contactCard, i) => {
-            return <ContactCard key={`contactCard-${contactCard.contactId}`} { ...contactCard } />
-          })}
+          {this.props.contactCards.map(this.renderContactCard.bind(this))}
         </div>
       </div>
     )
