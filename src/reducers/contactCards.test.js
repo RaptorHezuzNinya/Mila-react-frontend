@@ -5,7 +5,7 @@ describe ('contactCards reducer', () => {
   const reducer = contactCards
   const initialState = [
     {
-      id: 1,
+      contactId: 1,
       firstName: 'Adrian',
       lastName: 'DePadrian',
       companyRole: 'CEO',
@@ -13,7 +13,7 @@ describe ('contactCards reducer', () => {
       email: 'adrian@compainay.com'
     },
     {
-      id: 2,
+      contactId: 2,
       firstName: 'Tanja',
       lastName: 'BlaBla',
       companyRole: 'CEO',
@@ -25,7 +25,7 @@ describe ('contactCards reducer', () => {
   it('returns the initial state', () => {
     expect(reducer()).to.eql([
       {
-        id: 1,
+        contactId: 1,
         firstName: 'Adrian',
         lastName: 'DePadrian',
         companyRole: 'CEO',
@@ -33,7 +33,7 @@ describe ('contactCards reducer', () => {
         email: 'adrian@compainay.com'
       },
       {
-        id: 2,
+        contactId: 2,
         firstName: 'Tanja',
         lastName: 'BlaBla',
         companyRole: 'CEO',

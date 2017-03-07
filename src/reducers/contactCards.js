@@ -1,8 +1,8 @@
-import { combineReducers } from 'redux'
+import { CREATE_CONTACTCARD } from '~/actions/contactcards/update'
 
 const initialState = [
   {
-    id: 1,
+    contactId: 1,
     firstName: 'Adrian',
     lastName: 'DePadrian',
     companyRole: 'CEO',
@@ -10,7 +10,7 @@ const initialState = [
     email: 'adrian@compainay.com'
   },
   {
-    id: 2,
+    contactId: 2,
     firstName: 'Tanja',
     lastName: 'BlaBla',
     companyRole: 'CEO',
@@ -19,6 +19,13 @@ const initialState = [
   }
 ]
 
-export default function(state = initialState, { type, payload } = {}) {
-  return state
+export default function contactCards(state = initialState, { type, payload } = {}) {
+  switch (type) {
+
+    case CREATE_CONTACTCARD :
+      return [Object.assign({}, payload)].concat(state)
+
+    default :
+      return state
+  }
 }

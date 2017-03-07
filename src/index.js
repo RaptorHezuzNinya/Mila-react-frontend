@@ -25,8 +25,7 @@ ReactDOM.render(
     <Router history={history}>
       <Route path="/" component={App}>
         <IndexRoute component={NewContactsContainer} />
-        <Route path={routes.newContactsPath} component={ContactCard} />
-        <Route path={`${routes.newContactsPath}/:contactCardId`} component={ContactCard} />
+        <Route path={routes.newContactsPath} component={NewContactsContainer} />
       </Route>
     </Router>
   </Provider>,
