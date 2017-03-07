@@ -61,13 +61,14 @@ class ContactCard extends PureComponent {
 
   save(event) {
     event.preventDefault()
-
-    const { contactId, firstName, lastName, companyRole, companyName, email } = this.state
-
+    const { contactId, firstName, lastName, companyRole, companyName, email } = this.props
     const contactCard = { contactId, firstName, lastName, companyRole, companyName, email }
+  }
+
+  saveContactCard(event){
+    event.preventDefault()
 
     this.props.newContactCard(contactCard)
-
     console.log('after save', contactCard)
   }
 
