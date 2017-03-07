@@ -16,52 +16,13 @@ class ContactCard extends PureComponent {
     updateContactCard: PropTypes.func.isRequired
   }
 
-  constructor(props) {
-    super(props)
-    this.state = {
-      contactId: this.props.contactId,
-      firstName: this.props.firstName,
-      lastName: this.props.lastName,
-      companyRole: this.props.companyRole,
-      companyName: this.props.companyName,
-      email: this.props.email
-    }
-
-    this.handleFirstNameChange = this.handleFirstNameChange.bind(this)
-    this.handleLastNameChange = this.handleLastNameChange.bind(this)
-    this.handleCompanyRoleChange = this.handleCompanyRoleChange.bind(this)
-    this.handleCompanyNameChange = this.handleCompanyNameChange.bind(this)
-    this.handleEmailChange = this.handleEmailChange.bind(this)
-  }
-
-  handleFirstNameChange(event) {
-    this.setState({
-      firstName: event.target.value,
-    })
-  }
-
-  handleLastNameChange(event) {
-    this.setState({
-      lastName: event.target.value,
-    })
-  }
-
-  handleCompanyRoleChange(event) {
-    this.setState({
-      companyRole: event.target.value,
-    })
-  }
-
-  handleCompanyNameChange(event) {
-    this.setState({
-      companyName: event.target.value,
-    })
-  }
-
-  handleEmailChange(event) {
-    this.setState({
-      email: event.target.value,
-    })
+  state = {
+    contactId: this.props.contactId,
+    firstName: this.props.firstName,
+    lastName: this.props.lastName,
+    companyRole: this.props.companyRole,
+    companyName: this.props.companyName,
+    email: this.props.email
   }
 
   saveContactCard(event){
