@@ -24,7 +24,7 @@ class NewContactsContainer extends PureComponent {
       <div>
         <h1>New Contact Container!</h1>
         <div>
-          {this.props.contactCards.map(this.renderContactCard.bind(this))}
+          {this.renderContactCard()}
         </div>
       </div>
     )
