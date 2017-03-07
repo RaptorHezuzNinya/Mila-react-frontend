@@ -22,8 +22,13 @@ const initialState = [
 export default function contactCards(state = initialState, { type, payload } = {}) {
   switch (type) {
 
-    case CREATE_CONTACTCARD :
-      return [Object.assign({}, payload)].concat(state)
+    case UPDATE_CONTACTCARD :
+      return state.map((contactCard) => {
+        if (contactCard.contactId === payload.contactId) {
+          return Object.assign({}, payload)
+        }
+        return contactCard
+      })
 
     default :
       return state
