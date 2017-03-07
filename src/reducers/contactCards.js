@@ -1,4 +1,4 @@
-import { CREATE_CONTACTCARD } from './actions/contactcards'
+import { CREATE_CONTACTCARD } from '~/actions/contactcards/update'
 
 const initialState = [
   {
