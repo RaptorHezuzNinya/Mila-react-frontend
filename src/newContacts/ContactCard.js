@@ -34,6 +34,13 @@ class ContactCard extends PureComponent {
     console.log('after save', contactCard)
   }
 
+  handleChange = (event) => {
+    const field = event.target.name
+    this.setState({
+      [field]: event.target.value
+    })
+  }
+
   render() {
     const { contactId, firstName, lastName, companyRole, companyName, email } = this.props
 
