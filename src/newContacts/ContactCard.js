@@ -121,9 +121,9 @@ class ContactCard extends PureComponent {
             onChange={this.handleEmailChange.bind(this)}
           />
 
-          <div className="actions">
+          {/* <div className="actions">
             <button onClick={this.save.bind(this)}>save</button>
-          </div>
+          </div> */}
         </Card>
       </div>
     )
