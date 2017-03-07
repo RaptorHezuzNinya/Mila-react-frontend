@@ -8,12 +8,8 @@ class NewContactsContainer extends PureComponent {
     contactCards: PropTypes.array.isRequired
   }
 
-  renderContactCard() {
-    return this.props.contactCards.map((contactCard) => {
-      return (
-        <ContactCard key={contactCard.contactId} { ...contactCard } />
-      )
-    })
+  renderContactCard(contactCard, index) {
+      return <ContactCard key={index} { ...contactCard } />
   }
 
   render() {
@@ -24,7 +20,7 @@ class NewContactsContainer extends PureComponent {
       <div>
         <h1>New Contact Container!</h1>
         <div>
-          {this.renderContactCard()}
+          {contactCards.map(this.renderContactCard.bind(this))}
         </div>
       </div>
     )

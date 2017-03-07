@@ -11,69 +11,34 @@ import { Card, CardHeader, CardActions, CardText } from 'material-ui/Card'
 import './ContactCard.sass'
 
 class ContactCard extends PureComponent {
-  
+
   static propTypes = {
     updateContactCard: PropTypes.func.isRequired
   }
 
-  constructor(props) {
-    super(props)
-    this.state = {
-      contactId: this.props.contactId,
-      firstName: this.props.firstName,
-      lastName: this.props.lastName,
-      companyRole: this.props.companyRole,
-      companyName: this.props.companyName,
-      email: this.props.email
-    }
-
-    this.handleFirstNameChange = this.handleFirstNameChange.bind(this)
-    this.handleLastNameChange = this.handleLastNameChange.bind(this)
-    this.handleCompanyRoleChange = this.handleCompanyRoleChange.bind(this)
-    this.handleCompanyNameChange = this.handleCompanyNameChange.bind(this)
-    this.handleEmailChange = this.handleEmailChange.bind(this)
+  state = {
+    contactId: this.props.contactId,
+    firstName: this.props.firstName,
+    lastName: this.props.lastName,
+    companyRole: this.props.companyRole,
+    companyName: this.props.companyName,
+    email: this.props.email
   }
-
-  handleFirstNameChange(event) {
-    this.setState({
-      firstName: event.target.value,
-    })
-  }
-
-  handleLastNameChange(event) {
-    this.setState({
-      lastName: event.target.value,
-    })
-  }
-
-  handleCompanyRoleChange(event) {
-    this.setState({
-      companyRole: event.target.value,
-    })
-  }
-
-  handleCompanyNameChange(event) {
-    this.setState({
-      companyName: event.target.value,
-    })
-  }
-
-  handleEmailChange(event) {
-    this.setState({
-      email: event.target.value,
-    })
-  }
-  // save(event) {
-  //   event.preventDefault()
-  //   const contactCard = { contactId, firstName, lastName, companyRole, companyName, email }
-  // }
 
   saveContactCard(event){
     event.preventDefault()
-    const { contactId, firstName, lastName, companyRole, companyName, email } = this.props
+    const { contactId, firstName, lastName, companyRole, companyName, email } = this.state
 
-    this.props.updateContactCard(contactCard)
+    this.props.updateContactCard(this.state)
+
     console.log('after save', contactCard)
+  }
+
+  handleChange = (event) => {
+    const field = event.target.name
+    this.setState({
+      [field]: event.target.value
+    })
   }
 
   render() {
@@ -90,40 +55,45 @@ class ContactCard extends PureComponent {
             type="text"
             ref="firstName"
             placeholder="first name"
-            defaultValue={this.state.firstName}
-            onChange={this.handleFirstNameChange.bind(this)}
+            name="firstName"
+            value={this.state.firstName || ''}
+            onChange={this.handleChange}
           />
 
           <input
             type="text"
             ref="lastName"
             placeholder="last name"
-            defaultValue={this.state.lastName}
-            onChange={this.handleLastNameChange.bind(this)}
+            name="lastName"
+            value={this.state.lastName || ''}
+            onChange={this.handleChange}
           />
 
           <input
             type="text"
             ref="companyRole"
             placeholder="company role"
-            defaultValue={this.state.companyRole}
-            onChange={this.handleCompanyRoleChange.bind(this)}
+            name="companyRole"
+            value={this.state.companyRole || ''}
+            onChange={this.handleChange}
           />
 
           <input
             type="text"
             ref="companyName"
             placeholder="company name"
-            defaultValue={this.state.companyName}
-            onChange={this.handleCompanyNameChange.bind(this)}
+            name="companyName"
+            value={this.state.companyName || ''}
+            onChange={this.handleChange}
           />
 
           <input
             type="text"
             ref="email"
             placeholder="email"
-            defaultValue={this.state.email}
-            onChange={this.handleEmailChange.bind(this)}
+            name="email"
+            value={this.state.email || ''}
+            onChange={this.handleChange}
           />
 
           <div className="actions">
