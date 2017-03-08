@@ -10,17 +10,6 @@ import TextField from 'material-ui/TextField'
 
 // Styles
 import './Contact.sass'
-import '../assets/styles/base/colors.sass'
-
-const styles = {
-  nameStyle: {
-    fontWeight: 600,
-    letterSpacing: 0.5
-  },
-  hintStyle: {
-    fontWeight: 300
-  }
-}
 
 class Contact extends PureComponent {
 
@@ -54,6 +43,7 @@ class Contact extends PureComponent {
   }
 
   render() {
+
     const { contactId, firstName, lastName, companyRole, companyName, email } = this.props
 
     console.log('logging props', this.props)
@@ -71,8 +61,6 @@ class Contact extends PureComponent {
             name="firstName"
             value={this.state.firstName || ''}
             onChange={this.handleChange}
-            inputStyle={styles.nameStyle}
-            hintStyle={styles.hintStyle}
           />
 
           <TextField
@@ -82,7 +70,6 @@ class Contact extends PureComponent {
             name="lastName"
             value={this.state.lastName || ''}
             onChange={this.handleChange}
-            style={styles.nameStyle}
           />
 
           <TextField
@@ -92,7 +79,6 @@ class Contact extends PureComponent {
             name="companyRole"
             value={this.state.companyRole || ''}
             onChange={this.handleChange}
-            style={styles.inputStyle}
           />
 
           <TextField
@@ -102,7 +88,6 @@ class Contact extends PureComponent {
             name="companyName"
             value={this.state.companyName || ''}
             onChange={this.handleChange}
-            style={styles.inputStyle}
           />
 
           <TextField
@@ -112,7 +97,6 @@ class Contact extends PureComponent {
             name="email"
             value={this.state.email || ''}
             onChange={this.handleChange}
-            style={styles.inputStyle}
           />
 
           <div className="actions">
