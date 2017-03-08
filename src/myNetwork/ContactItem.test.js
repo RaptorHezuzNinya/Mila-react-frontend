@@ -4,7 +4,7 @@ import { shallow } from 'enzyme'
 import chaiEnzyme from 'chai-enzyme'
 import ContactItem from './ContactItem'
 
-chai.use(chaieEnzyme())
+chai.use(chaiEnzyme())
 
 describe('<ContactItem />', () => {
   const props = {
@@ -13,9 +13,9 @@ describe('<ContactItem />', () => {
     lastName: 'DePadrian',
     companyRole: 'CEO',
     companyName: 'Compainay',
-    email: 'adrian@compainay.com'
-  }
-  const wrapper = shallow(<NewContactsContainer {...props} />)
+    email: 'adrian@compainay.com',
+  };
+  const wrapper = shallow(<ContactItem {...props} />);
 
   it('renders without exploding', () => {
     expect(wrapper).to.have.length(1)
