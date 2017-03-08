@@ -13,11 +13,18 @@ import FlatButton from 'material-ui/FlatButton'
 
 // Styles
 import './Contact.sass'
+import '../assets/styles/base/colors.sass'
 
 const styles = {
   name: {
     fontWeight: 500,
     letterSpacing: 0.3
+  },
+  underlineStyle: {
+    borderColor: 'rgba(0, 0, 0, 0)'
+  },
+  underlineFocusStyle: {
+    borderWidth: 0.5
   },
   fontWeight: 300,
   letterSpacing: 0.3
@@ -74,46 +81,56 @@ class Contact extends PureComponent {
             value={this.state.firstName || ''}
             onChange={this.handleChange}
             inputStyle={styles.name}
+            underlineStyle={styles.underlineStyle}
+            underlineFocusStyle={styles.underlineFocusStyle}
           />
 
           <TextField
             type="text"
             ref="lastName"
-            placeholder="Last Name"
+            hintText="Last Name"
             name="lastName"
             value={this.state.lastName || ''}
             onChange={this.handleChange}
             inputStyle={styles.name}
+            underlineStyle={styles.underlineStyle}
+            underlineFocusStyle={styles.underlineFocusStyle}
           />
 
           <TextField
             type="text"
             ref="companyRole"
-            placeholder="Company Role"
+            hintText="Company Role"
             name="companyRole"
             value={this.state.companyRole || ''}
             onChange={this.handleChange}
             inputStyle={styles}
+            underlineStyle={styles.underlineStyle}
+            underlineFocusStyle={styles.underlineFocusStyle}
           />
 
           <TextField
             type="text"
             ref="companyName"
-            placeholder="Company Name"
+            hintText="Company Name"
             name="companyName"
             value={this.state.companyName || ''}
             onChange={this.handleChange}
             inputStyle={styles}
+            underlineStyle={styles.underlineStyle}
+            underlineFocusStyle={styles.underlineFocusStyle}
           />
 
           <TextField
             type="text"
             ref="email"
-            placeholder="Email"
+            hintText="Email"
             name="email"
             value={this.state.email || ''}
             onChange={this.handleChange}
             inputStyle={styles}
+            underlineStyle={styles.underlineStyle}
+            underlineFocusStyle={styles.underlineFocusStyle}
           />
 
           <div className="actions">
