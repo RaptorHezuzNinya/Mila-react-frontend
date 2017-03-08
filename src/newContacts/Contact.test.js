@@ -14,4 +14,8 @@ describe('<Contact />', () => {
     expect(contact).to.have.tagName('div')
     expect(contact).to.have.className('card')
   })
+
+  it('renders without exploding', () => {
+    expect(wrapper).to.have.length(1)
+  })
 })
