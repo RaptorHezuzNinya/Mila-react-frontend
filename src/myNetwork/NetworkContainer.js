@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 
 // Components
 import Network from './Network'
+import NetworkList from './NetworkList'
 
 class NetworkContainer extends PureComponent {
   static propTypes = {
