@@ -25,8 +25,8 @@ export const palette = {
   accent1Color: greenA,  // secondary color
   accent2Color: greenB,
   // accent3Color: green,
-  textColor: blueA
-  // alternateTextColor: white,
+  textColor: blueA,
+  alternateTextColor: steelC,
   // canvasColor: white,
   // borderColor: grey,
   // disabledColor: grey30
