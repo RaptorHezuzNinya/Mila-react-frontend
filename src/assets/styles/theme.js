@@ -25,11 +25,14 @@ export const palette = {
   accent1Color: greenA,  // secondary color
   accent2Color: greenB,
   // accent3Color: green,
-  textColor: blueA,
+  textColor: blueA
   // alternateTextColor: white,
   // canvasColor: white,
   // borderColor: grey,
   // disabledColor: grey30
 }
 
-export default getMuiTheme({ palette })
+// Font
+export const fontFamily = 'Montserrat, sans-serif'
+
+export default getMuiTheme({ palette, fontFamily })

@@ -6,9 +6,21 @@ import updateContact from '~/actions/contacts/update'
 
 // Material UI Components
 import { Card, CardHeader, CardActions, CardText } from 'material-ui/Card'
+import TextField from 'material-ui/TextField'
 
 // Styles
 import './Contact.sass'
+import '../assets/styles/base/colors.sass'
+
+const styles = {
+  nameStyle: {
+    fontWeight: 600,
+    letterSpacing: 0.5
+  },
+  hintStyle: {
+    fontWeight: 300
+  }
+}
 
 class Contact extends PureComponent {
 
@@ -49,57 +61,65 @@ class Contact extends PureComponent {
 
     return (
 
-      <div className="card">
+      <div className="contact-card">
         <Card>
-          <input
+          <TextField
+            className="contact-inputfield"
             type="text"
             ref="firstName"
-            placeholder="first name"
+            hintText="First Name"
             name="firstName"
             value={this.state.firstName || ''}
             onChange={this.handleChange}
+            inputStyle={styles.nameStyle}
+            hintStyle={styles.hintStyle}
           />
 
-          <input
+          <TextField
             type="text"
             ref="lastName"
-            placeholder="last name"
+            placeholder="Last Name"
             name="lastName"
             value={this.state.lastName || ''}
             onChange={this.handleChange}
+            style={styles.nameStyle}
           />
 
-          <input
+          <TextField
             type="text"
             ref="companyRole"
-            placeholder="company role"
+            placeholder="Company Role"
             name="companyRole"
             value={this.state.companyRole || ''}
             onChange={this.handleChange}
+            style={styles.inputStyle}
           />
 
-          <input
+          <TextField
             type="text"
             ref="companyName"
-            placeholder="company name"
+            placeholder="Company Name"
             name="companyName"
             value={this.state.companyName || ''}
             onChange={this.handleChange}
+            style={styles.inputStyle}
           />
 
-          <input
+          <TextField
             type="text"
             ref="email"
-            placeholder="email"
+            placeholder="Email"
             name="email"
             value={this.state.email || ''}
             onChange={this.handleChange}
+            style={styles.inputStyle}
           />
 
           <div className="actions">
             <button onClick={this.saveContact.bind(this)}>save</button>
           </div>
         </Card>
+        <br/>
       </div>
     )
   }
