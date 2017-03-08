@@ -49,7 +49,7 @@ describe ('contact reducer initial state', () => {
 
 describe('contact', () => {
   describe(UPDATE_CONTACT, () => {
-    console.log(this.state)
+
     const initialState = deepFreeze([{
       firstName: 'Adrian',
       lastName: 'DePadrian',
@@ -58,11 +58,13 @@ describe('contact', () => {
       email: 'adrian@compainay.com'
     }])
 
-    const editedContact = deepFreeze([{
+    const editedContact = deepFreeze({
       firstName: 'Unicorn',
       lastName: 'Awesomeness',
-      companyRole: 'KingPing'
-    }])
+      companyRole: 'KingPing',
+      companyName: 'Compainay',
+      email: 'adrian@compainay.com'
+    })
 
     const finalState = deepFreeze([{
       firstName: 'Unicorn',
