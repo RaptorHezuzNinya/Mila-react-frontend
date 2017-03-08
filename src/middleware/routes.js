@@ -1,6 +1,7 @@
 const routes = {
   rootPath: '/',
-  newContactsPath: '/newcontacts'
+  newContactsPath: '/newcontacts',
+  myNetworkPath: '/mynetwork'
 }
 
 export default routes
