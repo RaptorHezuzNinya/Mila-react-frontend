@@ -10,6 +10,17 @@ import TextField from 'material-ui/TextField'
 
 // Styles
 import './Contact.sass'
+import '../assets/styles/base/colors.sass'
+
+const styles = {
+  nameStyle: {
+    fontWeight: 600,
+    letterSpacing: 0.5
+  },
+  hintStyle: {
+    fontWeight: 300
+  }
+}
 
 class Contact extends PureComponent {
 
