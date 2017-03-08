@@ -47,4 +47,8 @@ export const typography = {
   fontWeightBold: 700
 }
 
-export default getMuiTheme({ palette, fontFamily, typography })
+export const flatButton = {
+  fontWeight: typography.fontWeightLight
+}
+
+export default getMuiTheme({ palette, fontFamily, typography, flatButton })
