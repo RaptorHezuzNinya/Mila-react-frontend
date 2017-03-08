@@ -9,6 +9,7 @@ class Network extends PureComponent {
 
   render() {
     debugger
+    const { networkLists } = this.props
     return (
       <NetworkList content="NetworkList comp" />
     )
