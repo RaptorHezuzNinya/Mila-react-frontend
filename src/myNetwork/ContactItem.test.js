@@ -13,23 +13,23 @@ describe('<ContactItem />', () => {
     lastName: 'DePadrian',
     companyRole: 'CEO',
     companyName: 'Compainay',
-    email: 'adrian@compainay.com'
-  }
-  const wrapper = shallow(<NewContactsContainer {...props} />)
+    email: 'adrian@compainay.com',
+  };
+  const wrapper = shallow(<ContactItem {...props} />);
 
   it('renders without exploding', () => {
     expect(wrapper).to.have.length(1)
   })
 
-  it('contains a className "contact"', () => {
-    expect(wrapper).to.have.className('contact')
+  it('contains a className "contactItem"', () => {
+    expect(wrapper).to.have.className('contactItem')
   })
 
   it('displays the name of the contact', () => {
-    expect(wrapper.find('h3')).to.have.text(props.firstName)
+    expect(wrapper.find('h3')).to.have.text('Adrian DePadrian')
   })
 
   it('displays the email adress of the contact', () => {
-    expect(wrapper.find('div')).to.have.text(props.email)
+    expect(wrapper.find('p')).to.have.text('adrian@compainay.com')
   })
 })
