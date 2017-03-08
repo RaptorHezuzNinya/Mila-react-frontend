@@ -61,15 +61,18 @@ class Contact extends PureComponent {
 
     return (
 
-      <div className="card">
+      <div className="contact-card">
         <Card>
           <TextField
+            className="contact-inputfield"
             type="text"
             ref="firstName"
-            placeholder="First Name"
+            hintText="First Name"
             name="firstName"
             value={this.state.firstName || ''}
             onChange={this.handleChange}
+            inputStyle={styles.nameStyle}
+            hintStyle={styles.hintStyle}
           />
 
           <TextField
@@ -79,6 +82,7 @@ class Contact extends PureComponent {
             name="lastName"
             value={this.state.lastName || ''}
             onChange={this.handleChange}
+            style={styles.nameStyle}
           />
 
           <TextField
@@ -88,6 +92,7 @@ class Contact extends PureComponent {
             name="companyRole"
             value={this.state.companyRole || ''}
             onChange={this.handleChange}
+            style={styles.inputStyle}
           />
 
           <TextField
@@ -97,6 +102,7 @@ class Contact extends PureComponent {
             name="companyName"
             value={this.state.companyName || ''}
             onChange={this.handleChange}
+            style={styles.inputStyle}
           />
 
           <TextField
@@ -106,6 +112,7 @@ class Contact extends PureComponent {
             name="email"
             value={this.state.email || ''}
             onChange={this.handleChange}
+            style={styles.inputStyle}
           />
 
           <div className="actions">
