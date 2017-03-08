@@ -21,8 +21,7 @@ export class Navigation extends PureComponent {
   render(){
     const styles = {
       button: {
-        fontFamily: 'Montserrat-Light',
-        color: '$greyB'
+        color: '$steelC'
       }
     }
 

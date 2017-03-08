@@ -7,19 +7,18 @@ import updateContact from '~/actions/contacts/update'
 // Material UI Components
 import { Card, CardHeader, CardActions, CardText } from 'material-ui/Card'
 import TextField from 'material-ui/TextField'
+import FlatButton from 'material-ui/FlatButton'
 
 // Styles
 import './Contact.sass'
-import '../assets/styles/base/colors.sass'
 
 const styles = {
-  nameStyle: {
-    fontWeight: 600,
-    letterSpacing: 0.5
+  name: {
+    fontWeight: 500,
+    letterSpacing: 0.3
   },
-  hintStyle: {
-    fontWeight: 300
-  }
+  fontWeight: 300,
+  letterSpacing: 0.3
 }
 
 class Contact extends PureComponent {
@@ -54,6 +53,7 @@ class Contact extends PureComponent {
   }
 
   render() {
+
     const { contactId, firstName, lastName, companyRole, companyName, email } = this.props
 
     console.log('logging props', this.props)
@@ -71,8 +71,7 @@ class Contact extends PureComponent {
             name="firstName"
             value={this.state.firstName || ''}
             onChange={this.handleChange}
-            inputStyle={styles.nameStyle}
-            hintStyle={styles.hintStyle}
+            inputStyle={styles.name}
           />
 
           <TextField
@@ -82,7 +81,7 @@ class Contact extends PureComponent {
             name="lastName"
             value={this.state.lastName || ''}
             onChange={this.handleChange}
-            style={styles.nameStyle}
+            inputStyle={styles.name}
           />
 
           <TextField
@@ -92,7 +91,7 @@ class Contact extends PureComponent {
             name="companyRole"
             value={this.state.companyRole || ''}
             onChange={this.handleChange}
-            style={styles.inputStyle}
+            inputStyle={styles}
           />
 
           <TextField
@@ -102,7 +101,7 @@ class Contact extends PureComponent {
             name="companyName"
             value={this.state.companyName || ''}
             onChange={this.handleChange}
-            style={styles.inputStyle}
+            inputStyle={styles}
           />
 
           <TextField
@@ -112,11 +111,14 @@ class Contact extends PureComponent {
             name="email"
             value={this.state.email || ''}
             onChange={this.handleChange}
-            style={styles.inputStyle}
+            inputStyle={styles}
           />
 
           <div className="actions">
-            <button onClick={this.saveContact.bind(this)}>save</button>
+            <FlatButton
+              label="SAVE"
+              onClick={this.saveContact.bind(this)}
+            />
           </div>
         </Card>
         <br/>
