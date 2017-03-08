@@ -35,4 +35,9 @@ export const palette = {
 // Font
 export const fontFamily = 'Montserrat, sans-serif'
 
-export default getMuiTheme({ palette, fontFamily })
+// TextField
+export const textField = {
+  textColor: palette.primary1Color
+}
+
+export default getMuiTheme({ palette, fontFamily, textField })
