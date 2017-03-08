@@ -1,3 +1,5 @@
+import { UPDATE_NETWORKLIST } from '../actions/networklists/update'
+
 const initialState = [
   {
     listId: 1,
@@ -16,7 +18,7 @@ const initialState = [
   },
   {
     listId: 4,
-    name: 'k',
+    name: 'Friends',
     avatar: '~/assets/images/avatars/troll.png'
   },
 ]
@@ -31,7 +33,7 @@ export default function networklists(state = initialState, { type, payload } = {
         }
         return networklist
       })
-      
+
     default :
       return state
   }
