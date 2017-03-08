@@ -4,7 +4,7 @@ import { shallow } from 'enzyme'
 import chaiEnzyme from 'chai-enzyme'
 import ContactItem from './ContactItem'
 
-chai.use(chaieEnzyme())
+chai.use(chaiEnzyme())
 
 describe('<ContactItem />', () => {
   const props = {
