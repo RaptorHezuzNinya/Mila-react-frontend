@@ -7,7 +7,7 @@ import NetworkList from './NetworkList'
 
 class NetworkContainer extends PureComponent {
   static propTypes = {
-
+    
   }
 
   render(){
