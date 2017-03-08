@@ -4,9 +4,15 @@ class NetworkList extends PureComponent {
   static propTypes = {
 
   }
+  
   render(){
+    const { name, avatar, listId } = this.props
+
     return (
-      <h3>{this.props.content}</h3>
+      <div>
+        <h3>{name}</h3>
+      </div>
+
     )
   }
 }
