@@ -1,14 +1,16 @@
 import React, { PureComponent, PropTypes } from 'react'
 
+import NetworkList from './NetworkList'
+
 class Network extends PureComponent {
   static propTypes = {
 
   }
 
   render() {
-
+    debugger
     return (
-      <h2>{this.props.content}</h2>
+      <NetworkList content="NetworkList comp" />
     )
   }
 }

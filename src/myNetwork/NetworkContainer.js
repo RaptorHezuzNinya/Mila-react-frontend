@@ -3,22 +3,23 @@ import { connect } from 'react-redux'
 
 // Components
 import Network from './Network'
-import NetworkList from './NetworkList'
 
 class NetworkContainer extends PureComponent {
   static propTypes = {
-
+    // networklists: PropTypes.array.isRequired
   }
 
   render(){
+
     return (
       <div>
         <h1> NetworkContainer </h1>
-        <Network content="Network comp" />
-        <NetworkList content="NetworkList comp" />
+        <Network />
       </div>
     )
   }
 }
 
-export default connect(null)(NetworkContainer)
+const mapStateToProps = ({ networkLists }) => ({ networkLists })
+
+export default connect(mapStateToProps)(NetworkContainer)
