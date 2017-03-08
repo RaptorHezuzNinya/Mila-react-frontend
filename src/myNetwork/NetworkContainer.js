@@ -6,7 +6,7 @@ import Network from './Network'
 
 class NetworkContainer extends PureComponent {
   static propTypes = {
-    // networklists: PropTypes.array.isRequired
+    networkLists: PropTypes.array.isRequired
   }
 
   render(){
