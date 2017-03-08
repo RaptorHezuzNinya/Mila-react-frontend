@@ -6,6 +6,7 @@ import updateContact from '~/actions/contacts/update'
 
 // Material UI Components
 import { Card, CardHeader, CardActions, CardText } from 'material-ui/Card'
+import TextField from 'material-ui/TextField'
 
 // Styles
 import './Contact.sass'
@@ -51,46 +52,46 @@ class Contact extends PureComponent {
 
       <div className="card">
         <Card>
-          <input
+          <TextField
             type="text"
             ref="firstName"
-            placeholder="first name"
+            placeholder="First Name"
             name="firstName"
             value={this.state.firstName || ''}
             onChange={this.handleChange}
           />
 
-          <input
+          <TextField
             type="text"
             ref="lastName"
-            placeholder="last name"
+            placeholder="Last Name"
             name="lastName"
             value={this.state.lastName || ''}
             onChange={this.handleChange}
           />
 
-          <input
+          <TextField
             type="text"
             ref="companyRole"
-            placeholder="company role"
+            placeholder="Company Role"
             name="companyRole"
             value={this.state.companyRole || ''}
             onChange={this.handleChange}
           />
 
-          <input
+          <TextField
             type="text"
             ref="companyName"
-            placeholder="company name"
+            placeholder="Company Name"
             name="companyName"
             value={this.state.companyName || ''}
             onChange={this.handleChange}
           />
 
-          <input
+          <TextField
             type="text"
             ref="email"
-            placeholder="email"
+            placeholder="Email"
             name="email"
             value={this.state.email || ''}
             onChange={this.handleChange}
@@ -100,6 +101,7 @@ class Contact extends PureComponent {
             <button onClick={this.saveContact.bind(this)}>save</button>
           </div>
         </Card>
+        <br/>
       </div>
     )
   }
