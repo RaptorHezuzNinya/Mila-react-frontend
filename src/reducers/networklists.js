@@ -20,3 +20,19 @@ const initialState = [
     avatar: '~/assets/images/avatars/troll.png'
   },
 ]
+
+export default function networklists(state = initialState, { type, payload } = {}) {
+  switch (type) {
+
+    case UPDATE_NETWORKLIST :
+      return state.map((networklist) => {
+        if (networklist.listId === payload.listId) {
+          return Object.assign({}, payload)
+        }
+        return networklist
+      })
+      
+    default :
+      return state
+  }
+}
