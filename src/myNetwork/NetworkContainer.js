@@ -15,6 +15,7 @@ class NetworkContainer extends PureComponent {
       <div>
         <h1> NetworkContainer </h1>
         <Network content="Network comp" />
+        <NetworkList content="NetworkList comp" />
       </div>
     )
   }
