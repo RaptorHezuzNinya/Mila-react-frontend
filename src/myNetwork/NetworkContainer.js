@@ -10,8 +10,10 @@ class NetworkContainer extends PureComponent {
   }
 
   render(){
+
     return (
-      <div>
+
+      <div className="networkcontainer">
         <h1> NetworkContainer </h1>
         <Network />
       </div>
