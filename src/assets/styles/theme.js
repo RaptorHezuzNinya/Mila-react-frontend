@@ -20,13 +20,16 @@ const greyB     = '#ffffff'
 // Palette
 export const palette = {
   primary1Color: blueA,
-  primary2Color: greyA,
-  primary3Color: steelA,
+  primary2Color: blueB,
+  primary3Color: blueC,
   accent1Color: greenA,  // secondary color
   accent2Color: greenB,
   accent3Color: greenC,
+  accent4Color: steelA,
+  accent5Color: steelB,
+  accent6Color: steelC,
   textColor: blueA,
-  alternateTextColor: steelC,
+  // alternateTextColor: steelC,
   // canvasColor: white,
   // borderColor: grey,
   // disabledColor: grey30
