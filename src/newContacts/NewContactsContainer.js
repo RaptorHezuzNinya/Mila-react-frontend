@@ -3,7 +3,8 @@ import { connect } from 'react-redux'
 
 import Contact from './Contact'
 
-class NewContactsContainer extends PureComponent {
+// exporting it here seems redundant but is necessary for shallow rendering in tests.
+export class NewContactsContainer extends PureComponent {
   static propTypes = {
     contacts: PropTypes.array.isRequired
   }
