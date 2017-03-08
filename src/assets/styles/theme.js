@@ -17,6 +17,8 @@ const steelC    = '#f2f6fa'
 const greyA     = '#cccccc'
 const greyB     = '#ffffff'
 
+const transparent = 'rgba(0, 0, 0, 0)'
+
 // Palette
 export const palette = {
   primary1Color: blueA,
