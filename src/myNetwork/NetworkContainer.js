@@ -1,5 +1,5 @@
 import React, { PureComponent, PropTypes } from 'react'
-// import { connect } from 'react-redux'
+import { connect } from 'react-redux'
 
 // Components
 import Network from './Network'
@@ -10,15 +10,15 @@ class NetworkContainer extends PureComponent {
   }
 
   render(){
-
+    const { networkLists } = this.props
     return (
-
       <div className="networkcontainer">
-        <h1> NetworkContainer </h1>
-        <Network />
+        <Network networkLists={ networkLists }/>
       </div>
     )
   }
 }
 
-export default NetworkContainer
+const mapStateToProps = ({ networkLists }) => ({ networkLists })
+
+export default connect(mapStateToProps)(NetworkContainer)
