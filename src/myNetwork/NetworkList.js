@@ -4,7 +4,7 @@ import React, { PureComponent, PropTypes } from 'react'
 import networkList from '~/reducers/networklists'
 
 // Material UI Components
-import DataTables from 'material-ui-datatables'
+
 
 class NetworkList extends PureComponent {
 
@@ -16,9 +16,7 @@ class NetworkList extends PureComponent {
     const { name, avatar, listId } = this.props
     return (
       <div className="networklist">
-        <DataTables
         { name }
-        />
 
       </div>
 
