@@ -85,7 +85,7 @@ class Contact extends PureComponent {
             />
 
             <TextField
-              className="contact-inputfield"
+              className="contact-card-inputfield"
               type="text"
               ref="lastName"
               hintText="Last Name"
@@ -98,7 +98,7 @@ class Contact extends PureComponent {
             />
 
           <TextField
-            className="contact-inputfield"
+            className="contact-card-inputfield"
             type="text"
             ref="companyRole"
             hintText="Company Role"
@@ -111,7 +111,7 @@ class Contact extends PureComponent {
           />
 
           <TextField
-            className="contact-inputfield"
+            className="contact-card-inputfield"
             type="text"
             ref="companyName"
             hintText="Company Name"
@@ -124,7 +124,7 @@ class Contact extends PureComponent {
           />
 
           <TextField
-            className="contact-inputfield"
+            className="contact-card-inputfield"
             type="text"
             ref="email"
             hintText="Email"
