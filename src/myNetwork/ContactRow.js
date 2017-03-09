@@ -4,17 +4,16 @@ import {Table, TableBody, TableFooter, TableHeader, TableHeaderColumn, TableRow,
 
 class ContactRow extends PureComponent {
   render() {
-    const { row } = this.props
+    const { index, lastName, firstName, email,  companyName } = this.props
+    console.log(this.props)
     return (
-      <TableRow key={index} selected={row.selected}>
+      <TableRow>
         <TableRowColumn>{index}</TableRowColumn>
         <TableRowColumn>
-          <p>{row.firstName} + ' ' + {row.lastName}</p>
-          <p>{row.email}</p>
+          <p>{lastName + ',' + ' ' + firstName}</p>
+          <p>{email}</p>
         </TableRowColumn>
-        <TableRowColumn>{row.lastName}</TableRowColumn>
-        <TableRowColumn>{row.email}</TableRowColumn>
-        <TableRowColumn>{row.companyName}</TableRowColumn>
+        <TableRowColumn>{companyName}</TableRowColumn>
       </TableRow>
     )
   }

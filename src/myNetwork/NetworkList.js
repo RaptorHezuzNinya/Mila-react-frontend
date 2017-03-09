@@ -35,7 +35,7 @@ class NetworkList extends PureComponent {
   }
 
   renderContactRow(row, index) {
-    return <ContactRow key={index} {...row} />
+    return <ContactRow key={index} {...row} index={index}  />
   }
 
   render() {
