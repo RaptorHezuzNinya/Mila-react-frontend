@@ -11,16 +11,16 @@ class NetworkContainer extends PureComponent {
 
   render(){
 
-    const { networkLists } = this.props
-    
+    const { networkLists, contacts } = this.props
+
     return (
       <div className="networkcontainer">
-        <Network networkLists={ networkLists }/>
+        <Network networkLists={ networkLists } contacts={contacts} />
       </div>
     )
   }
 }
 
-const mapStateToProps = ({ networkLists }) => ({ networkLists })
+const mapStateToProps = ({ networkLists, contacts }) => ({ networkLists, contacts })
 
 export default connect(mapStateToProps)(NetworkContainer)
