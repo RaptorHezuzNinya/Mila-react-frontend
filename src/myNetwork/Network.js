@@ -13,9 +13,9 @@ class Network extends PureComponent {
   }
 
   render() {
-    if (!networkList) return null
     const { networkLists } = this.props
-
+    if (!networkLists) return null
+    
     return (
       <div className="network-component">
         { networkLists.map(this.renderNetworkList.bind(this))}
