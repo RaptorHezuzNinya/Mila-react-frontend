@@ -13,16 +13,15 @@ class Network extends PureComponent {
   }
 
   render() {
-
+    if (!networkList) return null
     const { networkLists } = this.props
+
     return (
       <div className="network-component">
-        {networkLists.map(this.renderNetworkList.bind(this))}
+        { networkLists.map(this.renderNetworkList.bind(this))}
       </div>
     )
   }
 }
 
-const mapStateToProps = ({ networkLists }) => ({ networkLists })
-
-export default connect(mapStateToProps)(Network)
+export default Network
