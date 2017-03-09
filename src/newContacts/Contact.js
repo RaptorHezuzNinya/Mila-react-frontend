@@ -69,35 +69,36 @@ class Contact extends PureComponent {
     console.log('logging state', this.state)
 
     return (
+      <div className="contact-card-container">
+        <Card className="contact-card">
+            <TextField
+              className="contact-card-inputfield"
+              type="text"
+              ref="firstName"
+              hintText="First Name"
+              name="firstName"
+              value={this.state.firstName || ''}
+              onChange={this.handleChange}
+              inputStyle={styles.name}
+              underlineStyle={styles.underlineStyle}
+              underlineFocusStyle={styles.underlineFocusStyle}
+            />
 
-      <div className="contact-card">
-        <Card>
+            <TextField
+              className="contact-inputfield"
+              type="text"
+              ref="lastName"
+              hintText="Last Name"
+              name="lastName"
+              value={this.state.lastName || ''}
+              onChange={this.handleChange}
+              inputStyle={styles.name}
+              underlineStyle={styles.underlineStyle}
+              underlineFocusStyle={styles.underlineFocusStyle}
+            />
+
           <TextField
             className="contact-inputfield"
-            type="text"
-            ref="firstName"
-            hintText="First Name"
-            name="firstName"
-            value={this.state.firstName || ''}
-            onChange={this.handleChange}
-            inputStyle={styles.name}
-            underlineStyle={styles.underlineStyle}
-            underlineFocusStyle={styles.underlineFocusStyle}
-          />
-
-          <TextField
-            type="text"
-            ref="lastName"
-            hintText="Last Name"
-            name="lastName"
-            value={this.state.lastName || ''}
-            onChange={this.handleChange}
-            inputStyle={styles.name}
-            underlineStyle={styles.underlineStyle}
-            underlineFocusStyle={styles.underlineFocusStyle}
-          />
-
-          <TextField
             type="text"
             ref="companyRole"
             hintText="Company Role"
@@ -110,6 +111,7 @@ class Contact extends PureComponent {
           />
 
           <TextField
+            className="contact-inputfield"
             type="text"
             ref="companyName"
             hintText="Company Name"
@@ -122,6 +124,7 @@ class Contact extends PureComponent {
           />
 
           <TextField
+            className="contact-inputfield"
             type="text"
             ref="email"
             hintText="Email"
