@@ -10,8 +10,9 @@ class NetworkContainer extends PureComponent {
   }
 
   render(){
-    
+
     const { networkLists } = this.props
+    
     return (
       <div className="networkcontainer">
         <Network networkLists={ networkLists }/>
