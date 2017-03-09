@@ -13,6 +13,7 @@ class Network extends PureComponent {
   }
 
   render() {
+    
     const { networkLists } = this.props
     if (!networkLists) return null
 
