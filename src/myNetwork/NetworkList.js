@@ -1,4 +1,5 @@
 import React, { PureComponent, PropTypes } from 'react'
+import ContactRow from './ContactRow'
 
 // Components
 
@@ -31,6 +32,10 @@ class NetworkList extends PureComponent {
       showCheckboxes: true,
       height: '300px',
     };
+  }
+
+  renderContactRow(row, index) {
+    return <ContactRow key={index} {...row} index={index}  />
   }
 
   render() {
@@ -69,15 +74,7 @@ class NetworkList extends PureComponent {
             showRowHover={this.state.showRowHover}
             stripedRows={this.state.stripedRows}
           >
-            {contacts.map( (row, index) => (
-              <TableRow key={index} selected={row.selected}>
-                <TableRowColumn>{index}</TableRowColumn>
-                <TableRowColumn>{row.firstName}</TableRowColumn>
-                <TableRowColumn>{row.lastName}</TableRowColumn>
-                <TableRowColumn>{row.email}</TableRowColumn>
-                <TableRowColumn>{row.companyName}</TableRowColumn>
-              </TableRow>
-              ))}
+            {contacts.map(this.renderContactRow.bind(this))}
           </TableBody>
           <TableFooter adjustForCheckbox={this.state.showCheckboxes} >
             <TableRow>
