@@ -14,16 +14,13 @@ class NetworkList extends PureComponent {
 
   }
 
+
   render(){
-    const { name, avatar, listId } = this.props
-    console.log("logging props",this.props)
-    return (
+    const { name, avatar, listId, networkLists } = this.props
+    console.log('logging props', this.props)
+    return {
 
-      <div className="networklist">
-        { name }
-      </div>
-
-    )
+    }
   }
 }
 
