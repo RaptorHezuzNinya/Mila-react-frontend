@@ -16,6 +16,46 @@ const initialState = [
     companyRole: 'CEO',
     companyName: 'Compainay',
     email: 'tanja@compainay.com'
+  },
+  {
+    contactId: 3,
+    firstName: 'Ward',
+    lastName: 'BlaBla',
+    companyRole: 'CEO',
+    companyName: 'Compainay',
+    email: 'tanja@compainay.com'
+  },
+  {
+    contactId: 4,
+    firstName: 'Andreas',
+    lastName: 'BlaBla',
+    companyRole: 'CEO',
+    companyName: 'Compainay',
+    email: 'tanja@compainay.com'
+  },
+  {
+    contactId: 5,
+    firstName: 'Wouter',
+    lastName: 'BlaBla',
+    companyRole: 'CEO',
+    companyName: 'Compainay',
+    email: 'tanja@compainay.com'
+  },
+  {
+    contactId: 6,
+    firstName: 'Rembert',
+    lastName: 'BlaBla',
+    companyRole: 'CEO',
+    companyName: 'Compainay',
+    email: 'tanja@compainay.com'
+  },
+  {
+    contactId: 7,
+    firstName: 'Math',
+    lastName: 'BlaBla',
+    companyRole: 'CEO',
+    companyName: 'Compainay',
+    email: 'tanja@compainay.com'
   }
 ]
 

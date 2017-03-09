@@ -1,6 +1,8 @@
 import React, { PureComponent, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import routes from '~/middleware/routes'
+
+// Actions & Reducers
 import contact from '~/reducers/contacts'
 import updateContact from '~/actions/contacts/update'
 
