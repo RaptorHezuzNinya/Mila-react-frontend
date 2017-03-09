@@ -27,8 +27,8 @@ const styles = {
     borderWidth: 0.5
   },
   iconStyle: {
-    color: '#292f36',
-    fontSize: 60
+    color: '#fff',
+    fontSize: 60,
   },
   hoveredStyle: {
     backgroundColor:'rgba(41, 47, 54, 0.3)'
@@ -147,17 +147,17 @@ class Contact extends PureComponent {
             underlineStyle={styles.underlineStyle}
             underlineFocusStyle={styles.underlineFocusStyle}
           />
-
-            <IconButton
-              className="button-contact-navigate"
-              iconClassName="material-icons"
-              hoveredStyle={styles.hoveredStyle}
-              iconStyle={styles.iconStyle}
-              style={styles.large}
-              onClick={this.saveContact.bind(this)}>
-              navigate_next
-            </IconButton>
         </Card>
+
+        <IconButton
+          className="button-contact-navigate"
+          iconClassName="material-icons"
+          hoveredStyle={styles.hoveredStyle}
+          iconStyle={styles.iconStyle}
+          style={styles.large}
+          onClick={this.saveContact.bind(this)}>
+          navigate_next
+        </IconButton>
         <br/>
       </div>
     )
