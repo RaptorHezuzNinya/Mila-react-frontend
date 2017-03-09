@@ -21,6 +21,11 @@ const initialState = [
     name: 'Friends',
     avatar: '~/assets/images/avatars/troll.png'
   },
+  {
+    listId: 5,
+    name: 'All',
+    avatar: '~/assets/images/avatars/troll.png'
+  },
 ]
 
 export default function networklists(state = initialState, { type, payload } = {}) {
