@@ -5,7 +5,7 @@ import NetworkList from './NetworkList'
 
 class Network extends PureComponent {
   static propTypes = {
-    networkList: PropTypes.array.isRequired
+    networkLists: PropTypes.array.isRequired
   }
 
   renderNetworkList(networklist, index) {
@@ -15,7 +15,7 @@ class Network extends PureComponent {
   render() {
     const { networkLists } = this.props
     if (!networkLists) return null
-    
+
     return (
       <div className="network-component">
         { networkLists.map(this.renderNetworkList.bind(this))}
