@@ -16,8 +16,10 @@ class NetworkList extends PureComponent {
     const { name, avatar, listId } = this.props
     return (
       <div className="networklist">
-        <DataTables />
-        { name }
+        <DataTables
+        
+        />
+
       </div>
 
     )
