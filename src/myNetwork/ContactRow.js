@@ -8,7 +8,7 @@ class ContactRow extends PureComponent {
     console.log(this.props)
     return (
       <TableRow>
-        <TableRowColumn>{index}</TableRowColumn>
+        <TableRowColumn>{index + 1}</TableRowColumn>
         <TableRowColumn>
           <p>{lastName + ',' + ' ' + firstName}</p>
           <p>{email}</p>
