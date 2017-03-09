@@ -9,14 +9,13 @@ import networkList from '~/reducers/networklists'
 class NetworkList extends PureComponent {
 
   static propTypes = {
-
+    
   }
 
   render(){
     const { name, avatar, listId } = this.props
     return (
       <div className="networklist">
-        { name }
 
       </div>
 
