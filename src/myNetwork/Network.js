@@ -25,6 +25,7 @@ class Network extends PureComponent {
           { networkLists.map(this.renderNetworkButton.bind(this)) }
         </div>
         <div className="networklist">
+          <NetworkList contacts={contacts} />
         </div>
       </div>
 
