@@ -10,16 +10,6 @@ import {Table, TableBody, TableFooter, TableHeader, TableHeaderColumn, TableRow,
 import TextField from 'material-ui/TextField';
 import Toggle from 'material-ui/Toggle';
 
-const styles = {
-  propContainer: {
-    width: 200,
-    overflow: 'hidden',
-    margin: '20px auto 0'
-  },
-  propToggleHeader: {
-    margin: '20px auto 10px'
-  },
-}
 class NetworkList extends PureComponent {
 
   static propTypes = {
@@ -80,7 +70,6 @@ class NetworkList extends PureComponent {
             stripedRows={this.state.stripedRows}
           >
             {contacts.map( (row, index) => (
-              // const name = `${firstName} ${lastName}`
               <TableRow key={index} selected={row.selected}>
                 <TableRowColumn>{index}</TableRowColumn>
                 <TableRowColumn>{row.firstName}</TableRowColumn>
@@ -90,14 +79,7 @@ class NetworkList extends PureComponent {
               </TableRow>
               ))}
           </TableBody>
-          <TableFooter
-            adjustForCheckbox={this.state.showCheckboxes}
-          >
-            <TableRow>
-              <TableRowColumn>ID</TableRowColumn>
-              <TableRowColumn>Name</TableRowColumn>
-              <TableRowColumn>YOLO</TableRowColumn>
-            </TableRow>
+          <TableFooter adjustForCheckbox={this.state.showCheckboxes} >
             <TableRow>
               <TableRowColumn colSpan="3" style={{textAlign: 'center'}}>
                 Super Footer
@@ -105,71 +87,6 @@ class NetworkList extends PureComponent {
             </TableRow>
           </TableFooter>
         </Table>
-
-        <div style={styles.propContainer}>
-          <h3>Table Properties</h3>
-          <TextField
-            floatingLabelText="Table Body Height"
-            defaultValue={this.state.height}
-            onChange={this.handleChange}
-          />
-          <Toggle
-            name="fixedHeader"
-            label="Fixed Header"
-            onToggle={this.handleToggle}
-            defaultToggled={this.state.fixedHeader}
-          />
-          <Toggle
-            name="fixedFooter"
-            label="Fixed Footer"
-            onToggle={this.handleToggle}
-            defaultToggled={this.state.fixedFooter}
-          />
-          <Toggle
-            name="selectable"
-            label="Selectable"
-            onToggle={this.handleToggle}
-            defaultToggled={this.state.selectable}
-          />
-          <Toggle
-            name="multiSelectable"
-            label="Multi-Selectable"
-            onToggle={this.handleToggle}
-            defaultToggled={this.state.multiSelectable}
-          />
-          <Toggle
-            name="enableSelectAll"
-            label="Enable Select All"
-            onToggle={this.handleToggle}
-            defaultToggled={this.state.enableSelectAll}
-          />
-          <h3 style={styles.propToggleHeader}>TableBody Properties</h3>
-          <Toggle
-            name="deselectOnClickaway"
-            label="Deselect On Clickaway"
-            onToggle={this.handleToggle}
-            defaultToggled={this.state.deselectOnClickaway}
-          />
-          <Toggle
-            name="stripedRows"
-            label="Stripe Rows"
-            onToggle={this.handleToggle}
-            defaultToggled={this.state.stripedRows}
-          />
-          <Toggle
-            name="showRowHover"
-            label="Show Row Hover"
-            onToggle={this.handleToggle}
-            defaultToggled={this.state.showRowHover}
-          />
-          <h3 style={styles.propToggleHeader}>Multiple Properties</h3>
-          <Toggle
-            name="showCheckboxes"
-            label="Show Checkboxes"
-            onToggle={this.handleToggle}
-            defaultToggled={this.state.showCheckboxes}
-          />
-        </div>
       </div>
     );
   }
