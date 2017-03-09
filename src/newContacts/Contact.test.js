@@ -12,7 +12,7 @@ describe('<Contact />', () => {
 
   it('is a card', () => {
     expect(contact).to.have.tagName('div')
-    expect(contact).to.have.className('card')
+    expect(contact).to.have.className('contact-card')
   })
 
   it('renders without exploding', () => {

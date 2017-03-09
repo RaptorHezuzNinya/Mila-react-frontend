@@ -17,6 +17,7 @@ class NetworkList extends PureComponent {
     return (
       <div className="networklist">
         <DataTables />
+        { name }
       </div>
 
     )
