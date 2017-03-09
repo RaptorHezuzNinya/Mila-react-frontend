@@ -16,7 +16,7 @@ class Network extends PureComponent {
 
   render() {
 
-    const { networkLists } = this.props
+    const { networkLists, contacts } = this.props
     if (!networkLists) return null
 
     return (
