@@ -9,7 +9,7 @@ import updateContact from '~/actions/contacts/update'
 // Material UI Components
 import { Card, CardHeader, CardActions, CardText } from 'material-ui/Card'
 import TextField from 'material-ui/TextField'
-import FlatButton from 'material-ui/FlatButton'
+import IconButton from 'material-ui/IconButton'
 
 // Styles
 import './Contact.sass'
@@ -25,6 +25,18 @@ const styles = {
   },
   underlineFocusStyle: {
     borderWidth: 0.5
+  },
+  iconStyle: {
+    color: '#292f36',
+    fontSize: 60
+  },
+  hoveredStyle: {
+    backgroundColor:'rgba(41, 47, 54, 0.3)'
+  },
+  large: {
+    width: 120,
+    height: 120,
+    padding: 30,
   },
   fontWeight: 300,
   letterSpacing: 0.3
@@ -136,12 +148,15 @@ class Contact extends PureComponent {
             underlineFocusStyle={styles.underlineFocusStyle}
           />
 
-          <div className="actions">
-            <FlatButton
-              label="SAVE"
-              onClick={this.saveContact.bind(this)}
-            />
-          </div>
+            <IconButton
+              className="button-contact-navigate"
+              iconClassName="material-icons"
+              hoveredStyle={styles.hoveredStyle}
+              iconStyle={styles.iconStyle}
+              style={styles.large}
+              onClick={this.saveContact.bind(this)}>
+              navigate_next
+            </IconButton>
         </Card>
         <br/>
       </div>
