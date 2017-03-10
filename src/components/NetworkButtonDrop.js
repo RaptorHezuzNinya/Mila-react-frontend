@@ -20,18 +20,25 @@ class NetworkButtonDrop extends PureComponent {
     this.state = {value: 1}
   }
 
-  renderNetworkMenuItem(networkList, index){
-    return <MenuItem key={ index } { ...networkList } value={1} primaryText={name} />
+  renderNetworkMenuItem(networkList, index, name){
+    return <MenuItem
+            className="dropdown-item"
+            key={ index }
+            { ...networkList }
+            value={networkList.id}
+            primaryText={networkList.name}
+          />
   }
 
   handleChange = (event, index, value) => this.setState({value})
 
   render() {
-
     const { name, networkLists } = this.props
+
     return (
-      <div>
+      <div className="dropdown-container">
         <DropDownMenu
+          className="dropdown-header"
           value={this.state.value}
           onChange={this.handleChange}
           style={styles.customWidth}
