@@ -1,0 +1,11 @@
+@import "../assets/styles/base/breakpoints.sass"
+@import "../assets/styles/base/colors.sass"
+
+.networkbutton
+  display: none
+  text-align: center
+  button
+    div
+      background-color: $steelB
+  @include breakpoint($breakpoint-medium)
+    display: block
