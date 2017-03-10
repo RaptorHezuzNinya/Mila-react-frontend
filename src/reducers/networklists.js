@@ -1,5 +1,5 @@
 import { UPDATE_NETWORKLIST } from '../actions/networklists/update'
-
+import { CREATE_NETWORKLIST } from '..actions/networklists/create'
 const initialState = [
   {
     id: 1,
@@ -38,6 +38,9 @@ export default function networklists(state = initialState, { type, payload } = {
         }
         return networklist
       })
+    case CREATE_NETWORKLIST :
+      const newNetworkList = Object.assign({}, payload)
+        return [newNetworkList].concat(state)
 
     default :
       return state
