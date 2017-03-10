@@ -9,6 +9,9 @@ import createNetworkList from '../actions/networklists/create'
 import FlatButton from 'material-ui/FlatButton'
 import TextField from 'material-ui/TextField'
 
+//styles
+import './CreateNetworkButton.sass'
+
 class CreateNetworkButton extends PureComponent {
   state = {
     name: this.props.name
