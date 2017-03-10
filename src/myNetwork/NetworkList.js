@@ -1,7 +1,7 @@
 import React, { PureComponent, PropTypes } from 'react'
-import ContactRow from './ContactRow'
 
 // Components
+import ContactRow from './ContactRow'
 
 // Actions && Reducers
 import networkList from '~/reducers/networklists'
@@ -10,6 +10,7 @@ import networkList from '~/reducers/networklists'
 import {Table, TableBody, TableFooter, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table';
 import TextField from 'material-ui/TextField';
 import Toggle from 'material-ui/Toggle';
+
 
 class NetworkList extends PureComponent {
 
@@ -56,7 +57,7 @@ class NetworkList extends PureComponent {
             enableSelectAll={this.state.enableSelectAll}
           >
             <TableRow>
-              <TableHeaderColumn colSpan="3" tooltip="Super Header" style={{textAlign: 'center'}}>
+              <TableHeaderColumn colSpan="5" tooltip="Super Header" style={{textAlign: 'center'}}>
                 Super Header
               </TableHeaderColumn>
             </TableRow>
@@ -78,7 +79,7 @@ class NetworkList extends PureComponent {
           </TableBody>
           <TableFooter adjustForCheckbox={this.state.showCheckboxes} >
             <TableRow>
-              <TableRowColumn colSpan="3" style={{textAlign: 'center'}}>
+              <TableRowColumn colSpan="5" style={{textAlign: 'center'}}>
                 Super Footer
               </TableRowColumn>
             </TableRow>
