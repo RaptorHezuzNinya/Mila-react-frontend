@@ -19,6 +19,7 @@ import App from './App'
 // newContacts related container & components
 import NewContactsContainer from './newContacts/NewContactsContainer'
 import Contact from './newContacts/Contact'
+import ContactSlider from './newContacts/ContactSlider'
 // myNetwork related container & components
 import NetworkContainer from '~/myNetwork/NetworkContainer'
 

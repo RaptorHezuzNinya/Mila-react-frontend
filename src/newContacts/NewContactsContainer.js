@@ -2,16 +2,12 @@ import React, { PureComponent, PropTypes } from 'react'
 import { connect } from 'react-redux'
 
 // Components
-import Contact from './Contact'
+import ContactSlider from './ContactSlider'
 
 // exporting it here seems redundant but is necessary for shallow rendering in tests.
 export class NewContactsContainer extends PureComponent {
   static propTypes = {
     contacts: PropTypes.array.isRequired
-  }
-
-  renderContact(contact, index) {
-      return <Contact key={index} { ...contact } />
   }
 
   render() {
@@ -21,9 +17,7 @@ export class NewContactsContainer extends PureComponent {
     return (
       <div>
         <h1>New Contact Container!</h1>
-        <div>
-          {contacts.map(this.renderContact.bind(this))}
-        </div>
+        <ContactSlider contacts={contacts} />
       </div>
     )
   }
