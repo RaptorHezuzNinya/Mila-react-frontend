@@ -38,6 +38,7 @@ export default function networklists(state = initialState, { type, payload } = {
         }
         return networklist
       })
+
     case CREATE_NETWORKLIST :
       const newNetworkList = Object.assign({}, payload)
         return [newNetworkList].concat(state)
