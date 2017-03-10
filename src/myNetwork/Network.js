@@ -4,6 +4,7 @@ import React, { PureComponent, PropTypes } from 'react'
 import NetworkButton from '../components/NetworkButton'
 import NetworkButtonDrop from '../components/NetworkButtonDrop'
 import NetworkList from './NetworkList'
+import CreateNetwork from '../components/CreateNetworkButton'
 
 // styles
 import './Network.sass'
