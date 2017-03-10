@@ -28,8 +28,10 @@ class Network extends PureComponent {
       <div className="network-component">
         <div className="networkdropdown">
           <NetworkButtonDrop networkLists={ networkLists }/>
+
         </div>
         <div className="networkbutton">
+          <CreateNetwork />
           { networkLists.map(this.renderNetworkButton.bind(this)) }
         </div>
         <div className="networklist">
