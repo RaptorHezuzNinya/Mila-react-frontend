@@ -26,7 +26,7 @@ describe ('contact reducer initial state', () => {
   ]
 
   it('returns the initial state', () => {
-    expect(reducer()).to.eql([
+    expect(reducer(initialState)).to.eql([
       {
         contactId: 1,
         firstName: 'Adrian',
