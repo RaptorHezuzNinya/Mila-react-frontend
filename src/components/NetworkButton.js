@@ -4,13 +4,12 @@ import React, { PureComponent, PropTypes } from 'react'
 import FlatButton from 'material-ui/FlatButton'
 
 // styles
-import './NetworkButton.sass'
 
 class NetworkButton extends PureComponent {
   render() {
     const { name } = this.props
     return (
-      <FlatButton className="network-button" label={name}/>
+      <FlatButton label={name}/>
     )
   }
 }
