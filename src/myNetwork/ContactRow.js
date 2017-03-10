@@ -1,6 +1,9 @@
 import React, { PureComponent, PropTypes } from 'react'
-import {Table, TableBody, TableFooter, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table';
 
+// Material UI Components
+import {Table, TableBody, TableFooter, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table';
+// Styles
+import './ContactRow.sass'
 
 class ContactRow extends PureComponent {
   render() {

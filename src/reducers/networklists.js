@@ -2,27 +2,27 @@ import { UPDATE_NETWORKLIST } from '../actions/networklists/update'
 
 const initialState = [
   {
-    listId: 1,
+    id: 1,
     name: 'Work',
     avatar: '~/assets/images/avatars/troll.png'
   },
   {
-    listId: 2,
+    id: 2,
     name: 'Devops',
     avatar: '~/assets/images/avatars/troll.png'
   },
   {
-    listId: 3,
+    id: 3,
     name: 'Business Int',
     avatar: '~/assets/images/avatars/troll.png'
   },
   {
-    listId: 4,
+    id: 4,
     name: 'Friends',
     avatar: '~/assets/images/avatars/troll.png'
   },
   {
-    listId: 5,
+    id: 5,
     name: 'All',
     avatar: '~/assets/images/avatars/troll.png'
   },
