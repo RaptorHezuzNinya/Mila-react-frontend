@@ -38,7 +38,7 @@ class NetworkButtonDrop extends PureComponent {
   render() {
     const { name, networkLists } = this.props
 
-    
+
     return (
       <div className="dropdown-container">
         <DropDownMenu
