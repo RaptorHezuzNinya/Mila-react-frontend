@@ -10,10 +10,13 @@ import updateContact from '~/actions/contacts/update'
 import { Card, CardHeader, CardActions, CardText } from 'material-ui/Card'
 import TextField from 'material-ui/TextField'
 import IconButton from 'material-ui/IconButton'
+import Avatar from 'material-ui/Avatar'
 
 // Styles
 import './Contact.sass'
-import '../assets/styles/base/colors.sass'
+import '~/assets/styles/base/colors.sass'
+import avatar from '~/assets/images/avatars/troll.png'
+
 
 const styles = {
   name: {
@@ -54,7 +57,8 @@ class Contact extends PureComponent {
     lastName: this.props.lastName,
     companyRole: this.props.companyRole,
     companyName: this.props.companyName,
-    email: this.props.email
+    email: this.props.email,
+    avatar: this.props.avatar
   }
 
   saveContact(event){
@@ -75,7 +79,7 @@ class Contact extends PureComponent {
 
   render() {
 
-    const { contactId, firstName, lastName, companyRole, companyName, email } = this.props
+    const { contactId, firstName, lastName, companyRole, companyName, email, avatar } = this.props
 
     console.log('logging props', this.props)
     console.log('logging state', this.state)
@@ -83,6 +87,9 @@ class Contact extends PureComponent {
     return (
       <div className="contact-card-container">
         <Card className="contact-card">
+            <Avatar src={this.props.avatar}
+          />
+
             <TextField
               className="contact-card-inputfield"
               type="text"
