@@ -5,6 +5,9 @@ import NetworkButton from '../components/NetworkButton'
 import NetworkButtonDrop from '../components/NetworkButtonDrop'
 import NetworkList from './NetworkList'
 
+// styles
+import './Network.sass'
+
 class Network extends PureComponent {
 
   static propTypes = {
