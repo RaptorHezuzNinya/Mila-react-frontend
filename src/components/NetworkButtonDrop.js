@@ -14,6 +14,9 @@ const styles = {
 }
 
 class NetworkButtonDrop extends PureComponent {
+  static propTypes = {
+    networkLists: PropTypes.array.isRequired
+  }
 
   constructor(props) {
     super(props)
