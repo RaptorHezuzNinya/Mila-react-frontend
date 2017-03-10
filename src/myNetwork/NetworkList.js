@@ -62,7 +62,7 @@ class NetworkList extends PureComponent {
               </TableHeaderColumn>
             </TableRow>
             <TableRow>
-              <TableHeaderColumn tooltip="The ID">ID</TableHeaderColumn>
+              <TableHeaderColumn className="unicorn" tooltip="The ID">ID</TableHeaderColumn>
               <TableHeaderColumn tooltip="The Name">First name</TableHeaderColumn>
               <TableHeaderColumn tooltip="The Status">Last Name</TableHeaderColumn>
               <TableHeaderColumn tooltip="The Status">Email</TableHeaderColumn>
