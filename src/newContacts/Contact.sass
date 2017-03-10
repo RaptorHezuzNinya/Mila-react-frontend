@@ -3,9 +3,34 @@
 @import "../assets/styles/base/breakpoints.sass"
 
 .contact-card-container
-  .contact-card
-    max-width: 95%
-    margin: 10px
 
-    .contact-card-inputfield
-      padding-left: 10px
+  .contact-card
+    margin: 20px
+    padding-left: 20px
+    max-width: 600px
+    display: inline-flex
+    flex-wrap: wrap
+    flex-direction: row
+
+    .contact-card-input
+      // display: flex
+      // flex-wrap: wrap
+      // flex-direction: column
+
+      .contact-card-row-top
+        @include breakpoint($breakpoint-small)
+          display: flex
+          flex-wrap: wrap
+          flex-direction: row
+
+      .contact-card-row-bottom
+        @include breakpoint($breakpoint-small)
+          display: flex
+          flex-wrap: wrap
+          flex-direction: row
+
+    .contact-card-avatar
+      background-color: red
+      width: auto
+
+  .icon-button
