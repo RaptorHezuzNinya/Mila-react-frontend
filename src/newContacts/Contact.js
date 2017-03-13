@@ -169,7 +169,9 @@ class Contact extends PureComponent {
                 src={this.props.avatar}
               />
               <div className="social-media-bar">
-                f twi li
+                <a href="#">f</a>
+                <a href="#">li</a>
+                <a href="#">t</a>
               </div>
             </div>
           </div>
