@@ -3,7 +3,8 @@
 @import "../assets/styles/base/breakpoints.sass"
 
 .container
-
+  position: relative
+  
   .contact-card-element
     width: 100%
     @include breakpoint($breakpoint-medium)
@@ -63,4 +64,6 @@
     .social-media-bar a:last-child
       padding-left: 20%
 
-  .icon-button
+  .button-contact-navigate
+    position: absolute
+    right: 0

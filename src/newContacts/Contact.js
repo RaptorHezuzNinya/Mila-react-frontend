@@ -28,16 +28,15 @@ const styles = {
     borderWidth: 0.5
   },
   iconStyle: {
-    color: '#fff',
-    fontSize: 60,
+    color: '#f2f6fa',
+    fontSize: 40
+  },
+  button: {
+    height: 100,
+    width: 100
   },
   hoveredStyle: {
     backgroundColor:'rgba(41, 47, 54, 0.3)'
-  },
-  large: {
-    width: 120,
-    height: 120,
-    padding: 30,
   },
   avatar: {
     height: '100%',
@@ -177,16 +176,18 @@ class Contact extends PureComponent {
           </div>
         </Card>
 
-        <IconButton
-          className="button-contact-navigate"
-          iconClassName="material-icons"
-          hoveredStyle={styles.hoveredStyle}
-          iconStyle={styles.iconStyle}
-          style={styles.large}
-          onClick={this.saveContact.bind(this)}>
-          navigate_next
-        </IconButton>
+        <div className="button-contact-navigate">
+          <IconButton
+            iconClassName="material-icons"
+            hoveredStyle={styles.hoveredStyle}
+            iconStyle={styles.iconStyle}
+            style={styles.button}
+            onClick={this.saveContact.bind(this)}>
+            navigate_next
+          </IconButton>
+        </div>
         <br/>
+
       </div>
     )
   }
