@@ -56,6 +56,150 @@ const initialState = [
     companyRole: 'CEO',
     companyName: 'Compainay',
     email: 'tanja@compainay.com'
+  },
+  {
+    contactId: 7,
+    firstName: 'Math',
+    lastName: 'BlaBla',
+    companyRole: 'CEO',
+    companyName: 'Compainay',
+    email: 'tanja@compainay.com'
+  },
+  {
+    contactId: 7,
+    firstName: 'Math',
+    lastName: 'BlaBla',
+    companyRole: 'CEO',
+    companyName: 'Compainay',
+    email: 'tanja@compainay.com'
+  },
+  {
+    contactId: 7,
+    firstName: 'Math',
+    lastName: 'BlaBla',
+    companyRole: 'CEO',
+    companyName: 'Compainay',
+    email: 'tanja@compainay.com'
+  },
+  {
+    contactId: 7,
+    firstName: 'Math',
+    lastName: 'BlaBla',
+    companyRole: 'CEO',
+    companyName: 'Compainay',
+    email: 'tanja@compainay.com'
+  },
+  {
+    contactId: 7,
+    firstName: 'Math',
+    lastName: 'BlaBla',
+    companyRole: 'CEO',
+    companyName: 'Compainay',
+    email: 'tanja@compainay.com'
+  },
+  {
+    contactId: 7,
+    firstName: 'Math',
+    lastName: 'BlaBla',
+    companyRole: 'CEO',
+    companyName: 'Compainay',
+    email: 'tanja@compainay.com'
+  },
+  {
+    contactId: 7,
+    firstName: 'Math',
+    lastName: 'BlaBla',
+    companyRole: 'CEO',
+    companyName: 'Compainay',
+    email: 'tanja@compainay.com'
+  },
+  {
+    contactId: 7,
+    firstName: 'Math',
+    lastName: 'BlaBla',
+    companyRole: 'CEO',
+    companyName: 'Compainay',
+    email: 'tanja@compainay.com'
+  },
+  {
+    contactId: 7,
+    firstName: 'Math',
+    lastName: 'BlaBla',
+    companyRole: 'CEO',
+    companyName: 'Compainay',
+    email: 'tanja@compainay.com'
+  },
+  {
+    contactId: 7,
+    firstName: 'Math',
+    lastName: 'BlaBla',
+    companyRole: 'CEO',
+    companyName: 'Compainay',
+    email: 'tanja@compainay.com'
+  },
+  {
+    contactId: 7,
+    firstName: 'Math',
+    lastName: 'BlaBla',
+    companyRole: 'CEO',
+    companyName: 'Compainay',
+    email: 'tanja@compainay.com'
+  },
+  {
+    contactId: 7,
+    firstName: 'Math',
+    lastName: 'BlaBla',
+    companyRole: 'CEO',
+    companyName: 'Compainay',
+    email: 'tanja@compainay.com'
+  },
+  {
+    contactId: 7,
+    firstName: 'Math',
+    lastName: 'BlaBla',
+    companyRole: 'CEO',
+    companyName: 'Compainay',
+    email: 'tanja@compainay.com'
+  },
+  {
+    contactId: 7,
+    firstName: 'Math',
+    lastName: 'BlaBla',
+    companyRole: 'CEO',
+    companyName: 'Compainay',
+    email: 'tanja@compainay.com'
+  },
+  {
+    contactId: 7,
+    firstName: 'Math',
+    lastName: 'BlaBla',
+    companyRole: 'CEO',
+    companyName: 'Compainay',
+    email: 'tanja@compainay.com'
+  },
+  {
+    contactId: 7,
+    firstName: 'Math',
+    lastName: 'BlaBla',
+    companyRole: 'CEO',
+    companyName: 'Compainay',
+    email: 'tanja@compainay.com'
+  },
+  {
+    contactId: 7,
+    firstName: 'Math',
+    lastName: 'BlaBla',
+    companyRole: 'CEO',
+    companyName: 'Compainay',
+    email: 'tanja@compainay.com'
+  },
+  {
+    contactId: 7,
+    firstName: 'Math',
+    lastName: 'BlaBla',
+    companyRole: 'CEO',
+    companyName: 'Compainay',
+    email: 'tanja@compainay.com'
   }
 ]
 
