@@ -81,7 +81,7 @@ class OnboardingStepper extends PureComponent {
             </p>
           ) : (
             <div>
-              <p>{this.getStepContent(stepIndex)}</p>
+              {this.getStepContent(stepIndex)}
               <div style={{marginTop: 12}}>
                 <FlatButton
                   label="Back"
