@@ -8,11 +8,13 @@ import {
 } from 'material-ui/Stepper'
 import FlatButton from 'material-ui/FlatButton'
 
+//Components
+import ScanningContacts from './ScanningContacts'
 
 // Styles
 import './onboarding.sass'
 
-class Breadcrumbs extends PureComponent {
+class OnboardingStepper extends PureComponent {
 
   state = {
     finished: false,
@@ -37,7 +39,7 @@ class Breadcrumbs extends PureComponent {
   getStepContent(stepIndex) {
     switch (stepIndex) {
       case 0:
-        return 'Select campaign settings...';
+        return <ScanningContacts />
       case 1:
         return 'What is an ad group anyways?';
       case 2:
@@ -101,4 +103,4 @@ class Breadcrumbs extends PureComponent {
   }
 }
 
-export default Breadcrumbs
+export default OnboardingStepper
