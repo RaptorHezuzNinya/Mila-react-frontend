@@ -10,6 +10,10 @@ import FlatButton from 'material-ui/FlatButton'
 
 //Components
 import ScanningContacts from './ScanningContacts'
+import ConnectTools from './ConnectTools'
+import CreateLists from './CreateLists'
+
+
 
 // Styles
 import './onboarding.sass'
@@ -41,9 +45,9 @@ class OnboardingStepper extends PureComponent {
       case 0:
         return <ScanningContacts />
       case 1:
-        return 'What is an ad group anyways?';
+        return <ConnectTools />
       case 2:
-        return 'This is the bit I really care about!';
+        return <CreateLists />
       default:
         return 'You\'re a long way from home sonny jim!';
     }
