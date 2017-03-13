@@ -6,6 +6,9 @@
 
   .contact-card-element
     width: 100%
+    @include breakpoint($breakpoint-medium)
+      width: 60%
+      margin: 0 20%
     position: relative
 
     .contact-card
@@ -29,6 +32,8 @@
       width: auto
       position: absolute
       right: 0
+      @include breakpoint($breakpoint-medium)
+        height: 60%
 
     .social-media-bar
       background-color: rgba(41, 47, 54, 0.7)
