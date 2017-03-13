@@ -10,7 +10,6 @@ import { Card, CardHeader, CardActions, CardText, CardMedia, CardTitle } from 'm
 import TextField from 'material-ui/TextField'
 import IconButton from 'material-ui/IconButton'
 import Avatar from 'material-ui/Avatar'
-import { GridTile } from 'material-ui/GridList'
 
 // Styles
 import './Contact.sass'
@@ -40,15 +39,10 @@ const styles = {
     height: 120,
     padding: 30,
   },
-  gridTile: {
-    width: 120,
-    height: 120
-  },
-  gridTitle: {
-    height: 20
-  },
-  gridTitleBackground: {
-    height: 5
+  avatar: {
+    height: '100%',
+    width: 'auto',
+    borderRadius: 0
   },
   fontWeight: 300,
   letterSpacing: 0.3
@@ -94,90 +88,93 @@ class Contact extends PureComponent {
     console.log('logging state', this.state)
 
     return (
-      <div className="contact-card-container">
-        <Card className="contact-card">
-          <div className="contact-card-input">
+      <div className="container">
+        <Card className="contact-card-element">
+          <div className="contact-card">
+            <div className="contact-card-input">
 
-            <div className="contact-card-row-top">
-              <TextField
-                className="contact-card-firstname"
-                type="text"
-                ref="firstName"
-                hintText="First Name"
-                name="firstName"
-                value={this.state.firstName || ''}
-                onChange={this.handleChange}
-                inputStyle={styles.name}
-                underlineStyle={styles.underlineStyle}
-                underlineFocusStyle={styles.underlineFocusStyle}
-              />
+              <div className="contact-card-row-top">
+                <TextField
+                  className="contact-card-firstname"
+                  type="text"
+                  ref="firstName"
+                  hintText="First Name"
+                  name="firstName"
+                  value={this.state.firstName || ''}
+                  onChange={this.handleChange}
+                  inputStyle={styles.name}
+                  underlineStyle={styles.underlineStyle}
+                  underlineFocusStyle={styles.underlineFocusStyle}
+                />
 
-              <TextField
-                className="contact-card-lastname"
-                type="text"
-                ref="lastName"
-                hintText="Last Name"
-                name="lastName"
-                value={this.state.lastName || ''}
-                onChange={this.handleChange}
-                inputStyle={styles.name}
-                underlineStyle={styles.underlineStyle}
-                underlineFocusStyle={styles.underlineFocusStyle}
-              />
-            </div>
+                <TextField
+                  className="contact-card-lastname"
+                  type="text"
+                  ref="lastName"
+                  hintText="Last Name"
+                  name="lastName"
+                  value={this.state.lastName || ''}
+                  onChange={this.handleChange}
+                  inputStyle={styles.name}
+                  underlineStyle={styles.underlineStyle}
+                  underlineFocusStyle={styles.underlineFocusStyle}
+                />
+              </div>
 
-            <div className="contact-card-row-bottom">
+              <div className="contact-card-row-bottom">
+                <TextField
+                  className="contact-card-inputfield"
+                  type="text"
+                  ref="companyRole"
+                  hintText="Company Role"
+                  name="companyRole"
+                  value={this.state.companyRole || ''}
+                  onChange={this.handleChange}
+                  inputStyle={styles}
+                  underlineStyle={styles.underlineStyle}
+                  underlineFocusStyle={styles.underlineFocusStyle}
+                />
+
+                <TextField
+                  className="contact-card-inputfield"
+                  type="text"
+                  ref="companyName"
+                  hintText="Company Name"
+                  name="companyName"
+                  value={this.state.companyName || ''}
+                  onChange={this.handleChange}
+                  inputStyle={styles}
+                  underlineStyle={styles.underlineStyle}
+                  underlineFocusStyle={styles.underlineFocusStyle}
+                />
+              </div>
+
               <TextField
                 className="contact-card-inputfield"
                 type="text"
-                ref="companyRole"
-                hintText="Company Role"
-                name="companyRole"
-                value={this.state.companyRole || ''}
+                ref="email"
+                hintText="Email"
+                name="email"
+                value={this.state.email || ''}
                 onChange={this.handleChange}
                 inputStyle={styles}
                 underlineStyle={styles.underlineStyle}
                 underlineFocusStyle={styles.underlineFocusStyle}
               />
-
-              <TextField
-                className="contact-card-inputfield"
-                type="text"
-                ref="companyName"
-                hintText="Company Name"
-                name="companyName"
-                value={this.state.companyName || ''}
-                onChange={this.handleChange}
-                inputStyle={styles}
-                underlineStyle={styles.underlineStyle}
-                underlineFocusStyle={styles.underlineFocusStyle}
-              />
             </div>
 
-            <TextField
-              className="contact-card-inputfield"
-              type="text"
-              ref="email"
-              hintText="Email"
-              name="email"
-              value={this.state.email || ''}
-              onChange={this.handleChange}
-              inputStyle={styles}
-              underlineStyle={styles.underlineStyle}
-              underlineFocusStyle={styles.underlineFocusStyle}
-            />
+            <div
+              className="contact-card-avatar"
+              title="li f twi"
+              // style={styles.gridTile}
+              // titleStyle={styles.gridTitle}
+              >
+              <Avatar
+                style={styles.avatar}
+                src={this.props.avatar}
+              />
+            </div>
           </div>
-
-          <GridTile
-            className="contact-card-avatar"
-            title="li f twi"
-            style={styles.gridTile}
-            titleStyle={styles.gridTitle}
-            >
-            <Avatar className="contact-card-avatar"
-              src={this.props.avatar}
-            />
-          </GridTile>
         </Card>
 
         <IconButton
