@@ -163,16 +163,14 @@ class Contact extends PureComponent {
               />
             </div>
 
-            <div
-              className="contact-card-avatar"
-              title="li f twi"
-              // style={styles.gridTile}
-              // titleStyle={styles.gridTitle}
-              >
+            <div className="contact-card-avatar">
               <Avatar
                 style={styles.avatar}
                 src={this.props.avatar}
               />
+              <div className="social-media-bar">
+                f twi li
+              </div>
             </div>
           </div>
         </Card>
