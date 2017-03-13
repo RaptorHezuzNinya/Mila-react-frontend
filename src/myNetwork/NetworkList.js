@@ -12,6 +12,7 @@ import TextField from 'material-ui/TextField';
 import Toggle from 'material-ui/Toggle';
 
 
+
 class NetworkList extends PureComponent {
 
   static propTypes = {
@@ -31,7 +32,7 @@ class NetworkList extends PureComponent {
       enableSelectAll: false,
       deselectOnClickaway: true,
       showCheckboxes: true,
-      height: '300px',
+      height: '1750px',
     };
   }
 
