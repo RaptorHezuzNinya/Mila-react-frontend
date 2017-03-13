@@ -1,6 +1,6 @@
 import { UPDATE_CONTACT } from '~/actions/contacts/update'
 
-import avatar from '~/assets/images/avatars/troll.png'
+import avatar from '~/assets/images/icons/user-blue.jpg'
 
 const initialState = [
   {

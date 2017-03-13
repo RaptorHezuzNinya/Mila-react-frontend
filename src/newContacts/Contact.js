@@ -14,7 +14,7 @@ import Avatar from 'material-ui/Avatar'
 // Styles
 import './Contact.sass'
 import '~/assets/styles/base/colors.sass'
-import avatar from '~/assets/images/avatars/troll.png'
+import avatar from '~/assets/images/icons/user-blue.jpg'
 
 const styles = {
   name: {
