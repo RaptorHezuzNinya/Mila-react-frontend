@@ -6,7 +6,7 @@ import TextField from 'material-ui/TextField'
 import FlatButton from 'material-ui/FlatButton'
 
 // Components
-import Breadcrumbs from './Breadcrumbs'
+import OnboardingStepper from './OnboardingStepper'
 
 // Styles
 import './onboarding.sass'
@@ -17,7 +17,7 @@ class Onboarding extends PureComponent {
     return (
       <div className="onboarding-card">
         <Card>
-          <Breadcrumbs />
+          <OnboardingStepper />
         </Card>
       </div>
     )
