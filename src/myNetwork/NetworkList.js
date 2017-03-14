@@ -1,7 +1,6 @@
 import React, { PureComponent, PropTypes } from 'react'
 
 // Components
-// import ContactRow from './ContactRow'
 
 // Actions && Reducers
 import networkList from '~/reducers/networklists'
@@ -22,6 +21,9 @@ const styles = {
   },
   tableRow: {
     height: 89,
+  },
+  footer: {
+    textAlign: 'center'
   }
 }
 
@@ -49,6 +51,27 @@ class NetworkList extends PureComponent {
     };
   }
 
+  componentDidMount() {
+    window.addEventListener('resize', this.onResize.bind(this))
+  }
+
+  onResize = () => {
+    let lol = document.documentElement.clientWidth
+    console.log('loggin window width', lol)
+
+  }
+
+  checkSize = () => {
+    if ($('td.large-only').css('display') === 'table-cell' ) {
+      $('td[colspan]').attr('colspan', '5')
+
+    } else {
+      $('td[colspan]').attr('colspan', '3')
+
+    }
+  }
+
+
   renderContactRow(row, index) {
     return <ContactRow key={index} {...row} index={index}  />
   }
@@ -63,8 +86,10 @@ class NetworkList extends PureComponent {
     this.setState({height: event.target.value})
   }
 
+
+
   render() {
-    const { contacts, avatar, firstName } = this.props
+    const { contacts, avatar} = this.props
 
     return (
       <div>
@@ -82,15 +107,17 @@ class NetworkList extends PureComponent {
             enableSelectAll={this.state.enableSelectAll}
           >
             <TableRow >
-              <TableHeaderColumn className="th-top-row" colSpan="6" tooltip="" style={{textAlign: 'center'}}>
+              <TableHeaderColumn className="th-top-row" colSpan="6" tooltip="">
                 Delete & Tools buttons
               </TableHeaderColumn>
             </TableRow>
 
-            <TableRow>
-              <TableHeaderColumn className="th-name-email" colSpan="6" tooltip="Name & Email">Name & Email</TableHeaderColumn>
-              <TableHeaderColumn className="th-company"tooltip="The Status">Company</TableHeaderColumn>
+            <TableRow className="yoloswag">
+              <TableHeaderColumn className="th-name-email small" colSpan="6" tooltip="Name & Email">Name & Email</TableHeaderColumn>
+              <TableHeaderColumn className="th-list-tools medium" colSpan="" tooltip="Lists/Tools">Lists/Tools</TableHeaderColumn>
+              <TableHeaderColumn className="th-company large" colSpan="" tooltip="The Status">Company</TableHeaderColumn>
             </TableRow>
+
           </TableHeader>
 
           <TableBody
@@ -113,15 +140,13 @@ class NetworkList extends PureComponent {
               ))}
           </TableBody>
 
-
           <TableFooter>
             <TableRow>
-              <TableRowColumn colSpan="6" style={{textAlign: 'center'}}>
+              <TableRowColumn colSpan="6" style={styles.footer}>
                 Loading contacts...
               </TableRowColumn>
             </TableRow>
           </TableFooter>
-
 
         </Table>
       </div>
