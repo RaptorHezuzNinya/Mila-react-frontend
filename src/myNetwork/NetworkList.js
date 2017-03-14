@@ -112,7 +112,6 @@ class NetworkList extends PureComponent {
               ))}
           </TableBody>
 
-
           <TableFooter>
             <TableRow>
               <TableRowColumn colSpan="6" style={{textAlign: 'center'}}>
