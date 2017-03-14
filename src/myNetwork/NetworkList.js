@@ -99,7 +99,7 @@ class NetworkList extends PureComponent {
           >
             {contacts.map( (contact, index) => (
               <TableRow style={styles.tableRow} key={index} selected={contact.selected}>
-                <TableRowColumn>
+                <TableRowColumn className="col-avatar">
                   <Avatar src={contact.avatar}
                           style={styles.avatar}
                   />
