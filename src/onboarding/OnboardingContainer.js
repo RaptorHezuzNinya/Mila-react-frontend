@@ -9,12 +9,10 @@ class OnboardingContainer extends PureComponent {
   render() {
     return (
       <div className="onboarding-container">
-        <h1>OnboardingContainer :)</h1>
         <div><Onboarding/></div>
       </div>
     )
   }
-
 }
 
 export default OnboardingContainer
