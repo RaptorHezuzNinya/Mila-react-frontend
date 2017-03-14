@@ -1,17 +1,30 @@
 import React, { PureComponent, PropTypes } from 'react'
 
 // Components
-import ContactRow from './ContactRow'
+// import ContactRow from './ContactRow'
 
 // Actions && Reducers
 import networkList from '~/reducers/networklists'
 
 // Material UI Components
-import {Table, TableBody, TableFooter, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table';
-import TextField from 'material-ui/TextField';
+import { Table, TableBody, TableFooter, TableHeader, TableHeaderColumn, TableRow, TableRowColumn } from 'material-ui/Table'
+import TextField from 'material-ui/TextField'
+import Avatar from 'material-ui/Avatar'
 
-// styles
+// styles & icons
 import './Networklist.sass'
+
+const styles = {
+  avatar: {
+    borderRadius: 0,
+    width: 60,
+    height: 60,
+  },
+  tableRow: {
+    height: 89,
+  }
+}
+
 
 class NetworkList extends PureComponent {
 
