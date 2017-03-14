@@ -40,6 +40,16 @@ class NetworkList extends PureComponent {
     return <ContactRow key={index} {...row} index={index}  />
   }
 
+  handleToggle = (event, toggled) => {
+    this.setState({
+      [event.target.name]: toggled,
+    })
+  }
+
+  handleChange = (event) => {
+    this.setState({height: event.target.value})
+  }
+
   render() {
     const { contacts } = this.props
 
