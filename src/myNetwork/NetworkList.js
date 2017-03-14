@@ -86,6 +86,8 @@ class NetworkList extends PureComponent {
     this.setState({height: event.target.value})
   }
 
+
+
   render() {
     const { contacts, avatar} = this.props
 
