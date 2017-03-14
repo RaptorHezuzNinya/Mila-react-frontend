@@ -17,9 +17,7 @@ class CreateLists extends PureComponent {
         <h1>Create lists</h1>
       </div>
     )
-
   }
-
 }
 
 export default CreateLists
