@@ -13,8 +13,6 @@ import ScanningContacts from './ScanningContacts'
 import ConnectTools from './ConnectTools'
 import CreateLists from './CreateLists'
 
-
-
 // Styles
 import './onboarding.sass'
 
@@ -23,7 +21,30 @@ class OnboardingStepper extends PureComponent {
   state = {
     finished: false,
     stepIndex: 0,
+    stepperwidth: 450,
   };
+
+  componentWillMount(){
+    if(document.documentElement.clientWidth < 500) {
+      this.setState({ stepperwidth: 450});
+    } else {
+      let update_width  = document.documentElement.clientWidth-100;
+      this.setState({ stepperwidth: update_width});
+    }
+  }
+
+  componentDidMount() {
+    window.addEventListener('resize', this.onResize.bind(this));
+  }
+
+  onResize() {
+    if(document.documentElement.clientWidth < 500) {
+      this.setState({ stepperwidth: 450});
+    } else {
+      let update_width  = document.documentElement.clientWidth-100;
+      this.setState({ stepperwidth: update_width});
+    }
+  }
 
   handleNext = () => {
     const {stepIndex} = this.state;
@@ -54,22 +75,23 @@ class OnboardingStepper extends PureComponent {
   }
 
   render() {
-    const {finished, stepIndex} = this.state;
-    const contentStyle = {margin: '0 16px'};
+    const {finished, stepIndex, stepperwidth} = this.state;
+    const contentStyle = {width: '100%'};
 
     return (
-      <div style={{width: '100%', maxWidth: 700, margin: 'auto'}}>
-        <Stepper activeStep={stepIndex}>
+      <div style={{width: '100%', margin: 'auto'}}>
+        <Stepper ref="stepperwrapper" activeStep={stepIndex} orientation={ stepperwidth <= 700  ? 'vertical' : 'horizontal'}>
           <Step>
-            <StepLabel>Scanning contacts</StepLabel>
+            <StepLabel className="steplabel">Scanning contacts</StepLabel>
           </Step>
-          <Step>
+          <Step className="steplabel">
             <StepLabel>Connect tools</StepLabel>
           </Step>
-          <Step>
+          <Step className="steplabel">
             <StepLabel>Create lists</StepLabel>
           </Step>
         </Stepper>
+
         <div style={contentStyle}>
           {finished ? (
             <p>
@@ -84,7 +106,7 @@ class OnboardingStepper extends PureComponent {
               </a> to reset the example.
             </p>
           ) : (
-            <div>
+            <div className="step-content">
               {this.getStepContent(stepIndex)}
               <div style={{marginTop: 12}}>
                 <FlatButton
