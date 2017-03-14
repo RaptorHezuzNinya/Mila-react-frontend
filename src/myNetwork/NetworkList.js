@@ -104,7 +104,11 @@ class NetworkList extends PureComponent {
                           style={styles.avatar}
                   />
                 </TableRowColumn>
-                <TableRowColumn>{ contact.firstName + ' ' + contact.lastName } <br/> { contact.email } </TableRowColumn>
+                <TableRowColumn className="col-name-email">
+                  <p className="name-email">
+                    { contact.firstName + ' ' + contact.lastName } <br/> { contact.email }
+                  </p>
+                </TableRowColumn>
               </TableRow>
               ))}
           </TableBody>
