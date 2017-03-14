@@ -63,38 +63,44 @@ class NetworkList extends PureComponent {
           multiSelectable={this.state.multiSelectable}
         >
           <TableHeader
+            className="th-top"
             displaySelectAll={this.state.showCheckboxes}
             adjustForCheckbox={this.state.showCheckboxes}
             enableSelectAll={this.state.enableSelectAll}
           >
-            <TableRow>
-              <TableHeaderColumn colSpan="5" tooltip="Super Header" style={{textAlign: 'center'}}>
-                Super Header
+            <TableRow >
+              <TableHeaderColumn className="th-top-row" colSpan="6" tooltip="Super Header" style={{textAlign: 'center'}}>
+                Delete & Tools buttons
               </TableHeaderColumn>
             </TableRow>
+
             <TableRow>
-              <TableHeaderColumn className="unicorn" tooltip="The ID">ID</TableHeaderColumn>
-              <TableHeaderColumn tooltip="The Name">First name</TableHeaderColumn>
-              <TableHeaderColumn tooltip="The Status">Last Name</TableHeaderColumn>
-              <TableHeaderColumn tooltip="The Status">Email</TableHeaderColumn>
-              <TableHeaderColumn tooltip="The Status">Company</TableHeaderColumn>
+              <TableHeaderColumn className="yolo2" colSpan="6" tooltip="Name & EMail">Name & Email</TableHeaderColumn>
+              <TableHeaderColumn className="th-company"tooltip="The Status">Company</TableHeaderColumn>
             </TableRow>
           </TableHeader>
+
           <TableBody
             displayRowCheckbox={this.state.showCheckboxes}
             deselectOnClickaway={this.state.deselectOnClickaway}
-            showRowHover={this.state.showRowHover}
-            stripedRows={this.state.stripedRows}
           >
-            {contacts.map(this.renderContactRow.bind(this))}
+            {contacts.map( (row, index) => (
+              <TableRow key={index} selected={row.selected}>
+                <TableRowColumn>{ row.firstName + ' ' + row.lastName } <br/> { row.email } </TableRowColumn>
+              </TableRow>
+              ))}
           </TableBody>
-          <TableFooter adjustForCheckbox={this.state.showCheckboxes} >
+
+
+          <TableFooter>
             <TableRow>
-              <TableRowColumn colSpan="5" style={{textAlign: 'center'}}>
-                Super Footer
+              <TableRowColumn colSpan="6" style={{textAlign: 'center'}}>
+                Loading contacts...
               </TableRowColumn>
             </TableRow>
           </TableFooter>
+
+
         </Table>
       </div>
     );
