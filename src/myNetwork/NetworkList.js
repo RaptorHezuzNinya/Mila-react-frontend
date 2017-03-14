@@ -69,13 +69,13 @@ class NetworkList extends PureComponent {
             enableSelectAll={this.state.enableSelectAll}
           >
             <TableRow >
-              <TableHeaderColumn className="th-top-row" colSpan="6" tooltip="Super Header" style={{textAlign: 'center'}}>
+              <TableHeaderColumn className="th-top-row" colSpan="6" tooltip="" style={{textAlign: 'center'}}>
                 Delete & Tools buttons
               </TableHeaderColumn>
             </TableRow>
 
             <TableRow>
-              <TableHeaderColumn className="yolo2" colSpan="6" tooltip="Name & EMail">Name & Email</TableHeaderColumn>
+              <TableHeaderColumn className="yolo2" colSpan="6" tooltip="Name & Email">Name & Email</TableHeaderColumn>
               <TableHeaderColumn className="th-company"tooltip="The Status">Company</TableHeaderColumn>
             </TableRow>
           </TableHeader>
