@@ -61,6 +61,7 @@ class Contact extends PureComponent {
     companyName: this.props.companyName,
     email: this.props.email,
     avatar: this.props.avatar,
+    message: this.props.message
   }
 
   saveContact(event){
@@ -81,7 +82,7 @@ class Contact extends PureComponent {
 
   render() {
 
-    const { contactId, firstName, lastName, companyRole, companyName, email, avatar } = this.props
+    const { contactId, firstName, lastName, companyRole, companyName, email, avatar, message } = this.props
 
     console.log('logging props', this.props)
     console.log('logging state', this.state)
@@ -173,6 +174,10 @@ class Contact extends PureComponent {
                 <a href="#">t</a>
               </div>
             </div>
+          </div>
+
+          <div className="contact-card-message">
+            {this.props.message}
           </div>
         </Card>
 
