@@ -119,12 +119,11 @@ class NetworkList extends PureComponent {
 
           <TableFooter>
             <TableRow>
-              <TableRowColumn colSpan="6" style={{textAlign: 'center'}}>
+              <TableRowColumn colSpan="6" style={styles.footer}>
                 Loading contacts...
               </TableRowColumn>
             </TableRow>
           </TableFooter>
-
 
         </Table>
       </div>
