@@ -21,6 +21,9 @@ const styles = {
   },
   tableRow: {
     height: 89,
+  },
+  footer: {
+    textAlign: 'center'
   }
 }
 
@@ -28,7 +31,7 @@ const styles = {
 class NetworkList extends PureComponent {
 
   static propTypes = {
-    
+
   }
 
   constructor(props){
@@ -63,7 +66,7 @@ class NetworkList extends PureComponent {
   }
 
   render() {
-    const { contacts, avatar, firstName } = this.props
+    const { contacts, avatar} = this.props
 
     return (
       <div>
