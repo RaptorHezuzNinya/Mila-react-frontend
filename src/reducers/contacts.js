@@ -10,7 +10,8 @@ const initialState = [
     companyRole: 'CEO',
     companyName: 'Compainay',
     email: 'adrian@compainay.com',
-    avatar
+    avatar,
+    message: 'Re: FoundedX - Exclusive invitation to lead the creative society'
   },
   {
     contactId: 2,
@@ -19,7 +20,8 @@ const initialState = [
     companyRole: 'CEO',
     companyName: 'Compainay',
     email: 'tanja@compainay.com',
-    avatar
+    avatar,
+    message: 'Re: FoundedX - Exclusive invitation to lead the creative society'
   },
   {
     contactId: 3,
@@ -28,7 +30,8 @@ const initialState = [
     companyRole: 'CEO',
     companyName: 'Compainay',
     email: 'tanja@compainay.com',
-    avatar
+    avatar,
+    message: 'Re: FoundedX - Exclusive invitation to lead the creative society'
   },
   {
     contactId: 4,
@@ -37,7 +40,7 @@ const initialState = [
     companyRole: 'CEO',
     companyName: 'Compainay',
     email: 'tanja@compainay.com',
-    avatar
+    avatar, message: 'Re: FoundedX - Exclusive invitation to lead the creative society'
   },
   {
     contactId: 5,
@@ -46,7 +49,8 @@ const initialState = [
     companyRole: 'CEO',
     companyName: 'Compainay',
     email: 'tanja@compainay.com',
-    avatar
+    avatar,
+    message: 'Re: FoundedX - Exclusive invitation to lead the creative society'
   },
   {
     contactId: 6,
@@ -55,7 +59,8 @@ const initialState = [
     companyRole: 'CEO',
     companyName: 'Compainay',
     email: 'tanja@compainay.com',
-    avatar
+    avatar,
+    message: 'Re: FoundedX - Exclusive invitation to lead the creative society'
   },
   {
     contactId: 7,
@@ -64,7 +69,8 @@ const initialState = [
     companyRole: 'CEO',
     companyName: 'Compainay',
     email: 'tanja@compainay.com',
-    avatar
+    avatar,
+    message: 'Re: FoundedX - Exclusive invitation to lead the creative society'
   }
 ]
 
