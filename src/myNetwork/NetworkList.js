@@ -88,7 +88,7 @@ class NetworkList extends PureComponent {
             </TableRow>
 
             <TableRow>
-              <TableHeaderColumn className="yolo2" colSpan="6" tooltip="Name & Email">Name & Email</TableHeaderColumn>
+              <TableHeaderColumn className="th-name-email" colSpan="6" tooltip="Name & Email">Name & Email</TableHeaderColumn>
               <TableHeaderColumn className="th-company"tooltip="The Status">Company</TableHeaderColumn>
             </TableRow>
           </TableHeader>
