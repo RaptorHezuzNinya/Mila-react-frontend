@@ -1,17 +1,30 @@
 import React, { PureComponent, PropTypes } from 'react'
 
 // Components
-import ContactRow from './ContactRow'
+// import ContactRow from './ContactRow'
 
 // Actions && Reducers
 import networkList from '~/reducers/networklists'
 
 // Material UI Components
-import {Table, TableBody, TableFooter, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table';
-import TextField from 'material-ui/TextField';
+import { Table, TableBody, TableFooter, TableHeader, TableHeaderColumn, TableRow, TableRowColumn } from 'material-ui/Table'
+import TextField from 'material-ui/TextField'
+import Avatar from 'material-ui/Avatar'
 
-// styles
+// styles & icons
 import './Networklist.sass'
+
+const styles = {
+  avatar: {
+    borderRadius: 0,
+    width: 60,
+    height: 60,
+  },
+  tableRow: {
+    height: 89,
+  }
+}
+
 
 class NetworkList extends PureComponent {
 
@@ -51,7 +64,7 @@ class NetworkList extends PureComponent {
   }
 
   render() {
-    const { contacts } = this.props
+    const { contacts, avatar } = this.props
 
     return (
       <div>
@@ -69,13 +82,13 @@ class NetworkList extends PureComponent {
             enableSelectAll={this.state.enableSelectAll}
           >
             <TableRow >
-              <TableHeaderColumn className="th-top-row" colSpan="6" tooltip="Super Header" style={{textAlign: 'center'}}>
+              <TableHeaderColumn className="th-top-row" colSpan="6" tooltip="" style={{textAlign: 'center'}}>
                 Delete & Tools buttons
               </TableHeaderColumn>
             </TableRow>
 
             <TableRow>
-              <TableHeaderColumn className="yolo2" colSpan="6" tooltip="Name & EMail">Name & Email</TableHeaderColumn>
+              <TableHeaderColumn className="yolo2" colSpan="6" tooltip="Name & Email">Name & Email</TableHeaderColumn>
               <TableHeaderColumn className="th-company"tooltip="The Status">Company</TableHeaderColumn>
             </TableRow>
           </TableHeader>
@@ -84,9 +97,14 @@ class NetworkList extends PureComponent {
             displayRowCheckbox={this.state.showCheckboxes}
             deselectOnClickaway={this.state.deselectOnClickaway}
           >
-            {contacts.map( (row, index) => (
-              <TableRow key={index} selected={row.selected}>
-                <TableRowColumn>{ row.firstName + ' ' + row.lastName } <br/> { row.email } </TableRowColumn>
+            {contacts.map( (contact, index) => (
+              <TableRow style={styles.tableRow} key={index} selected={contact.selected}>
+                <TableRowColumn>
+                  <Avatar src={contact.avatar}
+                          style={styles.avatar}
+                  />
+                </TableRowColumn>
+                <TableRowColumn>{ contact.firstName + ' ' + contact.lastName } <br/> { contact.email } </TableRowColumn>
               </TableRow>
               ))}
           </TableBody>
