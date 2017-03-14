@@ -1,5 +1,7 @@
 import { UPDATE_CONTACT } from '~/actions/contacts/update'
 
+import avatar from '../assets/images/avatars/user-darkgreen.svg'
+
 const initialState = [
   {
     contactId: 1,
@@ -7,7 +9,8 @@ const initialState = [
     lastName: 'DePadrian',
     companyRole: 'CEO',
     companyName: 'Compainay',
-    email: 'adrian@compainay.com'
+    email: 'adrian@compainay.com',
+    avatar
   },
   {
     contactId: 2,
@@ -15,7 +18,8 @@ const initialState = [
     lastName: 'BlaBla',
     companyRole: 'CEO',
     companyName: 'Compainay',
-    email: 'tanja@compainay.com'
+    email: 'tanja@compainay.com',
+    avatar
   },
   {
     contactId: 3,
@@ -23,7 +27,8 @@ const initialState = [
     lastName: 'BlaBla',
     companyRole: 'CEO',
     companyName: 'Compainay',
-    email: 'tanja@compainay.com'
+    email: 'tanja@compainay.com',
+    avatar
   },
   {
     contactId: 4,
@@ -31,7 +36,8 @@ const initialState = [
     lastName: 'BlaBla',
     companyRole: 'CEO',
     companyName: 'Compainay',
-    email: 'tanja@compainay.com'
+    email: 'tanja@compainay.com',
+    avatar
   },
   {
     contactId: 5,
@@ -39,7 +45,8 @@ const initialState = [
     lastName: 'BlaBla',
     companyRole: 'CEO',
     companyName: 'Compainay',
-    email: 'tanja@compainay.com'
+    email: 'tanja@compainay.com',
+    avatar
   },
   {
     contactId: 6,
@@ -47,7 +54,8 @@ const initialState = [
     lastName: 'BlaBla',
     companyRole: 'CEO',
     companyName: 'Compainay',
-    email: 'tanja@compainay.com'
+    email: 'tanja@compainay.com',
+    avatar
   },
   {
     contactId: 7,
@@ -55,7 +63,170 @@ const initialState = [
     lastName: 'BlaBla',
     companyRole: 'CEO',
     companyName: 'Compainay',
-    email: 'tanja@compainay.com'
+    email: 'tanja@compainay.com',
+    avatar
+  },
+  {
+    contactId: 7,
+    firstName: 'Math',
+    lastName: 'BlaBla',
+    companyRole: 'CEO',
+    companyName: 'Compainay',
+    email: 'tanja@compainay.com',
+    avatar
+  },
+  {
+    contactId: 7,
+    firstName: 'Math',
+    lastName: 'BlaBla',
+    companyRole: 'CEO',
+    companyName: 'Compainay',
+    email: 'tanja@compainay.com',
+    avatar
+  },
+  {
+    contactId: 7,
+    firstName: 'Math',
+    lastName: 'BlaBla',
+    companyRole: 'CEO',
+    companyName: 'Compainay',
+    email: 'tanja@compainay.com',
+    avatar
+  },
+  {
+    contactId: 7,
+    firstName: 'Math',
+    lastName: 'BlaBla',
+    companyRole: 'CEO',
+    companyName: 'Compainay',
+    email: 'tanja@compainay.com',
+    avatar
+  },
+  {
+    contactId: 7,
+    firstName: 'Math',
+    lastName: 'BlaBla',
+    companyRole: 'CEO',
+    companyName: 'Compainay',
+    email: 'tanja@compainay.com',
+    avatar
+  },
+  {
+    contactId: 7,
+    firstName: 'Math',
+    lastName: 'BlaBla',
+    companyRole: 'CEO',
+    companyName: 'Compainay',
+    email: 'tanja@compainay.com',
+    avatar
+  },
+  {
+    contactId: 7,
+    firstName: 'Math',
+    lastName: 'BlaBla',
+    companyRole: 'CEO',
+    companyName: 'Compainay',
+    email: 'tanja@compainay.com',
+    avatar
+  },
+  {
+    contactId: 7,
+    firstName: 'Math',
+    lastName: 'BlaBla',
+    companyRole: 'CEO',
+    companyName: 'Compainay',
+    email: 'tanja@compainay.com',
+    avatar
+  },
+  {
+    contactId: 7,
+    firstName: 'Math',
+    lastName: 'BlaBla',
+    companyRole: 'CEO',
+    companyName: 'Compainay',
+    email: 'tanja@compainay.com',
+    avatar
+  },
+  {
+    contactId: 7,
+    firstName: 'Math',
+    lastName: 'BlaBla',
+    companyRole: 'CEO',
+    companyName: 'Compainay',
+    email: 'tanja@compainay.com',
+    avatar
+  },
+  {
+    contactId: 7,
+    firstName: 'Math',
+    lastName: 'BlaBla',
+    companyRole: 'CEO',
+    companyName: 'Compainay',
+    email: 'tanja@compainay.com',
+    avatar
+  },
+  {
+    contactId: 7,
+    firstName: 'Math',
+    lastName: 'BlaBla',
+    companyRole: 'CEO',
+    companyName: 'Compainay',
+    email: 'tanja@compainay.com',
+    avatar
+  },
+  {
+    contactId: 7,
+    firstName: 'Math',
+    lastName: 'BlaBla',
+    companyRole: 'CEO',
+    companyName: 'Compainay',
+    email: 'tanja@compainay.com',
+    avatar
+  },
+  {
+    contactId: 7,
+    firstName: 'Math',
+    lastName: 'BlaBla',
+    companyRole: 'CEO',
+    companyName: 'Compainay',
+    email: 'tanja@compainay.com',
+    avatar
+  },
+  {
+    contactId: 7,
+    firstName: 'Math',
+    lastName: 'BlaBla',
+    companyRole: 'CEO',
+    companyName: 'Compainay',
+    email: 'tanja@compainay.com',
+    avatar
+  },
+  {
+    contactId: 7,
+    firstName: 'Math',
+    lastName: 'BlaBla',
+    companyRole: 'CEO',
+    companyName: 'Compainay',
+    email: 'tanja@compainay.com',
+    avatar
+  },
+  {
+    contactId: 7,
+    firstName: 'Math',
+    lastName: 'BlaBla',
+    companyRole: 'CEO',
+    companyName: 'Compainay',
+    email: 'tanja@compainay.com',
+    avatar
+  },
+  {
+    contactId: 7,
+    firstName: 'Math',
+    lastName: 'BlaBla',
+    companyRole: 'CEO',
+    companyName: 'Compainay',
+    email: 'tanja@compainay.com',
+    avatar
   }
 ]
 

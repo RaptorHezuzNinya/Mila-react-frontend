@@ -1,0 +1,29 @@
+@import "../assets/styles/base/breakpoints.sass"
+
+.th-top-row
+  text-align: left !important
+  @include breakpoint($breakpoint-land)
+    text-align: center !important
+
+.th-name-email
+
+.th-company, .td-company
+  display: none
+  // @include breakpoint($breakpoint-land)
+  //   display: inline-block
+
+.col-avatar
+  padding-left: 0px !important
+  padding-right: 0px !important
+  width: 60px
+
+.col-name-email
+  .name-email
+    line-height: 25px
+
+
+.yoloswag
+  table th.small
+  @include breakpoint($breakpoint-land)
+    table th.small
+      table td[colspan="3"]

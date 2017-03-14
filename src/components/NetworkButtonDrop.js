@@ -3,13 +3,14 @@ import React, { PureComponent, PropTypes } from 'react'
 // Material ui comp
 import DropDownMenu from 'material-ui/DropDownMenu'
 import MenuItem from 'material-ui/MenuItem'
+import ListIcon from 'material-ui/svg-icons/action/list'
 
 // styles
 import './NetworkButtonDrop.sass'
 
 const styles = {
   customWidth: {
-    width: '100%'
+    width: '100%',
   }
 }
 
