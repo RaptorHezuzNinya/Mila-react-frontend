@@ -51,6 +51,27 @@ class NetworkList extends PureComponent {
     };
   }
 
+  componentDidMount() {
+    window.addEventListener('resize', this.onResize.bind(this))
+  }
+
+  onResize = () => {
+    let lol = document.documentElement.clientWidth
+    console.log('loggin window width', lol)
+
+  }
+
+  checkSize = () => {
+    if ($('td.large-only').css('display') === 'table-cell' ) {
+      $('td[colspan]').attr('colspan', '5')
+
+    } else {
+      $('td[colspan]').attr('colspan', '3')
+
+    }
+  }
+
+
   renderContactRow(row, index) {
     return <ContactRow key={index} {...row} index={index}  />
   }
