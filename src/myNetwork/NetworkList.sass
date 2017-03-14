@@ -2,13 +2,15 @@
 
 .th-top-row
   text-align: left !important
+  @include breakpoint($breakpoint-land)
+    text-align: center !important
 
 .th-name-email
 
 .th-company, .td-company
   display: none
-  @include breakpoint($breakpoint-land)
-    display: inline-block
+  // @include breakpoint($breakpoint-land)
+  //   display: inline-block
 
 .col-avatar
   padding-left: 0px !important
