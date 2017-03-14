@@ -9,7 +9,8 @@ const initialState = [
     lastName: 'DePadrian',
     companyRole: 'CEO',
     companyName: 'Compainay',
-    email: 'adrian@compainay.com'
+    email: 'adrian@compainay.com',
+    avaDarkGreen
   },
   {
     contactId: 2,
@@ -17,7 +18,8 @@ const initialState = [
     lastName: 'BlaBla',
     companyRole: 'CEO',
     companyName: 'Compainay',
-    email: 'tanja@compainay.com'
+    email: 'tanja@compainay.com',
+    avaDarkGreen
   },
   {
     contactId: 3,
@@ -25,7 +27,8 @@ const initialState = [
     lastName: 'BlaBla',
     companyRole: 'CEO',
     companyName: 'Compainay',
-    email: 'tanja@compainay.com'
+    email: 'tanja@compainay.com',
+    avaDarkGreen
   },
   {
     contactId: 4,
@@ -33,7 +36,8 @@ const initialState = [
     lastName: 'BlaBla',
     companyRole: 'CEO',
     companyName: 'Compainay',
-    email: 'tanja@compainay.com'
+    email: 'tanja@compainay.com',
+    avaDarkGreen
   },
   {
     contactId: 5,
@@ -41,7 +45,8 @@ const initialState = [
     lastName: 'BlaBla',
     companyRole: 'CEO',
     companyName: 'Compainay',
-    email: 'tanja@compainay.com'
+    email: 'tanja@compainay.com',
+    avaDarkGreen
   },
   {
     contactId: 6,
@@ -49,7 +54,8 @@ const initialState = [
     lastName: 'BlaBla',
     companyRole: 'CEO',
     companyName: 'Compainay',
-    email: 'tanja@compainay.com'
+    email: 'tanja@compainay.com',
+    avaDarkGreen
   },
   {
     contactId: 7,
@@ -57,7 +63,8 @@ const initialState = [
     lastName: 'BlaBla',
     companyRole: 'CEO',
     companyName: 'Compainay',
-    email: 'tanja@compainay.com'
+    email: 'tanja@compainay.com',
+    avaDarkGreen
   },
   {
     contactId: 7,
@@ -65,7 +72,8 @@ const initialState = [
     lastName: 'BlaBla',
     companyRole: 'CEO',
     companyName: 'Compainay',
-    email: 'tanja@compainay.com'
+    email: 'tanja@compainay.com',
+    avaDarkGreen
   },
   {
     contactId: 7,
@@ -73,7 +81,8 @@ const initialState = [
     lastName: 'BlaBla',
     companyRole: 'CEO',
     companyName: 'Compainay',
-    email: 'tanja@compainay.com'
+    email: 'tanja@compainay.com',
+    avaDarkGreen
   },
   {
     contactId: 7,
@@ -81,7 +90,8 @@ const initialState = [
     lastName: 'BlaBla',
     companyRole: 'CEO',
     companyName: 'Compainay',
-    email: 'tanja@compainay.com'
+    email: 'tanja@compainay.com',
+    avaDarkGreen
   },
   {
     contactId: 7,
@@ -89,7 +99,8 @@ const initialState = [
     lastName: 'BlaBla',
     companyRole: 'CEO',
     companyName: 'Compainay',
-    email: 'tanja@compainay.com'
+    email: 'tanja@compainay.com',
+    avaDarkGreen
   },
   {
     contactId: 7,
@@ -97,7 +108,8 @@ const initialState = [
     lastName: 'BlaBla',
     companyRole: 'CEO',
     companyName: 'Compainay',
-    email: 'tanja@compainay.com'
+    email: 'tanja@compainay.com',
+    avaDarkGreen
   },
   {
     contactId: 7,
@@ -105,7 +117,8 @@ const initialState = [
     lastName: 'BlaBla',
     companyRole: 'CEO',
     companyName: 'Compainay',
-    email: 'tanja@compainay.com'
+    email: 'tanja@compainay.com',
+    avaDarkGreen
   },
   {
     contactId: 7,
@@ -113,7 +126,8 @@ const initialState = [
     lastName: 'BlaBla',
     companyRole: 'CEO',
     companyName: 'Compainay',
-    email: 'tanja@compainay.com'
+    email: 'tanja@compainay.com',
+    avaDarkGreen
   },
   {
     contactId: 7,
@@ -121,7 +135,8 @@ const initialState = [
     lastName: 'BlaBla',
     companyRole: 'CEO',
     companyName: 'Compainay',
-    email: 'tanja@compainay.com'
+    email: 'tanja@compainay.com',
+    avaDarkGreen
   },
   {
     contactId: 7,
@@ -129,7 +144,8 @@ const initialState = [
     lastName: 'BlaBla',
     companyRole: 'CEO',
     companyName: 'Compainay',
-    email: 'tanja@compainay.com'
+    email: 'tanja@compainay.com',
+    avaDarkGreen
   },
   {
     contactId: 7,
@@ -137,7 +153,8 @@ const initialState = [
     lastName: 'BlaBla',
     companyRole: 'CEO',
     companyName: 'Compainay',
-    email: 'tanja@compainay.com'
+    email: 'tanja@compainay.com',
+    avaDarkGreen
   },
   {
     contactId: 7,
@@ -145,7 +162,8 @@ const initialState = [
     lastName: 'BlaBla',
     companyRole: 'CEO',
     companyName: 'Compainay',
-    email: 'tanja@compainay.com'
+    email: 'tanja@compainay.com',
+    avaDarkGreen
   },
   {
     contactId: 7,
@@ -153,7 +171,8 @@ const initialState = [
     lastName: 'BlaBla',
     companyRole: 'CEO',
     companyName: 'Compainay',
-    email: 'tanja@compainay.com'
+    email: 'tanja@compainay.com',
+    avaDarkGreen
   },
   {
     contactId: 7,
@@ -161,7 +180,8 @@ const initialState = [
     lastName: 'BlaBla',
     companyRole: 'CEO',
     companyName: 'Compainay',
-    email: 'tanja@compainay.com'
+    email: 'tanja@compainay.com',
+    avaDarkGreen
   },
   {
     contactId: 7,
@@ -169,7 +189,8 @@ const initialState = [
     lastName: 'BlaBla',
     companyRole: 'CEO',
     companyName: 'Compainay',
-    email: 'tanja@compainay.com'
+    email: 'tanja@compainay.com',
+    avaDarkGreen
   },
   {
     contactId: 7,
@@ -177,7 +198,8 @@ const initialState = [
     lastName: 'BlaBla',
     companyRole: 'CEO',
     companyName: 'Compainay',
-    email: 'tanja@compainay.com'
+    email: 'tanja@compainay.com',
+    avaDarkGreen
   },
   {
     contactId: 7,
@@ -185,7 +207,8 @@ const initialState = [
     lastName: 'BlaBla',
     companyRole: 'CEO',
     companyName: 'Compainay',
-    email: 'tanja@compainay.com'
+    email: 'tanja@compainay.com',
+    avaDarkGreen
   },
   {
     contactId: 7,
@@ -193,7 +216,8 @@ const initialState = [
     lastName: 'BlaBla',
     companyRole: 'CEO',
     companyName: 'Compainay',
-    email: 'tanja@compainay.com'
+    email: 'tanja@compainay.com',
+    avaDarkGreen
   },
   {
     contactId: 7,
@@ -201,7 +225,8 @@ const initialState = [
     lastName: 'BlaBla',
     companyRole: 'CEO',
     companyName: 'Compainay',
-    email: 'tanja@compainay.com'
+    email: 'tanja@compainay.com',
+    avaDarkGreen
   }
 ]
 
