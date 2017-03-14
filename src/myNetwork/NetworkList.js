@@ -51,8 +51,8 @@ class NetworkList extends PureComponent {
   }
 
   render() {
-    const { contacts } = this.props
-
+    const { contacts, avatar } = this.props
+    debugger
     return (
       <div>
         <Table
