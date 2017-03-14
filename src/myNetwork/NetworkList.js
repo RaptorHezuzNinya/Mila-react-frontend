@@ -9,9 +9,9 @@ import networkList from '~/reducers/networklists'
 // Material UI Components
 import {Table, TableBody, TableFooter, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table';
 import TextField from 'material-ui/TextField';
-import Toggle from 'material-ui/Toggle';
 
-
+// styles
+import './Networklist.sass'
 
 class NetworkList extends PureComponent {
 
