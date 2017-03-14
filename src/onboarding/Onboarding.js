@@ -21,9 +21,7 @@ class Onboarding extends PureComponent {
         </Card>
       </div>
     )
-
   }
-
 }
 
 export default Onboarding
