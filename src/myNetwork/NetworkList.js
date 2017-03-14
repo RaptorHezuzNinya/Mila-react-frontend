@@ -97,9 +97,14 @@ class NetworkList extends PureComponent {
             displayRowCheckbox={this.state.showCheckboxes}
             deselectOnClickaway={this.state.deselectOnClickaway}
           >
-            {contacts.map( (row, index) => (
-              <TableRow key={index} selected={row.selected}>
-                <TableRowColumn>{ row.firstName + ' ' + row.lastName } <br/> { row.email } </TableRowColumn>
+            {contacts.map( (contact, index) => (
+              <TableRow style={styles.tableRow} key={index} selected={contact.selected}>
+                <TableRowColumn>
+                  <Avatar src={contact.avatar}
+                          style={styles.avatar}
+                  />
+                </TableRowColumn>
+                <TableRowColumn>{ contact.firstName + ' ' + contact.lastName } <br/> { contact.email } </TableRowColumn>
               </TableRow>
               ))}
           </TableBody>
