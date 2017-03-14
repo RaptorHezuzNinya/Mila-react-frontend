@@ -1,5 +1,7 @@
 import { UPDATE_CONTACT } from '~/actions/contacts/update'
 
+import avaDarkGreen from '../assets/images/icons/user-darkgreen.svg'
+
 const initialState = [
   {
     contactId: 1,
