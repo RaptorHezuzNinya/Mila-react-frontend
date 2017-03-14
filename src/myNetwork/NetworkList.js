@@ -28,11 +28,11 @@ class NetworkList extends PureComponent {
       stripedRows: true,
       showRowHover: false,
       selectable: true,
-      multiSelectable: false,
-      enableSelectAll: false,
+      multiSelectable: true,
+      enableSelectAll: true,
       deselectOnClickaway: true,
       showCheckboxes: true,
-      height: '1750px',
+      height: '1300px',
     };
   }
 
