@@ -1,7 +1,6 @@
 import React, { PureComponent, PropTypes } from 'react'
 
 // Components
-// import ContactRow from './ContactRow'
 
 // Actions && Reducers
 import networkList from '~/reducers/networklists'
@@ -29,7 +28,7 @@ const styles = {
 class NetworkList extends PureComponent {
 
   static propTypes = {
-
+    
   }
 
   constructor(props){
