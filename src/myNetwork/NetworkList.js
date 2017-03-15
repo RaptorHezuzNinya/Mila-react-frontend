@@ -80,7 +80,7 @@ class NetworkList extends PureComponent {
       thNameEmail[0].setAttribute('colSpan', '8')
       thCompany[0].setAttribute('colSpan', '4')
     } if (width >= 769) {
-      console.log('lol')
+  
       thNameEmail[0].setAttribute('colSpan', '3')
       thCompany[0].setAttribute('colSpan', '3')
 
