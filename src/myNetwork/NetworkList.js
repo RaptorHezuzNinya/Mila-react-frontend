@@ -47,29 +47,58 @@ class NetworkList extends PureComponent {
       enableSelectAll: true,
       deselectOnClickaway: true,
       showCheckboxes: true,
-      height: '1300px',
+      height: '150px',
     };
+  }
+
+  componentWillMount() {
+
   }
 
   componentDidMount() {
     window.addEventListener('resize', this.onResize.bind(this))
+    this.onResize()
   }
 
   onResize = () => {
-    let lol = document.documentElement.clientWidth
-    console.log('loggin window width', lol)
+    const width = document.documentElement.clientWidth
+    // hier call ik zo checkSize(width)
+    this.changeTable(width)
 
   }
 
-  checkSize = () => {
-    if ($('td.large-only').css('display') === 'table-cell' ) {
-      $('td[colspan]').attr('colspan', '5')
+  changeTable(width) {
+    const thNameEmail = document.getElementsByClassName('th-name-email')
+    const thCompany = document.getElementsByClassName('th-company')
+    const thEmails = document.getElementsByClassName('th-emails')
+    const thLast = document.getElementsByClassName('th-last')
+    const thAddBy = document.getElementsByClassName('th-add-by')
+    const thListApp = document.getElementsByClassName('th-list-app')
+    if (width < 480) {
+      thNameEmail[0].setAttribute('colSpan', '12')
+    } if (width >= 480) {
+      thNameEmail[0].setAttribute('colSpan', '8')
+      thCompany[0].setAttribute('colSpan', '4')
+    } if (width >= 769) {
+  
+      thNameEmail[0].setAttribute('colSpan', '3')
+      thCompany[0].setAttribute('colSpan', '3')
 
-    } else {
-      $('td[colspan]').attr('colspan', '3')
+      thEmails[0].setAttribute('colSpan', '1')
+      thLast[0].setAttribute('colSpan', '1')
+      thAddBy[0].setAttribute('colSpan', '1')
+      thListApp[0].setAttribute('colSpan', '1')
+    } if (width > 960) {
 
+      thNameEmail[0].setAttribute('colSpan', '3')
+      thCompany[0].setAttribute('colSpan', '3')
+
+      thEmails[0].setAttribute('colSpan', '1')
+      thLast[0].setAttribute('colSpan', '2')
+      thAddBy[0].setAttribute('colSpan', '1')
+      thListApp[0].setAttribute('colSpan', '2')
     }
-  }
+  };
 
 
   renderContactRow(row, index) {
@@ -87,62 +116,76 @@ class NetworkList extends PureComponent {
   }
 
 
-
   render() {
-    const { contacts, avatar} = this.props
-
+    const { contacts} = this.props
     return (
       <div>
         <Table
+          className="table-container"
           height={this.state.height}
           fixedHeader={this.state.fixedHeader}
           fixedFooter={this.state.fixedFooter}
           selectable={this.state.selectable}
           multiSelectable={this.state.multiSelectable}
         >
+
           <TableHeader
-            className="th-top"
+            className="table-head"
             displaySelectAll={this.state.showCheckboxes}
             adjustForCheckbox={this.state.showCheckboxes}
             enableSelectAll={this.state.enableSelectAll}
           >
-            <TableRow >
-              <TableHeaderColumn className="th-top-row" colSpan="6" tooltip="">
+            <TableRow className="tr-1st-row">
+              <TableHeaderColumn className="th-top-col" tooltip="" colSpan="12">
                 Delete & Tools buttons
               </TableHeaderColumn>
             </TableRow>
 
-            <TableRow className="yoloswag">
-              <TableHeaderColumn className="th-name-email small" colSpan="6" tooltip="Name & Email">Name & Email</TableHeaderColumn>
-              <TableHeaderColumn className="th-list-tools medium" colSpan="" tooltip="Lists/Tools">Lists/Tools</TableHeaderColumn>
-              <TableHeaderColumn className="th-company large" colSpan="" tooltip="The Status">Company</TableHeaderColumn>
+            <TableRow className="tr-2nd-row">
+              <TableHeaderColumn className="th-name-email" id="th-name-email" tooltip="Name & Email" colSpan="12" >Name & Email </TableHeaderColumn>
+              <TableHeaderColumn className="th-company" tooltip="The Status" colSpan="0">Company & Role</TableHeaderColumn>
+              <TableHeaderColumn className="th-emails" tooltip="lol" colSpan="0">Emails</TableHeaderColumn>
+              <TableHeaderColumn className="th-last" tooltip="lol" colSpan="0">Last contacted</TableHeaderColumn>
+              <TableHeaderColumn className="th-add-by" tooltip="lol" colSpan="0">Added by</TableHeaderColumn>
+              <TableHeaderColumn className="th-list-app" tooltip="lol" colSpan="0">List & Apps</TableHeaderColumn>
             </TableRow>
 
           </TableHeader>
 
+
           <TableBody
+            className="tablebody"
             displayRowCheckbox={this.state.showCheckboxes}
             deselectOnClickaway={this.state.deselectOnClickaway}
           >
+
             {contacts.map( (contact, index) => (
-              <TableRow style={styles.tableRow} key={index} selected={contact.selected}>
+              <TableRow style={styles.tableRow} key={index} selected={contact.selected} colSpan="12">
                 <TableRowColumn className="col-avatar">
                   <Avatar src={contact.avatar}
                           style={styles.avatar}
                   />
                 </TableRowColumn>
-                <TableRowColumn className="col-name-email">
+                <TableRowColumn className="col-name-email" colSpan="8">
                   <p className="name-email">
                     { contact.firstName + ' ' + contact.lastName } <br/> { contact.email }
                   </p>
                 </TableRowColumn>
+                <TableRowColumn className="col-company" colSpan="4">
+                  <p className="company-name">
+                    { contact.companyName }
+                  </p>
+                </TableRowColumn>
               </TableRow>
               ))}
+
           </TableBody>
+
+
 
           <TableFooter>
             <TableRow>
-              <TableRowColumn colSpan="6" style={styles.footer}>
+              <TableRowColumn style={styles.footer} colSpan="12">
                 Loading contacts...
               </TableRowColumn>
             </TableRow>

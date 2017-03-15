@@ -1,29 +1,63 @@
 @import "../assets/styles/base/breakpoints.sass"
 
-.th-top-row
-  text-align: left !important
-  @include breakpoint($breakpoint-land)
-    text-align: center !important
+.table-head
 
-.th-name-email
+  .tr-1st-row
 
-.th-company, .td-company
+    .th-top-col
+
+  .tr-2nd-row
+
+    .th-name-email
+      border: black solid 1px
+      text-align: center !important
+
+    .th-company
+      border: black solid 1px
+      display: none
+      text-align: center !important
+      @include breakpoint($breakpoint-land)
+        display: table-cell
+
+    .th-emails
+      border: 1px solid black
+      display: none
+      @include breakpoint($breakpoint-medium)
+        display: table-cell
+
+    .th-last
+      border: 1px solid black
+      display: none
+      @include breakpoint($breakpoint-medium)
+        display: table-cell
+
+    .th-add-by
+      border: 1px solid black
+      display: none
+      @include breakpoint($breakpoint-medium)
+        display: table-cell
+
+    .th-list-app
+      border: 1px solid black
+      display: none
+      @include breakpoint($breakpoint-medium)
+        display: table-cell
+// end of table head
+
+// table body
+.tablebody
   display: none
-  // @include breakpoint($breakpoint-land)
-  //   display: inline-block
+  .col-avatar
+    // border: black solid 1px
+    width: 60px
+    padding-left: 0 !important
+    padding-right: 0 !important
 
-.col-avatar
-  padding-left: 0px !important
-  padding-right: 0px !important
-  width: 60px
+  .col-name-email
+    // border: black solid 1px
 
-.col-name-email
-  .name-email
-    line-height: 25px
-
-
-.yoloswag
-  table th.small
-  @include breakpoint($breakpoint-land)
-    table th.small
-      table td[colspan="3"]
+  .col-company
+    display: none
+    @include breakpoint($breakpoint-land)
+      // border: black solid 1px
+      display: table-cell
