@@ -87,6 +87,7 @@ class NetworkList extends PureComponent {
       thEmails[0].setAttribute('colSpan', '1')
       thLast[0].setAttribute('colSpan', '2')
       thAddBy[0].setAttribute('colSpan', '1')
+      thListApp[0].setAttribute('colSpan', '2')
     }
   };
 
