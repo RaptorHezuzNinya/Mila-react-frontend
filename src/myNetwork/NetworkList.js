@@ -50,6 +50,7 @@ class NetworkList extends PureComponent {
       height: '100%',
     };
   }
+
   componentWillMount() {
 
   }
@@ -119,16 +120,15 @@ class NetworkList extends PureComponent {
             enableSelectAll={this.state.enableSelectAll}
           >
             <TableRow className="tr-1st-row">
-              <TableHeaderColumn className="th-top-col" tooltip="" colSpan="12"
-              >
+              <TableHeaderColumn className="th-top-col" tooltip="" colSpan="12">
                 Delete & Tools buttons
               </TableHeaderColumn>
             </TableRow>
 
             <TableRow className="tr-2nd-row">
               <TableHeaderColumn className="th-name-email" id="th-name-email" tooltip="Name & Email" colSpan="12" >Name & Email </TableHeaderColumn>
-              <TableHeaderColumn className="th-company" id="th-company" tooltip="The Status" colSpan="0">Company</TableHeaderColumn>
-              {/* <TableHeaderColumn className="th-list-tools" tooltip="Lists/Tools" colSpan="4">Lists/Tools</TableHeaderColumn> */}
+              <TableHeaderColumn className="th-company" id="th-company" tooltip="The Status" colSpan="0">Company & Role</TableHeaderColumn>
+              <TableHeaderColumn className="th-emails" tooltip="" colSpan="0">Emails</TableHeaderColumn>
             </TableRow>
 
           </TableHeader>
