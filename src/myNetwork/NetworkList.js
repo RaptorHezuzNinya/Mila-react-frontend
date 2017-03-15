@@ -63,11 +63,11 @@ class NetworkList extends PureComponent {
   onResize = () => {
     const width = document.documentElement.clientWidth
     // hier call ik zo checkSize(width)
-    this.checkSize(width)
+    this.changeTable(width)
 
   }
 
-  checkSize(width) {
+  changeTable(width) {
     const thNameEmail = document.getElementsByClassName('th-name-email')
     const thCompany = document.getElementsByClassName('th-company')
     const thEmails = document.getElementsByClassName('th-emails')
