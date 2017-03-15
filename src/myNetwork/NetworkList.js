@@ -50,26 +50,38 @@ class NetworkList extends PureComponent {
       height: '100%',
     };
   }
+  componentWillMount() {
+
+  }
 
   componentDidMount() {
     window.addEventListener('resize', this.onResize.bind(this))
+
   }
+
 
   onResize = () => {
-    let lol = document.documentElement.clientWidth
-    console.log('loggin window width', lol)
+    const width = document.documentElement.clientWidth
+    // console.log('loggin window width', width)
+    // hier call ik zo checkSize(width)
+    { this.checkSize(width) }
 
   }
 
-  // checkSize = () => {
-  //   if ($('td.large-only').css('display') === 'table-cell' ) {
-  //     $('td[colspan]').attr('colspan', '5')
-  //
-  //   } else {
-  //     $('td[colspan]').attr('colspan', '3')
-  //
-  //   }
-  // }
+  checkSize(width) {
+    if (width < 480) {
+      const thNameEmail = document.getElementsByClassName('th-name-email')
+      thNameEmail[0].setAttribute('colSpan', '12')
+
+    } else if (width >= 480) {
+      const thNameEmail = document.getElementsByClassName('th-name-email')
+      const thCompany = document.getElementsByClassName('th-company')
+
+      thNameEmail[0].setAttribute('colSpan', '8')
+      thCompany[0].setAttribute('colSpan', '4')
+    }
+  };
+
 
 
   renderContactRow(row, index) {
