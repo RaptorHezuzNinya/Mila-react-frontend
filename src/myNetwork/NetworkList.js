@@ -72,6 +72,7 @@ class NetworkList extends PureComponent {
     const thCompany = document.getElementsByClassName('th-company')
     const thEmails = document.getElementsByClassName('th-emails')
     const thLast = document.getElementsByClassName('th-last')
+    const thAddBy = document.getElementsByClassName('th-add-by')
     if (width < 480) {
       thNameEmail[0].setAttribute('colSpan', '12')
     } else if (width >= 480) {
