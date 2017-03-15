@@ -68,26 +68,20 @@ class NetworkList extends PureComponent {
   }
 
   checkSize(width) {
+    const thNameEmail = document.getElementsByClassName('th-name-email')
+    const thCompany = document.getElementsByClassName('th-company')
+    const thEmails = document.getElementsByClassName('th-emails')
     if (width < 480) {
-      const thNameEmail = document.getElementsByClassName('th-name-email')
       thNameEmail[0].setAttribute('colSpan', '12')
-
     } else if (width >= 480) {
-      const thNameEmail = document.getElementsByClassName('th-name-email')
-      const thCompany = document.getElementsByClassName('th-company')
       thNameEmail[0].setAttribute('colSpan', '8')
       thCompany[0].setAttribute('colSpan', '4')
+    } else if (width > 769) {
+      console.log('lol')
+      thNameEmail[0].setAttribute('colSpan', '3')
+      thCompany[0].setAttribute('colSpan', '3')
+      thEmails[0].setAttribute('colSpan', '5')
     }
-    // else if (width > 769) {
-    //   console.log('lol')
-    //   const thNameEmail = document.getElementsByClassName('th-name-email')
-    //   const thCompany = document.getElementsByClassName('th-company')
-    //   const thEmails = document.getElementsByClassName('th-emails')
-    //   thNameEmail[0].setAttribute('colSpan', '3')
-    //   thCompany[0].setAttribute('colSpan', '3')
-    //   thEmails[0].setAttribute('colSpan', '6')
-    // }
-
   };
 
 
