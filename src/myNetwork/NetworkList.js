@@ -47,7 +47,7 @@ class NetworkList extends PureComponent {
       enableSelectAll: true,
       deselectOnClickaway: true,
       showCheckboxes: true,
-      height: '100%',
+      height: '150px',
     };
   }
 
