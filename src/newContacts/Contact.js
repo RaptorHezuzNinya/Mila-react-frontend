@@ -165,6 +165,7 @@ class Contact extends PureComponent {
 
             <div className="contact-card-avatar">
               <Avatar
+                className="contact-card-avatar-img"
                 style={styles.avatar}
                 src={this.props.avatar}
               />
