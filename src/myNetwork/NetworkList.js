@@ -56,16 +56,13 @@ class NetworkList extends PureComponent {
 
   componentDidMount() {
     window.addEventListener('resize', this.onResize.bind(this))
-    { this.onResize() }
-
+    this.onResize()
   }
-
 
   onResize = () => {
     const width = document.documentElement.clientWidth
-    // console.log('loggin window width', width)
     // hier call ik zo checkSize(width)
-    { this.checkSize(width) }
+    this.checkSize(width)
 
   }
 
