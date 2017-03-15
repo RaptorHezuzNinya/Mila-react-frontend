@@ -142,18 +142,18 @@ class NetworkList extends PureComponent {
           >
 
             {contacts.map( (contact, index) => (
-              <TableRow style={styles.tableRow} key={index} selected={contact.selected}>
+              <TableRow style={styles.tableRow} key={index} selected={contact.selected} colSpan="12">
                 <TableRowColumn className="col-avatar">
                   <Avatar src={contact.avatar}
                           style={styles.avatar}
                   />
                 </TableRowColumn>
-                <TableRowColumn className="col-name-email">
+                <TableRowColumn className="col-name-email" colSpan="8">
                   <p className="name-email">
                     { contact.firstName + ' ' + contact.lastName } <br/> { contact.email }
                   </p>
                 </TableRowColumn>
-                <TableRowColumn className="col-company">
+                <TableRowColumn className="col-company" colSpan="4">
                   <p className="company-name">
                     { contact.companyName }
                   </p>
