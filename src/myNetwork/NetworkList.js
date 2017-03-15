@@ -56,6 +56,7 @@ class NetworkList extends PureComponent {
 
   componentDidMount() {
     window.addEventListener('resize', this.onResize.bind(this))
+    { this.onResize() }
 
   }
 
