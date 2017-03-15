@@ -142,13 +142,21 @@ class NetworkList extends PureComponent {
                     { contact.firstName + ' ' + contact.lastName } <br/> { contact.email }
                   </p>
                 </TableRowColumn>
+                <TableRowColumn className="col-company">
+                  <p className="company-name">
+                    { contact.companyName }
+                  </p>
+                </TableRowColumn>
               </TableRow>
               ))}
+
           </TableBody>
+
+
 
           <TableFooter>
             <TableRow>
-              <TableRowColumn colSpan="6" style={styles.footer}>
+              <TableRowColumn style={styles.footer} colSpan="12">
                 Loading contacts...
               </TableRowColumn>
             </TableRow>
