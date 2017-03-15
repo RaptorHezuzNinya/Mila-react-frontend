@@ -81,7 +81,8 @@ class NetworkList extends PureComponent {
       console.log('lol')
       thNameEmail[0].setAttribute('colSpan', '3')
       thCompany[0].setAttribute('colSpan', '3')
-      thEmails[0].setAttribute('colSpan', '6')
+      thEmails[0].setAttribute('colSpan', '3')
+      thLast[0].setAttribute('colSpan', '3')
     }
   };
 
