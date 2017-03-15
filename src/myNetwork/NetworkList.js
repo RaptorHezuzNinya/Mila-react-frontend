@@ -78,6 +78,7 @@ class NetworkList extends PureComponent {
       thNameEmail[0].setAttribute('colSpan', '8')
       thCompany[0].setAttribute('colSpan', '4')
     }
+
   };
 
 
