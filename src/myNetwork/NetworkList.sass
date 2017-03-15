@@ -18,6 +18,11 @@
       @include breakpoint($breakpoint-land)
         display: table-cell
 
+    .th-emails
+      display: none
+      @include breakpoint($breakpoint-medium)
+        display: table-cell
+
 // end of table head
 
 // table body
@@ -31,7 +36,6 @@
 
   .col-name-email
     // border: black solid 1px
-
 
   .col-company
     display: none
