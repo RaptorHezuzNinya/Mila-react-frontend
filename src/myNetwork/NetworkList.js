@@ -87,43 +87,49 @@ class NetworkList extends PureComponent {
   }
 
 
-
   render() {
     const { contacts, avatar} = this.props
 
     return (
       <div>
         <Table
+          className="table-container"
           height={this.state.height}
           fixedHeader={this.state.fixedHeader}
           fixedFooter={this.state.fixedFooter}
           selectable={this.state.selectable}
           multiSelectable={this.state.multiSelectable}
         >
+
+
           <TableHeader
-            className="th-top"
+            className="table-head"
             displaySelectAll={this.state.showCheckboxes}
             adjustForCheckbox={this.state.showCheckboxes}
             enableSelectAll={this.state.enableSelectAll}
           >
-            <TableRow >
-              <TableHeaderColumn className="th-top-row" colSpan="6" tooltip="">
+            <TableRow className="tr-1st-row">
+              <TableHeaderColumn className="th-top-col" tooltip="" colSpan="12"
+              >
                 Delete & Tools buttons
               </TableHeaderColumn>
             </TableRow>
 
-            <TableRow className="yoloswag">
-              <TableHeaderColumn className="th-name-email small" colSpan="5" tooltip="Name & Email">Name & Email</TableHeaderColumn>
-              <TableHeaderColumn className="th-list-tools medium" colSpan="1" tooltip="Lists/Tools">Lists/Tools</TableHeaderColumn>
-              <TableHeaderColumn className="th-company large" colSpan="" tooltip="The Status">Company</TableHeaderColumn>
+            <TableRow className="tr-2nd-row">
+              <TableHeaderColumn className="th-name-email" tooltip="Name & Email" colSpan="12" >Name & Email </TableHeaderColumn>
+              <TableHeaderColumn className="th-company" tooltip="The Status" colSpan="0">Company</TableHeaderColumn>
+              {/* <TableHeaderColumn className="th-list-tools" tooltip="Lists/Tools" colSpan="4">Lists/Tools</TableHeaderColumn> */}
             </TableRow>
 
           </TableHeader>
 
+
           <TableBody
+            className="tablebody"
             displayRowCheckbox={this.state.showCheckboxes}
             deselectOnClickaway={this.state.deselectOnClickaway}
           >
+
             {contacts.map( (contact, index) => (
               <TableRow style={styles.tableRow} key={index} selected={contact.selected}>
                 <TableRowColumn className="col-avatar">
