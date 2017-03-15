@@ -61,15 +61,15 @@ class NetworkList extends PureComponent {
 
   }
 
-  checkSize = () => {
-    if ($('td.large-only').css('display') === 'table-cell' ) {
-      $('td[colspan]').attr('colspan', '5')
-
-    } else {
-      $('td[colspan]').attr('colspan', '3')
-
-    }
-  }
+  // checkSize = () => {
+  //   if ($('td.large-only').css('display') === 'table-cell' ) {
+  //     $('td[colspan]').attr('colspan', '5')
+  //
+  //   } else {
+  //     $('td[colspan]').attr('colspan', '3')
+  //
+  //   }
+  // }
 
 
   renderContactRow(row, index) {
