@@ -53,16 +53,31 @@
 .tablebody
   // display: none
   .col-avatar
-    // border: black solid 1px
+    border: black solid 1px
     width: 60px
     padding-left: 0 !important
     padding-right: 0 !important
 
   .col-name-email
-    // border: black solid 1px
+    border: black solid 1px
 
   .col-company
     display: none
     @include breakpoint($breakpoint-land)
-      // border: black solid 1px
+      border: black solid 1px
+      display: table-cell
+      text-align: center !important
+
+  .col-emails, .col-last, .col-list-app
+    border: 1px solid black
+    display: none
+    text-align: center !important
+    @include breakpoint($breakpoint-medium)
+      display: table-cell
+
+  .col-add-by
+    border: 1px solid black
+    display: none
+    @include breakpoint($breakpoint-large)
+      text-align: center !important
       display: table-cell
