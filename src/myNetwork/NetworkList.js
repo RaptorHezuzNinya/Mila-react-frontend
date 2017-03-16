@@ -75,13 +75,8 @@ class NetworkList extends PureComponent {
     const thAddBy = document.getElementsByClassName('th-add-by')
     const thListApp = document.getElementsByClassName('th-list-app')
 
-    // const colNameEmail = document.getElementsByClassName('col-name-email')
-
-
     if (width < 480) {
       thNameEmail[0].setAttribute('colSpan', '12')
-
-      // colNameEmail[0].setAttribute('colSpan', '12')
     } else if (width >= 480) {
       thNameEmail[0].setAttribute('colSpan', '8')
       thCompany[0].setAttribute('colSpan', '4')
