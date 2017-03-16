@@ -9,55 +9,100 @@
   .tr-2nd-row
 
     .th-name-email
-      border: black solid 1px
       text-align: center !important
 
     .th-company
-      border: black solid 1px
+
       display: none
       text-align: center !important
       @include breakpoint($breakpoint-land)
         display: table-cell
 
-    .th-emails
-      border: 1px solid black
+    .th-last, .th-list-app
       display: none
+      text-align: center !important
       @include breakpoint($breakpoint-medium)
         display: table-cell
 
-    .th-last
-      border: 1px solid black
+    .th-emails
       display: none
-      @include breakpoint($breakpoint-medium)
+      text-align: center !important
+      @include breakpoint($breakpoint-large)
         display: table-cell
+        padding-left: 0 !important
+        padding-right: 0 !important
 
     .th-add-by
-      border: 1px solid black
       display: none
-      @include breakpoint($breakpoint-medium)
+      text-align: center !important
+      @include breakpoint($breakpoint-xlarge)
         display: table-cell
 
-    .th-list-app
-      border: 1px solid black
+.tablebody-container
+  .tablerow-container
+    .col-avatar
+      width: 60px
+      padding-left: 0 !important
+      padding-right: 0 !important
+
+    .col-name-email
+      width: 100% !important
+      @include breakpoint($breakpoint-land)
+        width: 51% !important
+        @include breakpoint($breakpoint-medium)
+          width: 25% !important
+          @include breakpoint($breakpoint-large)
+            width: 22% !important
+            @include breakpoint($breakpoint-xlarge)
+              width: 22% !important
+
+    .col-company
       display: none
+      @include breakpoint($breakpoint-land)
+        display: table-cell
+        width: 31% !important
+        text-align: center !important
+        @include breakpoint($breakpoint-medium)
+          width: 25% !important
+          @include breakpoint($breakpoint-large)
+            width: 23% !important
+            @include breakpoint($breakpoint-xlarge)
+              width: 27% !important
+
+    .col-emails
+      display: none
+      text-align: center !important
+      @include breakpoint($breakpoint-large)
+        display: table-cell
+        width: 6% !important
+        @include breakpoint($breakpoint-xlarge)
+          width: 6% !important
+
+    .col-last
+      display: none
+      text-align: center !important
       @include breakpoint($breakpoint-medium)
         display: table-cell
-// end of table head
+        width: 17% !important
+        @include breakpoint($breakpoint-large)
+          width: 17% !important
+          @include breakpoint($breakpoint-xlarge)
+            width: 14% !important
 
-// table body
-.tablebody
-  display: none
-  .col-avatar
-    // border: black solid 1px
-    width: 60px
-    padding-left: 0 !important
-    padding-right: 0 !important
+    .col-list-app
+      display: none
+      text-align: center !important
+      @include breakpoint($breakpoint-medium)
+        display: table-cell
+        width: 24% !important
+        @include breakpoint($breakpoint-large)
+          width: 17% !important
+          @include breakpoint($breakpoint-xlarge)
+            width: 20% !important
 
-  .col-name-email
-    // border: black solid 1px
-
-  .col-company
-    display: none
-    @include breakpoint($breakpoint-land)
-      // border: black solid 1px
-      display: table-cell
+    .col-add-by
+      display: none
+      @include breakpoint($breakpoint-xlarge)
+        display: table-cell
+        text-align: center !important
+        width: 13% !important
