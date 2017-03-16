@@ -115,6 +115,7 @@ class NetworkList extends PureComponent {
 
   render() {
     const { contacts} = this.props
+
     return (
       <div>
         <Table
@@ -133,7 +134,7 @@ class NetworkList extends PureComponent {
             enableSelectAll={this.state.enableSelectAll}
           >
             <TableRow className="tr-1st-row">
-              <TableHeaderColumn className="th-top-col" tooltip="" colSpan="12">
+              <TableHeaderColumn className="th-top-col" tooltip="" colSpan={this.state.colSpan}>
                 Delete & Tools buttons
               </TableHeaderColumn>
             </TableRow>
