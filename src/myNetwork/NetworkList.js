@@ -154,13 +154,14 @@ class NetworkList extends PureComponent {
 
 
           <TableBody
-            className="tablebody"
+            className="tablebody-container"
             displayRowCheckbox={this.state.showCheckboxes}
             deselectOnClickaway={this.state.deselectOnClickaway}
           >
 
             {contacts.map( (contact, index) => (
-              <TableRow style={styles.tableRow} key={index} selected={contact.selected} colSpan="12">
+              <TableRow style={styles.tableRow} key={index} selected={contact.selected} className="tablerow-container">
+
                 <TableRowColumn className="col-avatar">
                   <Avatar src={contact.avatar}
                           style={styles.avatar}
