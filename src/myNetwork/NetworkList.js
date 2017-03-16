@@ -78,7 +78,7 @@ class NetworkList extends PureComponent {
 
     if (width < 480) {
       thNameEmail[0].setAttribute('colSpan', '12')
-    } if (width >= 480) {
+    } else if (width >= 480) {
       thNameEmail[0].setAttribute('colSpan', '8')
       thCompany[0].setAttribute('colSpan', '4')
     } if (width >= 769) {
@@ -87,8 +87,7 @@ class NetworkList extends PureComponent {
       thEmails[0].setAttribute('colSpan', '2')
       thLast[0].setAttribute('colSpan', '2')
       thListApp[0].setAttribute('colSpan', '2')
-    } if (width > 960) {
-
+    } else if (width > 960) {
       thNameEmail[0].setAttribute('colSpan', '3')
       thCompany[0].setAttribute('colSpan', '3')
       thEmails[0].setAttribute('colSpan', '1')
