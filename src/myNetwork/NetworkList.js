@@ -41,14 +41,13 @@ class NetworkList extends PureComponent {
       fixedHeader: true,
       fixedFooter: true,
       stripedRows: true,
-      showRowHover: false,
+      showRowHover: true,
       selectable: true,
       multiSelectable: true,
       enableSelectAll: true,
       deselectOnClickaway: true,
       showCheckboxes: true,
       height: '100%',
-      colSpan: '12',
     };
   }
 
