@@ -198,17 +198,17 @@ class NetworkList extends PureComponent {
                 </TableRowColumn>
                 <TableRowColumn className="col-emails">
                   <p className="emails">
-                    Emails
+                    21
                   </p>
                 </TableRowColumn>
                 <TableRowColumn className="col-last">
                   <p className="last">
-                    Last contacted
+                    14-03-2017 16:03:52
                   </p>
                 </TableRowColumn>
                 <TableRowColumn className="col-add-by">
                   <p className="list-app">
-                    Added by
+                    Bertus Abma
                   </p>
                 </TableRowColumn>
                 <TableRowColumn className="col-list-app">
