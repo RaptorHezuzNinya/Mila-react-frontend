@@ -84,8 +84,8 @@ class Contact extends PureComponent {
 
     const { contactId, firstName, lastName, companyRole, companyName, email, avatar, message } = this.props
 
-    console.log('logging props', this.props)
-    console.log('logging state', this.state)
+    // console.log('logging props', this.props)
+    // console.log('logging state', this.state)
 
     return (
       <div className="container">
