@@ -1,6 +1,5 @@
 import { UPDATE_CONTACT } from '~/actions/contacts/update'
-
-import avatar from '~/assets/images/icons/user-blue.jpg'
+import avatar from '../assets/images/avatars/user-darkgreen.svg'
 
 const initialState = [
   {
@@ -40,7 +39,8 @@ const initialState = [
     companyRole: 'CEO',
     companyName: 'Compainay',
     email: 'tanja@compainay.com',
-    avatar, message: 'Re: FoundedX - Exclusive invitation to lead the creative society'
+    avatar,
+    message: 'Re: FoundedX - Exclusive invitation to lead the creative society'
   },
   {
     contactId: 5,
@@ -71,8 +71,189 @@ const initialState = [
     email: 'tanja@compainay.com',
     avatar,
     message: 'Re: FoundedX - Exclusive invitation to lead the creative society'
+  },
+  {
+    contactId: 7,
+    firstName: 'Math',
+    lastName: 'BlaBla',
+    companyRole: 'CEO',
+    companyName: 'Compainay',
+    email: 'tanja@compainay.com',
+    avatar,
+    message: 'Re: FoundedX - Exclusive invitation to lead the creative society'
+  },
+  {
+    contactId: 7,
+    firstName: 'Math',
+    lastName: 'BlaBla',
+    companyRole: 'CEO',
+    companyName: 'Compainay',
+    email: 'tanja@compainay.com',
+    avatar,
+    message: 'Re: FoundedX - Exclusive invitation to lead the creative society'
+  },
+  {
+    contactId: 7,
+    firstName: 'Math',
+    lastName: 'BlaBla',
+    companyRole: 'CEO',
+    companyName: 'Compainay',
+    email: 'tanja@compainay.com',
+    avatar,
+    message: 'Re: FoundedX - Exclusive invitation to lead the creative society'
+  },
+  {
+    contactId: 7,
+    firstName: 'Math',
+    lastName: 'BlaBla',
+    companyRole: 'CEO',
+    companyName: 'Compainay',
+    email: 'tanja@compainay.com',
+    avatar,
+    message: 'Re: FoundedX - Exclusive invitation to lead the creative society'
+  },
+  {
+    contactId: 7,
+    firstName: 'Math',
+    lastName: 'BlaBla',
+    companyRole: 'CEO',
+    companyName: 'Compainay',
+    email: 'tanja@compainay.com',
+    avatar,
+    message: 'Re: FoundedX - Exclusive invitation to lead the creative society'
+  },
+  {
+    contactId: 7,
+    firstName: 'Math',
+    lastName: 'BlaBla',
+    companyRole: 'CEO',
+    companyName: 'Compainay',
+    email: 'tanja@compainay.com',
+    avatar,
+    message: 'Re: FoundedX - Exclusive invitation to lead the creative society'
+  },
+  {
+    contactId: 7,
+    firstName: 'Math',
+    lastName: 'BlaBla',
+    companyRole: 'CEO',
+    companyName: 'Compainay',
+    email: 'tanja@compainay.com',
+    avatar,
+    message: 'Re: FoundedX - Exclusive invitation to lead the creative society'
+  },
+  {
+    contactId: 7,
+    firstName: 'Math',
+    lastName: 'BlaBla',
+    companyRole: 'CEO',
+    companyName: 'Compainay',
+    email: 'tanja@compainay.com',
+    avatar,
+    message: 'Re: FoundedX - Exclusive invitation to lead the creative society'
+  },
+  {
+    contactId: 7,
+    firstName: 'Math',
+    lastName: 'BlaBla',
+    companyRole: 'CEO',
+    companyName: 'Compainay',
+    email: 'tanja@compainay.com',
+    avatar,
+    message: 'Re: FoundedX - Exclusive invitation to lead the creative society'
+  },
+  {
+    contactId: 7,
+    firstName: 'Math',
+    lastName: 'BlaBla',
+    companyRole: 'CEO',
+    companyName: 'Compainay',
+    email: 'tanja@compainay.com',
+    avatar,
+    message: 'Re: FoundedX - Exclusive invitation to lead the creative society'
+  },
+  {
+    contactId: 7,
+    firstName: 'Math',
+    lastName: 'BlaBla',
+    companyRole: 'CEO',
+    companyName: 'Compainay',
+    email: 'tanja@compainay.com',
+    avatar,
+    message: 'Re: FoundedX - Exclusive invitation to lead the creative society'
+  },
+  {
+    contactId: 7,
+    firstName: 'Math',
+    lastName: 'BlaBla',
+    companyRole: 'CEO',
+    companyName: 'Compainay',
+    email: 'tanja@compainay.com',
+    avatar,
+    message: 'Re: FoundedX - Exclusive invitation to lead the creative society'
+  },
+  {
+    contactId: 7,
+    firstName: 'Math',
+    lastName: 'BlaBla',
+    companyRole: 'CEO',
+    companyName: 'Compainay',
+    email: 'tanja@compainay.com',
+    avatar,
+    message: 'Re: FoundedX - Exclusive invitation to lead the creative society'
+  },
+  {
+    contactId: 7,
+    firstName: 'Math',
+    lastName: 'BlaBla',
+    companyRole: 'CEO',
+    companyName: 'Compainay',
+    email: 'tanja@compainay.com',
+    avatar,
+    message: 'Re: FoundedX - Exclusive invitation to lead the creative society'
+  },
+  {
+    contactId: 7,
+    firstName: 'Math',
+    lastName: 'BlaBla',
+    companyRole: 'CEO',
+    companyName: 'Compainay',
+    email: 'tanja@compainay.com',
+    avatar,
+    message: 'Re: FoundedX - Exclusive invitation to lead the creative society'
+  },
+  {
+    contactId: 7,
+    firstName: 'Math',
+    lastName: 'BlaBla',
+    companyRole: 'CEO',
+    companyName: 'Compainay',
+    email: 'tanja@compainay.com',
+    avatar,
+    message: 'Re: FoundedX - Exclusive invitation to lead the creative society'
+  },
+  {
+    contactId: 7,
+    firstName: 'Math',
+    lastName: 'BlaBla',
+    companyRole: 'CEO',
+    companyName: 'Compainay',
+    email: 'tanja@compainay.com',
+    avatar,
+    message: 'Re: FoundedX - Exclusive invitation to lead the creative society'
+  },
+  {
+    contactId: 7,
+    firstName: 'Math',
+    lastName: 'BlaBla',
+    companyRole: 'CEO',
+    companyName: 'Compainay',
+    email: 'tanja@compainay.com',
+    avatar,
+    message: 'Re: FoundedX - Exclusive invitation to lead the creative society'
   }
 ]
+
 
 export default function contacts(state = initialState, { type, payload } = {}) {
   switch (type) {

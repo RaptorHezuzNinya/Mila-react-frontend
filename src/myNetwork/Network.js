@@ -1,8 +1,13 @@
 import React, { PureComponent, PropTypes } from 'react'
 
 // Components
-import NetworkButton from '../Components/NetworkButton'
+import NetworkButton from '../components/NetworkButton'
+import NetworkButtonDrop from '../components/NetworkButtonDrop'
 import NetworkList from './NetworkList'
+import CreateNetwork from '../components/CreateNetworkButton'
+
+// styles
+import './Network.sass'
 
 class Network extends PureComponent {
 
@@ -21,7 +26,12 @@ class Network extends PureComponent {
 
     return (
       <div className="network-component">
+        <div className="networkdropdown">
+          <NetworkButtonDrop networkLists={ networkLists }/>
+
+        </div>
         <div className="networkbutton">
+          <CreateNetwork />
           { networkLists.map(this.renderNetworkButton.bind(this)) }
         </div>
         <div className="networklist">

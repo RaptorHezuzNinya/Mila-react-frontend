@@ -1,5 +1,4 @@
 import React, { PureComponent, PropTypes } from 'react'
-import ContactRow from './ContactRow'
 
 // Components
 
@@ -7,9 +6,27 @@ import ContactRow from './ContactRow'
 import networkList from '~/reducers/networklists'
 
 // Material UI Components
-import {Table, TableBody, TableFooter, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table';
-import TextField from 'material-ui/TextField';
-import Toggle from 'material-ui/Toggle';
+import { Table, TableBody, TableFooter, TableHeader, TableHeaderColumn, TableRow, TableRowColumn } from 'material-ui/Table'
+import TextField from 'material-ui/TextField'
+import Avatar from 'material-ui/Avatar'
+
+// styles & icons
+import './Networklist.sass'
+
+const styles = {
+  avatar: {
+    borderRadius: 0,
+    width: 60,
+    height: 60,
+  },
+  tableRow: {
+    height: 89,
+  },
+  footer: {
+    textAlign: 'center'
+  }
+}
+
 
 class NetworkList extends PureComponent {
 
@@ -26,63 +43,154 @@ class NetworkList extends PureComponent {
       stripedRows: true,
       showRowHover: false,
       selectable: true,
-      multiSelectable: false,
-      enableSelectAll: false,
+      multiSelectable: true,
+      enableSelectAll: true,
       deselectOnClickaway: true,
       showCheckboxes: true,
-      height: '300px',
+      height: '150px',
     };
   }
+
+  componentWillMount() {
+
+  }
+
+  componentDidMount() {
+    window.addEventListener('resize', this.onResize.bind(this))
+    this.onResize()
+  }
+
+  onResize = () => {
+    const width = document.documentElement.clientWidth
+    // hier call ik zo checkSize(width)
+    this.changeTable(width)
+
+  }
+
+  changeTable(width) {
+    const thNameEmail = document.getElementsByClassName('th-name-email')
+    const thCompany = document.getElementsByClassName('th-company')
+    const thEmails = document.getElementsByClassName('th-emails')
+    const thLast = document.getElementsByClassName('th-last')
+    const thAddBy = document.getElementsByClassName('th-add-by')
+    const thListApp = document.getElementsByClassName('th-list-app')
+    if (width < 480) {
+      thNameEmail[0].setAttribute('colSpan', '12')
+    } if (width >= 480) {
+      thNameEmail[0].setAttribute('colSpan', '8')
+      thCompany[0].setAttribute('colSpan', '4')
+    } if (width >= 769) {
+  
+      thNameEmail[0].setAttribute('colSpan', '3')
+      thCompany[0].setAttribute('colSpan', '3')
+
+      thEmails[0].setAttribute('colSpan', '1')
+      thLast[0].setAttribute('colSpan', '1')
+      thAddBy[0].setAttribute('colSpan', '1')
+      thListApp[0].setAttribute('colSpan', '1')
+    } if (width > 960) {
+
+      thNameEmail[0].setAttribute('colSpan', '3')
+      thCompany[0].setAttribute('colSpan', '3')
+
+      thEmails[0].setAttribute('colSpan', '1')
+      thLast[0].setAttribute('colSpan', '2')
+      thAddBy[0].setAttribute('colSpan', '1')
+      thListApp[0].setAttribute('colSpan', '2')
+    }
+  };
+
 
   renderContactRow(row, index) {
     return <ContactRow key={index} {...row} index={index}  />
   }
 
-  render() {
-    const { contacts } = this.props
+  handleToggle = (event, toggled) => {
+    this.setState({
+      [event.target.name]: toggled,
+    })
+  }
 
+  handleChange = (event) => {
+    this.setState({height: event.target.value})
+  }
+
+
+  render() {
+    const { contacts} = this.props
     return (
       <div>
         <Table
+          className="table-container"
           height={this.state.height}
           fixedHeader={this.state.fixedHeader}
           fixedFooter={this.state.fixedFooter}
           selectable={this.state.selectable}
           multiSelectable={this.state.multiSelectable}
         >
+
           <TableHeader
+            className="table-head"
             displaySelectAll={this.state.showCheckboxes}
             adjustForCheckbox={this.state.showCheckboxes}
             enableSelectAll={this.state.enableSelectAll}
           >
-            <TableRow>
-              <TableHeaderColumn colSpan="3" tooltip="Super Header" style={{textAlign: 'center'}}>
-                Super Header
+            <TableRow className="tr-1st-row">
+              <TableHeaderColumn className="th-top-col" tooltip="" colSpan="12">
+                Delete & Tools buttons
               </TableHeaderColumn>
             </TableRow>
-            <TableRow>
-              <TableHeaderColumn tooltip="The ID">ID</TableHeaderColumn>
-              <TableHeaderColumn tooltip="The Name">First name</TableHeaderColumn>
-              <TableHeaderColumn tooltip="The Status">Last Name</TableHeaderColumn>
-              <TableHeaderColumn tooltip="The Status">Email</TableHeaderColumn>
-              <TableHeaderColumn tooltip="The Status">Company</TableHeaderColumn>
+
+            <TableRow className="tr-2nd-row">
+              <TableHeaderColumn className="th-name-email" id="th-name-email" tooltip="Name & Email" colSpan="12" >Name & Email </TableHeaderColumn>
+              <TableHeaderColumn className="th-company" tooltip="The Status" colSpan="0">Company & Role</TableHeaderColumn>
+              <TableHeaderColumn className="th-emails" tooltip="lol" colSpan="0">Emails</TableHeaderColumn>
+              <TableHeaderColumn className="th-last" tooltip="lol" colSpan="0">Last contacted</TableHeaderColumn>
+              <TableHeaderColumn className="th-add-by" tooltip="lol" colSpan="0">Added by</TableHeaderColumn>
+              <TableHeaderColumn className="th-list-app" tooltip="lol" colSpan="0">List & Apps</TableHeaderColumn>
             </TableRow>
+
           </TableHeader>
+
+
           <TableBody
+            className="tablebody"
             displayRowCheckbox={this.state.showCheckboxes}
             deselectOnClickaway={this.state.deselectOnClickaway}
-            showRowHover={this.state.showRowHover}
-            stripedRows={this.state.stripedRows}
           >
-            {contacts.map(this.renderContactRow.bind(this))}
+
+            {contacts.map( (contact, index) => (
+              <TableRow style={styles.tableRow} key={index} selected={contact.selected} colSpan="12">
+                <TableRowColumn className="col-avatar">
+                  <Avatar src={contact.avatar}
+                          style={styles.avatar}
+                  />
+                </TableRowColumn>
+                <TableRowColumn className="col-name-email" colSpan="8">
+                  <p className="name-email">
+                    { contact.firstName + ' ' + contact.lastName } <br/> { contact.email }
+                  </p>
+                </TableRowColumn>
+                <TableRowColumn className="col-company" colSpan="4">
+                  <p className="company-name">
+                    { contact.companyName }
+                  </p>
+                </TableRowColumn>
+              </TableRow>
+              ))}
+
           </TableBody>
-          <TableFooter adjustForCheckbox={this.state.showCheckboxes} >
+
+
+
+          <TableFooter>
             <TableRow>
-              <TableRowColumn colSpan="3" style={{textAlign: 'center'}}>
-                Super Footer
+              <TableRowColumn style={styles.footer} colSpan="12">
+                Loading contacts...
               </TableRowColumn>
             </TableRow>
           </TableFooter>
+
         </Table>
       </div>
     );

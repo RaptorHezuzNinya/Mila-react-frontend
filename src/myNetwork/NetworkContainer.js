@@ -11,10 +11,15 @@ class NetworkContainer extends PureComponent {
 
   render(){
 
+    const styles = {
+      textAlign: 'center'
+    }
+
     const { networkLists, contacts } = this.props
 
     return (
       <div className="networkcontainer">
+        <h2 style={styles}>Unicorns ftw</h2>
         <Network networkLists={ networkLists } contacts={contacts} />
       </div>
     )
