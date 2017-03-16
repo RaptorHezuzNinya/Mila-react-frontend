@@ -147,10 +147,10 @@ class NetworkList extends PureComponent {
             <TableRow className="tr-2nd-row">
               <TableHeaderColumn className="th-name-email" id="th-name-email" tooltip="Name & Email" colSpan="12" >Name & Email </TableHeaderColumn>
               <TableHeaderColumn className="th-company" tooltip="The Status" colSpan="0">Company & Role</TableHeaderColumn>
-              <TableHeaderColumn className="th-emails" tooltip="lol" colSpan="0">Emails</TableHeaderColumn>
-              <TableHeaderColumn className="th-last" tooltip="lol" colSpan="0">Last contacted</TableHeaderColumn>
-              <TableHeaderColumn className="th-add-by" tooltip="lol" colSpan="0">Added by</TableHeaderColumn>
-              <TableHeaderColumn className="th-list-app" tooltip="lol" colSpan="0">List & Apps</TableHeaderColumn>
+              <TableHeaderColumn className="th-emails" tooltip="Emails" colSpan="0">Emails</TableHeaderColumn>
+              <TableHeaderColumn className="th-last" tooltip="Last contacted" colSpan="0">Last contacted</TableHeaderColumn>
+              <TableHeaderColumn className="th-add-by" tooltip="Added by" colSpan="0">Added by</TableHeaderColumn>
+              <TableHeaderColumn className="th-list-app" tooltip="Lists & App" colSpan="0">List & Apps</TableHeaderColumn>
             </TableRow>
 
           </TableHeader>
