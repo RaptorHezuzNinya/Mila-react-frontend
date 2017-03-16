@@ -65,7 +65,6 @@ class NetworkList extends PureComponent {
     const width = document.documentElement.clientWidth
     // hier call ik zo checkSize(width)
     this.changeTable(width)
-
   }
 
   changeTable(width) {
@@ -76,11 +75,17 @@ class NetworkList extends PureComponent {
     const thAddBy = document.getElementsByClassName('th-add-by')
     const thListApp = document.getElementsByClassName('th-list-app')
 
+    // const colNameEmail = document.getElementsByClassName('col-name-email')
+
+
     if (width < 480) {
       thNameEmail[0].setAttribute('colSpan', '12')
+
+      // colNameEmail[0].setAttribute('colSpan', '12')
     } else if (width >= 480) {
       thNameEmail[0].setAttribute('colSpan', '8')
       thCompany[0].setAttribute('colSpan', '4')
+
     } if (width >= 769) {
       thNameEmail[0].setAttribute('colSpan', '3')
       thCompany[0].setAttribute('colSpan', '3')
