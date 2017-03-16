@@ -74,25 +74,22 @@ class NetworkList extends PureComponent {
     const thLast = document.getElementsByClassName('th-last')
     const thAddBy = document.getElementsByClassName('th-add-by')
     const thListApp = document.getElementsByClassName('th-list-app')
+
     if (width < 480) {
       thNameEmail[0].setAttribute('colSpan', '12')
     } if (width >= 480) {
       thNameEmail[0].setAttribute('colSpan', '8')
       thCompany[0].setAttribute('colSpan', '4')
     } if (width >= 769) {
-  
       thNameEmail[0].setAttribute('colSpan', '3')
       thCompany[0].setAttribute('colSpan', '3')
-
-      thEmails[0].setAttribute('colSpan', '1')
-      thLast[0].setAttribute('colSpan', '1')
-      thAddBy[0].setAttribute('colSpan', '1')
-      thListApp[0].setAttribute('colSpan', '1')
+      thEmails[0].setAttribute('colSpan', '2')
+      thLast[0].setAttribute('colSpan', '2')
+      thListApp[0].setAttribute('colSpan', '2')
     } if (width > 960) {
 
       thNameEmail[0].setAttribute('colSpan', '3')
       thCompany[0].setAttribute('colSpan', '3')
-
       thEmails[0].setAttribute('colSpan', '1')
       thLast[0].setAttribute('colSpan', '2')
       thAddBy[0].setAttribute('colSpan', '1')
