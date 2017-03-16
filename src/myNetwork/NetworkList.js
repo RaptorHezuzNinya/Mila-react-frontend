@@ -47,7 +47,7 @@ class NetworkList extends PureComponent {
       enableSelectAll: true,
       deselectOnClickaway: true,
       showCheckboxes: true,
-      height: '150px',
+      height: '100%',
       colSpan: '12',
     };
   }
@@ -65,7 +65,6 @@ class NetworkList extends PureComponent {
     const width = document.documentElement.clientWidth
     // hier call ik zo checkSize(width)
     this.changeTable(width)
-
   }
 
   changeTable(width) {
@@ -81,6 +80,7 @@ class NetworkList extends PureComponent {
     } else if (width >= 480) {
       thNameEmail[0].setAttribute('colSpan', '8')
       thCompany[0].setAttribute('colSpan', '4')
+
     } if (width >= 769) {
       thNameEmail[0].setAttribute('colSpan', '3')
       thCompany[0].setAttribute('colSpan', '3')
@@ -90,10 +90,12 @@ class NetworkList extends PureComponent {
     } else if (width > 960) {
       thNameEmail[0].setAttribute('colSpan', '3')
       thCompany[0].setAttribute('colSpan', '3')
+
       thEmails[0].setAttribute('colSpan', '1')
       thLast[0].setAttribute('colSpan', '2')
       thAddBy[0].setAttribute('colSpan', '1')
       thListApp[0].setAttribute('colSpan', '2')
+
     }
   };
 
@@ -142,39 +144,61 @@ class NetworkList extends PureComponent {
             <TableRow className="tr-2nd-row">
               <TableHeaderColumn className="th-name-email" id="th-name-email" tooltip="Name & Email" colSpan="12" >Name & Email </TableHeaderColumn>
               <TableHeaderColumn className="th-company" tooltip="The Status" colSpan="0">Company & Role</TableHeaderColumn>
-              <TableHeaderColumn className="th-emails" tooltip="lol" colSpan="0">Emails</TableHeaderColumn>
-              <TableHeaderColumn className="th-last" tooltip="lol" colSpan="0">Last contacted</TableHeaderColumn>
-              <TableHeaderColumn className="th-add-by" tooltip="lol" colSpan="0">Added by</TableHeaderColumn>
-              <TableHeaderColumn className="th-list-app" tooltip="lol" colSpan="0">List & Apps</TableHeaderColumn>
+              <TableHeaderColumn className="th-emails" tooltip="Emails" colSpan="0">Emails</TableHeaderColumn>
+              <TableHeaderColumn className="th-last" tooltip="Last contacted" colSpan="0">Last contacted</TableHeaderColumn>
+              <TableHeaderColumn className="th-add-by" tooltip="Added by" colSpan="0">Added by</TableHeaderColumn>
+              <TableHeaderColumn className="th-list-app" tooltip="Lists & App" colSpan="0">List & Apps</TableHeaderColumn>
             </TableRow>
 
           </TableHeader>
 
 
           <TableBody
-            className="tablebody"
+            className="tablebody-container"
             displayRowCheckbox={this.state.showCheckboxes}
             deselectOnClickaway={this.state.deselectOnClickaway}
           >
 
             {contacts.map( (contact, index) => (
-              <TableRow style={styles.tableRow} key={index} selected={contact.selected} colSpan="12">
+              <TableRow style={styles.tableRow} key={index} selected={contact.selected} className="tablerow-container">
+
                 <TableRowColumn className="col-avatar">
                   <Avatar src={contact.avatar}
                           style={styles.avatar}
                   />
                 </TableRowColumn>
-                <TableRowColumn className="col-name-email" colSpan="8">
+                <TableRowColumn className="col-name-email">
                   <p className="name-email">
                     { contact.firstName + ' ' + contact.lastName } <br/> { contact.email }
                   </p>
                 </TableRowColumn>
-                <TableRowColumn className="col-company" colSpan="4">
+                <TableRowColumn className="col-company">
                   <p className="company-name">
                     { contact.companyName }
                   </p>
                 </TableRowColumn>
+                <TableRowColumn className="col-emails">
+                  <p className="emails">
+                    Emails
+                  </p>
+                </TableRowColumn>
+                <TableRowColumn className="col-last">
+                  <p className="last">
+                    Last contacted
+                  </p>
+                </TableRowColumn>
+                <TableRowColumn className="col-add-by">
+                  <p className="list-app">
+                    Added by
+                  </p>
+                </TableRowColumn>
+                <TableRowColumn className="col-list-app">
+                  <p className="list-app">
+                    Lists//App
+                  </p>
+                </TableRowColumn>
               </TableRow>
+
               ))}
 
           </TableBody>
