@@ -14,11 +14,6 @@ import Avatar from 'material-ui/Avatar'
 import './Networklist.sass'
 
 const styles = {
-  avatar: {
-    borderRadius: 0,
-    width: 60,
-    height: 60,
-  },
   tableRow: {
     height: 89,
   },
