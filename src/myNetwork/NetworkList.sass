@@ -40,10 +40,22 @@
 
 .tablebody-container
   .tablerow-container
+    height: 89px !important
+    @include breakpoint($breakpoint-medium)
+      height: 58px !important
+
     .col-avatar
       width: 60px
       padding-left: 0 !important
       padding-right: 0 !important
+
+      .avatar
+        width: 60px !important
+        height: 60px !important
+        border-radius: 0 !important
+        @include breakpoint($breakpoint-medium)
+          width: 50px !important
+          height: 50px !important
 
     .col-name-email
       width: 100% !important
