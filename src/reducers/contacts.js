@@ -73,7 +73,7 @@ const initialState = [
     message: 'Re: FoundedX - Exclusive invitation to lead the creative society'
   },
   {
-    contactId: 7,
+    contactId: 8,
     firstName: 'Math',
     lastName: 'BlaBla',
     companyRole: 'CEO',
@@ -83,7 +83,7 @@ const initialState = [
     message: 'Re: FoundedX - Exclusive invitation to lead the creative society'
   },
   {
-    contactId: 7,
+    contactId: 9,
     firstName: 'Math',
     lastName: 'BlaBla',
     companyRole: 'CEO',
@@ -93,7 +93,7 @@ const initialState = [
     message: 'Re: FoundedX - Exclusive invitation to lead the creative society'
   },
   {
-    contactId: 7,
+    contactId: 10,
     firstName: 'Math',
     lastName: 'BlaBla',
     companyRole: 'CEO',
@@ -103,7 +103,7 @@ const initialState = [
     message: 'Re: FoundedX - Exclusive invitation to lead the creative society'
   },
   {
-    contactId: 7,
+    contactId: 11,
     firstName: 'Math',
     lastName: 'BlaBla',
     companyRole: 'CEO',
@@ -113,7 +113,7 @@ const initialState = [
     message: 'Re: FoundedX - Exclusive invitation to lead the creative society'
   },
   {
-    contactId: 7,
+    contactId: 12,
     firstName: 'Math',
     lastName: 'BlaBla',
     companyRole: 'CEO',
@@ -123,7 +123,7 @@ const initialState = [
     message: 'Re: FoundedX - Exclusive invitation to lead the creative society'
   },
   {
-    contactId: 7,
+    contactId: 13,
     firstName: 'Math',
     lastName: 'BlaBla',
     companyRole: 'CEO',
@@ -133,7 +133,7 @@ const initialState = [
     message: 'Re: FoundedX - Exclusive invitation to lead the creative society'
   },
   {
-    contactId: 7,
+    contactId: 14,
     firstName: 'Math',
     lastName: 'BlaBla',
     companyRole: 'CEO',
@@ -143,7 +143,7 @@ const initialState = [
     message: 'Re: FoundedX - Exclusive invitation to lead the creative society'
   },
   {
-    contactId: 7,
+    contactId: 15,
     firstName: 'Math',
     lastName: 'BlaBla',
     companyRole: 'CEO',
@@ -153,7 +153,7 @@ const initialState = [
     message: 'Re: FoundedX - Exclusive invitation to lead the creative society'
   },
   {
-    contactId: 7,
+    contactId: 16,
     firstName: 'Math',
     lastName: 'BlaBla',
     companyRole: 'CEO',
@@ -163,7 +163,7 @@ const initialState = [
     message: 'Re: FoundedX - Exclusive invitation to lead the creative society'
   },
   {
-    contactId: 7,
+    contactId: 17,
     firstName: 'Math',
     lastName: 'BlaBla',
     companyRole: 'CEO',
@@ -173,7 +173,7 @@ const initialState = [
     message: 'Re: FoundedX - Exclusive invitation to lead the creative society'
   },
   {
-    contactId: 7,
+    contactId: 18,
     firstName: 'Math',
     lastName: 'BlaBla',
     companyRole: 'CEO',
@@ -183,7 +183,7 @@ const initialState = [
     message: 'Re: FoundedX - Exclusive invitation to lead the creative society'
   },
   {
-    contactId: 7,
+    contactId: 19,
     firstName: 'Math',
     lastName: 'BlaBla',
     companyRole: 'CEO',
@@ -193,7 +193,7 @@ const initialState = [
     message: 'Re: FoundedX - Exclusive invitation to lead the creative society'
   },
   {
-    contactId: 7,
+    contactId: 20,
     firstName: 'Math',
     lastName: 'BlaBla',
     companyRole: 'CEO',
@@ -203,7 +203,7 @@ const initialState = [
     message: 'Re: FoundedX - Exclusive invitation to lead the creative society'
   },
   {
-    contactId: 7,
+    contactId: 21,
     firstName: 'Math',
     lastName: 'BlaBla',
     companyRole: 'CEO',
@@ -213,7 +213,7 @@ const initialState = [
     message: 'Re: FoundedX - Exclusive invitation to lead the creative society'
   },
   {
-    contactId: 7,
+    contactId: 22,
     firstName: 'Math',
     lastName: 'BlaBla',
     companyRole: 'CEO',
@@ -223,7 +223,7 @@ const initialState = [
     message: 'Re: FoundedX - Exclusive invitation to lead the creative society'
   },
   {
-    contactId: 7,
+    contactId: 23,
     firstName: 'Math',
     lastName: 'BlaBla',
     companyRole: 'CEO',
@@ -233,7 +233,7 @@ const initialState = [
     message: 'Re: FoundedX - Exclusive invitation to lead the creative society'
   },
   {
-    contactId: 7,
+    contactId: 24,
     firstName: 'Math',
     lastName: 'BlaBla',
     companyRole: 'CEO',
@@ -243,7 +243,7 @@ const initialState = [
     message: 'Re: FoundedX - Exclusive invitation to lead the creative society'
   },
   {
-    contactId: 7,
+    contactId: 25,
     firstName: 'Math',
     lastName: 'BlaBla',
     companyRole: 'CEO',
