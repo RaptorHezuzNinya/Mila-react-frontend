@@ -90,10 +90,12 @@ class NetworkList extends PureComponent {
     } else if (width > 960) {
       thNameEmail[0].setAttribute('colSpan', '3')
       thCompany[0].setAttribute('colSpan', '3')
+
       thEmails[0].setAttribute('colSpan', '1')
       thLast[0].setAttribute('colSpan', '2')
       thAddBy[0].setAttribute('colSpan', '1')
       thListApp[0].setAttribute('colSpan', '2')
+
     }
   };
 
