@@ -12,6 +12,7 @@
   .contact-card-element
     width: 100%
     position: relative
+    margin-bottom: 10px
     @include breakpoint($breakpoint-land)
       max-width: 60%
 
@@ -47,7 +48,12 @@
       width: 80px
       position: absolute
       right: 0
-      @include breakpoint($breakpoint-medium)
+      @include breakpoint($breakpoint-land)
+        height: 100px
+        width: 100px
+        @include breakpoint($breakpoint-medium)
+          height: 120px
+          width: 120px
 
       .social-media-bar
         background-color: rgba(41, 47, 54, 0.7)
