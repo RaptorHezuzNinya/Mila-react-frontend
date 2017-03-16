@@ -169,17 +169,38 @@ class NetworkList extends PureComponent {
                           style={styles.avatar}
                   />
                 </TableRowColumn>
-                <TableRowColumn className="col-name-email" colSpan="8">
+                <TableRowColumn className="col-name-email">
                   <p className="name-email">
                     { contact.firstName + ' ' + contact.lastName } <br/> { contact.email }
                   </p>
                 </TableRowColumn>
-                <TableRowColumn className="col-company" colSpan="4">
+                <TableRowColumn className="col-company">
                   <p className="company-name">
                     { contact.companyName }
                   </p>
                 </TableRowColumn>
+                <TableRowColumn className="col-emails">
+                  <p className="emails">
+                    Emails
+                  </p>
+                </TableRowColumn>
+                <TableRowColumn className="col-last">
+                  <p className="last">
+                    Last contacted
+                  </p>
+                </TableRowColumn>
+                <TableRowColumn className="col-add-by">
+                  <p className="list-app">
+                    Added by
+                  </p>
+                </TableRowColumn>
+                <TableRowColumn className="col-list-app">
+                  <p className="list-app">
+                    Lists//App
+                  </p>
+                </TableRowColumn>
               </TableRow>
+
               ))}
 
           </TableBody>
