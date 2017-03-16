@@ -68,6 +68,7 @@ class NetworkList extends PureComponent {
 
   changeTable(width) {
     const thTopCol = document.getElementsByClassName('th-top-col')
+
     const thNameEmail = document.getElementsByClassName('th-name-email')
     const thCompany = document.getElementsByClassName('th-company')
     const thEmails = document.getElementsByClassName('th-emails')
