@@ -17,6 +17,8 @@ const steelC    = '#f2f6fa'
 const greyA     = '#cccccc'
 const greyB     = '#ffffff'
 
+const transparent = 'rgba(0, 0, 0, 0)'
+
 // Palette
 export const palette = {
   primary1Color: blueA,
@@ -28,6 +30,8 @@ export const palette = {
   accent4Color: steelA,
   accent5Color: steelB,
   accent6Color: steelC,
+  accent7Color: greyA,
+  accent8Color: greyB,
   textColor: blueA,
   // alternateTextColor: steelC,
   // canvasColor: white,
@@ -51,4 +55,8 @@ export const flatButton = {
   fontWeight: typography.fontWeightLight
 }
 
-export default getMuiTheme({ palette, fontFamily, typography, flatButton })
+export const textField = {
+  focusColor: palette.accent7Color,
+}
+
+export default getMuiTheme({ palette, fontFamily, typography, flatButton, textField })
