@@ -101,14 +101,6 @@
         @include breakpoint($breakpoint-large)
           width: 15% !important
 
-    .col-add-by
-      border: 1px solid black
-      display: none
-      @include breakpoint($breakpoint-large)
-        text-align: center !important
-        display: table-cell
-        width: 10% !important
-
     .col-list-app
       border: 1px solid black
       display: none
@@ -118,3 +110,11 @@
         width: 20% !important
         @include breakpoint($breakpoint-large)
           width: 14% !important
+
+    .col-add-by
+      border: 1px solid black
+      display: none
+      @include breakpoint($breakpoint-xlarge)
+        text-align: center !important
+        display: table-cell
+        width: 10% !important
