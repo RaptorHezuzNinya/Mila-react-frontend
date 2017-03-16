@@ -89,21 +89,33 @@ class NetworkList extends PureComponent {
 
       thNameEmail[0].setAttribute('colSpan', '3')
       thCompany[0].setAttribute('colSpan', '3')
+
       thEmails[0].setAttribute('colSpan', '2')
       thLast[0].setAttribute('colSpan', '2')
       thListApp[0].setAttribute('colSpan', '2')
-    } if (width > 960) {
+    } if (width >= 960) {
       thTopCol[0].setAttribute('colSpan', '16')
 
       thNameEmail[0].setAttribute('colSpan', '4')
       thCompany[0].setAttribute('colSpan', '4')
 
       thEmails[0].setAttribute('colSpan', '2')
+      thLast[0].setAttribute('colSpan', '3')
+      // thAddBy[0].setAttribute('colSpan', '2')
+      thListApp[0].setAttribute('colSpan', '3')
+
+    } if (width > 1280 ) {
+      thTopCol[0].setAttribute('colSpan', '16')
+
+      thNameEmail[0].setAttribute('colSpan', '4')
+      thCompany[0].setAttribute('colSpan', '4')
+
+      thEmails[0].setAttribute('colSpan', '1')
       thLast[0].setAttribute('colSpan', '2')
       thAddBy[0].setAttribute('colSpan', '2')
-      thListApp[0].setAttribute('colSpan', '2')
-
+      thListApp[0].setAttribute('colSpan', '3')
     }
+
   };
 
 
