@@ -7,15 +7,17 @@ const initialState = {
 
 export default function modals( state = initialState, action) {
   switch (action.type) {
-    case SHOW_MODAL:
+    case SHOW_MODAL :
       return {
         modalType: action.modalType,
         payload: action.payload,
-
       }
 
-      break;
+    case HIDE_MODAL :
+      return initialState
+
     default:
+      return state
 
   }
 }
