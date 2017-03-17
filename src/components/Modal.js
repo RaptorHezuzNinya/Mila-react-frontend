@@ -48,6 +48,7 @@ class Modal extends PureComponent {
           title="Dialog With Actions"
           actions={actions}
           modal={true}
+          contentStyle={customContentStyle}
           open={this.state.open}
         >
           Only actions can close this dialog.
