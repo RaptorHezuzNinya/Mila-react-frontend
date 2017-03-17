@@ -5,10 +5,18 @@ import Dialog from 'material-ui/Dialog'
 import FlatButton from 'material-ui/FlatButton'
 import RaisedButton from 'material-ui/RaisedButton'
 
+  const customContentStyle = {
+    width: '50%',
+    maxWidth: 'none',
+  }
+
 class Modal extends PureComponent {
   state = {
     open: false
   }
+
+
+
 
   handleOpen = () => {
     this.setState({open: true})
