@@ -54,6 +54,7 @@ class Modal extends PureComponent {
           contentStyle={customContentStyle}
           open={this.state.open}
         >
+          <CreateNetwork />
           Only actions can close this dialog.
         </Dialog>
       </div>
