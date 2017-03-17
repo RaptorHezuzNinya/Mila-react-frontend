@@ -13,8 +13,6 @@ export default function modal( state = initialState, action) {
         payload: action.payload,
       }
 
-    case HIDE_MODAL :
-      return initialState
 
     default:
       return state
