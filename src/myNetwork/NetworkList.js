@@ -132,9 +132,9 @@ class NetworkList extends PureComponent {
     const { contacts} = this.props
 
     return (
-      <div>
+      <div className="wrapper">
         <Table
-          className="table-container"
+          className="container-table"
           height={this.state.height}
           fixedHeader={this.state.fixedHeader}
           fixedFooter={this.state.fixedFooter}
