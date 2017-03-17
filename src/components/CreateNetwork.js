@@ -5,6 +5,9 @@ import { connect } from 'react-redux'
 import networkList from '../reducers/networklists'
 import createNetworkList from '../actions/networklists/create'
 
+import modal from '../reducers/modal'
+import showModal from '../actions/modals/show-modal'
+
 //material-ui Components
 import FlatButton from 'material-ui/FlatButton'
 import TextField from 'material-ui/TextField'
