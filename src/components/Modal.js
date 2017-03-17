@@ -46,7 +46,7 @@ class Modal extends PureComponent {
 
     return (
       <div>
-        <RaisedButton label="+" onTouchTap={this.handleOpen} />
+        <RaisedButton className="" label="+" onTouchTap={this.handleOpen} />
         <Dialog
           title="Dialog With Actions"
           actions={actions}
