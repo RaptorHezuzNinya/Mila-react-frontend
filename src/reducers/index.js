@@ -1,7 +1,9 @@
 import contacts from './contacts'
 import networkLists from './networklists'
+import modal from './modal'
 
 module.exports = {
   contacts,
-  networkLists
+  networkLists,
+  modal
 }
