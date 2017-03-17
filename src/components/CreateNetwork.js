@@ -23,9 +23,14 @@ class CreateNetwork extends PureComponent {
   createNetworkList(event){
     event.preventDefault()
     const { name } = this.state
-
     this.props.createNetworkList(this.state)
   }
+
+  // showModal(event){
+  //   event.preventDefault()
+  //   this.state = {}
+  //   this.props.showModal(this.state)
+  // }
 
   handleChange = (event) => {
     const field = event.target.name
@@ -50,9 +55,14 @@ class CreateNetwork extends PureComponent {
           label="+"
           onClick={this.createNetworkList.bind(this)}
         />
+        {/* <FlatButton
+          className="unicorn"
+          label="SHOW MODAL"
+          onClick={this.showModal.bind(this)}
+        /> */}
       </div>
     )
   }
 }
 
-export default connect(null, { createNetworkList })(CreateNetwork)
+export default connect(null, { createNetworkList, showModal })(CreateNetwork)
