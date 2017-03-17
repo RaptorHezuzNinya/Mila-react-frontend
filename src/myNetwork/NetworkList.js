@@ -12,6 +12,7 @@ import Avatar from 'material-ui/Avatar'
 
 // styles & icons
 import './Networklist.sass'
+import '../assets/styles/base/layout.sass'
 
 const styles = {
   tableRow: {
