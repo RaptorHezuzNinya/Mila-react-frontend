@@ -10,9 +10,9 @@ import FlatButton from 'material-ui/FlatButton'
 import TextField from 'material-ui/TextField'
 
 //styles
-import './CreateNetworkButton.sass'
 
-class CreateNetworkButton extends PureComponent {
+
+class CreateNetwork extends PureComponent {
   state = {
     name: this.props.name
   }
@@ -52,4 +52,4 @@ class CreateNetworkButton extends PureComponent {
   }
 }
 
-export default connect(null, { createNetworkList })(CreateNetworkButton)
+export default connect(null, { createNetworkList })(CreateNetwork)

@@ -15,9 +15,6 @@ import './Networklist.sass'
 import '../assets/styles/base/layout.sass'
 
 const styles = {
-  tableRow: {
-    height: 89,
-  },
   footer: {
     textAlign: 'center'
   }
