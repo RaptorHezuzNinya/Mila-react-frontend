@@ -5,6 +5,7 @@ import NetworkButton from '../components/NetworkButton'
 import NetworkButtonDrop from '../components/NetworkButtonDrop'
 import NetworkList from './NetworkList'
 import CreateNetwork from '../components/CreateNetworkButton'
+import NetworkModal from '../components/Modal.js'
 
 // styles
 import './Network.sass'
@@ -31,6 +32,7 @@ class Network extends PureComponent {
 
         </div>
         <div className="networkbutton">
+          <NetworkModal />
           <CreateNetwork />
           { networkLists.map(this.renderNetworkButton.bind(this)) }
         </div>
