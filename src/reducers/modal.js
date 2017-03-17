@@ -1,11 +1,11 @@
-import { SHOW_MODAL } from '../action/modals/show-modal'
+import { SHOW_MODAL } from '../actions/modals/show-modal'
 
 const initialState = {
   modalType: null,
   payload: {}
 }
 
-export default function modals( state = initialState, action) {
+export default function modal( state = initialState, action) {
   switch (action.type) {
     case SHOW_MODAL :
       return {
