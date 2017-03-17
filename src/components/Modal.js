@@ -1,5 +1,7 @@
 import React, { PropTypes, PureComponent } from 'react'
 
+// Components
+import CreateNetwork from './CreateNetwork'
 // material ui Components
 import Dialog from 'material-ui/Dialog'
 import FlatButton from 'material-ui/FlatButton'
