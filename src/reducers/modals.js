@@ -1,3 +1,5 @@
+import { SHOW_MODAL } from '../action/modals/show-modal'
+
 const initialState = {
   modalType: null,
   payload: {}
