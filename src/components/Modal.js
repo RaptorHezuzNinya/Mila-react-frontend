@@ -9,6 +9,7 @@ import RaisedButton from 'material-ui/RaisedButton'
 
   const customContentStyle = {
     width: '50%',
+    height: '500px',
     maxWidth: 'none',
   }
 
