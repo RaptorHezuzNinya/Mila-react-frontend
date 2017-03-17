@@ -6,5 +6,5 @@ export default (showModal) => {
     type: SHOW_MODAL,
     modalType: {},
     modalProps: {}
-    }
+  }
 }
