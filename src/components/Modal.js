@@ -18,9 +18,6 @@ class Modal extends PureComponent {
     open: false
   }
 
-
-
-
   handleOpen = () => {
     this.setState({open: true})
   }
