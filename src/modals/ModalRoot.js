@@ -11,11 +11,13 @@ const ModalRoot = ({ modalType, modalProps }) => {
   if (!modalType) {
     return null
   }
+  console.log('ZITTEN IN ELSE')
   const SpecificModal = MODAL_COMPONENTS[modalType]
 
   return <SpecificModal { ...modalProps } />
 }
 
-const mapStateToProps = ({ state }) => ( state.modal )
+const mapStateToProps = ({ modal }) => ({ modal })
 
-export default connect( mapStateToProps )(ModalRoot)
+export default connect(mapStateToProps)(ModalRoot)
+// export default connect( state => state.modal)(ModalRoot)
