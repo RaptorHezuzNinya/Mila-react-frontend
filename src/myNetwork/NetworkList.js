@@ -56,6 +56,7 @@ class NetworkList extends PureComponent {
   onResize = () => {
     const width = document.documentElement.clientWidth
     // hier call ik zo checkSize(width)
+    console.log('logging width:', width)
     this.changeTable(width)
   }
 
