@@ -7,7 +7,7 @@ import NetworkList from './NetworkList'
 // import CreateNetwork from '../components/CreateNetwork'
 import NetworkModal from '../components/Modal'
 
-import ModalButton from '../components/ButtonModal'
+import ButtonModal from '../components/ButtonModal'
 
 // styles
 import './Network.sass'
