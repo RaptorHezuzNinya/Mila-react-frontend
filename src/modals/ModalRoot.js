@@ -1,6 +1,5 @@
+import React from 'react'
 import createNetworkListModal from './'
-
-
 
 const MODAL_COMPONENTS = {
   'CREATE_NETWORKLIST': createNetworkListModal,
