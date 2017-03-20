@@ -68,6 +68,12 @@ class OnboardingStepper extends PureComponent {
     }
   }
 
+  renderStepbutton = (stepIndex) => {
+    if (stepIndex === 0) return `OK, LET'S GET STARTED`;
+    if (stepIndex === 1) return 'Next';
+    if (stepIndex === 2) return 'Finish';
+  }
+
   render() {
     const {finished, stepIndex, stepperwidth} = this.state;
     const contentStyle = {width: '100%'};
@@ -103,14 +109,16 @@ class OnboardingStepper extends PureComponent {
             <div className="step-content">
               {this.getStepContent(stepIndex)}
               <div style={{marginTop: 12}}>
+                {!(stepIndex === 0) &&
                 <FlatButton
                   label="Back"
-                  disabled={stepIndex === 0}
+                  disabled={(stepIndex === 0)}
                   onTouchTap={this.handlePrev}
                   style={{marginRight: 12}}
                 />
+              }
                 <FlatButton
-                  label={stepIndex === 2 ? 'Finish' : 'Next'}
+                  label={this.renderStepbutton(stepIndex)}
                   primary={true}
                   onTouchTap={this.handleNext}
                 />
