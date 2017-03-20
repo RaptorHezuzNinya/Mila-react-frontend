@@ -4,7 +4,9 @@ export default (showModal) => {
 
   return {
     type: SHOW_MODAL,
-    modalType: {},
-    modalProps: {}
+    payload: {
+      modalType: {},
+      modalProps: {}
+    }
   }
 }
