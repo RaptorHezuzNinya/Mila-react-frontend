@@ -109,9 +109,9 @@ class NetworkList extends PureComponent {
     }
   };
 
-  renderContactRow(row, index) {
-    return <ContactRow key={index} {...row} index={index}  />
-  }
+  // renderContactRow(row, index) {
+  //   return <ContactRow key={index} {...row} index={index}  />
+  // }
 
   handleToggle = (event, toggled) => {
     this.setState({
@@ -206,7 +206,6 @@ class NetworkList extends PureComponent {
             </TableRow>
             ))}
           </TableBody>
-
 
           <TableFooter>
             <TableRow>
