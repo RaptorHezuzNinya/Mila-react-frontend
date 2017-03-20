@@ -1,5 +1,7 @@
 import React, { PureComponent } from 'react'
 
+import { connect } from 'react-redux'
+
 //material-ui Components
 import FlatButton from 'material-ui/FlatButton'
 
