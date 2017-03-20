@@ -20,4 +20,3 @@ const ModalRoot = ({ modalType, modalProps }) => {
 const mapStateToProps = ({ modal }) => ({ modal })
 
 export default connect(mapStateToProps)(ModalRoot)
-// export default connect( state => state.modal)(ModalRoot)
