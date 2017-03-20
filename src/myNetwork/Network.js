@@ -4,8 +4,10 @@ import React, { PureComponent, PropTypes } from 'react'
 import NetworkButton from '../components/NetworkButton'
 import NetworkButtonDrop from '../components/NetworkButtonDrop'
 import NetworkList from './NetworkList'
-import CreateNetwork from '../components/CreateNetwork'
-import NetworkModal from '../components/Modal.js'
+// import CreateNetwork from '../components/CreateNetwork'
+import NetworkModal from '../components/Modal'
+
+import ButtonModal from '../components/ButtonModal'
 
 // styles
 import './Network.sass'
@@ -29,11 +31,11 @@ class Network extends PureComponent {
       <div className="network-component">
         <div className="networkdropdown">
           <NetworkButtonDrop networkLists={ networkLists }/>
-
         </div>
         <div className="networkbutton">
-          {/* <CreateNetwork /> */}
-          <NetworkModal />
+
+          <ButtonModal />
+
           { networkLists.map(this.renderNetworkButton.bind(this)) }
         </div>
         <div className="networklist">

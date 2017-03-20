@@ -1,11 +1,9 @@
 import React, { PropTypes, PureComponent } from 'react'
 
 // Components
-import CreateNetwork from './CreateNetwork'
+// import CreateNetwork from './CreateNetwork'
 // material ui Components
-import Dialog from 'material-ui/Dialog'
-import FlatButton from 'material-ui/FlatButton'
-import RaisedButton from 'material-ui/RaisedButton'
+
 
   const customContentStyle = {
     width: '50%',
@@ -44,16 +42,6 @@ class Modal extends PureComponent {
     return (
       <div>
         <RaisedButton className="" label="+" onTouchTap={this.handleOpen} />
-        <Dialog
-          title="Dialog With Actions"
-          actions={actions}
-          modal={true}
-          contentStyle={customContentStyle}
-          open={this.state.open}
-        >
-          <CreateNetwork />
-          Only actions can close this dialog.
-        </Dialog>
       </div>
     )
   }

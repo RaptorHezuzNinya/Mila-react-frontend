@@ -109,10 +109,9 @@ class NetworkList extends PureComponent {
     }
   };
 
-
-  renderContactRow(row, index) {
-    return <ContactRow key={index} {...row} index={index}  />
-  }
+  // renderContactRow(row, index) {
+  //   return <ContactRow key={index} {...row} index={index}  />
+  // }
 
   handleToggle = (event, toggled) => {
     this.setState({
@@ -159,7 +158,6 @@ class NetworkList extends PureComponent {
               <TableHeaderColumn className="th-add-by" tooltip="Added by" colSpan="0">Added by</TableHeaderColumn>
               <TableHeaderColumn className="th-list-app" tooltip="Lists & App" colSpan="0">List & Apps</TableHeaderColumn>
             </TableRow>
-
           </TableHeader>
 
 
@@ -168,52 +166,46 @@ class NetworkList extends PureComponent {
             displayRowCheckbox={this.state.showCheckboxes}
             deselectOnClickaway={this.state.deselectOnClickaway}
           >
-
             {contacts.map( (contact, index) => (
-              <TableRow key={index} selected={contact.selected} className="tablerow-container">
-
-                <TableRowColumn className="col-avatar">
-                  <Avatar src={contact.avatar}
-                          className="avatar"
-                  />
-                </TableRowColumn>
-                <TableRowColumn className="col-name-email">
-                  <p className="name-email">
-                    { contact.firstName + ' ' + contact.lastName } <br/> { contact.email }
-                  </p>
-                </TableRowColumn>
-                <TableRowColumn className="col-company">
-                  <p className="company-name">
-                    { contact.companyName }
-                  </p>
-                </TableRowColumn>
-                <TableRowColumn className="col-emails">
-                  <p className="emails">
-                    21
-                  </p>
-                </TableRowColumn>
-                <TableRowColumn className="col-last">
-                  <p className="last">
-                    14-03-2017 16:03:52
-                  </p>
-                </TableRowColumn>
-                <TableRowColumn className="col-add-by">
-                  <p className="list-app">
-                    Bertus Abma
-                  </p>
-                </TableRowColumn>
-                <TableRowColumn className="col-list-app">
-                  <p className="list-app">
-                    Lists//App
-                  </p>
-                </TableRowColumn>
-              </TableRow>
-
-              ))}
-
+            <TableRow key={index} selected={contact.selected} className="tablerow-container">
+              <TableRowColumn className="col-avatar">
+                <Avatar src={contact.avatar}
+                        className="avatar"
+                />
+              </TableRowColumn>
+              <TableRowColumn className="col-name-email">
+                <p className="name-email">
+                  { contact.firstName + ' ' + contact.lastName } <br/> { contact.email }
+                </p>
+              </TableRowColumn>
+              <TableRowColumn className="col-company">
+                <p className="company-name">
+                  { contact.companyName }
+                </p>
+              </TableRowColumn>
+              <TableRowColumn className="col-emails">
+                <p className="emails">
+                  21
+                </p>
+              </TableRowColumn>
+              <TableRowColumn className="col-last">
+                <p className="last">
+                  14-03-2017 16:03:52
+                </p>
+              </TableRowColumn>
+              <TableRowColumn className="col-add-by">
+                <p className="list-app">
+                  Bertus Abma
+                </p>
+              </TableRowColumn>
+              <TableRowColumn className="col-list-app">
+                <p className="list-app">
+                  Lists//App
+                </p>
+              </TableRowColumn>
+            </TableRow>
+            ))}
           </TableBody>
-
-
 
           <TableFooter>
             <TableRow>
