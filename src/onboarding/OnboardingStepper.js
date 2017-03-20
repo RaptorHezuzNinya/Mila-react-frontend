@@ -17,12 +17,21 @@ import CreateLists from './CreateLists'
 import './onboarding.sass'
 
 class OnboardingStepper extends PureComponent {
+  constructor(props){
+    super(props)
+      this.state = {
+        finished: false,
+        stepIndex: 0,
+        stepperwidth: 450,
+        displayOtherTools: false
+        otherTools: [
+          {
+            label: 'PIJDRIVE'
+            icon: 'http://cdn.appstorm.net/web.appstorm.net/files/2011/08/pipedrive-icon.png'
+        }
+        ]
 
-  state = {
-    finished: false,
-    stepIndex: 0,
-    stepperwidth: 450,
-    otherTools: false
+    }
   };
 
 
