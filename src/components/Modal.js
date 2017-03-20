@@ -1,7 +1,7 @@
 import React, { PropTypes, PureComponent } from 'react'
 
 // Components
-import CreateNetwork from './CreateNetwork'
+// import CreateNetwork from './CreateNetwork'
 // material ui Components
 import Dialog from 'material-ui/Dialog'
 import FlatButton from 'material-ui/FlatButton'
@@ -51,7 +51,7 @@ class Modal extends PureComponent {
           contentStyle={customContentStyle}
           open={this.state.open}
         >
-          <CreateNetwork />
+          {/* <CreateNetwork /> */}
           Only actions can close this dialog.
         </Dialog>
       </div>
