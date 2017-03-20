@@ -22,6 +22,7 @@ class OnboardingStepper extends PureComponent {
     finished: false,
     stepIndex: 0,
     stepperwidth: 450,
+    otherTools: false
   };
 
 
@@ -55,12 +56,18 @@ class OnboardingStepper extends PureComponent {
     }
   };
 
+  toggleTools() {
+    const {otherTools} = this.state
+    this.setState({otherTools: !otherTools})
+  }
+
   getStepContent(stepIndex) {
+    const {otherTools} = this.state
     switch (stepIndex) {
       case 0:
         return <ScanningContacts />
       case 1:
-        return <ConnectTools />
+        return <ConnectTools otherTools={otherTools} toggleTools={this.toggleTools.bind(this)} />
       case 2:
         return <CreateLists />
       default:
