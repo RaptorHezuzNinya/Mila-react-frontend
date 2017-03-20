@@ -23,12 +23,32 @@ class OnboardingStepper extends PureComponent {
         finished: false,
         stepIndex: 0,
         stepperwidth: 450,
-        displayOtherTools: false
+        displayOtherTools: false,
         otherTools: [
           {
-            label: 'PIJDRIVE'
-            icon: 'http://cdn.appstorm.net/web.appstorm.net/files/2011/08/pipedrive-icon.png'
-        }
+            label: 'CONNECT TO MAILCHIMP',
+            icon: 'https://static.mailchimp.com/web/brand-assets/logo-freddie-fullcolor.svg',
+          },
+          {
+            label: 'PIJDRIVE',
+            icon: 'http://cdn.appstorm.net/web.appstorm.net/files/2011/08/pipedrive-icon.png',
+          },
+          {
+            label: 'HIGHRISE',
+            icon: 'https://rocketdock.com/images/screenshots/Highrise.png',
+          },
+          {
+            label: 'EVENTBRITE',
+            icon: 'http://reviewzd.com/wp-content/uploads/2015/11/eventbrite-7976d2df30d02333a69549d4a7f86890.png',
+          },
+          {
+            label: 'REVUE',
+            icon: 'http://a5.mzstatic.com/eu/r30/Purple69/v4/bf/b4/ce/bfb4ce49-14cd-f00c-5d13-466acb8703a3/icon175x175.png',
+          },
+          {
+            label: 'CAMPAIGN MONITOR',
+            icon: 'https://ffb2efd5105ff0aedbc9-9cdacdeebf0faa19b665bf427f0c8092.ssl.cf1.rackcdn.com/img/campaign-monitor.png',
+          },
         ]
 
     }
@@ -66,17 +86,17 @@ class OnboardingStepper extends PureComponent {
   };
 
   toggleTools() {
-    const {otherTools} = this.state
-    this.setState({otherTools: !otherTools})
+    const {displayOtherTools} = this.state
+    this.setState({displayOtherTools: !displayOtherTools})
   }
 
   getStepContent(stepIndex) {
-    const {otherTools} = this.state
+    const {otherTools, displayOtherTools} = this.state
     switch (stepIndex) {
       case 0:
         return <ScanningContacts />
       case 1:
-        return <ConnectTools otherTools={otherTools} toggleTools={this.toggleTools.bind(this)} />
+        return <ConnectTools displayOtherTools={displayOtherTools} toggleTools={this.toggleTools.bind(this)} otherTools={otherTools} />
       case 2:
         return <CreateLists />
       default:
