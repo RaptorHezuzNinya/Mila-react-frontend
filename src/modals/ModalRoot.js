@@ -1,8 +1,9 @@
 import React from 'react'
-import createNetworkListModal from './'
+import { connect } from 'react-redux'
+import createNetworkListModal from './createNetworkListModal'
 
 const MODAL_COMPONENTS = {
-  'CREATE_NETWORKLIST': createNetworkListModal,
+  'CREATE_NETWORKLIST_MODAL': createNetworkListModal,
   // other modals
 }
 
