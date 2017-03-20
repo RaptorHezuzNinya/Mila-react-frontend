@@ -13,7 +13,7 @@ const customContentStyle = {
 
 class CreateNetworkListModal extends PureComponent {
   state = {
-    open: false
+    open: true
   }
 
   handleOpen = () => {
@@ -35,7 +35,6 @@ class CreateNetworkListModal extends PureComponent {
           contentStyle={customContentStyle}
           open={this.state.open}
         >
-
         Only actions can close this dialog.
         </Dialog>
       </div>
