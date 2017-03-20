@@ -11,16 +11,19 @@ import showModal from '../actions/modals/show-modal'
 class ButtonModal extends PureComponent {
 
   openModal = () => {
-    console.log('hi')
+    // console.log(showModal)
+    this.props.showModal()
   }
+
 
   render(){
     return (
       <div>
-        <FlatButton onClick={this.openModal} label="Modal Button" />
+        <FlatButton onClick={this.openModal.bind(this)} label="Modal Button" />
       </div>
     )
   }
 }
 
-export default ButtonModal
+
+export default connect (null, { showModal })(ButtonModal)
