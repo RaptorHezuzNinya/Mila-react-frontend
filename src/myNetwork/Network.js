@@ -5,7 +5,7 @@ import NetworkButton from '../components/NetworkButton'
 import NetworkButtonDrop from '../components/NetworkButtonDrop'
 import NetworkList from './NetworkList'
 
-import ButtonModal from '../components/ButtonModal'
+import ButtonModal from '../modals/ButtonModal'
 import ModalRoot from '../modals/ModalRoot'
 
 // styles
@@ -19,7 +19,6 @@ class Network extends PureComponent {
       modalProperties: {
         createNetworkListModal: 'CREATE_NETWORKLIST_MODAL',
         testModal: 'TEST_MODAL',
-
       }
     }
   }
