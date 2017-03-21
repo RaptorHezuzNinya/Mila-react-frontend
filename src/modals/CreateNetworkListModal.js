@@ -48,6 +48,7 @@ class CreateNetworkListModal extends PureComponent {
           contentStyle={customContentStyle}
           open={this.state.open}
         >
+        <h1>Create NetworkList Modal</h1>
         Only actions can close this dialog.
         </Dialog>
       </div>
