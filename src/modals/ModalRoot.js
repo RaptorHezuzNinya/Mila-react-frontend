@@ -18,10 +18,6 @@ const ModalRoot = ({ modalType, modalProps }) => {
   return <SpecificModal { ...modalProps } />
 }
 
-// const mapStateToProps = ({ modal }) => ({ modal })
-//
-// export default connect(mapStateToProps)(ModalRoot)
-
-const mapStateToProps = state => state.modal
+const mapStateToProps = (state) => (state.modal)
 
 export default connect(mapStateToProps)(ModalRoot)
