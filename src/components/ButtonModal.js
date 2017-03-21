@@ -6,13 +6,13 @@ import { connect } from 'react-redux'
 import FlatButton from 'material-ui/FlatButton'
 
 // actions
-import createNetworkListModalShow from '../actions/modals/create-network-list-show'
+import showModal from '../actions/modals/show-modal'
 
 class ButtonModal extends PureComponent {
 
   openModal = () => {
     // console.log(showModal)
-    this.props.createNetworkListModalShow()
+    this.props.showModal()
   }
 
   render(){
@@ -25,4 +25,4 @@ class ButtonModal extends PureComponent {
 }
 
 
-export default connect (null, { createNetworkListModalShow })(ButtonModal)
+export default connect (null, { showModal })(ButtonModal)
