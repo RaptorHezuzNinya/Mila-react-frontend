@@ -1,4 +1,4 @@
-import { SHOW_MODAL } from '../actions/modals/show-modal'
+import { SHOW_MODAL } from '../actions/modals/create-network-list-show'
 import { HIDE_MODAL } from '../actions/modals/hide-modal'
 
 const initialState = {
