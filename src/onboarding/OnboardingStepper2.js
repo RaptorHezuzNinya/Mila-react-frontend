@@ -75,6 +75,7 @@ class OnboardingStepper extends PureComponent {
       stepIndex: stepIndex + 1,
       finished: stepIndex >= 2,
     });
+    console.log(stepIndex)
   };
 
   handlePrev = () => {
@@ -105,6 +106,7 @@ class OnboardingStepper extends PureComponent {
   }
 
   renderStepbutton = (stepIndex) => {
+
     switch (stepIndex) {
       case 0 :
         return `OK, LET'S GET STARTED`;
@@ -137,15 +139,15 @@ class OnboardingStepper extends PureComponent {
             primary={true}
             onTouchTap={this.handleNext}
           />
-        
+
       </div>
     );
   }
 
   render() {
     const {finished, stepIndex, stepperwidth } = this.state;
-    const contentStyle = {width: '100%'}
 
+    console.log(stepIndex, this.state.finished, ' render')
     return (
       <div style={{width: '100%', margin: 'auto'}}>
         <Stepper ref="stepperwrapper" activeStep={stepIndex} orientation= 'vertical' >
@@ -160,21 +162,34 @@ class OnboardingStepper extends PureComponent {
             <StepLabel className='steplabel'>Connect tools</StepLabel>
             <StepContent>
               {this.getStepContent(stepIndex)}
-              {this.renderStepActions(1)}
+              {this.renderStepActions()}
           </StepContent>
           </Step>
           <Step >
             <StepLabel className="steplabel">Create lists</StepLabel>
             <StepContent>
               {this.getStepContent(stepIndex)}
-              {this.renderStepActions(2)}
+              {this.renderStepActions()}
             </StepContent>
           </Step>
         </Stepper>
+        <div>
+        { finished && (
+          <p>
+            <a
+              href="#"
+              onClick={(event) => {
+                event.preventDefault();
+                this.setState({stepIndex: 0, finished: false});
+              }}
+            >
+              Click here
+            </a> to reset the example.
+          </p>
+        )}
       </div>
+    </div>
     )
   }
-
 }
-
 export default OnboardingStepper
