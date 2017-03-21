@@ -35,6 +35,9 @@ class Network extends PureComponent {
   render() {
 
     const { networkLists, contacts } = this.props
+    const createNetworkListModal = this.state.modalProperties.createNetworkListModal
+    const testModal = this.state.modalProperties.testModal
+
     if (!networkLists) return null
 
     return (
