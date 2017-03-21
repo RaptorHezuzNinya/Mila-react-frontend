@@ -11,14 +11,19 @@ import showModal from '../actions/modals/show-modal'
 class ButtonModal extends PureComponent {
 
   openModal = () => {
-    // console.log(showModal)
-    this.props.showModal()
+    if (this.props.modal) {
+      const { modal } = this.props
+      console.log('Like a boss', modal)
+      this.props.showModal(modal)
+    }
   }
 
+
   render(){
+
     return (
       <div>
-        <FlatButton onClick={this.openModal.bind(this)} label="Modal Button" />
+        <FlatButton onClick={this.openModal} label={this.props.label} />
       </div>
     )
   }
