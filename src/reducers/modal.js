@@ -1,5 +1,5 @@
 import { SHOW_MODAL } from '../actions/modals/show-modal'
-// import { HIDE_MODAL } from '../actions/modals/hide-modal'
+import { HIDE_MODAL } from '../actions/modals/hide-modal'
 
 const initialState = {
   modalType: null,
@@ -16,8 +16,8 @@ export default function modal( state = initialState, action) {
         modalProps: action.payload.modalProps,
       }
 
-    // case HIDE_MODAL :
-    //   return initialState
+    case HIDE_MODAL :
+      return initialState
 
     default:
       return state
