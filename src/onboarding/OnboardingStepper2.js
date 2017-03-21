@@ -5,6 +5,7 @@ import {
   Step,
   Stepper,
   StepLabel,
+  StepContent,
 } from 'material-ui/Stepper'
 import FlatButton from 'material-ui/FlatButton'
 
@@ -54,8 +55,6 @@ class OnboardingStepper extends PureComponent {
     }
   };
 
-
-
   componentDidMount() {
     window.addEventListener('resize', this.onResize.bind(this));
     this.onResize()
@@ -90,6 +89,7 @@ class OnboardingStepper extends PureComponent {
     this.setState({displayOtherTools: !displayOtherTools})
   }
 
+
   getStepContent(stepIndex) {
     const {otherTools, displayOtherTools} = this.state
     switch (stepIndex) {
@@ -105,66 +105,76 @@ class OnboardingStepper extends PureComponent {
   }
 
   renderStepbutton = (stepIndex) => {
-    if (stepIndex === 0) return `OK, LET'S GET STARTED`;
-    if (stepIndex === 1) return 'Next';
-    if (stepIndex === 2) return 'Finish';
+    switch (stepIndex) {
+      case 0 :
+        return `OK, LET'S GET STARTED`;
+      case 1:
+        return 'Next';
+      case 2:
+        return 'Finish';
+      default:
+        return 'You\'re a long way from home sonny jim';
+    }
   }
 
-  render() {
-    const {finished, stepIndex, stepperwidth} = this.state;
-    const contentStyle = {width: '100%'};
+
+  renderStepActions() {
+    const {stepIndex} = this.state;
 
     return (
-      <div style={{width: '100%', margin: 'auto'}}>
-        <Stepper ref="stepperwrapper" activeStep={stepIndex} orientation={ stepperwidth <= 700  ? 'vertical' : 'horizontal'}>
-          <Step>
-            <StepLabel className="steplabel">Scanning contacts</StepLabel>
-          </Step>
-          <Step className="steplabel">
-            <StepLabel>Connect tools</StepLabel>
-          </Step>
-          <Step className="steplabel">
-            <StepLabel>Create lists</StepLabel>
-          </Step>
-        </Stepper>
+      <div style={{margin: '12px 0'}}>
+        {!(stepIndex === 0) &&
+          <FlatButton
+            label="Back"
+            disabled={(stepIndex === 0)}
+            onTouchTap={this.handlePrev}
+            style={{marginRight: 12}}
+          />
+        }
 
-        <div style={contentStyle}>
-          {finished ? (
-            <p>
-              <a
-                href="#"
-                onClick={(event) => {
-                  event.preventDefault();
-                  this.setState({stepIndex: 0, finished: false});
-                }}
-              >
-                Click here
-              </a> to reset the example.
-            </p>
-          ) : (
-            <div className="step-content">
-              {this.getStepContent(stepIndex)}
-              <div style={{marginTop: 12}}>
-                {!(stepIndex === 0) &&
-                <FlatButton
-                  label="Back"
-                  disabled={(stepIndex === 0)}
-                  onTouchTap={this.handlePrev}
-                  style={{marginRight: 12}}
-                />
-              }
-                <FlatButton
-                  label={this.renderStepbutton(stepIndex)}
-                  primary={true}
-                  onTouchTap={this.handleNext}
-                />
-              </div>
-            </div>
-          )}
-        </div>
+          <FlatButton
+            label={this.renderStepbutton(stepIndex)}
+            primary={true}
+            onTouchTap={this.handleNext}
+          />
+        
       </div>
     );
   }
+
+  render() {
+    const {finished, stepIndex, stepperwidth } = this.state;
+    const contentStyle = {width: '100%'}
+
+    return (
+      <div style={{width: '100%', margin: 'auto'}}>
+        <Stepper ref="stepperwrapper" activeStep={stepIndex} orientation= 'vertical' >
+          <Step>
+            <StepLabel className="steplabel">Scanning contacts</StepLabel>
+            <StepContent>
+              {this.getStepContent(stepIndex)}
+              {this.renderStepActions()}
+            </StepContent>
+          </Step>
+          <Step>
+            <StepLabel className='steplabel'>Connect tools</StepLabel>
+            <StepContent>
+              {this.getStepContent(stepIndex)}
+              {this.renderStepActions(1)}
+          </StepContent>
+          </Step>
+          <Step >
+            <StepLabel className="steplabel">Create lists</StepLabel>
+            <StepContent>
+              {this.getStepContent(stepIndex)}
+              {this.renderStepActions(2)}
+            </StepContent>
+          </Step>
+        </Stepper>
+      </div>
+    )
+  }
+
 }
 
 export default OnboardingStepper
