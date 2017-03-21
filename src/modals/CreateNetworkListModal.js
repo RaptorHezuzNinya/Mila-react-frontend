@@ -42,7 +42,8 @@ class CreateNetworkListModal extends PureComponent {
         disabled={true}
         onTouchTap={this.handleClose}
       />,
-    ];
+    ]
+
     return (
       <div>
 
@@ -61,4 +62,4 @@ class CreateNetworkListModal extends PureComponent {
   }
 }
 
-export default CreateNetworkListModal
+export default connect(null, { hideModal } ) (CreateNetworkListModal)
