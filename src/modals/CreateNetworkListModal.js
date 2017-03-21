@@ -25,9 +25,22 @@ class CreateNetworkListModal extends PureComponent {
   }
 
   render(){
+    const actions = [
+      <FlatButton
+        label="Cancel"
+        primary={true}
+        onTouchTap={this.handleClose}
+      />,
+      <FlatButton
+        label="Submit"
+        primary={true}
+        disabled={true}
+        onTouchTap={this.handleClose}
+      />,
+    ];
     return (
       <div>
-        <h1>createNetworkListModal</h1>
+
         <Dialog
           title="Dialog With Actions"
           actions={actions}

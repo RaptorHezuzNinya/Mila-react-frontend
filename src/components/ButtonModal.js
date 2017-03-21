@@ -15,7 +15,6 @@ class ButtonModal extends PureComponent {
     this.props.showModal()
   }
 
-
   render(){
     return (
       <div>
