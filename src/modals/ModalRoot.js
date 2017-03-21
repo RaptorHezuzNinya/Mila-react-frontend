@@ -10,7 +10,6 @@ const MODAL_COMPONENTS = {
 }
 
 const ModalRoot = ({ modalType, modalProps }) => {
-  console.log('zitten voor IF in ROOT')
 
   if (!modalType) {
     return null
