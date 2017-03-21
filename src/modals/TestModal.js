@@ -15,9 +15,13 @@ const customContentStyle = {
   maxWidth: 'none',
 }
 
-class CreateNetworkListModal extends PureComponent {
+class TestModal extends PureComponent {
   state = {
     open: true
+  }
+
+  handleOpen = () => {
+    this.setState({open: true})
   }
 
   handleClose = () => {
@@ -50,7 +54,7 @@ class CreateNetworkListModal extends PureComponent {
           contentStyle={customContentStyle}
           open={this.state.open}
         >
-        <h1>Create NetworkList Modal</h1>
+        <h1>Test Modal</h1>
         Only actions can close this dialog.
         </Dialog>
       </div>
@@ -58,4 +62,4 @@ class CreateNetworkListModal extends PureComponent {
   }
 }
 
-export default connect(null, { hideModal } ) (CreateNetworkListModal)
+export default connect(null, { hideModal } ) (TestModal)
