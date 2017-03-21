@@ -20,10 +20,6 @@ class CreateNetworkListModal extends PureComponent {
     open: true
   }
 
-  handleOpen = () => {
-    this.setState({open: true})
-  }
-
   handleClose = () => {
     this.setState({open: false})
     this.props.hideModal()
