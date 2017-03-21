@@ -8,7 +8,6 @@ import NetworkList from './NetworkList'
 import ButtonModal from '../components/ButtonModal'
 import ModalRoot from '../modals/ModalRoot'
 
-// import CreateModal from '../modals/CreateNetworkListModal'
 // styles
 import './Network.sass'
 
