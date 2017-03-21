@@ -13,6 +13,17 @@ import './Network.sass'
 
 class Network extends PureComponent {
 
+  constructor(props){
+    super(props)
+      this.state = {
+      modalProperties: {
+        createNetworkListModal: 'CREATE_NETWORKLIST_MODAL',
+        testModal: 'TEST_MODAL',
+
+      }
+    }
+  }
+
   static propTypes = {
     networkLists: PropTypes.array.isRequired
   }
