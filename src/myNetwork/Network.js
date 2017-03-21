@@ -4,11 +4,11 @@ import React, { PureComponent, PropTypes } from 'react'
 import NetworkButton from '../components/NetworkButton'
 import NetworkButtonDrop from '../components/NetworkButtonDrop'
 import NetworkList from './NetworkList'
-// import CreateNetwork from '../components/CreateNetwork'
-import NetworkModal from '../components/Modal'
 
 import ButtonModal from '../components/ButtonModal'
+import ModalRoot from '../modals/ModalRoot'
 
+// import CreateModal from '../modals/CreateNetworkListModal'
 // styles
 import './Network.sass'
 
