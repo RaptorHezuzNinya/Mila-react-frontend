@@ -17,7 +17,7 @@ import './CreateNetworkListModal.sass'
 
 const styles = {
   customContentStyle: {
-    width: '540px',
+    width: '600px',
   },
   hintStyle: {
     color: '#737a80',
