@@ -5,72 +5,73 @@
 .modal-wrapper
 
 .createlist-dialog
-  div
-    div
-      div
-        // height: 600px !important
 
-// cl == createlist
-.cl-header
-  h2
-    text-align: center
-    font-size: 26px
-    margin-bottom: 10px
-    +mont-light($blueA)
-  h3
-    text-align: center
-    font-size: 16px
-    margin-top: 0
-    +mont-light($steelA)
 
-.listname-container, .descript-container
-  display: flex
-  flex-flow: wrap
-  .list-name, .desc-name
-    text-align: left
-    flex: 50%
-  .char-count
-    text-align: right
-    flex: 50%
-  .list-input
-    flex: 100%
+  // cl == createlist
+.content-wrapper
+  padding: 31px 31px 15px
 
-.listname-container
-  margin-bottom: 60px
+  .cl-header
+    h2
+      text-align: center
+      font-size: 26px
+      margin-bottom: 10px
+      +mont-light($blueA)
+    h3
+      text-align: center
+      font-size: 16px
+      margin-top: 0
+      +mont-light($steelA)
 
-.descript-container
-  margin-bottom: 60px
-  .desc-name
-    text-align: left
+  .listname-container, .descript-container
+    display: flex
+    flex-flow: wrap
+    .list-name, .desc-name
+      text-align: left
+      flex: 50%
+    .char-count
+      text-align: right
+      flex: 50%
+    .list-input
+      flex: 100%
 
-  .char-count
+  .listname-container
+    margin-bottom: 60px
 
-.cta-container
-  display: flex
-  flex-flow: wrap
-  .submit-but
-    text-align: center
-    flex: 100%
-    margin-bottom: 20px
-    button
-      border: 2px solid $border1 !important
-      width: 240px
-      height: 60px !important
-      border-radius: 30px !important
-      &:hover
-        border-color: $greenA !important
+  .descript-container
+    margin-bottom: 60px
+    .desc-name
+      text-align: left
+
+    .char-count
+
+  .cta-container
+    display: flex
+    flex-flow: wrap
+    .submit-but
+      text-align: center
+      flex: 100%
+      margin-bottom: 20px
+      button
+        border: 2px solid $border1 !important
+        width: 240px
+        height: 60px !important
+        border-radius: 30px !important
+        &:hover
+          border-color: $greenA !important
+          span
+            color: $greenA !important
         span
-          color: $greenA !important
-      span
-        color: $blueA !important
-        +mont-med
-        font-size: 16px !important
-        // font-weight: 300 !important
-  .cancel-but
-    button
-      
-      border-radius: 20px !important
+          color: $blueA !important
+          +mont-med
+          font-size: 16px !important
+          // font-weight: 300 !important
+    .cancel-but
+      button
+        width: 240px
+        height: 60px !important
+        border-radius: 30px !important
 
-  .cancel-but
-    text-align: center
-    flex: 100%
+    .cancel-but
+      text-align: center
+      flex: 100%
