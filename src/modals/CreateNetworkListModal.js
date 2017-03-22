@@ -93,7 +93,7 @@ class CreateNetworkListModal extends PureComponent {
               <div><hr></hr></div>
             </div>
             <div className="cta-container">
-              <CheckBox />
+              <CheckBox className="team-checkb" label="Share this list with your team."/>
               <div className="submit-but">
                 <FlatButton
                   label="CREATE"
