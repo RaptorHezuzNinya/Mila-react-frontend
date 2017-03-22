@@ -64,7 +64,7 @@ class CreateNetworkListModal extends PureComponent {
           contentStyle={styles.customContentStyle}
           open={this.state.open}
         >
-          <div className="unicornzz">
+          <div className="content-wrapper">
             <div className="cl-header">
               <h2>Create a new Mila list</h2>
               <h3>Use lists to group your contacts</h3>
