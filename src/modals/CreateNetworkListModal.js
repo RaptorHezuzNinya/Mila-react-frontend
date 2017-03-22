@@ -46,7 +46,6 @@ class CreateNetworkListModal extends PureComponent {
 
     return (
       <div>
-
         <Dialog
           className="create-list-modal"
           title="Dialog With Actions"
@@ -55,8 +54,8 @@ class CreateNetworkListModal extends PureComponent {
           contentStyle={customContentStyle}
           open={this.state.open}
         >
-        <h1>Create NetworkList Modal</h1>
-        Only actions can close this dialog.
+          <h1>Create NetworkList Modal</h1>
+          <Paper className="paper-create-list"/>
         </Dialog>
       </div>
     )
