@@ -9,14 +9,21 @@ import Dialog from 'material-ui/Dialog'
 import FlatButton from 'material-ui/FlatButton'
 import RaisedButton from 'material-ui/RaisedButton'
 import Paper from 'material-ui/Paper'
+import TextField from 'material-ui/TextField'
+import {orange500, blue500} from 'material-ui/styles/colors'
 
 // styling
 import './CreateNetworkListModal.sass'
 
-const customContentStyle = {
-  width: '50%',
-  height: '540px',
-  // maxWidth: 'none',
+const styles = {
+  customContentStyle: {
+    width: '540px',
+  },
+  hintStyle: {
+    color: '#737a80',
+    fontSize: 14,
+    fontWeight: 100
+  }
 }
 
 class CreateNetworkListModal extends PureComponent {
