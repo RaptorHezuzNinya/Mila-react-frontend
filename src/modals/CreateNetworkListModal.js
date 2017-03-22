@@ -66,10 +66,44 @@ class CreateNetworkListModal extends PureComponent {
             <h2>Create a new Mila list</h2>
             <h3>Use lists to group your contacts</h3>
           </div>
-          <div className="cl-body">
+
+          <div className="listname-container">
             <p className="list-name">LIST NAME</p>
+            {/* Hier moet een char count komen input field moet max hebben */}
             <p className="char-count"> 25 left</p>
-            <TextField hintStyle={styles.hintStyle} className="list-input" hintText="Type a list name, e.g. Top clients, freelancers, potential investors"></TextField>
+            <TextField hintStyle={styles.hintStyle}
+                       className="list-input"
+                       hintText="Type a list name, e.g. Top clients, freelancers, potential investors">
+            </TextField>
+          </div>
+
+          <div className="descript-container">
+
+            <p className="desc-name">DESCRIPTION (optional)</p>
+            {/* Hier moet een char count komen input field moet max hebben */}
+            <p className="char-count"> 250 left</p>
+            <TextField hintStyle={styles.hintStyle}
+                       className="list-input"
+                       hintText="Type a list name, e.g. Top clients, freelancers, potential investors">
+            </TextField>
+            <div><hr></hr></div>
+          </div>
+          <div className="cta-container">
+            <div className="submit-but">
+              <FlatButton
+                label="CREATE"
+                primary={true}
+                disabled={true}
+                onTouchTap={this.handleClose}
+              />
+            </div>
+            <div className="cancel-but">
+              <FlatButton
+                label="Cancel"
+                primary={true}
+                onTouchTap={this.handleClose}
+              />
+            </div>
           </div>
 
         </Dialog>
