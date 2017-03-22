@@ -24,6 +24,9 @@ const styles = {
     fontSize: 14,
     fontWeight: 100,
     fontFamily: 'Montserrat-Light'
+  },
+  textareaDesc: {
+    height: 500
   }
 }
 
@@ -84,7 +87,8 @@ class CreateNetworkListModal extends PureComponent {
             <p className="char-count"> 250 left</p>
             <TextField hintStyle={styles.hintStyle}
                        className="list-input"
-                       hintText="Type a list name, e.g. Top clients, freelancers, potential investors">
+                       textareaStyle={styles.textareaDesc}
+                       hintText="">
             </TextField>
             <div><hr></hr></div>
           </div>
@@ -113,3 +117,5 @@ class CreateNetworkListModal extends PureComponent {
 }
 
 export default connect(null, { hideModal } ) (CreateNetworkListModal)
+// has to be in hint text in create list DESCRIPTION
+//What do youdo with this list? e.g. The VIP list is used for people who have asked questions about our product and want to try our next update
