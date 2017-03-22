@@ -1,5 +1,37 @@
-.create-list-modal
+@import "../assets/styles/base/colors.sass"
+@import "../assets/styles/base/mixins.sass"
+@import "../assets/styles/base/breakpoints.sass"
+
+.modal-wrapper
+
+.createlist-dialog
   div
     div
       div
-        height: 600px !important
+        // height: 600px !important
+
+// cl == createlist
+.cl-header
+  h2
+    text-align: center
+    font-size: 26px
+    margin-bottom: 10px
+    @include mont-light($blueA)
+  h3
+    text-align: center
+    font-size: 16px
+    margin-top: 0
+    @include mont-light($steelA)
+
+.cl-body
+  display: flex
+  flex-flow: wrap
+  .list-name
+    text-align: left
+    flex: 50%
+
+  .char-count
+    text-align: right
+    flex: 50%
+  .list-input
+    flex: 100%
