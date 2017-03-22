@@ -23,15 +23,38 @@
     margin-top: 0
     @include mont-light($steelA)
 
-.cl-body
+.listname-container, .descript-container
   display: flex
   flex-flow: wrap
-  .list-name
+  .list-name, .desc-name
     text-align: left
     flex: 50%
-
   .char-count
     text-align: right
     flex: 50%
   .list-input
+    flex: 100%
+
+.listname-container
+  margin-bottom: 60px
+
+.descript-container
+  // border-bottom: 1px solid black
+  margin-bottom: 60px
+  .desc-name
+    text-align: left
+
+  .char-count
+
+.cta-container
+  display: flex
+  flex-flow: wrap
+  .submit-but
+    text-align: center
+    flex: 100%
+    button
+      border: 1px solid black !important
+
+  .cancel-but
+    text-align: center
     flex: 100%
