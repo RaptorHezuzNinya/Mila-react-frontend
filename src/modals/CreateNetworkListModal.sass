@@ -1,0 +1,87 @@
+@import "../assets/styles/base/colors.sass"
+@import "../assets/styles/base/mixins.sass"
+@import "../assets/styles/base/breakpoints.sass"
+
+.modal-wrapper
+
+.createlist-dialog
+
+
+  // cl == createlist
+.content-wrapper
+  padding: 31px 31px 15px
+
+  .cl-header
+    h2
+      text-align: center
+      font-size: 26px
+      margin-bottom: 10px
+      +mont-light($blueA)
+    h3
+      text-align: center
+      font-size: 16px
+      margin-top: 0
+      margin-bottom: 30px
+      +mont-light($steelA)
+
+  .listname-container, .descript-container
+    display: flex
+    flex-flow: wrap
+    .list-name, .desc-name
+      text-align: left
+      flex: 50%
+    .char-count
+      text-align: right
+      flex: 50%
+    .list-input
+      margin-top: 30px
+      flex: 100%
+
+  .listname-container
+    margin-bottom: 60px
+
+  .descript-container
+    margin-bottom: 20px
+    .desc-name
+      text-align: left
+
+    .char-count
+
+  .cta-container
+    display: flex
+    flex-flow: wrap
+    .team-checkb
+      flex: auto
+      margin-bottom: 40px
+      label
+        color: $steelA
+        +mont-light
+        +f(12px)
+
+    .submit-but
+      text-align: center
+      flex: 100%
+      margin-bottom: 20px
+      button
+        width: 240px
+        border: 2px solid $border1 !important
+        height: 60px !important
+        border-radius: 30px !important
+        &:hover
+          border-color: $greenA !important
+          span
+            color: $greenA !important
+        span
+          +mont-med
+          color: $blueA !important
+          font-size: 16px !important
+
+    .cancel-but
+      button
+        width: 240px
+        height: 60px !important
+        border-radius: 30px !important
+
+    .cancel-but
+      text-align: center
+      flex: 100%
