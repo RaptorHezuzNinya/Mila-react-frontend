@@ -88,7 +88,7 @@ class CreateNetworkListModal extends PureComponent {
               <TextField hintStyle={styles.hintStyle}
                          className="list-input"
                         //  textareaStyle={styles.textareaDesc}
-                         hintText="Type a list name, e.g. Top clients, freelancers, potential investors">
+                         hintText="What do youdo with this list? e.g. The VIP list is used for people who have asked questions about our product and want to try our next update">
               </TextField>
               <div><hr></hr></div>
             </div>
