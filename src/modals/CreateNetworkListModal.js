@@ -25,9 +25,9 @@ const styles = {
     fontWeight: 100,
     fontFamily: 'Montserrat-Light'
   },
-  textareaDesc: {
-    height: 500
-  }
+  // textareaDesc: {
+  //   height: 500
+  // }
 }
 
 class CreateNetworkListModal extends PureComponent {
@@ -87,8 +87,8 @@ class CreateNetworkListModal extends PureComponent {
             <p className="char-count"> 250 left</p>
             <TextField hintStyle={styles.hintStyle}
                        className="list-input"
-                       textareaStyle={styles.textareaDesc}
-                       hintText="">
+                      //  textareaStyle={styles.textareaDesc}
+                       hintText="Type a list name, e.g. Top clients, freelancers, potential investors">
             </TextField>
             <div><hr></hr></div>
           </div>
