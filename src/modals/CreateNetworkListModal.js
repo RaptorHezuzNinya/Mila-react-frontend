@@ -97,7 +97,7 @@ class CreateNetworkListModal extends PureComponent {
               <FlatButton
                 label="CREATE"
                 primary={true}
-                disabled={true}
+                disabled={false}
                 onTouchTap={this.handleClose}
               />
             </div>
