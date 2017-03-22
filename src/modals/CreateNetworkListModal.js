@@ -44,6 +44,7 @@ class CreateNetworkListModal extends PureComponent {
       <div>
 
         <Dialog
+          className="create-list-modal"
           title="Dialog With Actions"
           actions={actions}
           modal={true}
