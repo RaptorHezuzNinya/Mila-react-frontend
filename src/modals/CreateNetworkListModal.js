@@ -10,7 +10,7 @@ import FlatButton from 'material-ui/FlatButton'
 import RaisedButton from 'material-ui/RaisedButton'
 import Paper from 'material-ui/Paper'
 import TextField from 'material-ui/TextField'
-import {orange500, blue500} from 'material-ui/styles/colors'
+import CheckBox from 'material-ui/Checkbox'
 
 // styling
 import './CreateNetworkListModal.sass'
@@ -93,6 +93,7 @@ class CreateNetworkListModal extends PureComponent {
               <div><hr></hr></div>
             </div>
             <div className="cta-container">
+              <CheckBox />
               <div className="submit-but">
                 <FlatButton
                   label="CREATE"
