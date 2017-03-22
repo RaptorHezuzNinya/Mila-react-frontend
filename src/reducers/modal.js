@@ -2,7 +2,7 @@ import { SHOW_MODAL } from '../actions/modals/show-modal'
 import { HIDE_MODAL } from '../actions/modals/hide-modal'
 
 const initialState = {
-  modalType: 'CREATE_NETWORKLIST_MODAL',
+  modalType: null,
   modalProps: {}
 }
 
