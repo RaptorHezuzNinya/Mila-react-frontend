@@ -51,8 +51,25 @@
   .submit-but
     text-align: center
     flex: 100%
+    margin-bottom: 20px
     button
-      border: 1px solid black !important
+      border: 2px solid $border1 !important
+      width: 240px
+      height: 60px !important
+      border-radius: 30px !important
+      &:hover
+        border-color: $greenA !important
+        span
+          color: $greenA !important
+      span
+        color: $blueA !important
+        +mont-med
+        font-size: 16px !important
+        // font-weight: 300 !important
+  .cancel-but
+    button
+      
+      border-radius: 20px !important
 
   .cancel-but
     text-align: center
