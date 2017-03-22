@@ -22,7 +22,8 @@ const styles = {
   hintStyle: {
     color: '#737a80',
     fontSize: 14,
-    fontWeight: 100
+    fontWeight: 100,
+    fontFamily: 'Montserrat-Light'
   }
 }
 
@@ -56,7 +57,6 @@ class CreateNetworkListModal extends PureComponent {
         <Dialog
           className="createlist-dialog"
           // title="Dialog With Actions"
-
           modal={true}
           contentStyle={styles.customContentStyle}
           open={this.state.open}
