@@ -90,6 +90,12 @@ class OnboardingStepper extends PureComponent {
     this.setState({displayOtherTools: !displayOtherTools})
   }
 
+  saveList(listName) {
+    //this function should fire off action that adds list to store
+    console.log("in onboardingstepper")
+    return null
+  }
+
 
   getStepContent(stepIndex) {
     const {otherTools, displayOtherTools} = this.state
@@ -99,7 +105,7 @@ class OnboardingStepper extends PureComponent {
       case 1:
         return <ConnectTools displayOtherTools={displayOtherTools} toggleTools={this.toggleTools.bind(this)} otherTools={otherTools} />
       case 2:
-        return <CreateLists />
+        return <CreateLists saveList={this.saveList.bind(this)}/>
       default:
         return 'You\'re a long way from home sonny jim!';
     }

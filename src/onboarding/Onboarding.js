@@ -7,6 +7,7 @@ import FlatButton from 'material-ui/FlatButton'
 
 // Components
 import OnboardingStepper2 from './OnboardingStepper2'
+import OnboardingStepper from './OnboardingStepper'
 
 // Styles
 import './onboarding.sass'
