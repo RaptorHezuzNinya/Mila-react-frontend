@@ -8,11 +8,15 @@ import hideModal from '../actions/modals/hide-modal'
 import Dialog from 'material-ui/Dialog'
 import FlatButton from 'material-ui/FlatButton'
 import RaisedButton from 'material-ui/RaisedButton'
+import Paper from 'material-ui/Paper'
+
+// styling
+import './CreateNetworkListModal.sass'
 
 const customContentStyle = {
   width: '50%',
-  height: '500px',
-  maxWidth: 'none',
+  height: '540px',
+  // maxWidth: 'none',
 }
 
 class CreateNetworkListModal extends PureComponent {
