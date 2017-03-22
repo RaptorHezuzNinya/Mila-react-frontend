@@ -52,17 +52,26 @@ class CreateNetworkListModal extends PureComponent {
     ]
 
     return (
-      <div>
+      <div className="modal-wrapper">
         <Dialog
-          className="create-list-modal"
-          title="Dialog With Actions"
-          actions={actions}
+          className="createlist-dialog"
+          // title="Dialog With Actions"
+
           modal={true}
-          contentStyle={customContentStyle}
+          contentStyle={styles.customContentStyle}
           open={this.state.open}
         >
-          <h1>Create NetworkList Modal</h1>
-          <Paper className="paper-create-list"/>
+
+          <div className="cl-header">
+            <h2>Create a new Mila list</h2>
+            <h3>Use lists to group your contacts</h3>
+          </div>
+          <div className="cl-body">
+            <p className="list-name">LIST NAME</p>
+            <p className="char-count"> 25 left</p>
+            <TextField hintStyle={styles.hintStyle} className="list-input" hintText="Type a list name, e.g. Top clients, freelancers, potential investors"></TextField>
+          </div>
+
         </Dialog>
       </div>
     )
