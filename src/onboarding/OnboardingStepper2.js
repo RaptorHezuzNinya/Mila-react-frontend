@@ -57,14 +57,15 @@ class OnboardingStepper extends PureComponent {
 
   componentDidMount() {
     window.addEventListener('resize', this.onResize.bind(this));
-    this.onResize()
+    width = document.documentElement.clientWidth
+    this.onResize(width)
   }
 
-  onResize() {
-    if(document.documentElement.clientWidth < 500) {
+  onResize(width) {
+    if(width < 500) {
       this.setState({ stepperwidth: 450});
     } else {
-      let update_width  = document.documentElement.clientWidth-100;
+      let update_width  = width - 100;
       this.setState({ stepperwidth: update_width});
     }
   }
