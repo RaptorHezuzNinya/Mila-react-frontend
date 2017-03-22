@@ -13,7 +13,21 @@ class CreateLists extends PureComponent {
   constructor(props){
     super(props)
     this.state = {
-      listName: ''
+      listName: '',
+      myLists: [
+        {
+          name: 'StakeHolders',
+          source: 'Mila',
+        },
+        {
+          name: `VIP's of the company`,
+          source: `Mila`
+        },
+        {
+          name: `Newsletter US`,
+          source: 'MailChimp',
+        },
+      ]
     }
   }
 
@@ -28,7 +42,17 @@ class CreateLists extends PureComponent {
     this.props.saveList(listName)
   }
 
+  renderLists = (list, index) => {
+    return (
+      <TextField
+        key={index}
+        defaultValue={list.name}
+      />
+    )
+  }
+
   render() {
+    const { myLists } = this.state
     return (
       <div className="create-lists">
         <div>
@@ -37,14 +61,13 @@ class CreateLists extends PureComponent {
         </div>
         <div>
           <h4>YOUR LISTS</h4>
-          <form>
+            {myLists.map(this.renderLists)}
             <TextField
               hintText="Type a list name, e.g. VIP's, freelancers, friends"
               onChange={this.handleChange}
+              fullWidth={true}
             />
             <FlatButton label='ADD A LIST' value='submit' onClick={this.clickDo}/>
-          </form>
-
         </div>
       </div>
     )
