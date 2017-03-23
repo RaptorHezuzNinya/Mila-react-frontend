@@ -25,5 +25,4 @@ class ButtonModal extends PureComponent {
   }
 }
 
-
 export default connect (null, { showModal })(ButtonModal)

@@ -17,6 +17,9 @@ import CheckBox from 'material-ui/Checkbox'
 // styling
 import './CreateNetworkListModal.sass'
 
+const maxTitleCount = 25
+const maxDescCount = 250
+
 const styles = {
   customContentStyle: {
     width: '600px',
