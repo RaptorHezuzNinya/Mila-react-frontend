@@ -79,6 +79,7 @@ class CreateNetworkListModal extends PureComponent {
   };
 
   render(){
+    console.log(this.state)
     const { title, description } = this.props
     return (
       <div className="modal-wrapper">
