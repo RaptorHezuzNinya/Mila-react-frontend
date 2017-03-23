@@ -33,27 +33,39 @@ const styles = {
   },
 }
 
+
 class CreateNetworkListModal extends PureComponent {
-  state = {
-    open: false
+
+  constructor(){
+    super()
+    this.state = {
+      open: false,
+      titleCharsLeft: maxTitleCount,
+      descCharsLeft: maxDescCount,
+    }
   }
 
   componentWillMount(){
     this.handleOpen()
   }
 
-  handleChange = (event) => {
-    const field = event.target.name
+  handleChange = (element) => {
+    const field = element.target.name
+
+    const input = element.target.value
+
     this.setState({
-      [field]: event.target.value
+      [field]: element.target.value,
+      titleCharsLeft: maxTitleCount - input.length
     })
+
   }
+
 
   createNetworkList(event){
     event.preventDefault()
     const { title, description } = this.state
-    console.log(this.state)
-    this.props.createNetworkList(title)
+    this.props.createNetworkList({title, description})
     this.handleClose()
   }
 
