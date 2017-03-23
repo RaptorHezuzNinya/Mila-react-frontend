@@ -47,18 +47,21 @@ class CreateNetworkListModal extends PureComponent {
     this.handleOpen()
   }
 
-  handleChange = (element) => {
-    const field = element.target.name
-
-    const input = element.target.value
-
-    this.setState({
-      [field]: element.target.value,
-      titleCharsLeft: maxTitleCount - input.length
-    })
-
+  handleChange = (event) => {
+    const field = event.target.name
+    const input = event.target.value
+    if (field == 'title') {
+      this.setState({
+        [field]: event.target.value,
+        titleCharsLeft: maxTitleCount - input.length
+      })
+    } else if (field == 'description') {
+      this.setState({
+        [field]: event.target.value,
+        descCharsLeft: maxDescCount - input.length
+      })
+    }
   }
-
 
   createNetworkList(event){
     event.preventDefault()
