@@ -119,9 +119,9 @@ class NetworkList extends PureComponent {
     })
   }
 
-  handleChange = (event) => {
-    this.setState({height: event.target.value})
-  }
+  // handleChange = (event) => {
+  //   this.setState({height: event.target.value})
+  // }
 
 
   render() {
