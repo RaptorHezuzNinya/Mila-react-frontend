@@ -97,14 +97,16 @@ class CreateNetworkListModal extends PureComponent {
             <div className="listname-container">
               <p className="list-name">LIST NAME</p>
               <p className="char-count"> {this.state.titleCharsLeft} left</p>
+
               <TextField hintStyle={styles.hintStyle}
                          className="list-input"
                          name="title"
                          hintText="Type a list name, e.g. Top clients, freelancers, potential investors"
                          value={this.state.title || ''}
-                         onChange={this.handleChange.bind(this)}
+                         onChange={ this.handleChange.bind(this) }
                          maxLength="25">
               </TextField>
+
             </div>
 
             <div className="descript-container">
@@ -118,7 +120,7 @@ class CreateNetworkListModal extends PureComponent {
                          rows={2}
                          rowsMax={4}
                          value={this.state.description || ''}
-                         onChange={this.handleChange.bind(this)}
+                         onChange={ this.handleChange.bind(this) }
                          maxLength="250">
               </TextField>
             </div>
