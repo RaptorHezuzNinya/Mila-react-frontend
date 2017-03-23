@@ -61,6 +61,7 @@ class CreateNetworkListModal extends PureComponent {
           modal={true}
           contentStyle={styles.customContentStyle}
           open={this.state.open}
+          // autoScrollBodyContent={true}
         >
           <div className="content-wrapper">
             <div className="cl-header">
