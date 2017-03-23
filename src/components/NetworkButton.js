@@ -7,9 +7,9 @@ import FlatButton from 'material-ui/FlatButton'
 
 class NetworkButton extends PureComponent {
   render() {
-    const { name } = this.props
+    const { title } = this.props
     return (
-      <FlatButton label={name}/>
+      <FlatButton label={title}/>
     )
   }
 }
