@@ -59,44 +59,35 @@ class CreateNetworkListModal extends PureComponent {
     this.props.hideModal()
   }
 
-  render(){
-    const actions = [
-      <FlatButton
-        label="Cancel"
-        primary={true}
-        onTouchTap={this.handleClose}
-      />,
-      <FlatButton
-        label="Submit"
-        primary={true}
-        disabled={true}
-        onTouchTap={this.handleClose}
-      />,
-    ]
+  handleOpen = () => {
+    this.setState({open: true});
+  };
 
+  render(){
+    const { title, description } = this.props
     return (
       <div className="modal-wrapper">
         <Dialog
           className="createlist-dialog"
-          // title="Dialog With Actions"
           modal={true}
           contentStyle={styles.customContentStyle}
           open={this.state.open}
-          // autoScrollBodyContent={true}
         >
           <div className="content-wrapper">
             <div className="cl-header">
               <h2>Create a new Mila list</h2>
               <h3>Use lists to group your contacts</h3>
             </div>
-
             <div className="listname-container">
               <p className="list-name">LIST NAME</p>
               {/* Hier moet een char count komen input field moet max hebben */}
               <p className="char-count"> 25 left</p>
               <TextField hintStyle={styles.hintStyle}
+                         name="title"
                          className="list-input"
-                         hintText="Type a list name, e.g. Top clients, freelancers, potential investors">
+                         hintText="Type a list name, e.g. Top clients, freelancers, potential investors"
+                         value={this.state.title || ''}
+                         onChange={this.handleChange}>
               </TextField>
             </div>
 
