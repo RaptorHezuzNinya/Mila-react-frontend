@@ -15,7 +15,6 @@ class ButtonModal extends PureComponent {
     this.props.showModal(modal)
   }
 
-
   render(){
     if (!this.props.modal) return null;
     return (
@@ -25,6 +24,5 @@ class ButtonModal extends PureComponent {
     )
   }
 }
-
 
 export default connect (null, { showModal })(ButtonModal)

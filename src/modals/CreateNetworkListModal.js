@@ -3,6 +3,8 @@ import { connect } from 'react-redux'
 
 // actions
 import hideModal from '../actions/modals/hide-modal'
+import createNetworkList from '../actions/networklists/create'
+import networkList from '../reducers/networklists'
 
 // material-ui Components
 import Dialog from 'material-ui/Dialog'
@@ -15,10 +17,12 @@ import CheckBox from 'material-ui/Checkbox'
 // styling
 import './CreateNetworkListModal.sass'
 
+const maxTitleCount = 25
+const maxDescCount = 250
+
 const styles = {
   customContentStyle: {
     width: '600px',
-    height: '100%'
   },
   hintStyle: {
     color: '#737a80',
@@ -29,8 +33,41 @@ const styles = {
 }
 
 class CreateNetworkListModal extends PureComponent {
-  state = {
-    open: true
+
+  constructor(){
+    super()
+    this.state = {
+      open: false,
+      titleCharsLeft: maxTitleCount,
+      descCharsLeft: maxDescCount,
+    }
+  }
+
+  componentWillMount(){
+    this.handleOpen()
+  }
+
+  handleChange = (event) => {
+    const field = event.target.name
+    const input = event.target.value
+    if (field == 'title') {
+      this.setState({
+        [field]: event.target.value,
+        titleCharsLeft: maxTitleCount - input.length
+      })
+    } else if (field == 'description') {
+      this.setState({
+        [field]: event.target.value,
+        descCharsLeft: maxDescCount - input.length
+      })
+    }
+  }
+
+  createNetworkList(event){
+    event.preventDefault()
+    const { title, description } = this.state
+    this.props.createNetworkList({title, description})
+    this.handleClose()
   }
 
   handleClose = () => {
@@ -38,26 +75,16 @@ class CreateNetworkListModal extends PureComponent {
     this.props.hideModal()
   }
 
-  render(){
-    const actions = [
-      <FlatButton
-        label="Cancel"
-        primary={true}
-        onTouchTap={this.handleClose}
-      />,
-      <FlatButton
-        label="Submit"
-        primary={true}
-        disabled={true}
-        onTouchTap={this.handleClose}
-      />,
-    ]
+  handleOpen = () => {
+    this.setState({open: true});
+  };
 
+  render(){
+    const { title, description } = this.props
     return (
       <div className="modal-wrapper">
         <Dialog
           className="createlist-dialog"
-          // title="Dialog With Actions"
           modal={true}
           contentStyle={styles.customContentStyle}
           open={this.state.open}
@@ -67,28 +94,35 @@ class CreateNetworkListModal extends PureComponent {
               <h2>Create a new Mila list</h2>
               <h3>Use lists to group your contacts</h3>
             </div>
-
             <div className="listname-container">
               <p className="list-name">LIST NAME</p>
-              {/* Hier moet een char count komen input field moet max hebben */}
-              <p className="char-count"> 25 left</p>
+              <p className="char-count"> {this.state.titleCharsLeft} left</p>
+
               <TextField hintStyle={styles.hintStyle}
                          className="list-input"
-                         hintText="Type a list name, e.g. Top clients, freelancers, potential investors">
+                         name="title"
+                         hintText="Type a list name, e.g. Top clients, freelancers, potential investors"
+                         value={this.state.title || ''}
+                         onChange={ this.handleChange.bind(this) }
+                         maxLength="25">
               </TextField>
+
             </div>
 
             <div className="descript-container">
-
               <p className="desc-name">DESCRIPTION (optional)</p>
-              {/* Hier moet een char count komen input field moet max hebben */}
-              <p className="char-count"> 250 left</p>
+              <p className="char-count"> {this.state.descCharsLeft} left</p>
               <TextField hintStyle={styles.hintStyle}
                          className="list-input"
-                        //  textareaStyle={styles.textareaDesc}
-                         hintText="What do youdo with this list? e.g. The VIP list is used for people who have asked questions about our product and want to try our next update">
+                         name="description"
+                         hintText="What do youdo with this list? e.g. The VIP list is used for people who have asked questions about our product and want to try our next update"
+                         multiLine={true}
+                         rows={2}
+                         rowsMax={4}
+                         value={this.state.description || ''}
+                         onChange={ this.handleChange.bind(this) }
+                         maxLength="250">
               </TextField>
-              <div><hr></hr></div>
             </div>
             <div className="cta-container">
               <CheckBox className="team-checkb" label="Share this list with your team."/>
@@ -97,7 +131,7 @@ class CreateNetworkListModal extends PureComponent {
                   label="CREATE"
                   primary={true}
                   disabled={false}
-                  onTouchTap={this.handleClose}
+                  onClick={this.createNetworkList.bind(this)}
                 />
               </div>
               <div className="cancel-but">
@@ -115,4 +149,4 @@ class CreateNetworkListModal extends PureComponent {
   }
 }
 
-export default connect(null, { hideModal } ) (CreateNetworkListModal)
+export default connect(null, { hideModal, createNetworkList } ) (CreateNetworkListModal)

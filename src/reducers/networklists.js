@@ -4,28 +4,33 @@ import { CREATE_NETWORKLIST } from '../actions/networklists/create'
 const initialState = [
   {
     id: 1,
-    name: 'Work',
-    avatar: '~/assets/images/avatars/troll.png'
+    title: 'Work',
+    avatar: '~/assets/images/avatars/troll.png',
+    description: 'The VIP list is used for people who have asked questions about our product and want to try our next update'
   },
   {
     id: 2,
-    name: 'Devops',
-    avatar: '~/assets/images/avatars/troll.png'
+    title: 'Devops',
+    avatar: '~/assets/images/avatars/troll.png',
+    description: 'The VIP list is used for people who have asked questions about our product and want to try our next update'
   },
   {
     id: 3,
-    name: 'Business Int',
-    avatar: '~/assets/images/avatars/troll.png'
+    title: 'Business Int',
+    avatar: '~/assets/images/avatars/troll.png',
+    description: 'The VIP list is used for people who have asked questions about our product and want to try our next update'
   },
   {
     id: 4,
-    name: 'Friends',
-    avatar: '~/assets/images/avatars/troll.png'
+    title: 'Friends',
+    avatar: '~/assets/images/avatars/troll.png',
+    description: 'The VIP list is used for people who have asked questions about our product and want to try our next update'
   },
   {
     id: 5,
-    name: 'All',
-    avatar: '~/assets/images/avatars/troll.png'
+    title: 'All',
+    avatar: '~/assets/images/avatars/troll.png',
+    description: 'The VIP list is used for people who have asked questions about our product and want to try our next update'
   },
 ]
 

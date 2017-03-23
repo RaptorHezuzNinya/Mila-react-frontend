@@ -8,6 +8,7 @@ import NetworkList from './NetworkList'
 import ButtonModal from '../modals/ButtonModal'
 import ModalRoot from '../modals/ModalRoot'
 
+
 // styles
 import './Network.sass'
 
@@ -44,8 +45,9 @@ class Network extends PureComponent {
           <NetworkButtonDrop networkLists={ networkLists }/>
         </div>
         <div className="networkbutton">
+
           <ButtonModal label="Create List" modal={ createNetworkListModal }/>
-          <ButtonModal label="Test Modal" modal={ testModal }/>
+          {/* <ButtonModal label="Test Modal" modal={ testModal }/> */}
           <ModalRoot />
           { networkLists.map(this.renderNetworkButton.bind(this)) }
         </div>
