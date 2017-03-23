@@ -32,7 +32,26 @@ const styles = {
 
 class CreateNetworkListModal extends PureComponent {
   state = {
-    open: true
+    open: false
+  }
+
+  componentWillMount(){
+    this.handleOpen()
+  }
+
+  handleChange = (event) => {
+    const field = event.target.name
+    this.setState({
+      [field]: event.target.value
+    })
+  }
+
+  createNetworkList(event){
+    event.preventDefault()
+    const { title, description } = this.state
+    console.log(this.state)
+    this.props.createNetworkList(title)
+    this.handleClose()
   }
 
   handleClose = () => {
