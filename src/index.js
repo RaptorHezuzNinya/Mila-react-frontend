@@ -16,6 +16,8 @@ import routes from '~/middleware/routes'
 
 // Components
 import App from './App'
+// onboarding related container & components
+import OnboardingContainer from './onboarding/OnboardingContainer'
 // newContacts related container & components
 import NewContactsContainer from './newContacts/NewContactsContainer'
 import Contact from './newContacts/Contact'
@@ -27,6 +29,7 @@ ReactDOM.render(
     <Router history={history}>
       <Route path="/" component={App}>
         <IndexRoute component={NetworkContainer} />
+        <Route path={routes.onboardingPath} component={OnboardingContainer} />
         <Route path={routes.newContactsPath} component={NewContactsContainer} />
         <Route path={routes.myNetworkPath} component={NetworkContainer} />
       </Route>
