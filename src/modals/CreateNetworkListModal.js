@@ -23,7 +23,6 @@ const maxDescCount = 250
 const styles = {
   customContentStyle: {
     width: '600px',
-
   },
   hintStyle: {
     color: '#737a80',
@@ -32,7 +31,6 @@ const styles = {
     fontFamily: 'Montserrat-Light'
   },
 }
-
 
 class CreateNetworkListModal extends PureComponent {
 
