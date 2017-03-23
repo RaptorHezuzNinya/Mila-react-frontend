@@ -97,11 +97,15 @@ class CreateNetworkListModal extends PureComponent {
               {/* Hier moet een char count komen input field moet max hebben */}
               <p className="char-count"> 250 left</p>
               <TextField hintStyle={styles.hintStyle}
+                         name="description"
                          className="list-input"
-                        //  textareaStyle={styles.textareaDesc}
-                         hintText="What do youdo with this list? e.g. The VIP list is used for people who have asked questions about our product and want to try our next update">
+                         hintText="What do youdo with this list? e.g. The VIP list is used for people who have asked questions about our product and want to try our next update"
+                         multiLine={true}
+                         rows={2}
+                         rowsMax={4}
+                         value={this.state.description || ''}
+                         onChange={this.handleChange}>
               </TextField>
-              <div><hr></hr></div>
             </div>
             <div className="cta-container">
               <CheckBox className="team-checkb" label="Share this list with your team."/>
