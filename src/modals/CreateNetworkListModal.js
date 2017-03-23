@@ -114,7 +114,7 @@ class CreateNetworkListModal extends PureComponent {
                   label="CREATE"
                   primary={true}
                   disabled={false}
-                  onTouchTap={this.handleClose}
+                  onClick={this.createNetworkList.bind(this)}
                 />
               </div>
               <div className="cancel-but">
