@@ -3,8 +3,8 @@ import { connect } from 'react-redux'
 
 // actions
 import hideModal from '../actions/modals/hide-modal'
-import networkList from '../reducers/networklists'
 import createNetworkList from '../actions/networklists/create'
+import networkList from '../reducers/networklists'
 
 // material-ui Components
 import Dialog from 'material-ui/Dialog'
