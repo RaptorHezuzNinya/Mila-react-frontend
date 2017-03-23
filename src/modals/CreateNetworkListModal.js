@@ -132,4 +132,4 @@ class CreateNetworkListModal extends PureComponent {
   }
 }
 
-export default connect(null, { hideModal } ) (CreateNetworkListModal)
+export default connect(null, { hideModal, createNetworkList } ) (CreateNetworkListModal)
