@@ -38,8 +38,8 @@ class CreateNetworkListModal extends PureComponent {
     super()
     this.state = {
       open: false,
-      titleCharsLeft: maxTitleCount,
-      descCharsLeft: maxDescCount,
+      title: '',
+      description: '',
     }
   }
 
