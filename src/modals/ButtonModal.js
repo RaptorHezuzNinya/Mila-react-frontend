@@ -8,6 +8,9 @@ import FlatButton from 'material-ui/FlatButton'
 // actions
 import showModal from '../actions/modals/show-modal'
 
+// styles
+import './ButtonModal.sass'
+
 class ButtonModal extends PureComponent {
 
   openModal = () => {
