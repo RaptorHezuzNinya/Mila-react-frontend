@@ -13,8 +13,9 @@ class DeleteButton extends PureComponent {
     return (
 
       <FlatButton label="Delete Button"
-                  style={styles.button}
-                    />
+                  className={this.props.usedClassName}
+                  icon={<DeleteIcon />}
+                  />
     )
   }
 }
