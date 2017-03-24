@@ -1,7 +1,7 @@
 import React, { PureComponent, PropTypes } from 'react'
 
 // Components
-
+import DeleteButton from '../components/DeleteButton'
 // Actions && Reducers
 import networkList from '~/reducers/networklists'
 
@@ -142,7 +142,8 @@ class NetworkList extends PureComponent {
           >
             <TableRow className="tr-1st-row">
               <TableHeaderColumn className="th-top-col" tooltip="" colSpan="12">
-                Delete & Tools buttons
+                <DeleteButton usedClassName="delete-button-network"/>
+
               </TableHeaderColumn>
             </TableRow>
 
