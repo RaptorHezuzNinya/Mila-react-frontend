@@ -8,6 +8,9 @@ import FlatButton from 'material-ui/FlatButton'
 // actions
 import showModal from '../actions/modals/show-modal'
 
+// styles
+import './ButtonModal.sass'
+
 class ButtonModal extends PureComponent {
 
   openModal = () => {
@@ -19,7 +22,7 @@ class ButtonModal extends PureComponent {
     if (!this.props.modal) return null;
     return (
       <div>
-        <FlatButton onClick={this.openModal} label={this.props.label} />
+        <FlatButton className={this.props.usedStyle} onClick={this.openModal} label={this.props.label} />
       </div>
     )
   }
