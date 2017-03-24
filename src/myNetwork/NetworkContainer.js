@@ -13,14 +13,18 @@ class NetworkContainer extends PureComponent {
   render(){
 
     const styles = {
-      textAlign: 'center'
+      textAlign: 'center',
+      color: '#fff',
+      fontFamily: 'Montserrat-Light',
+      margin: '60px 0',
+      fontWeight: 100,
     }
 
     const { networkLists, contacts } = this.props
 
     return (
       <div className="">
-        <h2 style={styles}>Unicorns ftw</h2>
+        <h2 style={styles}>Admire your contact paradise. It's my pleasure.</h2>
         <Network networkLists={ networkLists } contacts={contacts} />
       </div>
     )
