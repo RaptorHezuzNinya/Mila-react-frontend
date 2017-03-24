@@ -29,7 +29,7 @@ class Network extends PureComponent {
   }
 
   renderNetworkButton(networkList, index){
-    return <NetworkButton key={ index } { ...networkList }/>
+    return <NetworkButton className="network-button" key={ index } { ...networkList }/>
   }
 
   render() {
