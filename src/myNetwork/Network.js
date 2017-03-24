@@ -29,7 +29,7 @@ class Network extends PureComponent {
   }
 
   renderNetworkButton(networkList, index){
-    return <NetworkButton className="network-button" key={ index } { ...networkList }/>
+    return <NetworkButton key={ index } { ...networkList }/>
   }
 
   render() {
@@ -47,7 +47,7 @@ class Network extends PureComponent {
         <div className="network-but-container">
           <ModalRoot />
           { networkLists.map(this.renderNetworkButton.bind(this)) }
-          <ButtonModal label="+" modal={ createNetworkListModal }/>
+          <ButtonModal usedStyle="create-list-modal" label="+" modal={ createNetworkListModal }/>
         </div>
         <div className="networklist">
           <NetworkList contacts={contacts} />
