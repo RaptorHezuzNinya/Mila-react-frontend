@@ -11,7 +11,8 @@ class NetworkButton extends PureComponent {
   render() {
     const { title } = this.props
     return (
-      <FlatButton label={title}
+      <FlatButton className="networklist-button"
+                  label={title}
                   icon={<ListIcon className="list-icon"/>}
       />
     )
