@@ -24,13 +24,13 @@ class NetworkButtonDrop extends PureComponent {
     this.state = {value: 1}
   }
 
-  renderNetworkMenuItem(networkList, index, name){
+  renderNetworkMenuItem(networkList, index, title){
     return <MenuItem
             className="dropdown-item"
             key={ index }
             { ...networkList }
             value={networkList.id}
-            primaryText={networkList.name}
+            primaryText={networkList.title}
           />
   }
 
