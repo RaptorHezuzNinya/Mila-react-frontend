@@ -1,11 +1,16 @@
 @import "../assets/styles/base/breakpoints.sass"
 @import "../assets/styles/base/colors.sass"
 
-.networkbutton
+
+
+.network-but-container
+  max-width: 1440px
   display: none
   text-align: center
   button
     div
       background-color: $steelB
-  @include breakpoint($breakpoint-medium)
-    display: block
+  +breakpoint($breakpoint-medium)
+    display: flex
+    +breakpoint($breakpoint-xlarge)
+      margin: auto
