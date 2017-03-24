@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 // Components
 import Network from './Network'
 
+
 class NetworkContainer extends PureComponent {
   static propTypes = {
     networkLists: PropTypes.array.isRequired
@@ -18,7 +19,7 @@ class NetworkContainer extends PureComponent {
     const { networkLists, contacts } = this.props
 
     return (
-      <div className="networkcontainer">
+      <div className="">
         <h2 style={styles}>Unicorns ftw</h2>
         <Network networkLists={ networkLists } contacts={contacts} />
       </div>
