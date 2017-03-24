@@ -142,8 +142,8 @@ class NetworkList extends PureComponent {
           >
             <TableRow className="tr-1st-row">
               <TableHeaderColumn className="th-top-col" tooltip="" colSpan="12">
-                <DeleteButton />
-              
+                <DeleteButton usedClassName="delete-button-network"/>
+
               </TableHeaderColumn>
             </TableRow>
 
