@@ -90,7 +90,7 @@ class CreateNetworkListModal extends PureComponent {
             </div>
             <div className="listname-container">
               <p className="list-name">LIST NAME</p>
-              <p className="char-count"> {this.state.titleCharsLeft} left</p>
+              <p className="char-count"> {maxTitleCount - this.state.title.length} left</p>
               <TextField hintStyle={styles.hintStyle}
                          className="list-input"
                          name="title"
@@ -102,7 +102,7 @@ class CreateNetworkListModal extends PureComponent {
             </div>
             <div className="descript-container">
               <p className="desc-name">DESCRIPTION (optional)</p>
-              <p className="char-count"> {this.state.descCharsLeft} left</p>
+              <p className="char-count"> {maxDescCount - this.state.description.length} left</p>
               <TextField hintStyle={styles.hintStyle}
                          className="list-input"
                          name="description"
