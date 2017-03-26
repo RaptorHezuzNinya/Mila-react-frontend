@@ -267,6 +267,8 @@ export default function contacts(state = initialState, { type, payload } = {}) {
         }
         return contact
       })
+    case DELETE_CONTACT :
+      return state.filter((contact) => (contact.id !== payload.id))
 
     default :
       return state
