@@ -12,15 +12,17 @@ import './DeleteButton.sass'
 class DeleteButton extends PureComponent {
 
   render(){
+    const { usedDeskClassName, usedMobClassName } = this.props
+    console.log(usedDeskClassName, usedMobClassName)
     return (
       <div>
         <FlatButton
                     label="Delete Button"
-                    className={this.props.usedClassNameDesk}
+                    className={usedDeskClassName}
                     icon={<DeleteIcon />}
                     />
-        <IconButton >
-          <DeleteIcon className={this.props.usedClassNameMob} />
+        <IconButton className={usedMobClassName}>
+          <DeleteIcon />
       </IconButton>
       </div>
     )
