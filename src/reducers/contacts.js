@@ -1,4 +1,6 @@
 import { UPDATE_CONTACT } from '~/actions/contacts/update'
+import { DELETE_CONTACT } from '../actions/contacts/delete'
+
 import avatar from '../assets/images/avatars/user-darkgreen.svg'
 
 const initialState = [
