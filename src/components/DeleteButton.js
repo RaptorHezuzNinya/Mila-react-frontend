@@ -14,12 +14,13 @@ class DeleteButton extends PureComponent {
   render(){
     return (
       <div>
-        <FlatButton label="Delete Button"
-                    className={this.props.usedClassName}
+        <FlatButton
+                    label="Delete Button"
+                    className={this.props.usedClassNameDesk}
                     icon={<DeleteIcon />}
                     />
         <IconButton >
-          <DeleteIcon />
+          <DeleteIcon className={this.props.usedClassNameMob} />
       </IconButton>
       </div>
     )
