@@ -41,4 +41,4 @@ class DeleteButton extends PureComponent {
   }
 }
 
-export default connect(null, { DeleteContact })(DeleteButton)
+export default connect(null, { deleteContact })(DeleteButton)
