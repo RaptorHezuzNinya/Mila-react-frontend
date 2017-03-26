@@ -4,10 +4,14 @@
 
 
 .delete-button-network-desk
-  display: none
-  +breakpoint-medium
+  display: none !important
+  +breakpoint($breakpoint-medium)
     display: flex !important
     flex-direction: row !important
     justify-content: flex-end !important
 
 .delete-button-network-mob
+  display: flex !important
+  flex-direction: row !important
+  +breakpoint($breakpoint-medium)
+    display: none !important
