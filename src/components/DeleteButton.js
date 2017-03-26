@@ -2,7 +2,7 @@ import React, { PureComponent, PropTypes } from 'react'
 import { connect } from 'react-redux'
 
 // actions & reducers
-import DeleteContact from '../actions/contacts/delete'
+import deleteContact from '../actions/contacts/delete'
 
 //material-ui components
 import FlatButton from 'material-ui/FlatButton'
