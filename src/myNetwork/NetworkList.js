@@ -112,7 +112,9 @@ class NetworkList extends PureComponent {
   handleToggle = (event, toggled) => {
     this.setState({
       [event.target.name]: toggled,
+
     })
+    console.log(this.state.toggled)
   }
 
   // handleChange = (event) => {
@@ -122,7 +124,7 @@ class NetworkList extends PureComponent {
 
   render() {
     const { contacts} = this.props
-
+    debugger
     return (
       <div className="wrapper">
         <Table
