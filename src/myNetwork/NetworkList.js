@@ -124,7 +124,6 @@ class NetworkList extends PureComponent {
 
   render() {
     const { contacts} = this.props
-    debugger
     return (
       <div className="wrapper">
         <Table
@@ -135,7 +134,6 @@ class NetworkList extends PureComponent {
           selectable={this.state.selectable}
           multiSelectable={this.state.multiSelectable}
         >
-
           <TableHeader
             className="table-head"
             displaySelectAll={this.state.showCheckboxes}
