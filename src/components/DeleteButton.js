@@ -15,7 +15,7 @@ class DeleteButton extends PureComponent {
     const { usedDeskClassName, usedMobClassName } = this.props
     console.log(usedDeskClassName, usedMobClassName)
     return (
-      <div>
+      <div className="delete-button-container">
         <FlatButton
                     label="Delete Button"
                     className={usedDeskClassName}
