@@ -145,7 +145,6 @@ class NetworkList extends PureComponent {
                 <DeleteButton usedDeskClassName="delete-button-network-desk"
                               usedMobClassName="delete-button-network-mob"
                 />
-
               </TableHeaderColumn>
             </TableRow>
 
