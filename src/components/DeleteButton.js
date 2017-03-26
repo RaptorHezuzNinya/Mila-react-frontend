@@ -1,4 +1,5 @@
 import React, { PureComponent, PropTypes } from 'react'
+import { connect } from 'react-redux'
 
 //material-ui components
 import FlatButton from 'material-ui/FlatButton'
@@ -13,7 +14,6 @@ class DeleteButton extends PureComponent {
 
   render(){
     const { usedDeskClassName, usedMobClassName } = this.props
-    console.log(usedDeskClassName, usedMobClassName)
     return (
       <div className="delete-button-container">
         <FlatButton
@@ -29,4 +29,4 @@ class DeleteButton extends PureComponent {
   }
 }
 
-export default DeleteButton
+export default connect(null)(DeleteButton)
