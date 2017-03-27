@@ -23,9 +23,9 @@ export class NewContactsContainer extends PureComponent {
       <div>
         <h1>New Contact Container!</h1>
         <ContactSlider />
-        <div>
+        {/* <div>
           {contacts.map(this.renderContact.bind(this))}
-        </div>
+        </div> */}
       </div>
     )
   }
