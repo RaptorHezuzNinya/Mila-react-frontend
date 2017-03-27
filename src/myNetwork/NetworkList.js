@@ -144,6 +144,7 @@ class NetworkList extends PureComponent {
           fixedFooter={this.state.fixedFooter}
           selectable={this.state.selectable}
           multiSelectable={this.state.multiSelectable}
+          onRowSelection={ this.handleRowSelection }
         >
           <TableHeader
             className="table-head"
