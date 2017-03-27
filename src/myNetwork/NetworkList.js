@@ -128,7 +128,7 @@ class NetworkList extends PureComponent {
       selectedContacts.push(contact);
     });
     console.log(selectedContacts);
-    var yolo = selectedContacts.map(function(a) { return a.selected;});
+    const yolo = selectedContacts.map(function(a) { return a.selected;});
     console.log(yolo)
     // this.setState({contacts: selectedContacts}, () => {
     //   console.log(this.props.contacts);
