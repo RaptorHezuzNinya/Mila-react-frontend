@@ -113,29 +113,47 @@ class NetworkList extends PureComponent {
   handleToggle = (event, toggled) => {
     this.setState({
       [event.target.name]: toggled,
-
     })
-    console.log('logging selected contact', contact.selected)
+    console.log(event.target.name)
   }
 
-  // handleChange = (event) => {
-  //   this.setState({height: event.target.value})
+  handleChange = (event) => {
+    this.setState({height: event.target.value})
+  }
+
+  onRowSelection = (rows) => {
+    const selectedContacts = [];
+    this.props.contacts.map((contact, i) => {
+      contact.selected = rows.indexOf(i) > -1;
+      selectedContacts.push(contact);
+    });
+    console.log(selectedContacts);
+    var yolo = selectedContacts.map(function(a) { return a.selected;});
+    console.log(yolo)
+    // this.setState({contacts: selectedContacts}, () => {
+    //   console.log(this.props.contacts);
+    // });
+ }
+
+
+  // handleRowSelection = (selectedRows) => {
+  //   if (selectedRows === 'all') {
+  //     console.log('selectedrows', selectedRows.id)
+  //   } else {
+  //     selectedRows.map((row) => {
+  //       console.log('row', row.index)
+  //
+  //       console.log('logging: event.target.name', event.target)
+  //       console.log('selectedrows', selectedRows)
+  //
+  //     })
+  //   }
   // }
-  handleRowSelection = (selectedRows) => {
-    if (selectedRows === 'all') {
-      console.log('selectedrows', selectedRows)
-    } else {
-      selectedRows.map((row) => {
-        console.log('row', row.id)
-        console.log('selectedrows', selectedRows)
 
-      })
-    }
-  }
 
 
   render() {
-    const { contacts} = this.props
+    const { contacts } = this.props
     return (
       <div className="wrapper">
         <Table
