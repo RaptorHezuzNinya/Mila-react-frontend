@@ -8,10 +8,14 @@ import contact from '~/reducers/contacts'
 import Contact from './Contact'
 
 class ContactSlider extends PureComponent {
-  constructor() {
-    super()
+  static propTypes = {
+    contacts: PropTypes.array.isRequired
+  }
+
+  constructor(props) {
+    super(props)
     this.state = {
-    testcards: ['john', 'joe', 'jane', 'jody'],
+    contacts: ['john', 'jane', 'joe', 'jenny', 'simon', 'arya'],
     finished: false,
     currentPage: 1,
     cardsPerPage: 1
@@ -29,14 +33,14 @@ class ContactSlider extends PureComponent {
   }
 
   render() {
-    const { testcards, currentPage, cardsPerPage } = this.state
+    const { contacts, currentPage, cardsPerPage } = this.state
 
     const indexOfLastCard = currentPage * cardsPerPage
     const indexOfFirstCard = indexOfLastCard - cardsPerPage
-    const currentTestcards = testcards.slice(indexOfFirstCard, indexOfLastCard)
+    const currentTestcards = contacts.slice(indexOfFirstCard, indexOfLastCard)
 
-    const renderTestcards = currentTestcards.map((testcard, index) => {
-      return <li key={index}>{testcard}</li>
+    const renderTestcards = currentTestcards.map((contact, index) => {
+      return <li key={index}>{contact}</li>
     })
 
     console.log('testcards', this.state)
@@ -57,4 +61,6 @@ class ContactSlider extends PureComponent {
   }
 }
 
-export default ContactSlider
+const mapStateToProps = ({ contacts }) => ({ contacts })
+
+export default connect(mapStateToProps)(ContactSlider)
