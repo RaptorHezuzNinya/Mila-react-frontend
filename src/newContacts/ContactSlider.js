@@ -1,9 +1,6 @@
 import React, { PureComponent, PropTypes} from 'react'
 import { connect } from 'react-redux'
 
-// Actions and Reducers
-import contact from '~/reducers/contacts'
-
 // Components
 import Contact from './Contact'
 
@@ -15,7 +12,7 @@ class ContactSlider extends PureComponent {
   constructor(props) {
     super(props)
     this.state = {
-    contacts: ['john', 'jane', 'joe', 'jenny', 'simon', 'arya'],
+    testcards: this.props.contacts,
     finished: false,
     currentPage: 1,
     cardsPerPage: 1
@@ -29,18 +26,18 @@ class ContactSlider extends PureComponent {
     this.setState({
       currentPage: currentPage + 1,
     })
-    console.log('clicked')
+    console.log('clicked', this.state)
   }
 
   render() {
-    const { contacts, currentPage, cardsPerPage } = this.state
+    const { testcards, currentPage, cardsPerPage } = this.state
 
     const indexOfLastCard = currentPage * cardsPerPage
     const indexOfFirstCard = indexOfLastCard - cardsPerPage
-    const currentTestcards = contacts.slice(indexOfFirstCard, indexOfLastCard)
+    const currentTestcards = testcards.slice(indexOfFirstCard, indexOfLastCard)
 
-    const renderTestcards = currentTestcards.map((contact, index) => {
-      return <li key={index}>{contact}</li>
+    const renderTestcards = currentTestcards.map((testcard, index) => {
+      return <div key={index}>{testcard}</div>
     })
 
     console.log('testcards', this.state)
