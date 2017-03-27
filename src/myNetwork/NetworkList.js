@@ -163,7 +163,8 @@ class NetworkList extends PureComponent {
           fixedFooter={this.state.fixedFooter}
           selectable={this.state.selectable}
           multiSelectable={this.state.multiSelectable}
-          onRowSelection={ this.handleRowSelection }
+          // onRowSelection={ this.handleRowSelection }
+          onRowSelection={ this.onRowSelection }
         >
           <TableHeader
             className="table-head"
@@ -196,7 +197,9 @@ class NetworkList extends PureComponent {
             deselectOnClickaway={this.state.deselectOnClickaway}
           >
             {contacts.map( (contact, index) => (
+
             <TableRow key={index} selected={contact.selected} className="tablerow-container">
+
               <TableRowColumn className="col-avatar">
                 <Avatar src={contact.avatar}
                         className="avatar"
