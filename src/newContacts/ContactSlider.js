@@ -12,7 +12,7 @@ class ContactSlider extends PureComponent {
   constructor(props) {
     super(props)
     this.state = {
-    testcards: this.props.contacts,
+    // testcards:[],
     finished: false,
     currentPage: 1,
     cardsPerPage: 1
@@ -30,6 +30,9 @@ class ContactSlider extends PureComponent {
   }
 
   render() {
+    const { contacts } = this.props
+    console.log('props', this.props.contacts)
+
     const { testcards, currentPage, cardsPerPage } = this.state
 
     const indexOfLastCard = currentPage * cardsPerPage
@@ -37,7 +40,7 @@ class ContactSlider extends PureComponent {
     const currentTestcards = testcards.slice(indexOfFirstCard, indexOfLastCard)
 
     const renderTestcards = currentTestcards.map((testcard, index) => {
-      return <div key={index}>{testcard}</div>
+      return <Contact key={index}/>
     })
 
     console.log('testcards', this.state)
@@ -58,6 +61,4 @@ class ContactSlider extends PureComponent {
   }
 }
 
-const mapStateToProps = ({ contacts }) => ({ contacts })
-
-export default connect(mapStateToProps)(ContactSlider)
+export default ContactSlider
