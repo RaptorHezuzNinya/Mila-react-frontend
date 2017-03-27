@@ -42,6 +42,7 @@ class NetworkList extends PureComponent {
       showCheckboxes: true,
       height: '100%',
     };
+    this.onRowSelection = this.onRowSelection.bind(this);
   }
 
   componentWillMount() {
