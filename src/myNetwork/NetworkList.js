@@ -114,12 +114,23 @@ class NetworkList extends PureComponent {
       [event.target.name]: toggled,
 
     })
-    console.log(this.state.toggled)
+    console.log('logging selected contact', contact.selected)
   }
 
   // handleChange = (event) => {
   //   this.setState({height: event.target.value})
   // }
+  handleRowSelection = (selectedRows) => {
+    if (selectedRows === 'all') {
+      console.log('selectedrows', selectedRows)
+    } else {
+      selectedRows.map((row) => {
+        console.log('row', row.id)
+        console.log('selectedrows', selectedRows)
+
+      })
+    }
+  }
 
 
   render() {
