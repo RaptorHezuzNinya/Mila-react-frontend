@@ -23,7 +23,6 @@ const styles = {
   }
 }
 
-
 class NetworkList extends PureComponent {
 
   static propTypes = {
@@ -128,7 +127,6 @@ class NetworkList extends PureComponent {
   onRowSelection = (rows) => {
     const { contacts } = this.props
     const contactPerRow = [];
-
     contacts.map((contact, i) => {
       contact.selected = rows.indexOf(i) > -1;
       contactPerRow.push(contact);
@@ -144,6 +142,11 @@ class NetworkList extends PureComponent {
     });
   }
 
+  deleteContacts(event){
+    event.preventDefault()
+    console.log('triggering deletecontacts')
+    this.props.deleteContacts()
+  }
 
 
   render() {
