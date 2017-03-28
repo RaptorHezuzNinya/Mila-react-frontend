@@ -42,7 +42,7 @@ class NetworkList extends PureComponent {
       showCheckboxes: true,
       height: '100%',
     };
-    this.onRowSelection = this.onRowSelection.bind(this);
+    // this.onRowSelection = this.onRowSelection.bind(this);
   }
 
   componentWillMount() {
@@ -122,18 +122,34 @@ class NetworkList extends PureComponent {
   }
 
   onRowSelection = (rows) => {
-    const selectedContacts = [];
-    this.props.contacts.map((contact, i) => {
-      contact.selected = rows.indexOf(i) > -1;
-      selectedContacts.push(contact);
-    });
-    console.log(selectedContacts);
-    const yolo = selectedContacts.map(function(a) { return a.selected;});
-    console.log(yolo)
-    // this.setState({contacts: selectedContacts}, () => {
-    //   console.log(this.props.contacts);
-    // });
- }
+    console.log(rows)
+  }
+
+ //  onRowSelection = (rows) => {
+ //    const selectedContacts = [];
+ //    this.props.contacts.map((contact, i) => {
+ //      contact.selected = rows.indexOf(i) > -1;
+ //      selectedContacts.push(contact);
+ //    });
+ //    // console.log(selectedContacts);
+ //    const yolo = selectedContacts.map(function(a) { return a.selected;});
+ //    console.log('yolo object', yolo)
+ //    // yolo.filter((contact) => {
+ //    //   return console.log(contact.selected === 'true')
+ //    // })
+ //    // console.log(filteredContacts)
+ //    var selectedzz = yolo.filter(isSelected());
+ //    console.log('selectedzz', selectedzz)
+ //    // this.setState({contacts: selectedContacts}, () => {
+ //    //   console.log(this.props.contacts);
+ //    // });
+ // }
+
+  // function isSelected(contact) {
+  //   return contact.selected === 'true';
+  // }
+
+
 
 
   // handleRowSelection = (selectedRows) => {
@@ -149,8 +165,6 @@ class NetworkList extends PureComponent {
   //     })
   //   }
   // }
-
-
 
   render() {
     const { contacts } = this.props
