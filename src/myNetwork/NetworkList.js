@@ -121,59 +121,24 @@ class NetworkList extends PureComponent {
     this.setState({height: event.target.value})
   }
 
-  // onRowSelection = (rows) => {
-  //   console.log(rows)
-  // }
-
   onRowSelection = (rows) => {
     const { contacts } = this.props
     const contactPerRow = [];
-    // console.log('logging rows', rows, '&&', 'logging contacts', contacts)
+
     contacts.map((contact, i) => {
       contact.selected = rows.indexOf(i) > -1;
       contactPerRow.push(contact);
     });
-    
 
-    const yolo = contactPerRow.map(function(contact) { return contact.selected;});
-    console.log('logging mapped selectedContacts', yolo)
+    const filteredContacts = contactPerRow.filter((contact) => {
+      return contact.selected === true
+    })
+    console.log(filteredContacts)
 
-    this.filterSelected(yolo)
-    // console.log('yolo object', yolo)
-    // yolo.filter((contact) => {
-    //   return console.log(contact.selected === 'true')
-    // })
-
-    // var selectedzz = yolo.filter();
-
-    // this.setState({contacts: selectedContacts}, () => {
-    //   console.log(this.props.contacts);
+    // this.setState({monkeys: yolo}, () => {
+    //   console.log('monkeys', this.state.monkeys);
     // });
  }
-
-  filterSelected(contact) {
-    const all = contact.selected === 'true'
-    return console.log('all', all)
-  }
-
-  // const allSelected = selectedContacts.filter((contact) => {
-  //   return contact.selected === 'true'
-  // })
-
-
-  // handleRowSelection = (selectedRows) => {
-  //   if (selectedRows === 'all') {
-  //     console.log('selectedrows', selectedRows.id)
-  //   } else {
-  //     selectedRows.map((row) => {
-  //       console.log('row', row.index)
-  //
-  //       console.log('logging: event.target.name', event.target)
-  //       console.log('selectedrows', selectedRows)
-  //
-  //     })
-  //   }
-  // }
 
   render() {
     const { contacts } = this.props
