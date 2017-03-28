@@ -250,4 +250,4 @@ class NetworkList extends PureComponent {
   }
 }
 
-export default NetworkList
+export default connect(null, { deleteContacts })(NetworkList)
