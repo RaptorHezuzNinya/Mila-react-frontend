@@ -41,6 +41,7 @@ class NetworkList extends PureComponent {
       deselectOnClickaway: true,
       showCheckboxes: true,
       height: '100%',
+
     };
     // this.onRowSelection = this.onRowSelection.bind(this);
   }
@@ -56,7 +57,6 @@ class NetworkList extends PureComponent {
 
   onResize = () => {
     const width = document.documentElement.clientWidth
-    // hier call ik zo checkSize(width)
     this.changeTable(width)
   }
 
@@ -122,49 +122,23 @@ class NetworkList extends PureComponent {
   }
 
   onRowSelection = (rows) => {
-    console.log(rows)
-  }
+    const { contacts } = this.props
+    const contactPerRow = [];
 
- //  onRowSelection = (rows) => {
- //    const selectedContacts = [];
- //    this.props.contacts.map((contact, i) => {
- //      contact.selected = rows.indexOf(i) > -1;
- //      selectedContacts.push(contact);
- //    });
- //    // console.log(selectedContacts);
- //    const yolo = selectedContacts.map(function(a) { return a.selected;});
- //    console.log('yolo object', yolo)
- //    // yolo.filter((contact) => {
- //    //   return console.log(contact.selected === 'true')
- //    // })
- //    // console.log(filteredContacts)
- //    var selectedzz = yolo.filter(isSelected());
- //    console.log('selectedzz', selectedzz)
- //    // this.setState({contacts: selectedContacts}, () => {
- //    //   console.log(this.props.contacts);
- //    // });
- // }
+    contacts.map((contact, i) => {
+      contact.selected = rows.indexOf(i) > -1;
+      contactPerRow.push(contact);
+    });
 
-  // function isSelected(contact) {
-  //   return contact.selected === 'true';
-  // }
+    const filteredContacts = contactPerRow.filter((contact) => {
+      return contact.selected === true
+    })
+    console.log(filteredContacts)
 
-
-
-
-  // handleRowSelection = (selectedRows) => {
-  //   if (selectedRows === 'all') {
-  //     console.log('selectedrows', selectedRows.id)
-  //   } else {
-  //     selectedRows.map((row) => {
-  //       console.log('row', row.index)
-  //
-  //       console.log('logging: event.target.name', event.target)
-  //       console.log('selectedrows', selectedRows)
-  //
-  //     })
-  //   }
-  // }
+    // this.setState({monkeys: yolo}, () => {
+    //   console.log('monkeys', this.state.monkeys);
+    // });
+ }
 
   render() {
     const { contacts } = this.props
@@ -176,8 +150,7 @@ class NetworkList extends PureComponent {
           fixedHeader={this.state.fixedHeader}
           fixedFooter={this.state.fixedFooter}
           selectable={this.state.selectable}
-          multiSelectable={this.state.multiSelectable}
-          // onRowSelection={ this.handleRowSelection }
+          multiSelectable={this.state.multiSelectable}ß
           onRowSelection={ this.onRowSelection }
         >
           <TableHeader
