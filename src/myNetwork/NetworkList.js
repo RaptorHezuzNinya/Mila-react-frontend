@@ -1,9 +1,12 @@
 import React, { PureComponent, PropTypes } from 'react'
+import { connect } from 'react-redux'
 
 // Components
 import DeleteButton from '../components/DeleteButton'
+
 // Actions && Reducers
 import networkList from '~/reducers/networklists'
+import deleteContacts from '../actions/contacts/delete'
 
 // Material UI Components
 import { Table, TableBody, TableFooter, TableHeader, TableHeaderColumn, TableRow, TableRowColumn } from 'material-ui/Table'
