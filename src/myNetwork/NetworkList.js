@@ -121,35 +121,46 @@ class NetworkList extends PureComponent {
     this.setState({height: event.target.value})
   }
 
-  onRowSelection = (rows) => {
-    console.log(rows)
-  }
-
- //  onRowSelection = (rows) => {
- //    const selectedContacts = [];
- //    this.props.contacts.map((contact, i) => {
- //      contact.selected = rows.indexOf(i) > -1;
- //      selectedContacts.push(contact);
- //    });
- //    // console.log(selectedContacts);
- //    const yolo = selectedContacts.map(function(a) { return a.selected;});
- //    console.log('yolo object', yolo)
- //    // yolo.filter((contact) => {
- //    //   return console.log(contact.selected === 'true')
- //    // })
- //    // console.log(filteredContacts)
- //    var selectedzz = yolo.filter(isSelected());
- //    console.log('selectedzz', selectedzz)
- //    // this.setState({contacts: selectedContacts}, () => {
- //    //   console.log(this.props.contacts);
- //    // });
- // }
-
-  // function isSelected(contact) {
-  //   return contact.selected === 'true';
+  // onRowSelection = (rows) => {
+  //   console.log(rows)
   // }
 
+  onRowSelection = (rows) => {
+    const { contacts } = this.props
+    const contactPerRow = [];
+    // console.log('logging rows', rows, '&&', 'logging contacts', contacts)
+    contacts.map((contact, i) => {
+      contact.selected = rows.indexOf(i) > -1;
+      contactPerRow.push(contact);
+    });
+    // console.log('loggign selectedContacts', contactPerRow)
 
+
+
+    const yolo = contactPerRow.map(function(contact) { return contact.selected;});
+    console.log('logging mapped selectedContacts', yolo)
+
+    this.filterSelected(yolo)
+    // console.log('yolo object', yolo)
+    // yolo.filter((contact) => {
+    //   return console.log(contact.selected === 'true')
+    // })
+
+    // var selectedzz = yolo.filter();
+
+    // this.setState({contacts: selectedContacts}, () => {
+    //   console.log(this.props.contacts);
+    // });
+ }
+
+  filterSelected(contact) {
+    const all = contact.selected === 'true'
+    return console.log('all', all)
+  }
+
+  // const allSelected = selectedContacts.filter((contact) => {
+  //   return contact.selected === 'true'
+  // })
 
 
   // handleRowSelection = (selectedRows) => {
