@@ -133,9 +133,7 @@ class NetworkList extends PureComponent {
       contact.selected = rows.indexOf(i) > -1;
       contactPerRow.push(contact);
     });
-    // console.log('loggign selectedContacts', contactPerRow)
-
-
+    
 
     const yolo = contactPerRow.map(function(contact) { return contact.selected;});
     console.log('logging mapped selectedContacts', yolo)
