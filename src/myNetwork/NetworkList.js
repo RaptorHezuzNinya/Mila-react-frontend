@@ -41,6 +41,7 @@ class NetworkList extends PureComponent {
       deselectOnClickaway: true,
       showCheckboxes: true,
       height: '100%',
+
     };
     // this.onRowSelection = this.onRowSelection.bind(this);
   }
@@ -56,7 +57,6 @@ class NetworkList extends PureComponent {
 
   onResize = () => {
     const width = document.documentElement.clientWidth
-    // hier call ik zo checkSize(width)
     this.changeTable(width)
   }
 
@@ -185,8 +185,7 @@ class NetworkList extends PureComponent {
           fixedHeader={this.state.fixedHeader}
           fixedFooter={this.state.fixedFooter}
           selectable={this.state.selectable}
-          multiSelectable={this.state.multiSelectable}
-          // onRowSelection={ this.handleRowSelection }
+          multiSelectable={this.state.multiSelectable}ß
           onRowSelection={ this.onRowSelection }
         >
           <TableHeader
