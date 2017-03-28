@@ -41,6 +41,7 @@ class NetworkList extends PureComponent {
       deselectOnClickaway: true,
       showCheckboxes: true,
       height: '100%',
+      selectedContacts: ''
 
     };
     // this.onRowSelection = this.onRowSelection.bind(this);
@@ -135,10 +136,12 @@ class NetworkList extends PureComponent {
     })
     console.log(filteredContacts)
 
-    // this.setState({monkeys: yolo}, () => {
-    //   console.log('monkeys', this.state.monkeys);
-    // });
- }
+    this.setState({selectedContacts: filteredContacts}, () => {
+      console.log('this state selectedContacts', this.state.selectedContacts);
+    });
+  }
+
+
 
   render() {
     const { contacts } = this.props
