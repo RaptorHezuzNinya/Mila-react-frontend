@@ -1,10 +1,12 @@
 import { UPDATE_CONTACT } from '~/actions/contacts/update'
+import { DELETE_CONTACT } from '../actions/contacts/delete'
+
 import avatar from '../assets/images/avatars/user-darkgreen.svg'
 
 const initialState = [
   {
     contactId: 1,
-    firstName: 'Adrian',
+    firstName: 'Naam1',
     lastName: 'DePadrian',
     companyRole: 'CEO',
     companyName: 'Compainay',
@@ -14,7 +16,7 @@ const initialState = [
   },
   {
     contactId: 2,
-    firstName: 'Tanja',
+    firstName: 'Naam2',
     lastName: 'BlaBla',
     companyRole: 'CEO',
     companyName: 'Compainay',
@@ -24,7 +26,7 @@ const initialState = [
   },
   {
     contactId: 3,
-    firstName: 'Ward',
+    firstName: 'Ward3',
     lastName: 'BlaBla',
     companyRole: 'CEO',
     companyName: 'Compainay',
@@ -265,6 +267,8 @@ export default function contacts(state = initialState, { type, payload } = {}) {
         }
         return contact
       })
+    case DELETE_CONTACT :
+      return state.filter((contact) => (contact.id !== payload.id))
 
     default :
       return state

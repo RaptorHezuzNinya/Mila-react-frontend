@@ -1,9 +1,12 @@
 import React, { PureComponent, PropTypes } from 'react'
+import { connect } from 'react-redux'
 
 // Components
 import DeleteButton from '../components/DeleteButton'
+
 // Actions && Reducers
 import networkList from '~/reducers/networklists'
+import deleteContacts from '../actions/contacts/delete'
 
 // Material UI Components
 import { Table, TableBody, TableFooter, TableHeader, TableHeaderColumn, TableRow, TableRowColumn } from 'material-ui/Table'
@@ -19,7 +22,6 @@ const styles = {
     textAlign: 'center'
   }
 }
-
 
 class NetworkList extends PureComponent {
 
@@ -41,7 +43,10 @@ class NetworkList extends PureComponent {
       deselectOnClickaway: true,
       showCheckboxes: true,
       height: '100%',
+      selectedContacts: ''
+
     };
+    // this.onRowSelection = this.onRowSelection.bind(this);
   }
 
   componentWillMount() {
@@ -55,7 +60,6 @@ class NetworkList extends PureComponent {
 
   onResize = () => {
     const width = document.documentElement.clientWidth
-    // hier call ik zo checkSize(width)
     this.changeTable(width)
   }
 
@@ -113,16 +117,40 @@ class NetworkList extends PureComponent {
     this.setState({
       [event.target.name]: toggled,
     })
+    console.log(event.target.name)
   }
 
-  // handleChange = (event) => {
-  //   this.setState({height: event.target.value})
-  // }
+  handleChange = (event) => {
+    this.setState({height: event.target.value})
+  }
+
+  onRowSelection = (rows) => {
+    const { contacts } = this.props
+    const contactPerRow = [];
+    contacts.map((contact, i) => {
+      contact.selected = rows.indexOf(i) > -1;
+      contactPerRow.push(contact);
+    });
+
+    const filteredContacts = contactPerRow.filter((contact) => {
+      return contact.selected === true
+    })
+    console.log(filteredContacts)
+
+    this.setState({selectedContacts: filteredContacts}, () => {
+      console.log('this state selectedContacts', this.state.selectedContacts);
+    });
+  }
+
+  deleteContacts(event){
+    event.preventDefault()
+    console.log('triggering deletecontacts')
+    this.props.deleteContacts()
+  }
 
 
   render() {
-    const { contacts} = this.props
-
+    const { contacts } = this.props
     return (
       <div className="wrapper">
         <Table
@@ -131,9 +159,9 @@ class NetworkList extends PureComponent {
           fixedHeader={this.state.fixedHeader}
           fixedFooter={this.state.fixedFooter}
           selectable={this.state.selectable}
-          multiSelectable={this.state.multiSelectable}
+          multiSelectable={this.state.multiSelectable}ß
+          onRowSelection={ this.onRowSelection }
         >
-
           <TableHeader
             className="table-head"
             displaySelectAll={this.state.showCheckboxes}
@@ -142,8 +170,10 @@ class NetworkList extends PureComponent {
           >
             <TableRow className="tr-1st-row">
               <TableHeaderColumn className="th-top-col" tooltip="" colSpan="12">
-                <DeleteButton usedClassName="delete-button-network"/>
-
+                <DeleteButton usedDeskClassName="delete-button-network-desk"
+                              usedMobClassName="delete-button-network-mob"
+                              onClick={ this.deleteContacts.bind(this)}
+                />
               </TableHeaderColumn>
             </TableRow>
 
@@ -164,7 +194,9 @@ class NetworkList extends PureComponent {
             deselectOnClickaway={this.state.deselectOnClickaway}
           >
             {contacts.map( (contact, index) => (
+
             <TableRow key={index} selected={contact.selected} className="tablerow-container">
+
               <TableRowColumn className="col-avatar">
                 <Avatar src={contact.avatar}
                         className="avatar"
@@ -218,4 +250,4 @@ class NetworkList extends PureComponent {
   }
 }
 
-export default NetworkList
+export default connect(null, { deleteContacts })(NetworkList)
