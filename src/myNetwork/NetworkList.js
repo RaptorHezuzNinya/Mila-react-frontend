@@ -117,7 +117,7 @@ class NetworkList extends PureComponent {
     this.setState({
       [event.target.name]: toggled,
     })
-    console.log(event.target.name)
+    // console.log(event.target.name)
   }
 
   handleChange = (event) => {
@@ -135,22 +135,30 @@ class NetworkList extends PureComponent {
     const filteredContacts = contactPerRow.filter((contact) => {
       return contact.selected === true
     })
-    console.log(filteredContacts)
+    // console.log(filteredContacts)
 
     this.setState({selectedContacts: filteredContacts}, () => {
-      console.log('this state selectedContacts', this.state.selectedContacts);
+      // console.log('this state selectedContacts', this.state.selectedContacts);
     });
+
   }
 
+  // deze later nodig als ik de contact in de table op index kan targeten
   deleteContacts(event){
     event.preventDefault()
-    console.log('triggering deletecontacts')
-    this.props.deleteContacts()
+    const { selectedContacts } = this.state
+    console.log('logging selectedContacts', selectedContacts)
+    // const { contactId } = this.state
+    // console.log('loggign contactId:', contactId)
+    this.props.deleteContacts(this.state.selectedContacts)
   }
 
 
   render() {
     const { contacts } = this.props
+    const { selectedContacts } = this.state
+    console.log('loggign them contacts', selectedContacts)
+
     return (
       <div className="wrapper">
         <Table
