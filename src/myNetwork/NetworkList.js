@@ -180,7 +180,7 @@ class NetworkList extends PureComponent {
               <TableHeaderColumn className="th-top-col" tooltip="" colSpan="12">
                 <DeleteButton usedDeskClassName="delete-button-network-desk"
                               usedMobClassName="delete-button-network-mob"
-                              onClick={ this.deleteContacts.bind(this)}
+                              selectedContacts={ selectedContacts }
                 />
               </TableHeaderColumn>
             </TableRow>
