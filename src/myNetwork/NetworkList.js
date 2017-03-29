@@ -40,7 +40,7 @@ class NetworkList extends PureComponent {
       selectable: true,
       multiSelectable: true,
       enableSelectAll: true,
-      deselectOnClickaway: true,
+      deselectOnClickaway: false,
       showCheckboxes: true,
       height: '100%',
       selectedContacts: ''
