@@ -18,12 +18,11 @@ class DeleteButton extends PureComponent {
     // contact: PropTypes.func.isRequired
   }
 
-  doSomething = () => {
-    // console.log('doing something')
-  }
 
   handleClick = () => {
     const { selectedContacts } = this.props
+    const selectedContactIds = selectedContacts.filter((contact) => { return contact.contactId })
+    console.log('IDSSS!!!', selectedContactIds)
     this.props.deleteContact(selectedContacts)
     console.log('handleClick triggered in deletebutton comp')
 
