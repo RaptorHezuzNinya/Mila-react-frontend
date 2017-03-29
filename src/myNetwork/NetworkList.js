@@ -147,7 +147,7 @@ class NetworkList extends PureComponent {
   deleteContacts(event){
     event.preventDefault()
     const { selectedContacts } = this.state
-    console.log('logging selectedContacts', selectedContacts)
+    // console.log('logging selectedContacts', selectedContacts)
     // const { contactId } = this.state
     // console.log('loggign contactId:', contactId)
     this.props.deleteContacts(this.state.selectedContacts)
@@ -157,7 +157,7 @@ class NetworkList extends PureComponent {
   render() {
     const { contacts } = this.props
     const { selectedContacts } = this.state
-    console.log('loggign them contacts', selectedContacts)
+    // console.log('loggign them contacts', selectedContacts)
 
     return (
       <div className="wrapper">
