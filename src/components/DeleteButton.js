@@ -15,27 +15,30 @@ import './DeleteButton.sass'
 
 class DeleteButton extends PureComponent {
   static propTypes = {
-    // contact: PropTypes.func.isRequired
+    selectedContacts: PropTypes.array.isRequired
   }
 
-  doSomething = () => {
-    this.props.deleteContact()
-    console.log('doing something')
+
+  handleClick = () => {
+    const { selectedContacts } = this.props
+    this.props.deleteContact(selectedContacts)
+    console.log('handleClick triggered in deletebutton comp')
   }
 
   render() {
-    console.log(this.props)
-    const { usedDeskClassName, usedMobClassName } = this.props
+    const { usedDeskClassName, usedMobClassName, selectedContacts } = this.props
+
     return (
       <div className="delete-button-container">
         <FlatButton label="Delete Button"
                     className={usedDeskClassName}
                     icon={<DeleteIcon />}
-                    onClick={this.doSomething.bind(this)}
+                    onClick={this.handleClick.bind(this)}
                     />
-        <IconButton className={usedMobClassName}>
+        <IconButton className={usedMobClassName}
+                    onClick={this.handleClick.bind(this)}>
           <DeleteIcon />
-      </IconButton>
+        </IconButton>
       </div>
     )
   }
