@@ -50,7 +50,7 @@ class NetworkList extends PureComponent {
   }
 
   componentWillMount() {
-
+    console.log('when does this happen?')
   }
 
   componentDidMount() {

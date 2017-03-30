@@ -15,23 +15,19 @@ import './DeleteButton.sass'
 
 class DeleteButton extends PureComponent {
   static propTypes = {
-    // contact: PropTypes.func.isRequired
+    selectedContacts: PropTypes.array.isRequired
   }
 
 
   handleClick = () => {
     const { selectedContacts } = this.props
-    const selectedContactIds = selectedContacts.filter((contact) => { return contact.contactId })
-    console.log('IDSSS!!!', selectedContactIds)
     this.props.deleteContact(selectedContacts)
     console.log('handleClick triggered in deletebutton comp')
-
   }
 
   render() {
-    // console.log(this.props)
     const { usedDeskClassName, usedMobClassName, selectedContacts } = this.props
-    console.log('selected contacts from deletebutton', selectedContacts)
+
     return (
       <div className="delete-button-container">
         <FlatButton label="Delete Button"
