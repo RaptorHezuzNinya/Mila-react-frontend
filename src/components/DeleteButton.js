@@ -42,7 +42,7 @@ class DeleteButton extends PureComponent {
         <IconButton className={usedMobClassName}
                     onClick={this.handleClick.bind(this)}>
           <DeleteIcon />
-      </IconButton>
+        </IconButton>
       </div>
     )
   }
