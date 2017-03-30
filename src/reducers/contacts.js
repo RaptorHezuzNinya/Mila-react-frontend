@@ -268,9 +268,11 @@ export default function contacts(state = initialState, { type, payload } = {}) {
         return contact
       })
     case DELETE_CONTACT :
-      console.log('logging payload', payload)
-      // debugger
-      return state.filter((contact) => (contact.contactId !== payload.contactId ))
+    
+      const mappedIds = payload.map((contact) => {
+        return contact.contactId
+      })
+      return state.filter((contact) => (mappedIds.indexOf(contact.contactId) === -1 ))
 
     default :
       return state
