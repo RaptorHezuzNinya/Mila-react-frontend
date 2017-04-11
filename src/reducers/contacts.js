@@ -268,7 +268,6 @@ export default function contacts(state = initialState, { type, payload } = {}) {
         return contact
       })
     case DELETE_CONTACT :
-    
       const mappedIds = payload.map((contact) => {
         return contact.contactId
       })

@@ -1,24 +1,24 @@
 import React, { PureComponent, PropTypes } from 'react'
-
 // Material UI Components
-import { Card, CardHeader, CardActions, CardText } from 'material-ui/Card'
-import TextField from 'material-ui/TextField'
-import FlatButton from 'material-ui/FlatButton'
-
+import { Card } from 'material-ui/Card'
 // Components
-import OnboardingStepper2 from './OnboardingStepper2'
 import OnboardingStepper from './OnboardingStepper'
-
 // Styles
-import './onboarding.sass'
+import './Onboarding.sass'
+
+const styles = {
+  card: {
+    height: '100vh'
+  }
+}
 
 class Onboarding extends PureComponent {
 
   render() {
     return (
       <div className="onboarding-card">
-        <Card>
-          <OnboardingStepper2 />
+        <Card style={styles.card}>
+          <OnboardingStepper />
         </Card>
       </div>
     )
