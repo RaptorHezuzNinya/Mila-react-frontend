@@ -45,6 +45,7 @@ class CreateLists extends PureComponent {
   }
 
   render() {
+
     return (
       <div className="create-lists-wrapper">
         <p>Ok, In the mean time, tell me: Which lists shall we use to sort your contacts? Do you (want to) keep a newslettes, sales-funnel, prospects?
@@ -61,7 +62,8 @@ class CreateLists extends PureComponent {
               hintText="Enter list title, e.g. clients, prospects …"
               hintStyle={styles.hint}
               fullWidth={true}
-              inputStyle={styles.inputStyle}/>
+              inputStyle={styles.inputStyle}
+              value={this.state.listTitle}/>
 
             <div className="form-btn-holder">
               <FlatButton
