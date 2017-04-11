@@ -36,6 +36,14 @@ class CreateLists extends PureComponent {
     console.log(this.state.listTitle)
   }
 
+  handleSubmit(event){
+    event.preventDefault()
+    console.log('imma in handlesubmit fun')
+    this.setState({
+      listTitle: ''
+    })
+  }
+
   render() {
     return (
       <div className="create-lists-wrapper">
