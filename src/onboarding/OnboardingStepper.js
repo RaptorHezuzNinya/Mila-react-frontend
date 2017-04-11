@@ -88,7 +88,7 @@ class OnboardingStepper extends PureComponent {
       case 0 :
         return 'Great!';
       case 1:
-        return 'Next';
+        return 'Go to contacts';
       case 2:
         return 'Finish';
       default:
@@ -101,7 +101,7 @@ class OnboardingStepper extends PureComponent {
 
     return (
       <div style={{margin: '12px 0'}}>
-        <div>
+        {/* <div>
           {!(stepIndex === 0) &&
             <FlatButton
               label="Back"
@@ -110,10 +110,10 @@ class OnboardingStepper extends PureComponent {
               style={{marginRight: 12}}
             />
           }
-        </div>
+        </div> */}
         <div className="onboarding-next">
           <FlatButton
-            className="but-green"
+            className="btn-green"
             label={this.renderStepbutton(stepIndex)}
             primary={true}
             onTouchTap={this.handleNext}
