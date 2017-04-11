@@ -11,7 +11,7 @@ import FlatButton from 'material-ui/FlatButton'
 
 //Components
 import ScanningContacts from './ScanningContacts'
-import ConnectTools from './ConnectTools'
+
 import CreateLists from './CreateLists'
 
 // Styles
@@ -20,38 +20,11 @@ import './OnboardingStepper.sass'
 class OnboardingStepper extends PureComponent {
   constructor(props){
     super(props)
-      this.state = {
-        finished: false,
-        stepIndex: 0,
-        stepperwidth: 450,
-        displayOtherTools: false,
-        otherTools: [
-          {
-            label: 'CONNECT TO MAILCHIMP',
-            icon: 'https://static.mailchimp.com/web/brand-assets/logo-freddie-fullcolor.svg',
-          },
-          {
-            label: 'PIPEDRIVE',
-            icon: 'http://cdn.appstorm.net/web.appstorm.net/files/2011/08/pipedrive-icon.png',
-          },
-          {
-            label: 'HIGHRISE',
-            icon: 'https://rocketdock.com/images/screenshots/Highrise.png',
-          },
-          {
-            label: 'EVENTBRITE',
-            icon: 'http://reviewzd.com/wp-content/uploads/2015/11/eventbrite-7976d2df30d02333a69549d4a7f86890.png',
-          },
-          {
-            label: 'REVUE',
-            icon: 'http://a5.mzstatic.com/eu/r30/Purple69/v4/bf/b4/ce/bfb4ce49-14cd-f00c-5d13-466acb8703a3/icon175x175.png',
-          },
-          {
-            label: 'CAMPAIGN MONITOR',
-            icon: 'https://ffb2efd5105ff0aedbc9-9cdacdeebf0faa19b665bf427f0c8092.ssl.cf1.rackcdn.com/img/campaign-monitor.png',
-          },
-        ]
-
+    this.state = {
+      finished: false,
+      stepIndex: 0,
+      stepperwidth: 450,
+      displayOtherTools: false,
     }
   };
 
@@ -102,7 +75,7 @@ class OnboardingStepper extends PureComponent {
       case 0:
         return <ScanningContacts />
       case 1:
-        return <ConnectTools displayOtherTools={displayOtherTools} toggleTools={this.toggleTools.bind(this)} otherTools={otherTools} />
+        return
       case 2:
         return <CreateLists saveList={this.saveList.bind(this)}/>
       default:
@@ -122,7 +95,6 @@ class OnboardingStepper extends PureComponent {
         return 'You\'re a long way from home sonny jim';
     }
   }
-
 
   renderStepActions() {
     const {stepIndex} = this.state;
@@ -154,7 +126,7 @@ class OnboardingStepper extends PureComponent {
   render() {
     const {finished, stepIndex, stepperwidth } = this.state;
 
-    console.log(stepIndex, this.state.finished, 'render')
+    // console.log(stepIndex, this.state.finished, 'render')
     return (
       <div className="stepper-wrapper">
         <Stepper activeStep={stepIndex} orientation='vertical' >
