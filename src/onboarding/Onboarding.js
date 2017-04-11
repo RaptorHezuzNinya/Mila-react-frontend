@@ -11,6 +11,7 @@ const styles = {
     height: '100vh'
   }
 }
+
 class Onboarding extends PureComponent {
 
   render() {
