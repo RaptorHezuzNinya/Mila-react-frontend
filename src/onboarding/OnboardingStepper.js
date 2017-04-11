@@ -111,10 +111,9 @@ class OnboardingStepper extends PureComponent {
   }
 
   renderStepbutton = (stepIndex) => {
-
     switch (stepIndex) {
       case 0 :
-        return `OK, LET'S GET STARTED`;
+        return 'Great!';
       case 1:
         return 'Next';
       case 2:
@@ -130,21 +129,24 @@ class OnboardingStepper extends PureComponent {
 
     return (
       <div style={{margin: '12px 0'}}>
-        {!(stepIndex === 0) &&
+        <div>
+          {!(stepIndex === 0) &&
+            <FlatButton
+              label="Back"
+              disabled={(stepIndex === 0)}
+              onTouchTap={this.handlePrev}
+              style={{marginRight: 12}}
+            />
+          }
+        </div>
+        <div>
           <FlatButton
-            label="Back"
-            disabled={(stepIndex === 0)}
-            onTouchTap={this.handlePrev}
-            style={{marginRight: 12}}
-          />
-        }
-
-          <FlatButton
+            className="but-green"
             label={this.renderStepbutton(stepIndex)}
             primary={true}
             onTouchTap={this.handleNext}
           />
-
+        </div>
       </div>
     );
   }
