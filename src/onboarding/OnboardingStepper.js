@@ -154,10 +154,10 @@ class OnboardingStepper extends PureComponent {
   render() {
     const {finished, stepIndex, stepperwidth } = this.state;
 
-    console.log(stepIndex, this.state.finished, ' render')
+    console.log(stepIndex, this.state.finished, 'render')
     return (
       <div style={{width: '100%', margin: 'auto'}}>
-        <Stepper ref="stepperwrapper" activeStep={stepIndex} orientation= 'vertical' >
+        <Stepper ref="stepperwrapper" activeStep={stepIndex} orientation='vertical' >
           <Step>
             <StepLabel className="steplabel">Scanning contacts</StepLabel>
             <StepContent>
