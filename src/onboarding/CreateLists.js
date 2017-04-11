@@ -41,6 +41,12 @@ class CreateLists extends PureComponent {
       <div className="create-lists-wrapper">
         <p>Ok, In the mean time, tell me: Which lists shall we use to sort your contacts? Do you (want to) keep a newslettes, sales-funnel, prospects?
         </p>
+        <form>
+          <TextField placeholder="Enter your list title here"/>
+          <FlatButton
+            className="btn-grey"
+            label="Add a List"/>
+        </form>
       </div>
     )
   }
