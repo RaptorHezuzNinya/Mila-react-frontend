@@ -1,17 +1,11 @@
 import React, { PureComponent, PropTypes } from 'react'
 
 // Material UI Components
-import {
-  Step,
-  Stepper,
-  StepLabel,
-  StepContent,
-} from 'material-ui/Stepper'
+import { Step, Stepper, StepLabel, StepContent } from 'material-ui/Stepper'
 import FlatButton from 'material-ui/FlatButton'
 
 //Components
-import ScanningContacts from './ScanningContacts'
-
+import ScanningInbox from './ScanningInbox'
 import CreateLists from './CreateLists'
 
 // Styles
@@ -73,7 +67,7 @@ class OnboardingStepper extends PureComponent {
     const {otherTools, displayOtherTools} = this.state
     switch (stepIndex) {
       case 0:
-        return <ScanningContacts />
+        return <ScanningInbox />
       case 1:
         return <CreateLists saveList={this.saveList.bind(this)}/>
       case 2:
