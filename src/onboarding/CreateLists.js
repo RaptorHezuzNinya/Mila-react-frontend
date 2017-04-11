@@ -50,6 +50,7 @@ class CreateLists extends PureComponent {
       <div className="create-lists-wrapper">
         <p>Ok, In the mean time, tell me: Which lists shall we use to sort your contacts? Do you (want to) keep a newslettes, sales-funnel, prospects?
         </p>
+        {/*  Hier moet nieuw gemaakte networklists gerenderd worden*/}
         {/* <div className="example-list">
           <span><ListIcon className="list-icon"/></span>
           <p className="example-title">Stakeholders</p>
