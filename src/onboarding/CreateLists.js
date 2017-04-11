@@ -11,19 +11,19 @@ class CreateLists extends PureComponent {
   constructor(props){
     super(props)
     this.state = {
-      listName: ''
+      listTitle: ''
     }
   }
 
   handleChange = (event) => {
     this.setState({
-      listName: event.target.value
+      listTitle: event.target.value
     })
   }
 
   clickDo = () => {
-    const { listName } = this.state.listName
-    this.props.saveList(listName)
+    const { listTitle } = this.state.listTitle
+    this.props.saveList(listTitle)
   }
 
   renderLists = (list, index) => {
