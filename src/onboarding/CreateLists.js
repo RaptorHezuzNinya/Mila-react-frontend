@@ -56,7 +56,7 @@ class CreateLists extends PureComponent {
         <div className="list-form-holder">
           <form onSubmit={this.handleSubmit.bind(this)}>
             <TextField
-              onChange={this.handleChange}
+              onChange={this.handleChange.bind(this)}
               className="list-input"
               hintText="Enter list title, e.g. clients, prospects …"
               hintStyle={styles.hint}
