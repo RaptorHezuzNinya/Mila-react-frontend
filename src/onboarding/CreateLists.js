@@ -54,16 +54,18 @@ class CreateLists extends PureComponent {
           <p className="example-title">Stakeholders</p>
         </div> */}
         <div className="list-form-holder">
-          <form>
+          <form onSubmit={this.handleSubmit.bind(this)}>
             <TextField
               onChange={this.handleChange}
               className="list-input"
               hintText="Enter list title, e.g. clients, prospects …"
               hintStyle={styles.hint}
-              fullWidth={true}/>
+              fullWidth={true}
+              inputStyle={styles.inputStyle}/>
 
             <div className="form-btn-holder">
               <FlatButton
+                type="submit"
                 className="btn-grey form-btn"
                 label="Add a List"/>
             </div>
