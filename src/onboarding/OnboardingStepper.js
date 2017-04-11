@@ -96,7 +96,6 @@ class OnboardingStepper extends PureComponent {
     return null
   }
 
-
   getStepContent(stepIndex) {
     const {otherTools, displayOtherTools} = this.state
     switch (stepIndex) {
