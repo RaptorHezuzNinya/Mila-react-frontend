@@ -7,7 +7,7 @@ import FlatButton from 'material-ui/FlatButton'
 
 
 // Styles
-import './onboarding.sass'
+import './Onboarding.sass'
 
 class CreateLists extends PureComponent {
   constructor(props){

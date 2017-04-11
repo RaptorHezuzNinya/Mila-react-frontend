@@ -15,7 +15,7 @@ import ConnectTools from './ConnectTools'
 import CreateLists from './CreateLists'
 
 // Styles
-import './onboarding.sass'
+import './Onboarding.sass'
 
 class OnboardingStepper extends PureComponent {
   constructor(props){

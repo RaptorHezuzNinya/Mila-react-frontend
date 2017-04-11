@@ -9,7 +9,7 @@ import ToolButton from './ToolButton'
 
 
 // Styles
-import './onboarding.sass'
+import './Onboarding.sass'
 
 class ConnectTools extends PureComponent {
 

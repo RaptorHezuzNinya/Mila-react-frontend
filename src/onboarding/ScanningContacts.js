@@ -1,6 +1,6 @@
 import React from 'react'
 // Styles
-import './onboarding.sass'
+import './Onboarding.sass'
 
 const ScanningContacts = () => {
   return (

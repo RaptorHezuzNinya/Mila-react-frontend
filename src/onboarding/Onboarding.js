@@ -10,7 +10,7 @@ import FlatButton from 'material-ui/FlatButton'
 import OnboardingStepper from './OnboardingStepper'
 
 // Styles
-import './onboarding.sass'
+import './Onboarding.sass'
 
 class Onboarding extends PureComponent {
 
