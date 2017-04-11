@@ -139,7 +139,7 @@ class OnboardingStepper extends PureComponent {
             />
           }
         </div>
-        <div>
+        <div className="onboarding-next">
           <FlatButton
             className="but-green"
             label={this.renderStepbutton(stepIndex)}
