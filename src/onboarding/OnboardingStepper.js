@@ -138,14 +138,14 @@ class OnboardingStepper extends PureComponent {
             </StepContent>
           </Step>
           <Step>
-            <StepLabel className='steplabel'>Connect tools</StepLabel>
+            <StepLabel className='steplabel'>Create lists</StepLabel>
             <StepContent>
               {this.getStepContent(stepIndex)}
               {this.renderStepActions()}
           </StepContent>
           </Step>
           <Step >
-            <StepLabel className="steplabel">Create lists</StepLabel>
+            <StepLabel className="steplabel">Start sorting</StepLabel>
             <StepContent>
               {this.getStepContent(stepIndex)}
               {this.renderStepActions()}
