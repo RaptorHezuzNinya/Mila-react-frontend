@@ -5,6 +5,7 @@ import {
   Step,
   Stepper,
   StepLabel,
+  StepContent,
 } from 'material-ui/Stepper'
 import FlatButton from 'material-ui/FlatButton'
 
@@ -54,8 +55,6 @@ class OnboardingStepper extends PureComponent {
     }
   };
 
-
-
   componentDidMount() {
     window.addEventListener('resize', this.onResize.bind(this));
     this.onResize()
@@ -76,6 +75,7 @@ class OnboardingStepper extends PureComponent {
       stepIndex: stepIndex + 1,
       finished: stepIndex >= 2,
     });
+    console.log(stepIndex)
   };
 
   handlePrev = () => {
