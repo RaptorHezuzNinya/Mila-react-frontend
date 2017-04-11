@@ -7,27 +7,13 @@ import FlatButton from 'material-ui/FlatButton'
 
 
 // Styles
-import './Onboarding.sass'
+import './CreateLists.sass'
 
 class CreateLists extends PureComponent {
   constructor(props){
     super(props)
     this.state = {
-      listName: '',
-      myLists: [
-        {
-          name: 'StakeHolders',
-          source: 'Mila',
-        },
-        {
-          name: `VIP's of the company`,
-          source: `Mila`
-        },
-        {
-          name: `Newsletter US`,
-          source: 'MailChimp',
-        },
-      ]
+      listName: ''
     }
   }
 
@@ -54,21 +40,9 @@ class CreateLists extends PureComponent {
   render() {
     const { myLists } = this.state
     return (
-      <div className="create-lists">
-        <div>
-          <h1>What other lists do you need?</h1>
-          <p>Email a quick update to key partners? Follow-up on prospects? Keep track of freelancers? Just create a list for it.</p>
-        </div>
-        <div>
-          <h4>YOUR LISTS</h4>
-            {myLists.map(this.renderLists)}
-            <TextField
-              hintText="Type a list name, e.g. VIP's, freelancers, friends"
-              onChange={this.handleChange}
-              fullWidth={true}
-            />
-            <FlatButton label='ADD A LIST' value='submit' onClick={this.clickDo}/>
-        </div>
+      <div className="create-lists-wrapper">
+        <p>Ok, In the mean time, tell me: Which lists shall we use to sort your contacts? Do you (want to) keep a newslettes, sales-funnel, prospects?
+        </p>
       </div>
     )
   }

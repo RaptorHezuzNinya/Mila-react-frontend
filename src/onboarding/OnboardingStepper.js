@@ -75,9 +75,9 @@ class OnboardingStepper extends PureComponent {
       case 0:
         return <ScanningContacts />
       case 1:
-        return
-      case 2:
         return <CreateLists saveList={this.saveList.bind(this)}/>
+      case 2:
+        return
       default:
         return 'You\'re a long way from home sonny jim!';
     }
