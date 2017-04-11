@@ -13,6 +13,11 @@ const styles = {
   hint: {
     fontSize: 14,
     fontFamily: 'Montserrat-Light'
+  },
+  inputStyle: {
+    fontSize: 15,
+    fontFamily: 'Montserrat-Light',
+    color: '#292f36',
   }
 }
 
