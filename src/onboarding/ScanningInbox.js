@@ -2,7 +2,7 @@ import React from 'react'
 // Styles
 import './Onboarding.sass'
 
-const ScanningContacts = () => {
+const ScanningInbox = () => {
   return (
     <div className="scanning-contacts">
       <h3>{"Hi #{username}!"}</h3>
@@ -13,4 +13,4 @@ const ScanningContacts = () => {
   )
 }
 
-export default ScanningContacts
+export default ScanningInbox
