@@ -91,9 +91,11 @@ class CreateListsContainer extends PureComponent {
 
             <div className="form-btn-holder">
               <FlatButton
+
                 type="submit"
                 className="btn-grey form-btn"
-                label="Add a List"/>
+                label="Add a List"
+                disabled={pristine || submitting}/>
             </div>
           </form>
         </div>
