@@ -1,8 +1,10 @@
 import React, { PureComponent, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { Field, reduxForm } from 'redux-form'
+
+import { reset } from 'redux-form'
 // actions
-import { createNetworkList } from '../actions/networklists/create'
+import createNetworkList from '../actions/networklists/create'
 
 // Material UI Components
 import FlatButton from 'material-ui/FlatButton'
@@ -50,7 +52,7 @@ class CreateListsContainer extends PureComponent {
     })
   }
 
-  renderTextField = ({ input, label, meta: { touched, error }, ...custom }) => (
+  renderTextField = ({ input, label, meta: { touched, error } }) => (
     <TextField
       className="list-input"
       hintText={label}
@@ -59,12 +61,12 @@ class CreateListsContainer extends PureComponent {
       inputStyle={styles.inputStyle}
       errorText={touched && error}
       {...input}
-      {...custom}
     />
   )
 
   onSubmit(props){
     const { reset } = this.props
+    console.log(reset)
     event.preventDefault()
     this.props.createNetworkList(props)
   }
@@ -84,13 +86,14 @@ class CreateListsContainer extends PureComponent {
         <div className="list-form-holder">
           <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
             <div>
-
-              <Field name="title" label="Enter list title, e.g. clients, prospects …" component={this.renderTextField} />
+              <Field
+                name="title"
+                label="Enter list title, e.g. clients, prospects …"
+                component={this.renderTextField} />
             </div>
 
             <div className="form-btn-holder">
               <FlatButton
-
                 type="submit"
                 className="btn-grey form-btn"
                 label="Add a List"/>
@@ -119,9 +122,14 @@ const mapStateToProps = (state) => {
   }
 }
 
+const afterSubmit = (result, dispatch) => {
+  dispatch(reset('onboardCreateNWL'))
+}
+
 export default connect(mapStateToProps, { createNetworkList })(reduxForm({
   form: 'onboardCreateNWL',
-  validate
+  validate,
+  onSubmitSuccess: afterSubmit
 })(CreateListsContainer));
 
 // This was the old stakeholders example
