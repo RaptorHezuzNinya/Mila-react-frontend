@@ -53,22 +53,25 @@ class CreateLists extends PureComponent {
 
     return this.props.networkLists.map((networkList) => {
       return (
-        <div className="example-list">
+        <li className="list-item">
           <span><ListIcon className="list-icon"/></span>
           <p className="example-title">{networkList.title}</p>
-        </div>
+        </li>
       )
     })
   }
 
   render() {
+    console.log(this.state.title)
     const { networkLists } = this.props
     return (
       <div className="create-lists-wrapper">
         <p>Ok, In the mean time, tell me: Which lists shall we use to sort your contacts? Do you (want to) keep a newslettes, sales-funnel, prospects?
         </p>
-        {/*  Hier moet nieuw gemaakte networklists gerenderd worden*/}
-        { this.renderNetworkLists() }
+
+        <ul className="network-lists">
+          { this.renderNetworkLists() }
+        </ul>
         <div className="list-form-holder">
           <form onSubmit={this.handleSubmit.bind(this)}>
             <TextField
