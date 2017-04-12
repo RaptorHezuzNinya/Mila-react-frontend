@@ -120,7 +120,10 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, { createNetworkList })(CreateListsContainer)
+export default connect(mapStateToProps, { createNetworkList })(reduxForm({
+  form: 'onboardCreateNWL',
+  validate
+})(CreateListsContainer));
 
 // This was the old stakeholders example
 {/* <div className="example-list">
