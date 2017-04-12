@@ -66,10 +66,7 @@ class CreateListsContainer extends PureComponent {
   onSubmit(props){
     const { reset } = this.props
     event.preventDefault()
-    this.props.createNetworkList(props).then(() => {
-    reset();
-
-  });
+    this.props.createNetworkList(props)
   }
 
   render() {

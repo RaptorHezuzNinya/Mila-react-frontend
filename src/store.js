@@ -1,6 +1,5 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux'
 import ReduxThunk from 'redux-thunk'
-import promise from 'redux-promise'
 import { browserHistory } from 'react-router'
 import { syncHistoryWithStore, routerReducer, routerMiddleware } from 'react-router-redux'
 
@@ -14,7 +13,6 @@ const devTools = window.devToolsExtension ? window.devToolsExtension() : (f) => 
 
 const enhancer = compose(
   applyMiddleware(routingMiddleware),
-  applyMiddleware(promise),
   applyMiddleware(ReduxThunk),
   devTools
 )
