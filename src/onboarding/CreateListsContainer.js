@@ -122,9 +122,14 @@ const mapStateToProps = (state) => {
   }
 }
 
+const afterSubmit = (result, dispatch) => {
+  dispatch(reset('onboardCreateNWL'))
+}
+
 export default connect(mapStateToProps, { createNetworkList })(reduxForm({
   form: 'onboardCreateNWL',
-  validate
+  validate,
+  onSubmitSuccess: afterSubmit
 })(CreateListsContainer));
 
 // This was the old stakeholders example
