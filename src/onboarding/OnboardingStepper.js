@@ -89,7 +89,7 @@ class OnboardingStepper extends PureComponent {
 
   renderStepActions() {
     const {stepIndex} = this.state;
-
+    const { networkLists } = this.props
     return (
       <div style={{margin: '12px 0'}}>
         {/* <div>
@@ -105,22 +105,22 @@ class OnboardingStepper extends PureComponent {
         <div className="onboarding-next">
           <FlatButton
             className="btn-green swagtestclass"
-            // disabled={this.state.disabledButton}
+            disabled={this.state.disabledButton}
             label={this.renderStepbutton(stepIndex)}
             primary={true}
             onTouchTap={this.handleNext}
           />
+
         </div>
       </div>
     );
   }
 
-
   render() {
-    const { networkLists } = this.props
-    console.log(networkLists.length)
     const {finished, stepIndex, stepperwidth } = this.state;
-    console.log('logging', stepIndex)
+    const { networkLists } = this.props
+    console.log('NETWORKLIST.count:', networkLists.length)
+    console.log('STEPINDEX:', stepIndex)
     // console.log(stepIndex, this.state.finished, 'render')
     return (
       <div className="stepper-wrapper">
@@ -168,4 +168,5 @@ class OnboardingStepper extends PureComponent {
 }
 
 const mapStateToProps = ({networkLists}) => ({networkLists})
+
 export default connect(mapStateToProps)(OnboardingStepper)
