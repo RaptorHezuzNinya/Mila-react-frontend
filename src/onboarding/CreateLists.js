@@ -69,7 +69,7 @@ class CreateLists extends PureComponent {
               hintStyle={styles.hint}
               fullWidth={true}
               inputStyle={styles.inputStyle}
-              value={this.state.listTitle}/>
+              value={this.state.title}/>
 
             <div className="form-btn-holder">
               <FlatButton
@@ -84,4 +84,4 @@ class CreateLists extends PureComponent {
   }
 }
 
-export default CreateLists
+export default connect(null, { createNetworkList })(CreateLists)
