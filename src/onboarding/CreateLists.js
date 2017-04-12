@@ -28,22 +28,24 @@ class CreateLists extends PureComponent {
   constructor(props){
     super(props)
     this.state = {
-      listTitle: ''
+      title: ''
     }
   }
 
   handleChange = (event) => {
     this.setState({
-      listTitle: event.target.value
+      title: event.target.value
     })
-    console.log(this.state.listTitle)
+    console.log(this.state.title)
   }
 
   handleSubmit(event){
     event.preventDefault()
     console.log('imma in handlesubmit fun')
+    const { title } = this.state
+    this.props.createNetworkList({title})
     this.setState({
-      listTitle: ''
+      title: ''
     })
   }
 
