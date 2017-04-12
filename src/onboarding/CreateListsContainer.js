@@ -50,30 +50,48 @@ class CreateListsContainer extends PureComponent {
     })
   }
 
+  renderTextField = ({ input, label, meta: { touched, error }, ...custom }) => (
+    <TextField
+      className="list-input"
+      hintText={label}
+      hintStyle={styles.hint}
+      fullWidth={true}
+      inputStyle={styles.inputStyle}
+      errorText={touched && error}
+      {...input}
+      {...custom}
+    />
+  )
+
+  onSubmit(props){
+    console.log(this.props)
+    event.preventDefault()
+    this.props.createNetworkList(props).then(() => {
+    });
+  }
+
   render() {
-    console.log(this.state.title)
+
     const { networkLists } = this.props
+    const { handleSubmit, reset } = this.props
+
     return (
       <div className="create-lists-wrapper">
         <p>Ok, In the mean time, tell me: Which lists shall we use to sort your contacts? Do you (want to) keep a newslettes, sales-funnel, prospects?
         </p>
-
         <ul className="network-lists">
           { this.renderNetworkLists() }
         </ul>
         <div className="list-form-holder">
-          <form onSubmit={this.handleSubmit.bind(this)}>
-            <TextField
-              onChange={this.handleChange.bind(this)}
-              className="list-input"
-              hintText="Enter list title, e.g. clients, prospects …"
-              hintStyle={styles.hint}
-              fullWidth={true}
-              inputStyle={styles.inputStyle}
-              value={this.state.title}/>
+          <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
+            <div>
+
+              <Field name="title" label="Enter list title, e.g. clients, prospects …" component={this.renderTextField} />
+            </div>
 
             <div className="form-btn-holder">
               <FlatButton
+
                 type="submit"
                 className="btn-grey form-btn"
                 label="Add a List"/>
