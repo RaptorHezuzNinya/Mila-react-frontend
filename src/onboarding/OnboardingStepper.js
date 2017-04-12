@@ -1,4 +1,5 @@
 import React, { PureComponent, PropTypes } from 'react'
+import { connect } from 'react-redux'
 
 // Material UI Components
 import { Step, Stepper, StepLabel, StepContent } from 'material-ui/Stepper'
@@ -38,6 +39,7 @@ class OnboardingStepper extends PureComponent {
 
   handleNext = () => {
     const {stepIndex} = this.state;
+
     this.setState({
       stepIndex: stepIndex + 1,
       finished: stepIndex >= 2,
@@ -96,7 +98,8 @@ class OnboardingStepper extends PureComponent {
         </div> */}
         <div className="onboarding-next">
           <FlatButton
-            className="btn-green"
+            className="btn-green swagtestclass"
+            // disabled={this.state.disabledButton}
             label={this.renderStepbutton(stepIndex)}
             primary={true}
             onTouchTap={this.handleNext}
@@ -106,8 +109,12 @@ class OnboardingStepper extends PureComponent {
     );
   }
 
+
   render() {
+    const { networkLists } = this.props
+    console.log(networkLists.length)
     const {finished, stepIndex, stepperwidth } = this.state;
+    console.log('logging', stepIndex)
     // console.log(stepIndex, this.state.finished, 'render')
     return (
       <div className="stepper-wrapper">
@@ -153,4 +160,6 @@ class OnboardingStepper extends PureComponent {
     )
   }
 }
-export default OnboardingStepper
+
+const mapStateToProps = ({networkLists}) => ({networkLists})
+export default connect(mapStateToProps)(OnboardingStepper)
