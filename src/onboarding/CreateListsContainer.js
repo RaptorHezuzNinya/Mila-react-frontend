@@ -1,6 +1,6 @@
 import React, { PureComponent, PropTypes } from 'react'
 import { connect } from 'react-redux'
-
+import { Field, reduxForm } from 'redux-form'
 // actions
 import createNetworkList from '../actions/networklists/create'
 
@@ -10,7 +10,7 @@ import TextField from 'material-ui/TextField'
 import ListIcon from 'material-ui/svg-icons/action/list'
 
 // Styles
-import './CreateLists.sass'
+import './CreateListsContainer.sass'
 
 const styles = {
   hint: {
@@ -24,36 +24,25 @@ const styles = {
   }
 }
 
-class CreateLists extends PureComponent {
-  constructor(props){
-    super(props)
-    this.state = {
-      title: ''
-    }
-  }
+class CreateListsContainer extends PureComponent {
+  // constructor(props){
+  //   super(props)
+  //   this.state = {
+  //     title: ''
+  //   }
+  // }
 
-  handleChange = (event) => {
-    this.setState({
-      title: event.target.value
-    })
-    console.log(this.state.title)
-  }
-
-  handleSubmit(event){
-    event.preventDefault()
-    const { title } = this.state
-    this.props.createNetworkList({title})
-    this.setState({
-      title: ''
-    })
-  }
+  // handleChange = (event) => {
+  //   this.setState({
+  //     title: event.target.value
+  //   })
+  //   console.log(this.state.title)
+  // }
 
   renderNetworkLists(){
-    console.log(this.props.networkLists)
-
     return this.props.networkLists.map((networkList) => {
       return (
-        <li className="list-item">
+        <li className="list-item" key={networkList.id}>
           <span><ListIcon className="list-icon"/></span>
           <p className="example-title">{networkList.title}</p>
         </li>
@@ -61,30 +50,47 @@ class CreateLists extends PureComponent {
     })
   }
 
+  renderTextField = ({ input, label, meta: { touched, error }, ...custom }) => (
+    <TextField
+      className="list-input"
+      hintText={label}
+      hintStyle={styles.hint}
+      fullWidth={true}
+      inputStyle={styles.inputStyle}
+      errorText={touched && error}
+      {...input}
+      {...custom}
+    />
+  )
+
+  onSubmit(props){
+    console.log(this.props)
+    event.preventDefault()
+    this.props.createNetworkList(props)
+  }
+
   render() {
-    console.log(this.state.title)
+
     const { networkLists } = this.props
+    const { handleSubmit, reset } = this.props
+
     return (
       <div className="create-lists-wrapper">
         <p>Ok, In the mean time, tell me: Which lists shall we use to sort your contacts? Do you (want to) keep a newslettes, sales-funnel, prospects?
         </p>
-
         <ul className="network-lists">
           { this.renderNetworkLists() }
         </ul>
         <div className="list-form-holder">
-          <form onSubmit={this.handleSubmit.bind(this)}>
-            <TextField
-              onChange={this.handleChange.bind(this)}
-              className="list-input"
-              hintText="Enter list title, e.g. clients, prospects …"
-              hintStyle={styles.hint}
-              fullWidth={true}
-              inputStyle={styles.inputStyle}
-              value={this.state.title}/>
+          <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
+            <div>
+
+              <Field name="title" label="Enter list title, e.g. clients, prospects …" component={this.renderTextField} />
+            </div>
 
             <div className="form-btn-holder">
               <FlatButton
+
                 type="submit"
                 className="btn-grey form-btn"
                 label="Add a List"/>
@@ -96,7 +102,16 @@ class CreateLists extends PureComponent {
   }
 }
 
-// const mapStateToProps = ({networkLists}) => ({networkLists})
+const validate = (values) => {
+  const errors = {}
+  const requiredFields = [ 'title']
+  requiredFields.forEach( (field) => {
+    if (!values[ field ]) {
+      errors[ field ] = 'Required'
+    }
+  })
+  return errors
+}
 
 const mapStateToProps = (state) => {
   return {
@@ -104,7 +119,10 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, { createNetworkList })(CreateLists)
+export default connect(mapStateToProps, { createNetworkList })(reduxForm({
+  form: 'onboardCreateNWL',
+  validate
+})(CreateListsContainer));
 
 // This was the old stakeholders example
 {/* <div className="example-list">
