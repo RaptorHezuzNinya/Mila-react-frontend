@@ -85,10 +85,13 @@ class CreateLists extends PureComponent {
     )
   }
 }
-// const mapStateToProps = ({yolo}) => ({networkLists})
+
+// const mapStateToProps = ({networkLists}) => ({networkLists})
+
 const mapStateToProps = (state) => {
   return {
     networkLists: state.networkLists
   }
 }
+
 export default connect(mapStateToProps, { createNetworkList })(CreateLists)
