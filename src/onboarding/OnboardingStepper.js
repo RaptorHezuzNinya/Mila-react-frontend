@@ -40,11 +40,16 @@ class OnboardingStepper extends PureComponent {
 
   handleNext = () => {
     const {stepIndex} = this.state;
-
+    const { networkLists } = this.props
     this.setState({
       stepIndex: stepIndex + 1,
       finished: stepIndex >= 2,
     });
+    if (stepIndex === 0 && networkLists.length <= 2) {
+      this.setState({
+        disabledButton: true
+      });
+    }
     console.log(stepIndex)
   };
 
