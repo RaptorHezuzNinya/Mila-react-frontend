@@ -105,3 +105,9 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps, { createNetworkList })(CreateLists)
+
+// This was the old stakeholders example
+{/* <div className="example-list">
+  <span><ListIcon className="list-icon"/></span>
+  <p className="example-title">Stakeholders</p>
+</div> */}
