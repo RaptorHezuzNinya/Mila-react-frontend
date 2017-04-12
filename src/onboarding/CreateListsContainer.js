@@ -2,7 +2,7 @@ import React, { PureComponent, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { Field, reduxForm } from 'redux-form'
 // actions
-import createNetworkList from '../actions/networklists/create'
+import { createNetworkList } from '../actions/networklists/create'
 
 // Material UI Components
 import FlatButton from 'material-ui/FlatButton'
@@ -64,7 +64,7 @@ class CreateListsContainer extends PureComponent {
   )
 
   onSubmit(props){
-    console.log(this.props)
+    const { reset } = this.props
     event.preventDefault()
     this.props.createNetworkList(props)
   }
