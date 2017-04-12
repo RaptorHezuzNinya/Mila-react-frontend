@@ -6,7 +6,7 @@ import FlatButton from 'material-ui/FlatButton'
 
 //Components
 import ScanningInbox from './ScanningInbox'
-import CreateLists from './CreateLists'
+import CreateListsContainer from './CreateListsContainer'
 
 // Styles
 import './OnboardingStepper.sass'
@@ -69,7 +69,7 @@ class OnboardingStepper extends PureComponent {
       case 0:
         return <ScanningInbox />
       case 1:
-        return <CreateLists saveList={this.saveList.bind(this)}/>
+        return <CreateListsContainer saveList={this.saveList.bind(this)}/>
       case 2:
         return
       default:
