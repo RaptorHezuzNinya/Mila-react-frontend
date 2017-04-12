@@ -7,5 +7,6 @@ import modal from './modal'
 module.exports = {
   contacts,
   networkLists,
-  modal
+  modal,
+  form: formReducer,
 }
