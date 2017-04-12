@@ -86,13 +86,14 @@ class CreateListsContainer extends PureComponent {
         <div className="list-form-holder">
           <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
             <div>
-
-              <Field name="title" label="Enter list title, e.g. clients, prospects …" component={this.renderTextField} />
+              <Field
+                name="title"
+                label="Enter list title, e.g. clients, prospects …"
+                component={this.renderTextField} />
             </div>
 
             <div className="form-btn-holder">
               <FlatButton
-
                 type="submit"
                 className="btn-grey form-btn"
                 label="Add a List"/>
