@@ -41,7 +41,6 @@ class CreateLists extends PureComponent {
 
   handleSubmit(event){
     event.preventDefault()
-    console.log('imma in handlesubmit fun')
     const { title } = this.state
     this.props.createNetworkList({title})
     this.setState({
