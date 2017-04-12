@@ -103,7 +103,16 @@ class CreateListsContainer extends PureComponent {
   }
 }
 
-// const mapStateToProps = ({networkLists}) => ({networkLists})
+const validate = (values) => {
+  const errors = {}
+  const requiredFields = [ 'title']
+  requiredFields.forEach( (field) => {
+    if (!values[ field ]) {
+      errors[ field ] = 'Required'
+    }
+  })
+  return errors
+}
 
 const mapStateToProps = (state) => {
   return {
