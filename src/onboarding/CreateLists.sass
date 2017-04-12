@@ -6,37 +6,45 @@
 .create-lists-wrapper
   // display: flex
   p
+    +mont-med
     +f(15px)
     font-weight: 300
   p
     color: $blueA
-    
-// .example-list
-//   display: flex
-//   border-bottom: 1px solid $border1
-//
-//   .list-icon
-//     fill: $greenA !important
-//     position: relative
-//     top: 11px
-//
-//   .example-title
-//     margin-bottom: 5px
-//     padding-left: 30px
-//     color: $blueA
-//     &::after
-//       content: 'DELETE'
-//       font-size: 15px
-//       color: $greenA
-//       text-decoration: underline
-//       position: absolute
-//       right: 10px
+
+.network-lists
+  list-style-type: none
+  padding-left: 0
+
+  .list-item
+    display: flex
+    border-bottom: 1px solid $border1
+
+  .list-icon
+    fill: $greenA !important
+    position: relative
+    top: 11px
+
+  .example-title
+    +mont-med($blueA !important)
+
+    margin-bottom: 5px
+    padding-left: 30px
+    color: $blueA
+    &::after
+      content: 'DELETE'
+      font-size: 15px
+      color: $greenA
+      text-decoration: underline
+      position: absolute
+      right: 10px
 
 .list-form-holder
   margin-top: 15px
 
   .list-input
     margin-bottom: 15px
+
 .form-btn-holder
   display: flex
   .form-btn
