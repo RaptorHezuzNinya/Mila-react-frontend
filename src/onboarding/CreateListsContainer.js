@@ -25,35 +25,24 @@ const styles = {
 }
 
 class CreateListsContainer extends PureComponent {
-  constructor(props){
-    super(props)
-    this.state = {
-      title: ''
-    }
-  }
+  // constructor(props){
+  //   super(props)
+  //   this.state = {
+  //     title: ''
+  //   }
+  // }
 
-  handleChange = (event) => {
-    this.setState({
-      title: event.target.value
-    })
-    console.log(this.state.title)
-  }
-
-  handleSubmit(event){
-    event.preventDefault()
-    const { title } = this.state
-    this.props.createNetworkList({title})
-    this.setState({
-      title: ''
-    })
-  }
+  // handleChange = (event) => {
+  //   this.setState({
+  //     title: event.target.value
+  //   })
+  //   console.log(this.state.title)
+  // }
 
   renderNetworkLists(){
-    console.log(this.props.networkLists)
-
     return this.props.networkLists.map((networkList) => {
       return (
-        <li className="list-item">
+        <li className="list-item" key={networkList.id}>
           <span><ListIcon className="list-icon"/></span>
           <p className="example-title">{networkList.title}</p>
         </li>
