@@ -20,6 +20,7 @@ class OnboardingStepper extends PureComponent {
       stepIndex: 0,
       stepperwidth: 450,
       displayOtherTools: false,
+      disabledButton: false
     }
   };
 
