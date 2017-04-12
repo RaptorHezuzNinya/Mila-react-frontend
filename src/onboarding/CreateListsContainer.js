@@ -66,8 +66,7 @@ class CreateListsContainer extends PureComponent {
   onSubmit(props){
     console.log(this.props)
     event.preventDefault()
-    this.props.createNetworkList(props).then(() => {
-    });
+    this.props.createNetworkList(props)
   }
 
   render() {
