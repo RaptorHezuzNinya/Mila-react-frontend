@@ -52,7 +52,7 @@ class CreateListsContainer extends PureComponent {
     })
   }
 
-  renderTextField = ({ input, label, meta: { touched, error }, ...custom }) => (
+  renderTextField = ({ input, label, meta: { touched, error } }) => (
     <TextField
       className="list-input"
       hintText={label}
@@ -61,12 +61,12 @@ class CreateListsContainer extends PureComponent {
       inputStyle={styles.inputStyle}
       errorText={touched && error}
       {...input}
-      {...custom}
     />
   )
 
   onSubmit(props){
     const { reset } = this.props
+    console.log(reset)
     event.preventDefault()
     this.props.createNetworkList(props)
   }
