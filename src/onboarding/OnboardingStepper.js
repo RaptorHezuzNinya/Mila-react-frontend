@@ -52,24 +52,13 @@ class OnboardingStepper extends PureComponent {
     }
   };
 
-  toggleTools() {
-    const {displayOtherTools} = this.state
-    this.setState({displayOtherTools: !displayOtherTools})
-  }
-
-  saveList(listName) {
-    //this function should fire off action that adds list to store
-    console.log("in onboardingstepper")
-    return null
-  }
-
   getStepContent(stepIndex) {
     const {otherTools, displayOtherTools} = this.state
     switch (stepIndex) {
       case 0:
         return <ScanningInbox />
       case 1:
-        return <CreateListsContainer saveList={this.saveList.bind(this)}/>
+        return <CreateListsContainer />
       case 2:
         return
       default:
@@ -119,7 +108,6 @@ class OnboardingStepper extends PureComponent {
 
   render() {
     const {finished, stepIndex, stepperwidth } = this.state;
-
     // console.log(stepIndex, this.state.finished, 'render')
     return (
       <div className="stepper-wrapper">
