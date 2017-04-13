@@ -48,7 +48,12 @@ class CreateListsContainer extends PureComponent {
       return (
         <li className="list-item" key={networkList.id}>
           <span><ListIcon className="list-icon"/></span>
-          <p className="example-title">{networkList.title}</p>
+          <p className="list-title">{networkList.title}</p>
+          <span>
+            <IconButton>
+              <DeleteIcon />
+            </IconButton>
+          </span>
         </li>
       )
     })
