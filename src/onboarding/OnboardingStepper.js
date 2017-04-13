@@ -21,6 +21,7 @@ class OnboardingStepper extends PureComponent {
       stepperwidth: 450,
       displayOtherTools: false,
       listCount: 0,
+      disabledButton: false,
 
     }
   };
@@ -29,8 +30,6 @@ class OnboardingStepper extends PureComponent {
     window.addEventListener('resize', this.onResize.bind(this));
     this.onResize()
   }
-
-
 
   onResize() {
     if(document.documentElement.clientWidth < 500) {
