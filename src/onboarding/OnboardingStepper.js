@@ -177,6 +177,4 @@ class OnboardingStepper extends PureComponent {
   }
 }
 
-const mapStateToProps = ({networkLists}) => ({networkLists})
-
-export default connect(mapStateToProps)(OnboardingStepper)
+export default OnboardingStepper
