@@ -18,26 +18,17 @@
 
   .list-item
     display: flex
+    justify-content: space-between
     border-bottom: 1px solid $border1
 
   .list-icon
     fill: $greenA !important
     position: relative
-    top: 11px
+    top: 13px
 
-  .example-title
+  .list-title
     +mont-med($blueA !important)
-
-    margin-bottom: 5px
-    padding-left: 30px
     color: $blueA
-    &::after
-      content: 'DELETE'
-      font-size: 15px
-      color: $greenA
-      text-decoration: underline
-      position: absolute
-      right: 10px
 
 .list-form-holder
   margin-top: 15px
