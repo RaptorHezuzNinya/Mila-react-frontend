@@ -29,19 +29,9 @@ const styles = {
 }
 
 class CreateListsContainer extends PureComponent {
-  // constructor(props){
-  //   super(props)
-  //   this.state = {
-  //     title: ''
-  //   }
-  // }
-
-  // handleChange = (event) => {
-  //   this.setState({
-  //     title: event.target.value
-  //   })
-  //   console.log(this.state.title)
-  // }
+  static propTypes = {
+    addListCount: PropTypes.func.isRequired
+  }
 
   renderNetworkLists(){
     return this.props.networkLists.map((networkList) => {
@@ -72,16 +62,15 @@ class CreateListsContainer extends PureComponent {
   )
 
   onSubmit(props){
-    this.props.createNetworkList(props)
+    this.props.createNetworkList(props);
+    this.props.addListCount();
   }
 
   render() {
-
-    const { networkLists, handleSubmit, reset, submitting, pristine } = this.props
+    const { networkLists, handleSubmit, reset, submitting, pristine, listCount, addListCount } = this.props
 
     return (
       <div className="create-lists-wrapper">
-
         <p>Ok, In the mean time, tell me: Which lists shall we use to sort your contacts? Do you (want to) keep a newslettes, sales-funnel, prospects?
         </p>
         <ul className="network-lists">
@@ -95,7 +84,6 @@ class CreateListsContainer extends PureComponent {
                 label="Enter list title, e.g. clients, prospects …"
                 component={this.renderTextField} />
             </div>
-
             <div className="form-btn-holder">
               <FlatButton
                 type="submit"
@@ -136,9 +124,3 @@ export default connect(mapStateToProps, { createNetworkList })(reduxForm({
   validate,
   onSubmitSuccess: afterSubmit
 })(CreateListsContainer));
-
-// This was the old stakeholders example
-{/* <div className="example-list">
-  <span><ListIcon className="list-icon"/></span>
-  <p className="example-title">Stakeholders</p>
-</div> */}
