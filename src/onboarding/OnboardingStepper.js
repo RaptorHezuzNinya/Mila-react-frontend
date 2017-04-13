@@ -45,11 +45,11 @@ class OnboardingStepper extends PureComponent {
       stepIndex: stepIndex + 1,
       finished: stepIndex >= 2,
     });
-    if (stepIndex === 0 && networkLists.length <= 2) {
-      this.setState({
-        disabledButton: true
-      });
-    }
+    // if (stepIndex === 0 && networkLists.length <= 2) {
+    //   this.setState({
+    //     disabledButton: true
+    //   });
+    // }
     console.log(stepIndex)
   };
 
