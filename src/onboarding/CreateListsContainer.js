@@ -84,9 +84,9 @@ class CreateListsContainer extends PureComponent {
                 label="Enter list title, e.g. clients, prospects …"
                 component={this.renderTextField} />
             </div>
-
             <div className="form-btn-holder">
               <FlatButton
+                onClick={this.props.addListCount}
                 type="submit"
                 className="btn-grey form-btn"
                 label="Add a List"
@@ -125,9 +125,3 @@ export default connect(mapStateToProps, { createNetworkList })(reduxForm({
   validate,
   onSubmitSuccess: afterSubmit
 })(CreateListsContainer));
-
-// This was the old stakeholders example
-{/* <div className="example-list">
-  <span><ListIcon className="list-icon"/></span>
-  <p className="example-title">Stakeholders</p>
-</div> */}
