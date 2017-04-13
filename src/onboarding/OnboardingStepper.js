@@ -58,13 +58,20 @@ class OnboardingStepper extends PureComponent {
     }
   };
 
+  addListCount(){
+    const { listCount } = this.state
+    this.setState({
+      listCount: listCount + 1
+    })
+  }
+
   getStepContent(stepIndex) {
-    const {otherTools, displayOtherTools} = this.state
+    const { listCount } = this.state
     switch (stepIndex) {
       case 0:
         return <ScanningInbox />
       case 1:
-        return <CreateListsContainer />
+        return <CreateListsContainer listCount={ listCount } addListCount={this.addListCount.bind(this)}/>
       case 2:
         return
       default:
