@@ -1,5 +1,4 @@
 import React, { PureComponent, PropTypes } from 'react'
-import { connect } from 'react-redux'
 
 // Material UI Components
 import { Step, Stepper, StepLabel, StepContent } from 'material-ui/Stepper'
@@ -21,8 +20,6 @@ class OnboardingStepper extends PureComponent {
       stepperwidth: 450,
       displayOtherTools: false,
       listCount: 0,
-      disabledButton: false,
-
     }
   };
 
