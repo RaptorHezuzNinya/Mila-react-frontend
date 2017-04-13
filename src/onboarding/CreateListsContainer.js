@@ -77,11 +77,11 @@ class CreateListsContainer extends PureComponent {
 
   render() {
 
-
     const { networkLists, handleSubmit, reset, submitting, pristine } = this.props
-    console.log(pristine)
+
     return (
       <div className="create-lists-wrapper">
+
         <p>Ok, In the mean time, tell me: Which lists shall we use to sort your contacts? Do you (want to) keep a newslettes, sales-funnel, prospects?
         </p>
         <ul className="network-lists">
@@ -98,7 +98,6 @@ class CreateListsContainer extends PureComponent {
 
             <div className="form-btn-holder">
               <FlatButton
-
                 type="submit"
                 className="btn-grey form-btn"
                 label="Add a List"
