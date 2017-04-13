@@ -1,14 +1,16 @@
 import React, { PureComponent, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { Field, reduxForm } from 'redux-form'
-
 import { reset } from 'redux-form'
+
 // actions
 import createNetworkList from '../actions/networklists/create'
 
 // Material UI Components
 import FlatButton from 'material-ui/FlatButton'
 import TextField from 'material-ui/TextField'
+import IconButton from 'material-ui/IconButton'
+import DeleteIcon from 'material-ui/svg-icons/action/delete'
 import ListIcon from 'material-ui/svg-icons/action/list'
 
 // Styles
