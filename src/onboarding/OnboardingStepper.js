@@ -102,8 +102,9 @@ class OnboardingStepper extends PureComponent {
   }
 
   renderStepActions() {
-    const { stepIndex } = this.state;
+    const { stepIndex, listCount } = this.state;
     const { networkLists } = this.props
+    console.log('LISTCOUNT', listCount, 'stepIndex:', stepIndex)
 
     return (
       <div style={{margin: '12px 0'}}>
@@ -118,13 +119,20 @@ class OnboardingStepper extends PureComponent {
           }
         </div> */}
         <div className="onboarding-next">
-          <FlatButton
-            className="btn-green swagtestclass"
-            disabled={false}
-            label={this.renderStepbutton(stepIndex)}
-            primary={true}
-            onTouchTap={this.handleNext}
-          />
+          { stepIndex === 1 && listCount <= 2 ? <FlatButton
+                                                  className="btn-green swagtestclass"
+                                                  disabled={true}
+                                                  label={this.renderStepbutton(stepIndex)}
+                                                  primary={true}
+                                                  onTouchTap={this.handleNext}
+                                                  /> : <FlatButton
+                                                        className="btn-green swagtestclass"
+                                                        disabled={false}
+                                                        label={this.renderStepbutton(stepIndex)}
+                                                        primary={true}
+                                                        onTouchTap={this.handleNext}
+                                                      />}
+
 
         </div>
       </div>
