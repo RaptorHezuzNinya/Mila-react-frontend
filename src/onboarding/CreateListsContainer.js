@@ -29,19 +29,9 @@ const styles = {
 }
 
 class CreateListsContainer extends PureComponent {
-  // constructor(props){
-  //   super(props)
-  //   this.state = {
-  //     title: ''
-  //   }
-  // }
-
-  // handleChange = (event) => {
-  //   this.setState({
-  //     title: event.target.value
-  //   })
-  //   console.log(this.state.title)
-  // }
+  static propTypes = {
+    addListCount: PropTypes.func.isRequired
+  }
 
   renderNetworkLists(){
     return this.props.networkLists.map((networkList) => {
