@@ -4,7 +4,8 @@ import { Field, reduxForm } from 'redux-form'
 import { reset } from 'redux-form'
 
 // actions
-import { createNetworkList } from '../actions/networklists/index'
+import { createNetworkList, deleteNetworkList } from '../actions/networklists/index'
+
 
 // Material UI Components
 import FlatButton from 'material-ui/FlatButton'
@@ -40,7 +41,7 @@ class CreateListsContainer extends PureComponent {
           <span><ListIcon className="list-icon"/></span>
           <p className="list-title">{networkList.title}</p>
           <span>
-            <IconButton>
+            <IconButton onClick={ () => { this.props.deleteNetworkList(networkList.id)}}>
               <DeleteIcon />
             </IconButton>
           </span>
@@ -118,7 +119,7 @@ const afterSubmit = (result, dispatch) => {
   dispatch(reset('onboardCreateNWL'))
 }
 
-export default connect(mapStateToProps, { createNetworkList })(reduxForm({
+export default connect(mapStateToProps, { createNetworkList, deleteNetworkList })(reduxForm({
   form: 'onboardCreateNWL',
   validate,
   onSubmitSuccess: afterSubmit
