@@ -2,18 +2,18 @@ import { CREATE_NETWORKLIST, UPDATE_NETWORKLIST } from '../actions/networklists/
 
 
 const initialState = [
-  // {
-  //   id: 1,
-  //   title: 'Business',
-  //   avatar: '~/assets/images/avatars/troll.png',
-  //   description: 'The VIP list is used for people who have asked questions about our product and want to try our next update'
-  // },
-  // {
-  //   id: 2,
-  //   title: 'Devops',
-  //   avatar: '~/assets/images/avatars/troll.png',
-  //   description: 'The VIP list is used for people who have asked questions about our product and want to try our next update'
-  // },
+  {
+    id: 1,
+    title: 'Business',
+    avatar: '~/assets/images/avatars/troll.png',
+    description: 'The VIP list is used for people who have asked questions about our product and want to try our next update'
+  },
+  {
+    id: 2,
+    title: 'Devops',
+    avatar: '~/assets/images/avatars/troll.png',
+    description: 'The VIP list is used for people who have asked questions about our product and want to try our next update'
+  },
   // {
   //   id: 3,
   //   title: 'Business Int',
