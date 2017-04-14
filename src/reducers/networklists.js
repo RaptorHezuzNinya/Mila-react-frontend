@@ -7,13 +7,7 @@ const initialState = [
     title: 'Business',
     avatar: '~/assets/images/avatars/troll.png',
     description: 'The VIP list is used for people who have asked questions about our product and want to try our next update'
-  },
-  {
-    id: 2,
-    title: 'Devops',
-    avatar: '~/assets/images/avatars/troll.png',
-    description: 'The VIP list is used for people who have asked questions about our product and want to try our next update'
-  },
+  }
   // {
   //   id: 3,
   //   title: 'Business Int',
