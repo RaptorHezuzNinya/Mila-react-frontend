@@ -9,7 +9,7 @@ const ProceedWarning = (props) => {
       button = '';
   }
   return (
-    <div>
+    <div className="warning-holder">
       { button }
     </div>
   )

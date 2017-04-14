@@ -21,10 +21,12 @@
 .onboarding-next
   margin-top: 40px
 
-.proceed-warning
-  background-color: $blueA;
-  padding: 6px 5px;
-  text-align: center;
-  border-radius: 7px;
-  +mont-light($greyB)
-  +f(14px)
+.warning-holder
+  display: flex
+  justify-content: center
+  .proceed-warning
+    background-color: $blueA;
+    padding: 6px 20px;
+    border-radius: 7px;
+    +mont-light($greyB)
+    +f(12px)
