@@ -67,7 +67,7 @@ class CreateListsContainer extends PureComponent {
   }
 
   render() {
-    const { handleSubmit, reset, submitting, pristine} = this.props
+    const { handleSubmit, reset, submitting, pristine } = this.props
     return (
       <div className="create-lists-wrapper">
         <p>Ok, In the mean time, tell me: Which lists shall we use to sort your contacts? Do you (want to) keep a newslettes, sales-funnel, prospects?
@@ -76,12 +76,12 @@ class CreateListsContainer extends PureComponent {
           { this.renderNetworkLists() }
         </ul>
         <div className="list-form-holder">
-          <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
+          <form onSubmit={ handleSubmit(this.onSubmit.bind(this)) }>
             <div>
               <Field
                 name="title"
                 label="Enter list title, e.g. clients, prospects …"
-                component={this.renderTextField} />
+                component={ this.renderTextField } />
             </div>
             <div className="form-btn-holder">
               <FlatButton
