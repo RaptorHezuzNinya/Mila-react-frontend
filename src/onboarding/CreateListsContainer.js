@@ -67,8 +67,7 @@ class CreateListsContainer extends PureComponent {
   }
 
   render() {
-    const { networkLists, handleSubmit, reset, submitting, pristine, listCount, addListCount } = this.props
-
+    const { handleSubmit, reset, submitting, pristine} = this.props
     return (
       <div className="create-lists-wrapper">
         <p>Ok, In the mean time, tell me: Which lists shall we use to sort your contacts? Do you (want to) keep a newslettes, sales-funnel, prospects?

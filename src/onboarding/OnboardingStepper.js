@@ -62,7 +62,7 @@ class OnboardingStepper extends PureComponent {
     }
   };
 
-  addListCount(){
+  addListCount = () => {
     const { listCount } = this.state
     this.setState({
       listCount: listCount + 1
@@ -70,7 +70,7 @@ class OnboardingStepper extends PureComponent {
     this.disableAppended()
   }
 
-  disableAppended(){
+  disableAppended = () => {
     const { listCount } = this.state
     if (listCount >= 1) {
       this.setState({
