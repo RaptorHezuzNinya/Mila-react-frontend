@@ -8,6 +8,7 @@ import FlatButton from 'material-ui/FlatButton'
 import ScanningInbox from './ScanningInbox'
 import CreateListsContainer from './CreateListsContainer'
 
+
 // Styles
 import './OnboardingStepper.sass'
 
