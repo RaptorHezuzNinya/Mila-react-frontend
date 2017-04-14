@@ -7,7 +7,7 @@ import FlatButton from 'material-ui/FlatButton'
 //Components
 import ScanningInbox from './ScanningInbox'
 import CreateListsContainer from './CreateListsContainer'
-
+import ProceedWarning from './ProceedWarning'
 
 // Styles
 import './OnboardingStepper.sass'
