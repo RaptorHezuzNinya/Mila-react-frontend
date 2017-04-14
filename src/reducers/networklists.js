@@ -1,4 +1,4 @@
-import { CREATE_NETWORKLIST, UPDATE_NETWORKLIST } from '../actions/networklists/index'
+import { CREATE_NETWORKLIST, UPDATE_NETWORKLIST, DELETE_NETWORKLIST } from '../actions/networklists/index'
 
 
 const initialState = [
@@ -48,6 +48,9 @@ export default function networklists(state = initialState, { type, payload } = {
     case CREATE_NETWORKLIST :
       const newNetworkList = Object.assign({}, payload)
         return [newNetworkList].concat(state)
+
+    case DELETE_NETWORKLIST :
+      return state.filter((networklist) => networklist.id !== payload )
 
     default :
       return state
