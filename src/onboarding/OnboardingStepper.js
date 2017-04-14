@@ -7,7 +7,8 @@ import FlatButton from 'material-ui/FlatButton'
 //Components
 import ScanningInbox from './ScanningInbox'
 import CreateListsContainer from './CreateListsContainer'
-
+import ProceedWarning from './ProceedWarning'
+import StartSorting from './StartSorting'
 
 // Styles
 import './OnboardingStepper.sass'
@@ -62,7 +63,7 @@ class OnboardingStepper extends PureComponent {
     }
   };
 
-  addListCount(){
+  addListCount = () => {
     const { listCount } = this.state
     this.setState({
       listCount: listCount + 1
@@ -70,7 +71,7 @@ class OnboardingStepper extends PureComponent {
     this.disableAppended()
   }
 
-  disableAppended(){
+  disableAppended = () => {
     const { listCount } = this.state
     if (listCount >= 1) {
       this.setState({
@@ -85,11 +86,11 @@ class OnboardingStepper extends PureComponent {
       case 0:
         return <ScanningInbox />
       case 1:
-        return <CreateListsContainer listCount={ listCount } addListCount={this.addListCount.bind(this)}/>
+        return <CreateListsContainer addListCount={this.addListCount.bind(this)}/>
       case 2:
-        return
+        return <StartSorting />
       default:
-        return 'You\'re a long way from home sonny jim!';
+        return <ScanningInbox />
     }
   }
 
@@ -100,7 +101,7 @@ class OnboardingStepper extends PureComponent {
       case 1:
         return 'Go to contacts';
       case 2:
-        return 'Finish';
+        return 'Get Started!';
       default:
         return 'You\'re a long way from home sonny jim';
     }
@@ -109,12 +110,7 @@ class OnboardingStepper extends PureComponent {
   renderStepActions() {
     const { stepIndex, listCount, appended } = this.state;
 
-    let button = null
-    if (appended) {
-        button = <p className="proceed-warning">You need atleast 2 lists to proceed</p>;
-    } else {
-        button = '';
-    }
+
     return (
       <div>
         <div className="onboarding-next">
@@ -124,9 +120,7 @@ class OnboardingStepper extends PureComponent {
             primary={true}
             onTouchTap={this.handleNext}
           />
-          <div>
-            { button }
-          </div>
+          <ProceedWarning appended={ appended }/>
         </div>
       </div>
     );
@@ -134,7 +128,6 @@ class OnboardingStepper extends PureComponent {
 
   render() {
     const {finished, stepIndex, stepperwidth } = this.state;
-    const { networkLists } = this.props
 
     return (
       <div className="stepper-wrapper">
@@ -147,7 +140,7 @@ class OnboardingStepper extends PureComponent {
             </StepContent>
           </Step>
           <Step>
-            <StepLabel className='steplabel'>Create lists</StepLabel>
+            <StepLabel className="steplabel">Create lists</StepLabel>
             <StepContent>
               {this.getStepContent(stepIndex)}
               {this.renderStepActions()}
