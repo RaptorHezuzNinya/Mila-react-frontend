@@ -1,19 +1,19 @@
-import { CREATE_NETWORKLIST, UPDATE_NETWORKLIST } from '../actions/networklists/index'
+import { CREATE_NETWORKLIST, UPDATE_NETWORKLIST, DELETE_NETWORKLIST } from '../actions/networklists/index'
 
 
 const initialState = [
-  // {
-  //   id: 1,
-  //   title: 'Business',
-  //   avatar: '~/assets/images/avatars/troll.png',
-  //   description: 'The VIP list is used for people who have asked questions about our product and want to try our next update'
-  // },
-  // {
-  //   id: 2,
-  //   title: 'Devops',
-  //   avatar: '~/assets/images/avatars/troll.png',
-  //   description: 'The VIP list is used for people who have asked questions about our product and want to try our next update'
-  // },
+  {
+    id: 1,
+    title: 'Business',
+    avatar: '~/assets/images/avatars/troll.png',
+    description: 'The VIP list is used for people who have asked questions about our product and want to try our next update'
+  },
+  {
+    id: 2,
+    title: 'Devops',
+    avatar: '~/assets/images/avatars/troll.png',
+    description: 'The VIP list is used for people who have asked questions about our product and want to try our next update'
+  },
   // {
   //   id: 3,
   //   title: 'Business Int',
@@ -48,6 +48,9 @@ export default function networklists(state = initialState, { type, payload } = {
     case CREATE_NETWORKLIST :
       const newNetworkList = Object.assign({}, payload)
         return [newNetworkList].concat(state)
+
+    case DELETE_NETWORKLIST :
+      return state.filter((networklist) => networklist.id !== payload )
 
     default :
       return state
