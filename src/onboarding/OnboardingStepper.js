@@ -162,19 +162,6 @@ class OnboardingStepper extends PureComponent {
           </Step>
         </Stepper>
         <div>
-        { finished && (
-          <p>
-            <a
-              href="#"
-              onClick={(event) => {
-                event.preventDefault();
-                this.setState({stepIndex: 0, finished: false});
-              }}
-            >
-              Click here
-            </a> to reset the example.
-          </p>
-        )}
       </div>
     </div>
     )
