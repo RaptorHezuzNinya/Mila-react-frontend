@@ -85,7 +85,7 @@ class OnboardingStepper extends PureComponent {
       case 0:
         return <ScanningInbox />
       case 1:
-        return <CreateListsContainer listCount={ listCount } addListCount={this.addListCount.bind(this)}/>
+        return <CreateListsContainer addListCount={this.addListCount.bind(this)}/>
       case 2:
         return
       default:
@@ -134,7 +134,6 @@ class OnboardingStepper extends PureComponent {
 
   render() {
     const {finished, stepIndex, stepperwidth } = this.state;
-    const { networkLists } = this.props
 
     return (
       <div className="stepper-wrapper">
