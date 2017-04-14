@@ -4,7 +4,7 @@ import { Field, reduxForm } from 'redux-form'
 import { reset } from 'redux-form'
 
 // actions
-import createNetworkList from '../actions/networklists/create'
+import { createNetworkList } from '../actions/networklists/index'
 
 // Material UI Components
 import FlatButton from 'material-ui/FlatButton'

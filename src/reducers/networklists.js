@@ -1,5 +1,5 @@
-import { UPDATE_NETWORKLIST } from '../actions/networklists/update'
-import { CREATE_NETWORKLIST } from '../actions/networklists/create'
+import { CREATE_NETWORKLIST, UPDATE_NETWORKLIST } from '../actions/networklists/index'
+
 
 const initialState = [
   // {

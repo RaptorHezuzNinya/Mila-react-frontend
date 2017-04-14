@@ -1,12 +1,11 @@
 import React, { PureComponent } from 'react'
-
 import { connect } from 'react-redux'
 
 //material-ui Components
 import FlatButton from 'material-ui/FlatButton'
 
 // actions
-import showModal from '../actions/modals/show-modal'
+import { showModal } from '../actions/modals/index'
 
 // styles
 import './ButtonModal.sass'

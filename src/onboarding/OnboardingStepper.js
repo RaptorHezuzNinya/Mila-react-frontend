@@ -103,7 +103,7 @@ class OnboardingStepper extends PureComponent {
       case 2:
         return 'Get Started!';
       default:
-        return 'You\'re a long way from home sonny jim';
+        return 'Great!';
     }
   }
 
@@ -127,7 +127,7 @@ class OnboardingStepper extends PureComponent {
   }
 
   render() {
-    const {finished, stepIndex, stepperwidth } = this.state;
+    const { stepIndex, stepperwidth } = this.state;
 
     return (
       <div className="stepper-wrapper">

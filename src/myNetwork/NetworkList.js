@@ -4,8 +4,7 @@ import { connect } from 'react-redux'
 // Components
 import DeleteButton from '../components/DeleteButton'
 
-// Actions && Reducers
-import networkList from '~/reducers/networklists'
+// Actions
 import deleteContacts from '../actions/contacts/delete'
 
 // Material UI Components
