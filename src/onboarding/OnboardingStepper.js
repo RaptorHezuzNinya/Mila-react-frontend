@@ -55,17 +55,6 @@ class OnboardingStepper extends PureComponent {
     });
   };
 
-
-  // disableButton(){
-  //   const { stepIndex, listCount} = this.state
-  //   console.log('IAM IN DISABLEBUTTON')
-  //   if (stepIndex === 1 && listCount > 3) {
-  //     this.setState({
-  //       disabledButton: !disabledButton
-  //     })
-  //   }
-  // }
-
   handlePrev = () => {
     const {stepIndex} = this.state;
     if (stepIndex > 0) {
@@ -118,21 +107,19 @@ class OnboardingStepper extends PureComponent {
   }
 
   renderStepActions() {
-    const { stepIndex, listCount } = this.state;
+    const { stepIndex, listCount, appended } = this.state;
 
     let button = null
-    if (this.state.appended) {
+    if (appended) {
         button = <p className="proceed-warning">You need atleast 2 lists to proceed</p>;
     } else {
         button = '';
     }
-
     return (
       <div>
         <div className="onboarding-next">
           <FlatButton
-            className="btn-green swagtestclass"
-            // disabled={false}
+            className="btn-green"
             label={this.renderStepbutton(stepIndex)}
             primary={true}
             onTouchTap={this.handleNext}
