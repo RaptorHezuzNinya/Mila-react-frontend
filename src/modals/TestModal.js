@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 
 // actions
-import hideModal from '../actions/modals/hide-modal'
+import { hideModal } from '../actions/modals/index'
 
 // material-ui Components
 import Dialog from 'material-ui/Dialog'
