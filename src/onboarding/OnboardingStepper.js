@@ -8,6 +8,7 @@ import FlatButton from 'material-ui/FlatButton'
 import ScanningInbox from './ScanningInbox'
 import CreateListsContainer from './CreateListsContainer'
 
+
 // Styles
 import './OnboardingStepper.sass'
 
@@ -20,6 +21,8 @@ class OnboardingStepper extends PureComponent {
       stepperwidth: 450,
       displayOtherTools: false,
       listCount: 0,
+      appended: false
+
     }
   };
 
@@ -38,24 +41,19 @@ class OnboardingStepper extends PureComponent {
   }
 
   handleNext = () => {
-    const {stepIndex} = this.state;
-    const { networkLists } = this.props
-    this.disableButton()
+    const { stepIndex, listCount } = this.state;
+    if (stepIndex === 1 && listCount <= 1) {
+      return (
+        this.setState({
+          appended: true
+        })
+      );
+    };
     this.setState({
       stepIndex: stepIndex + 1,
       finished: stepIndex >= 2,
     });
   };
-
-  disableButton(){
-    const { stepIndex, listCount} = this.state
-    console.log('IAM IN DISABLEBUTTON')
-    if (stepIndex === 1 && listCount > 3) {
-      this.setState({
-        disabledButton: true
-      })
-    }
-  }
 
   handlePrev = () => {
     const {stepIndex} = this.state;
@@ -69,6 +67,16 @@ class OnboardingStepper extends PureComponent {
     this.setState({
       listCount: listCount + 1
     })
+    this.disableAppended()
+  }
+
+  disableAppended(){
+    const { listCount } = this.state
+    if (listCount >= 1) {
+      this.setState({
+        appended: false
+      })
+    }
   }
 
   getStepContent(stepIndex) {
@@ -99,30 +107,26 @@ class OnboardingStepper extends PureComponent {
   }
 
   renderStepActions() {
-    const { stepIndex, listCount } = this.state;
-    const { networkLists } = this.props
-    console.log('LISTCOUNT', listCount, 'stepIndex:', stepIndex)
+    const { stepIndex, listCount, appended } = this.state;
 
+    let button = null
+    if (appended) {
+        button = <p className="proceed-warning">You need atleast 2 lists to proceed</p>;
+    } else {
+        button = '';
+    }
     return (
-      <div style={{margin: '12px 0'}}>
-        {/* <div>
-          {!(stepIndex === 0) &&
-            <FlatButton
-              label="Back"
-              disabled={(stepIndex === 0)}
-              onTouchTap={this.handlePrev}
-              style={{marginRight: 12}}
-            />
-          }
-        </div> */}
+      <div>
         <div className="onboarding-next">
           <FlatButton
-            className="btn-green swagtestclass"
-            disabled={(stepIndex === 1 && listCount <= 2)}
+            className="btn-green"
             label={this.renderStepbutton(stepIndex)}
             primary={true}
             onTouchTap={this.handleNext}
           />
+          <div>
+            { button }
+          </div>
         </div>
       </div>
     );
@@ -158,19 +162,6 @@ class OnboardingStepper extends PureComponent {
           </Step>
         </Stepper>
         <div>
-        { finished && (
-          <p>
-            <a
-              href="#"
-              onClick={(event) => {
-                event.preventDefault();
-                this.setState({stepIndex: 0, finished: false});
-              }}
-            >
-              Click here
-            </a> to reset the example.
-          </p>
-        )}
       </div>
     </div>
     )
