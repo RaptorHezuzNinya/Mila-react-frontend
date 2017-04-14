@@ -119,29 +119,27 @@ class OnboardingStepper extends PureComponent {
 
   renderStepActions() {
     const { stepIndex, listCount } = this.state;
-    const { networkLists } = this.props
-    console.log('LISTCOUNT', listCount, 'stepIndex:', stepIndex)
+
+    let button = null
+    if (this.state.appended) {
+        button = <p className="proceed-warning">You need atleast 2 lists to proceed</p>;
+    } else {
+        button = '';
+    }
 
     return (
-      <div style={{margin: '12px 0'}}>
-        {/* <div>
-          {!(stepIndex === 0) &&
-            <FlatButton
-              label="Back"
-              disabled={(stepIndex === 0)}
-              onTouchTap={this.handlePrev}
-              style={{marginRight: 12}}
-            />
-          }
-        </div> */}
+      <div>
         <div className="onboarding-next">
           <FlatButton
             className="btn-green swagtestclass"
-            disabled={(stepIndex === 1 && listCount <= 2)}
+            // disabled={false}
             label={this.renderStepbutton(stepIndex)}
             primary={true}
             onTouchTap={this.handleNext}
           />
+          <div>
+            { button }
+          </div>
         </div>
       </div>
     );
