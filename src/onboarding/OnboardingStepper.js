@@ -109,12 +109,7 @@ class OnboardingStepper extends PureComponent {
   renderStepActions() {
     const { stepIndex, listCount, appended } = this.state;
 
-    let button = null
-    if (appended) {
-        button = <p className="proceed-warning">You need atleast 2 lists to proceed</p>;
-    } else {
-        button = '';
-    }
+
     return (
       <div>
         <div className="onboarding-next">
@@ -124,9 +119,7 @@ class OnboardingStepper extends PureComponent {
             primary={true}
             onTouchTap={this.handleNext}
           />
-          <div>
-            { button }
-          </div>
+          <ProceedWarning appended={ appended }/>
         </div>
       </div>
     );
