@@ -21,6 +21,8 @@ class OnboardingStepper extends PureComponent {
       stepperwidth: 450,
       displayOtherTools: false,
       listCount: 0,
+      appended: false
+
     }
   };
 
@@ -39,24 +41,30 @@ class OnboardingStepper extends PureComponent {
   }
 
   handleNext = () => {
-    const {stepIndex} = this.state;
-    const { networkLists } = this.props
-    this.disableButton()
+    const { stepIndex, listCount } = this.state;
+    if (stepIndex === 1 && listCount <= 1) {
+      return (
+        this.setState({
+          appended: true
+        })
+      );
+    };
     this.setState({
       stepIndex: stepIndex + 1,
       finished: stepIndex >= 2,
     });
   };
 
-  disableButton(){
-    const { stepIndex, listCount} = this.state
-    console.log('IAM IN DISABLEBUTTON')
-    if (stepIndex === 1 && listCount > 3) {
-      this.setState({
-        disabledButton: true
-      })
-    }
-  }
+
+  // disableButton(){
+  //   const { stepIndex, listCount} = this.state
+  //   console.log('IAM IN DISABLEBUTTON')
+  //   if (stepIndex === 1 && listCount > 3) {
+  //     this.setState({
+  //       disabledButton: !disabledButton
+  //     })
+  //   }
+  // }
 
   handlePrev = () => {
     const {stepIndex} = this.state;
