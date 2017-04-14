@@ -88,9 +88,9 @@ class OnboardingStepper extends PureComponent {
       case 1:
         return <CreateListsContainer addListCount={this.addListCount.bind(this)}/>
       case 2:
-        return
+        return <StartSorting />
       default:
-        return 'You\'re a long way from home sonny jim!';
+        return <ScanningInbox />
     }
   }
 
@@ -101,7 +101,7 @@ class OnboardingStepper extends PureComponent {
       case 1:
         return 'Go to contacts';
       case 2:
-        return 'Finish';
+        return 'Get Started!';
       default:
         return 'You\'re a long way from home sonny jim';
     }
