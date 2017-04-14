@@ -78,6 +78,16 @@ class OnboardingStepper extends PureComponent {
     this.setState({
       listCount: listCount + 1
     })
+    this.disableAppended()
+  }
+
+  disableAppended(){
+    const { listCount } = this.state
+    if (listCount >= 1) {
+      this.setState({
+        appended: false
+      })
+    }
   }
 
   getStepContent(stepIndex) {
