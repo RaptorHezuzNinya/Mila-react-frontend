@@ -34,7 +34,12 @@ class CreateListsContainer extends PureComponent {
     addListCount: PropTypes.func.isRequired
   }
 
-  renderNetworkLists(){
+  // handleClick = (id) => {
+  //   console.log(id)
+  //   this.props.deleteNetworkList(id)
+  // }
+
+  renderNetworkLists = () => {
     return this.props.networkLists.map((networkList) => {
       return (
         <li className="list-item" key={networkList.id}>
