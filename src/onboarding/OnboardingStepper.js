@@ -110,7 +110,7 @@ class OnboardingStepper extends PureComponent {
   renderStepActions() {
     const { stepIndex, listCount, appended } = this.state;
 
-
+    console.log('logging listcount', listCount)
     return (
       <div>
         <div className="onboarding-next">
@@ -128,7 +128,7 @@ class OnboardingStepper extends PureComponent {
 
   render() {
     const { stepIndex, stepperwidth } = this.state;
-
+    console.log('logging stepIndex:', stepIndex)
     return (
       <div className="stepper-wrapper">
         <Stepper activeStep={stepIndex} orientation='vertical' >
