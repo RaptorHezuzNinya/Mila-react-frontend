@@ -28,18 +28,18 @@ class OnboardingStepper extends PureComponent {
   };
 
   componentDidMount() {
-    window.addEventListener('resize', this.onResize.bind(this));
-    this.onResize()
+    // window.addEventListener('resize', this.onResize.bind(this));
+    // this.onResize()
   }
 
-  onResize() {
-    if(document.documentElement.clientWidth < 500) {
-      this.setState({ stepperwidth: 450});
-    } else {
-      let update_width  = document.documentElement.clientWidth-100;
-      this.setState({ stepperwidth: update_width});
-    }
-  }
+  // onResize() {
+  //   if(document.documentElement.clientWidth < 500) {
+  //     this.setState({ stepperwidth: 450});
+  //   } else {
+  //     let update_width  = document.documentElement.clientWidth-100;
+  //     this.setState({ stepperwidth: update_width});
+  //   }
+  // }
 
   handleNext = () => {
     const { stepIndex, listCount } = this.state;
