@@ -29,11 +29,6 @@ const styles = {
 }
 
 class CreateListsContainer extends PureComponent {
-  constructor(props) {
-    super(props)
-    // this.handleDeleteListClick = this.handleDeleteListClick.bind(this)
-  }
-
   static propTypes = {
     addListCount: PropTypes.func.isRequired
   }
@@ -51,7 +46,7 @@ class CreateListsContainer extends PureComponent {
           <span><ListIcon className="list-icon"/></span>
           <p className="list-title">{networkList.title}</p>
           <span>
-            <IconButton onClick={ () => { this.props.deleteNetworkList(networkList.id)}}>
+            <IconButton onClick={this.handleDeleteListClick.bind(this, networkList)}>
               <DeleteIcon />
             </IconButton>
           </span>
