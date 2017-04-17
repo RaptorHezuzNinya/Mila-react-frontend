@@ -71,6 +71,13 @@ class OnboardingStepper extends PureComponent {
     this.disableAppended()
   }
 
+  lowerListCount = () => {
+    const { listCount } = this.state
+    this.setState({
+      listCount: listCount - 1
+    })
+  }
+
   disableAppended = () => {
     const { listCount } = this.state
     if (listCount >= 1) {
@@ -86,7 +93,7 @@ class OnboardingStepper extends PureComponent {
       case 0:
         return <ScanningInbox />
       case 1:
-        return <CreateListsContainer addListCount={this.addListCount.bind(this)}/>
+        return <CreateListsContainer addListCount={this.addListCount.bind(this)} lowerListCount={this.lowerListCount.bind(this)}/>
       case 2:
         return <StartSorting />
       default:
