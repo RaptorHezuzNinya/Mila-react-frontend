@@ -6,7 +6,6 @@ import { reset } from 'redux-form'
 // actions
 import { createNetworkList, deleteNetworkList } from '../actions/networklists/index'
 
-
 // Material UI Components
 import FlatButton from 'material-ui/FlatButton'
 import TextField from 'material-ui/TextField'
@@ -30,14 +29,20 @@ const styles = {
 }
 
 class CreateListsContainer extends PureComponent {
+  constructor(props) {
+    super(props)
+    // this.handleDeleteListClick = this.handleDeleteListClick.bind(this)
+  }
+
   static propTypes = {
     addListCount: PropTypes.func.isRequired
   }
 
-  // handleClick = (id) => {
-  //   console.log(id)
-  //   this.props.deleteNetworkList(id)
-  // }
+  handleDeleteListClick(networkList) {
+    console.log('logging yolo', networkList)
+    this.props.deleteNetworkList(networkList.id)
+    this.props.lowerListCount()
+  }
 
   renderNetworkLists = () => {
     return this.props.networkLists.map((networkList) => {
