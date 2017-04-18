@@ -8,12 +8,10 @@ import NetworkList from './NetworkList'
 import ButtonModal from '../modals/ButtonModal'
 import ModalRoot from '../modals/ModalRoot'
 
-
 // styles
 import './Network.sass'
 
 class Network extends PureComponent {
-
   constructor(props){
     super(props)
       this.state = {
