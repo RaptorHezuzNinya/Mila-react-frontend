@@ -37,8 +37,10 @@ class Onboarding extends PureComponent {
 
     let onboardingStepper
     if (viewWidth <= 769) {
+      console.log('WHEN DO I GET CALLED 1')
       return <OnboardingStepper />
     } else {
+      console.log('WHEN DO I GET CALLED 2')
       return <ButtonModal usedStyle='' label='Start onboard desk' modal={ onboardingDeskModal } />
     }
     return (
