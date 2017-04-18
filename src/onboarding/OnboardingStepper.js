@@ -1,15 +1,13 @@
 import React, { PureComponent, PropTypes } from 'react'
-
+import Media from 'react-media'
 // Material UI Components
 import { Step, Stepper, StepLabel, StepContent } from 'material-ui/Stepper'
 import FlatButton from 'material-ui/FlatButton'
-
 //Components
 import ScanningInbox from './ScanningInbox'
 import CreateListsContainer from './CreateListsContainer'
 import ProceedWarning from './ProceedWarning'
 import StartSorting from './StartSorting'
-
 // Styles
 import './OnboardingStepper.sass'
 
@@ -26,20 +24,6 @@ class OnboardingStepper extends PureComponent {
 
     }
   };
-
-  componentDidMount() {
-    // window.addEventListener('resize', this.onResize.bind(this));
-    // this.onResize()
-  }
-
-  // onResize() {
-  //   if(document.documentElement.clientWidth < 500) {
-  //     this.setState({ stepperwidth: 450});
-  //   } else {
-  //     let update_width  = document.documentElement.clientWidth-100;
-  //     this.setState({ stepperwidth: update_width});
-  //   }
-  // }
 
   handleNext = () => {
     const { stepIndex, listCount } = this.state;
@@ -117,7 +101,7 @@ class OnboardingStepper extends PureComponent {
   renderStepActions() {
     const { stepIndex, listCount, appended } = this.state;
 
-    console.log('logging listcount', listCount)
+    // console.log('logging listcount', listCount)
     return (
       <div>
         <div className="onboarding-next">
@@ -135,10 +119,11 @@ class OnboardingStepper extends PureComponent {
 
   render() {
     const { stepIndex, stepperwidth } = this.state;
-    console.log('logging stepIndex:', stepIndex)
+    const { orientation } = this.props
+    console.log('STEPINDEX:', stepIndex)
     return (
       <div className="stepper-wrapper">
-        <Stepper activeStep={stepIndex} orientation='vertical' >
+        <Stepper activeStep={stepIndex} orientation={orientation} className="stepper">
           <Step>
             <StepLabel className="steplabel">Scanning your inbox</StepLabel>
             <StepContent>
@@ -151,7 +136,7 @@ class OnboardingStepper extends PureComponent {
             <StepContent>
               {this.getStepContent(stepIndex)}
               {this.renderStepActions()}
-          </StepContent>
+            </StepContent>
           </Step>
           <Step >
             <StepLabel className="steplabel">Start sorting</StepLabel>
@@ -161,9 +146,13 @@ class OnboardingStepper extends PureComponent {
             </StepContent>
           </Step>
         </Stepper>
-        <div>
+        <Media query="(min-width: 769px)" render={() => (
+          <div>
+            {this.getStepContent(stepIndex)}
+            {this.renderStepActions()}
+          </div>
+        )}/>
       </div>
-    </div>
     )
   }
 }

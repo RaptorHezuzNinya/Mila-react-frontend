@@ -11,6 +11,12 @@
   padding-top: 30px
   padding-bottom: 40px
   background-color: $greyB
+  +breakpoint($breakpoint-medium)
+    z-index: 3
+    padding-top: 0
+    margin-top: 0
+
+
 
 .steplabel
   font-size: 16px !important
@@ -18,18 +24,3 @@
 
 .onboarding-next
   margin-top: 40px
-
-// from /.ProceedWarning.js
-.warning-holder
-  display: flex
-  justify-content: center
-  .proceed-warning
-    background-color: $blueA;
-    padding: 6px 20px;
-    border-radius: 7px;
-    +mont-light($greyB)
-    +f(12px)
-
-.startsorting-holder
-  +mont-light($blueA)
-  +f(15px)

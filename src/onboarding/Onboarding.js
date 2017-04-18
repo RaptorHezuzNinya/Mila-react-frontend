@@ -12,7 +12,7 @@ class Onboarding extends PureComponent {
     return (
       <div>
         <Media query="(max-width: 769px)" render={() => (
-          <OnboardingStepper />
+          <OnboardingStepper orientation='vertical'/>
         )}/>
         <Media query="(min-width: 769px)" render={() => (
           <OnboardingDeskModal />
