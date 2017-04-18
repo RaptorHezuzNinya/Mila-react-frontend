@@ -54,7 +54,7 @@ class OnboardingDeskModal extends PureComponent {
           contentStyle={customContentStyle}
           open={this.state.open}
         >
-          <OnboardingStepper />
+          <OnboardingStepper orientation='horizontal'/>
         </Dialog>
       </div>
     )
