@@ -37,14 +37,10 @@ class CreateNetworkListModal extends PureComponent {
   constructor(){
     super()
     this.state = {
-      open: false,
+      open: true,
       title: '',
       description: '',
     }
-  }
-
-  componentWillMount(){
-    this.handleOpen()
   }
 
   handleChange = (event) => {
