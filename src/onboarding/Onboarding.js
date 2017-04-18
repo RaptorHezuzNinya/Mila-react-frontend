@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 // actions
 import { showModal, hideModal } from '../actions/modals/index'
 // Components
+import OnboardingDeskModal from '../modals/OnboardingDeskModal'
 import OnboardingStepper from './OnboardingStepper'
 import ButtonModal from '../modals/ButtonModal'
 import ModalRoot from '../modals/ModalRoot'
@@ -32,16 +33,12 @@ class Onboarding extends PureComponent {
     // console.log('WHEN DO I GET CALLED 1')
     if (width <= 769) {
       this.setState({
-        mobileView: true
+        mobileView: true,
       })
-      this.props.hideModal()
-      console.log('WIDTH < 769')
     } else {
       this.setState({
         mobileView: false,
       })
-      this.props.showModal(this.state.onboardingDeskModal)
-
     }
   }
 
