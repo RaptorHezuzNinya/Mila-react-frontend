@@ -7,10 +7,13 @@ import { hideModal } from '../actions/modals/index'
 // material-ui Components
 import Dialog from 'material-ui/Dialog'
 import FlatButton from 'material-ui/FlatButton'
+// styles
+import './OnboardingDeskModal.sass'
 
 const customContentStyle = {
   width: '700px',
-  height: '500px'
+  height: '500px',
+  color: 'green'
 }
 
 class OnboardingDeskModal extends PureComponent {
@@ -46,16 +49,15 @@ class OnboardingDeskModal extends PureComponent {
     ]
 
     return (
-      <div>
-        <Dialog
-          actions={actions}
-          modal={true}
-          contentStyle={customContentStyle}
-          open={this.state.open}
-        >
-          <OnboardingStepper orientation='horizontal'/>
-        </Dialog>
-      </div>
+      <Dialog
+        contentClassName="onboard-desk-modal"
+        actions={actions}
+        modal={true}
+        contentStyle={customContentStyle}
+        open={this.state.open}
+      >
+        <OnboardingStepper orientation='horizontal'/>
+      </Dialog>
     )
   }
 }
