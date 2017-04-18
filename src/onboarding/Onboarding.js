@@ -1,5 +1,6 @@
 import React, { PureComponent, PropTypes } from 'react'
 // Components
+import OnboardingDeskModal from '../modals/OnboardingDeskModal'
 import OnboardingStepper from './OnboardingStepper'
 import ButtonModal from '../modals/ButtonModal'
 import ModalRoot from '../modals/ModalRoot'
@@ -10,39 +11,46 @@ class Onboarding extends PureComponent {
   constructor(props){
     super(props)
     this.state = {
-      onboardingDeskModal: 'ONBOARDING_DESK_MODAL',
-      viewWidth: document.documentElement.clientWidth
+      mobileView: false
     }
+    this.onResize = this.onResize.bind(this)
   }
 
   componentDidMount () {
-    window.addEventListener('resize', this.onResize.bind(this))
+    this.onResize()
+    window.addEventListener('resize', this.onResize)
   }
 
   componentWillUnmount () {
-    window.removeEventListener('resize', this.onResize.bind(this))
+    window.removeEventListener('resize', this.onResize)
   }
 
   onResize () {
-    const width = document.documentElement.clientWidth
-    this.setState({
-      viewWidth: width
-    })
-
+    const width = window.innerWidth
+    if (width <= 769) {
+      console.log('in &&&&')
+      this.setState({
+        mobileView: true,
+      })
+    } else {
+      this.setState({
+        mobileView: false,
+      })
+    }
   }
 
   render() {
-    const { onboardingDeskModal, viewWidth } = this.state
-    console.log('logging VIEWWIDTH:', viewWidth)
+    const { mobileView } = this.state
 
     let onboardingStepper
-    if (viewWidth <= 769) {
-      console.log('WHEN DO I GET CALLED 1')
+    if (mobileView) {
+      console.log('WHEN DO I GET CALLED XX')
       return <OnboardingStepper />
     } else {
-      console.log('WHEN DO I GET CALLED 2')
-      return <ButtonModal usedStyle='' label='Start onboard desk' modal={ onboardingDeskModal } />
+      console.log('WHEN DO I GET CALLED YY')
+      return <OnboardingDeskModal />
     }
+
     return (
       <div>
         { OnboardingStepper }
@@ -52,3 +60,6 @@ class Onboarding extends PureComponent {
 }
 
 export default Onboarding
+
+// {/* <ButtonModal usedStyle='' label='Start onboard desk' modal={ onboardingDeskModal } /> */}
+// () => this.props.dispatch(this.props.showModal(this.state.onboardingDeskModal))
