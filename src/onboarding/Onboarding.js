@@ -16,6 +16,7 @@ class Onboarding extends PureComponent {
   }
 
   componentDidMount () {
+    this.onResize()
     window.addEventListener('resize', this.onResize.bind(this))
   }
 
@@ -25,28 +26,30 @@ class Onboarding extends PureComponent {
 
   onResize () {
     const width = window.innerWidth
+    console.log('WHEN DO I GET CALLED 1')
     if (width <= 769) {
       this.setState({
         mobileView: true
       })
+      console.log('WHEN DO I GET CALLED 2')
     } else {
       this.setState({
         mobileView: false
       })
+      console.log('WHEN DO I GET CALLED 3')
     }
-
-
   }
 
   render() {
+    
     const { onboardingDeskModal, mobileView } = this.state
 
     let onboardingStepper
     if (mobileView) {
-      console.log('WHEN DO I GET CALLED 1')
+      console.log('WHEN DO I GET CALLED XX')
       return <OnboardingStepper />
     } else {
-      console.log('WHEN DO I GET CALLED 2')
+      console.log('WHEN DO I GET CALLED YY')
       return <ButtonModal usedStyle='' label='Start onboard desk' modal={ onboardingDeskModal } />
     }
     return (
