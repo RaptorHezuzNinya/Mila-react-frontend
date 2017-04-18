@@ -37,14 +37,10 @@ class CreateNetworkListModal extends PureComponent {
   constructor(){
     super()
     this.state = {
-      open: false,
+      open: true,
       title: '',
       description: '',
     }
-  }
-
-  componentWillMount(){
-    this.handleOpen()
   }
 
   handleChange = (event) => {
@@ -69,9 +65,9 @@ class CreateNetworkListModal extends PureComponent {
     this.props.hideModal()
   }
 
-  handleOpen = () => {
-    this.setState({open: true});
-  };
+  // handleOpen = () => {
+  //   this.setState({open: true});
+  // };
 
   render(){
     const { title, description } = this.props

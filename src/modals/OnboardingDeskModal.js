@@ -1,9 +1,9 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
-
+// Components
+import OnboardingStepper from '../onboarding/OnboardingStepper'
 // actions
 import { hideModal } from '../actions/modals/index'
-
 // material-ui Components
 import Dialog from 'material-ui/Dialog'
 import FlatButton from 'material-ui/FlatButton'
@@ -14,7 +14,7 @@ const customContentStyle = {
   maxWidth: 'none',
 }
 
-class TestModal extends PureComponent {
+class OnboardingDeskModal extends PureComponent {
   constructor(props) {
     super(props)
     this.state = {
@@ -49,18 +49,17 @@ class TestModal extends PureComponent {
     return (
       <div>
         <Dialog
-          title="Dialog With Actions"
+          title="dialog title"
           actions={actions}
           modal={true}
           contentStyle={customContentStyle}
           open={this.state.open}
         >
-        <h1>Test Modal</h1>
-        Only actions can close this dialog.
+          <OnboardingStepper />
         </Dialog>
       </div>
     )
   }
 }
 
-export default connect(null, { hideModal } ) (TestModal)
+export default connect(null, {hideModal})(OnboardingDeskModal)

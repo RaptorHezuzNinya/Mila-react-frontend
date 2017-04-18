@@ -12,9 +12,8 @@ import './ButtonModal.sass'
 
 class ButtonModal extends PureComponent {
 
-  openModal = () => {
-    const { modal } = this.props
-    this.props.showModal(modal)
+  openModal = () => {    
+    this.props.showModal(this.props.modal)
   }
 
   render(){

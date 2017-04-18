@@ -1,17 +1,13 @@
-import React, { PureComponent, PropTypes } from 'react'
+import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
-
 // Components
 import DeleteButton from '../components/DeleteButton'
-
 // Actions
 import deleteContacts from '../actions/contacts/delete'
-
 // Material UI Components
 import { Table, TableBody, TableFooter, TableHeader, TableHeaderColumn, TableRow, TableRowColumn } from 'material-ui/Table'
 import TextField from 'material-ui/TextField'
 import Avatar from 'material-ui/Avatar'
-
 // styles & icons
 import './Networklist.sass'
 import '../assets/styles/base/layout.sass'
@@ -23,11 +19,6 @@ const styles = {
 }
 
 class NetworkList extends PureComponent {
-
-  static propTypes = {
-
-  }
-
   constructor(props){
     super(props)
 
@@ -166,7 +157,7 @@ class NetworkList extends PureComponent {
           fixedHeader={this.state.fixedHeader}
           fixedFooter={this.state.fixedFooter}
           selectable={this.state.selectable}
-          multiSelectable={this.state.multiSelectable}ß
+          multiSelectable={this.state.multiSelectable}
           onRowSelection={ this.onRowSelection }
         >
           <TableHeader

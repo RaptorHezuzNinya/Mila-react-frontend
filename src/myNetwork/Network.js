@@ -1,19 +1,13 @@
 import React, { PureComponent, PropTypes } from 'react'
-
 // Components
 import NetworkButton from '../components/NetworkButton'
 import NetworkButtonDrop from '../components/NetworkButtonDrop'
 import NetworkList from './NetworkList'
-
 import ButtonModal from '../modals/ButtonModal'
-import ModalRoot from '../modals/ModalRoot'
-
-
 // styles
 import './Network.sass'
 
 class Network extends PureComponent {
-
   constructor(props){
     super(props)
       this.state = {
@@ -33,10 +27,8 @@ class Network extends PureComponent {
   }
 
   render() {
-
+    const { createNetworkListModal } = this.state.modalProperties
     const { networkLists, contacts } = this.props
-    const { createNetworkListModal, testModal } = this.state.modalProperties
-
     if (!networkLists) return null
 
     return (
@@ -45,7 +37,6 @@ class Network extends PureComponent {
           <NetworkButtonDrop networkLists={ networkLists }/>
         </div>
         <div className="network-but-container">
-          <ModalRoot />
           { networkLists.map(this.renderNetworkButton.bind(this)) }
           <ButtonModal usedStyle="create-list-modal" label="+" modal={ createNetworkListModal }/>
         </div>
