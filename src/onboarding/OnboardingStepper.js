@@ -3,13 +3,11 @@ import Media from 'react-media'
 // Material UI Components
 import { Step, Stepper, StepLabel, StepContent } from 'material-ui/Stepper'
 import FlatButton from 'material-ui/FlatButton'
-
 //Components
 import ScanningInbox from './ScanningInbox'
 import CreateListsContainer from './CreateListsContainer'
 import ProceedWarning from './ProceedWarning'
 import StartSorting from './StartSorting'
-
 // Styles
 import './OnboardingStepper.sass'
 
@@ -26,20 +24,6 @@ class OnboardingStepper extends PureComponent {
 
     }
   };
-
-  componentDidMount() {
-    // window.addEventListener('resize', this.onResize.bind(this));
-    // this.onResize()
-  }
-
-  // onResize() {
-  //   if(document.documentElement.clientWidth < 500) {
-  //     this.setState({ stepperwidth: 450});
-  //   } else {
-  //     let update_width  = document.documentElement.clientWidth-100;
-  //     this.setState({ stepperwidth: update_width});
-  //   }
-  // }
 
   handleNext = () => {
     const { stepIndex, listCount } = this.state;
