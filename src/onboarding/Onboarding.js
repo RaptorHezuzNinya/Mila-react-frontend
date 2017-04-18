@@ -15,8 +15,12 @@ class Onboarding extends PureComponent {
     }
   }
 
-  componentDidMount = () => {
+  componentDidMount () {
     window.addEventListener('resize', this.onResize.bind(this))
+  }
+
+  componentWillUnmount () {
+    window.removeEventListener('resize', this.onResize.bind(this))
   }
 
   onResize () {
