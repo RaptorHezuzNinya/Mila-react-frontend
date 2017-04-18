@@ -46,14 +46,14 @@ class Onboarding extends PureComponent {
   render() {
 
     const { onboardingDeskModal, mobileView } = this.state
-
+    console.log('innewidth', window.innerWidth)
     let onboardingStepper
     if (mobileView) {
       console.log('WHEN DO I GET CALLED XX')
       return <OnboardingStepper />
     } else {
       console.log('WHEN DO I GET CALLED YY')
-      return <ButtonModal usedStyle='' label='Start onboard desk' modal={ onboardingDeskModal } />
+      return <OnboardingDeskModal />
     }
     return (
       <div>
@@ -63,4 +63,7 @@ class Onboarding extends PureComponent {
   }
 }
 
-export default Onboarding
+export default connect(null, {showModal, hideModal})(Onboarding)
+
+// {/* <ButtonModal usedStyle='' label='Start onboard desk' modal={ onboardingDeskModal } /> */}
+// () => this.props.dispatch(this.props.showModal(this.state.onboardingDeskModal))
