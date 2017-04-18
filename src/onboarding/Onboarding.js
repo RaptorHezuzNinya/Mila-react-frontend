@@ -1,4 +1,7 @@
 import React, { PureComponent, PropTypes } from 'react'
+import { connect } from 'react-redux'
+// actions
+import { showModal, hideModal } from '../actions/modals/index'
 // Components
 import OnboardingStepper from './OnboardingStepper'
 import ButtonModal from '../modals/ButtonModal'
@@ -26,22 +29,25 @@ class Onboarding extends PureComponent {
 
   onResize () {
     const width = window.innerWidth
-    console.log('WHEN DO I GET CALLED 1')
+    // console.log('WHEN DO I GET CALLED 1')
     if (width <= 769) {
       this.setState({
         mobileView: true
       })
-      console.log('WHEN DO I GET CALLED 2')
+      this.props.hideModal()
+      console.log('WIDTH < 769')
     } else {
       this.setState({
-        mobileView: false
+        mobileView: false,
       })
-      console.log('WHEN DO I GET CALLED 3')
+      this.props.showModal(this.state.onboardingDeskModal)
+
     }
   }
 
+
   render() {
-    
+
     const { onboardingDeskModal, mobileView } = this.state
 
     let onboardingStepper
