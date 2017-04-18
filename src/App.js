@@ -5,7 +5,7 @@ import ModalRoot from './modals/ModalRoot'
 // Material UI Components
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import muiTheme from './assets/styles/theme'
-
+//general style imports
 import './assets/styles/base/basestyles.sass'
 
 class App extends Component {
