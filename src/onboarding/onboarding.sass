@@ -1,14 +1,29 @@
 @import "../assets/styles/base/breakpoints.sass"
 @import "../assets/styles/base/colors.sass"
 @import "../assets/styles/base/mixins.sass"
-
 // Onboarding class component
 
-// Scanning contacts func component
-.scanning-contacts
+// ScanningInbox.js
+.scanning-inbox
   h3
     +mont-bold($blueA)
     +f(18px)
   p
     +mont-light
     +f(15px)
+
+// from /.ProceedWarning.js
+.warning-holder
+  display: flex
+  justify-content: center
+  .proceed-warning
+    background-color: $blueA;
+    padding: 6px 20px;
+    border-radius: 7px;
+    +mont-light($greyB)
+    +f(12px)
+
+// StartSorting.js
+.startsorting-holder
+  +mont-light($blueA)
+  +f(15px)
