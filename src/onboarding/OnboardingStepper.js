@@ -123,7 +123,7 @@ class OnboardingStepper extends PureComponent {
     console.log('STEPINDEX:', stepIndex)
     return (
       <div className="stepper-wrapper">
-        <Stepper activeStep={stepIndex} orientation={orientation}>
+        <Stepper activeStep={stepIndex} orientation={orientation} className="stepper">
           <Step>
             <StepLabel className="steplabel">Scanning your inbox</StepLabel>
             <StepContent>
@@ -152,9 +152,7 @@ class OnboardingStepper extends PureComponent {
             {this.renderStepActions()}
           </div>
         )}/>
-        <div>
       </div>
-    </div>
     )
   }
 }
