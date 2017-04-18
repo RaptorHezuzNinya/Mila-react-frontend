@@ -7,7 +7,6 @@ import { hideModal } from '../actions/modals/index'
 // material-ui Components
 import Dialog from 'material-ui/Dialog'
 import FlatButton from 'material-ui/FlatButton'
-import RaisedButton from 'material-ui/RaisedButton'
 
 const customContentStyle = {
   width: '50%',
@@ -16,8 +15,11 @@ const customContentStyle = {
 }
 
 class TestModal extends PureComponent {
-  state = {
-    open: true
+  constructor(props) {
+    super(props)
+    this.state = {
+      open: true
+    }
   }
 
   handleOpen = () => {
@@ -46,7 +48,6 @@ class TestModal extends PureComponent {
 
     return (
       <div>
-
         <Dialog
           title="Dialog With Actions"
           actions={actions}
