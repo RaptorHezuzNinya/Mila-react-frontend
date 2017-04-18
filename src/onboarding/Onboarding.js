@@ -11,24 +11,24 @@ class Onboarding extends PureComponent {
   constructor(props){
     super(props)
     this.state = {
-      onboardingDeskModal: 'ONBOARDING_DESK_MODAL',
-      mobileView: true
+      mobileView: false
     }
+    this.onResize = this.onResize.bind(this)
   }
 
   componentDidMount () {
     this.onResize()
-    window.addEventListener('resize', this.onResize.bind(this))
+    window.addEventListener('resize', this.onResize)
   }
 
   componentWillUnmount () {
-    window.removeEventListener('resize', this.onResize.bind(this))
+    window.removeEventListener('resize', this.onResize)
   }
 
   onResize () {
     const width = window.innerWidth
-    // console.log('WHEN DO I GET CALLED 1')
     if (width <= 769) {
+      console.log('in &&&&')
       this.setState({
         mobileView: true,
       })
