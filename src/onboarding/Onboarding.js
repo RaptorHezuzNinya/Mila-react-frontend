@@ -1,7 +1,4 @@
 import React, { PureComponent, PropTypes } from 'react'
-import { connect } from 'react-redux'
-// actions
-import { showModal, hideModal } from '../actions/modals/index'
 // Components
 import OnboardingDeskModal from '../modals/OnboardingDeskModal'
 import OnboardingStepper from './OnboardingStepper'
