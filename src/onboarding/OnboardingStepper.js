@@ -1,5 +1,5 @@
 import React, { PureComponent, PropTypes } from 'react'
-
+import Media from 'react-media'
 // Material UI Components
 import { Step, Stepper, StepLabel, StepContent } from 'material-ui/Stepper'
 import FlatButton from 'material-ui/FlatButton'
@@ -136,35 +136,37 @@ class OnboardingStepper extends PureComponent {
   render() {
     const { stepIndex, stepperwidth } = this.state;
     const { orientation } = this.props
-    console.log('logging stepIndex:', stepIndex)
     return (
       <div className="stepper-wrapper">
-        <Stepper activeStep={stepIndex} orientation='horizontal' >
+        <Stepper activeStep={stepIndex} orientation={orientation}>
           <Step>
             <StepLabel className="steplabel">Scanning your inbox</StepLabel>
-            {/* <StepContent>
-
+            <StepContent>
               {this.getStepContent(stepIndex)}
               {this.renderStepActions()}
-            </StepContent> */}
+            </StepContent>
           </Step>
           <Step>
             <StepLabel className="steplabel">Create lists</StepLabel>
-            {/* <StepContent>
+            <StepContent>
               {this.getStepContent(stepIndex)}
               {this.renderStepActions()}
-          </StepContent> */}
+            </StepContent>
           </Step>
           <Step >
             <StepLabel className="steplabel">Start sorting</StepLabel>
-            {/* <StepContent>
+            <StepContent>
               {this.getStepContent(stepIndex)}
               {this.renderStepActions()}
-            </StepContent> */}
+            </StepContent>
           </Step>
         </Stepper>
-        {this.getStepContent(stepIndex)}
-        {this.renderStepActions()}
+        <Media query="(min-width: 769px)" render={() => (
+          <div>
+            {this.getStepContent(stepIndex)}
+            {this.renderStepActions()}
+          </div>
+        )}/>
         <div>
       </div>
     </div>
