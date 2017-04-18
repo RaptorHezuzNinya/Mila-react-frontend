@@ -24,19 +24,25 @@ class Onboarding extends PureComponent {
   }
 
   onResize () {
-    const width = document.documentElement.clientWidth
-    this.setState({
-      viewWidth: width
-    })
+    const width = window.innerWidth
+    if (width <= 769) {
+      this.setState({
+        mobileView: true
+      })
+    } else {
+      this.setState({
+        mobileView: false
+      })
+    }
+
 
   }
 
   render() {
-    const { onboardingDeskModal, viewWidth } = this.state
-    console.log('logging VIEWWIDTH:', viewWidth)
+    const { onboardingDeskModal, mobileView } = this.state
 
     let onboardingStepper
-    if (viewWidth <= 769) {
+    if (mobileView) {
       console.log('WHEN DO I GET CALLED 1')
       return <OnboardingStepper />
     } else {
