@@ -10,23 +10,36 @@ class Onboarding extends PureComponent {
   constructor(props){
     super(props)
     this.state = {
-      modalProperties: {
-        onboardingDeskModal: 'ONBOARDING_DESK_MODAL'
-      }
+      onboardingDeskModal: 'ONBOARDING_DESK_MODAL',
+      viewWidth: document.documentElement.clientWidth
     }
   }
 
+  componentDidMount = () => {
+    window.addEventListener('resize', this.onResize.bind(this))
+  }
+
+  onResize () {
+    const width = document.documentElement.clientWidth
+    this.setState({
+      viewWidth: width
+    })
+
+  }
+
   render() {
-    const { onboardingDeskModal } = this.state.modalProperties
+    const { onboardingDeskModal, viewWidth } = this.state
+    console.log('logging VIEWWIDTH:', viewWidth)
+
+    let onboardingStepper
+    if (viewWidth <= 769) {
+      return <OnboardingStepper />
+    } else {
+      return <ButtonModal usedStyle='' label='Start onboard desk' modal={ onboardingDeskModal } />
+    }
     return (
       <div>
-        <div>
-          <OnboardingStepper />
-        </div>
-        <div className=''>
-
-          <ButtonModal usedStyle='' label='Start onboard desk' Onboard modal={ onboardingDeskModal } />
-        </div>
+        { OnboardingStepper }
       </div>
     )
   }
