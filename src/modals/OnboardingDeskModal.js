@@ -9,9 +9,8 @@ import Dialog from 'material-ui/Dialog'
 import FlatButton from 'material-ui/FlatButton'
 
 const customContentStyle = {
-  width: '50%',
-  height: '500px',
-  maxWidth: 'none',
+  width: '700px',
+  height: '500px'
 }
 
 class OnboardingDeskModal extends PureComponent {
