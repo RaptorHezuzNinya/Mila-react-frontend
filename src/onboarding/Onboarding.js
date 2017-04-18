@@ -11,7 +11,7 @@ class Onboarding extends PureComponent {
     super(props)
     this.state = {
       onboardingDeskModal: 'ONBOARDING_DESK_MODAL',
-      viewWidth: document.documentElement.clientWidth
+      mobileView: true
     }
   }
 
