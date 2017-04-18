@@ -33,11 +33,11 @@ class OnboardingDeskModal extends PureComponent {
 
   render(){
     const actions = [
-      <FlatButton
-        label="Cancel"
-        primary={true}
-        onTouchTap={this.handleClose}
-      />,
+      // <FlatButton
+      //   label="Cancel"
+      //   primary={true}
+      //   onTouchTap={this.handleClose}
+      // />,
       <FlatButton
         label="Submit"
         primary={true}
@@ -49,7 +49,6 @@ class OnboardingDeskModal extends PureComponent {
     return (
       <div>
         <Dialog
-          title="dialog title"
           actions={actions}
           modal={true}
           contentStyle={customContentStyle}
