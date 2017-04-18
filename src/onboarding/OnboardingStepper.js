@@ -135,32 +135,36 @@ class OnboardingStepper extends PureComponent {
 
   render() {
     const { stepIndex, stepperwidth } = this.state;
+    const { orientation } = this.props
     console.log('logging stepIndex:', stepIndex)
     return (
       <div className="stepper-wrapper">
-        <Stepper activeStep={stepIndex} orientation='vertical' >
+        <Stepper activeStep={stepIndex} orientation='horizontal' >
           <Step>
             <StepLabel className="steplabel">Scanning your inbox</StepLabel>
-            <StepContent>
+            {/* <StepContent>
+
               {this.getStepContent(stepIndex)}
               {this.renderStepActions()}
-            </StepContent>
+            </StepContent> */}
           </Step>
           <Step>
             <StepLabel className="steplabel">Create lists</StepLabel>
-            <StepContent>
+            {/* <StepContent>
               {this.getStepContent(stepIndex)}
               {this.renderStepActions()}
-          </StepContent>
+          </StepContent> */}
           </Step>
           <Step >
             <StepLabel className="steplabel">Start sorting</StepLabel>
-            <StepContent>
+            {/* <StepContent>
               {this.getStepContent(stepIndex)}
               {this.renderStepActions()}
-            </StepContent>
+            </StepContent> */}
           </Step>
         </Stepper>
+        {this.getStepContent(stepIndex)}
+        {this.renderStepActions()}
         <div>
       </div>
     </div>
