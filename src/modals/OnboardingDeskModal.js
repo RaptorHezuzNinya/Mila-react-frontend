@@ -22,7 +22,7 @@ const styles = {
   },
   customContentStyle: {
     width: '700px',
-    height: '500px'
+    height: '100%'
   }
 }
 class OnboardingDeskModal extends PureComponent {
