@@ -10,12 +10,16 @@ import FlatButton from 'material-ui/FlatButton'
 // styles
 import './OnboardingDeskModal.sass'
 
-const customContentStyle = {
-  width: '700px',
-  height: '500px',
-  color: 'green'
+const styles = {
+  bodyStyle: {
+    padding: 0
+  },
+  customContentStyle: {
+    width: '700px',
+    height: '500px',
+    color: 'green'
+  }
 }
-
 class OnboardingDeskModal extends PureComponent {
   constructor(props) {
     super(props)
