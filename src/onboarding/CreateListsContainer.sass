@@ -29,9 +29,12 @@
       margin-bottom: 0
       padding-bottom: 30px
 
+// CreateListsContainer.js
 .network-lists
   list-style-type: none
   padding-left: 0
+  +breakpoint($breakpoint-medium)
+    padding: 0 50px
 
   .list-item
     display: flex
@@ -49,12 +52,14 @@
 
 .list-form-holder
   margin-top: 15px
+  +breakpoint($breakpoint-medium)
+    padding: 0 50px
 
   .list-input
     margin-bottom: 15px
 
-.form-btn-holder
-  display: flex
-  margin-top: 10px
-  .form-btn
-    align-self: center
+  .form-btn-holder
+    margin-top: 10px
+    display: flex
+    justify-content: center
+    .form-btn
