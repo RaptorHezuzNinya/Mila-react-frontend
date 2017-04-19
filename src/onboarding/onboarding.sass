@@ -5,12 +5,25 @@
 
 // ScanningInbox.js
 .scanning-inbox
-  h3
+  +breakpoint($breakpoint-medium)
+    padding: 0 110px
+  h1
     +mont-bold($blueA)
     +f(18px)
+    +breakpoint($breakpoint-medium)
+      +f(26px)
+      +mont-light($greyB)
+      margin-top: 30px
+      margin-bottom: 30px
+      text-align: center
+      font-weight: 200
   p
     +mont-light
     +f(15px)
+    +breakpoint($breakpoint-medium)
+      +f(16px)
+      color: $greyB
+
 
 // from /.ProceedWarning.js
 .warning-holder
