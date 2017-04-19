@@ -11,6 +11,12 @@ import FlatButton from 'material-ui/FlatButton'
 import './OnboardingDeskModal.sass'
 
 const styles = {
+  dialogRoot: {
+    display: 'flex',
+    // alignItems: 'center',
+    justifyContent: 'center',
+    paddingTop: '30px'
+  },
   bodyStyle: {
     padding: 0
   },
@@ -53,11 +59,12 @@ class OnboardingDeskModal extends PureComponent {
 
     return (
       <Dialog
-        bodyStyle={styles.bodyStyle}
         contentClassName="onboard-desk-modal"
+        style={styles.dialogRoot}
+        bodyStyle={styles.bodyStyle}
+        contentStyle={styles.customContentStyle}
         actions={actions}
         modal={true}
-        contentStyle={styles.customContentStyle}
         open={this.state.open}
       >
         <OnboardingStepper orientation='horizontal'/>
