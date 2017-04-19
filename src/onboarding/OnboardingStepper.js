@@ -127,8 +127,8 @@ class OnboardingStepper extends PureComponent {
     console.log('STEPINDEX:', stepIndex)
     return (
       <div className="stepper-wrapper">
-        <Stepper activeStep={stepIndex} orientation={orientation} className="stepper">
-          <Step>
+        <Stepper activeStep={stepIndex} orientation={orientation} style={styles.stepper} className="stepper">
+          <Step >
             <StepLabel className="steplabel">Scanning your inbox</StepLabel>
             <StepContent>
               {this.getStepContent(stepIndex)}
@@ -151,7 +151,7 @@ class OnboardingStepper extends PureComponent {
           </Step>
         </Stepper>
         <Media query="(min-width: 769px)" render={() => (
-          <div>
+          <div className="desktop-stepcontent">
             {this.getStepContent(stepIndex)}
             {this.renderStepActions()}
           </div>
