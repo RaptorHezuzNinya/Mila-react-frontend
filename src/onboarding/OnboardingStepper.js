@@ -126,7 +126,7 @@ class OnboardingStepper extends PureComponent {
     const { orientation } = this.props
     console.log('STEPINDEX:', stepIndex)
     return (
-      <div className="stepper-wrapper">
+      <div className={ stepIndex === 1 ? 'step-wrap-step1-desk' : 'stepper-wrapper' }>
         <Stepper activeStep={stepIndex} orientation={orientation} style={styles.stepper} className="stepper">
           <Step >
             <StepLabel className="steplabel">Scanning your inbox</StepLabel>
