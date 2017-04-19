@@ -1,5 +1,6 @@
 import React, { PureComponent, PropTypes } from 'react'
 import Media from 'react-media'
+import classNames from 'classNames'
 //Components
 import ScanningInbox from './ScanningInbox'
 import CreateListsContainer from './CreateListsContainer'
@@ -105,18 +106,29 @@ class OnboardingStepper extends PureComponent {
 
   renderStepActions() {
     const { stepIndex, listCount, appended } = this.state
-
+    const btnClass = classNames({
+      'btn-green': true,
+      'btn-desktop': stepIndex === 0 || stepIndex === 2,
+      'btn-desktop-step1': stepIndex === 1
+    })
+    const btnholderClass = classNames({
+      'buttons-holder': true,
+      'buttons-holder-step1': stepIndex === 1
+    })
     return (
       <div>
         <div className='onboarding-next'>
-          <FlatButton
-            className='btn-green btn-desktop'
-            className={ stepIndex === 1 ? 'btn-green btn-desktop' : 'btn-green btn-desktop'}
-            label={this.renderStepbutton(stepIndex)}
-            primary={true}
-            onTouchTap={this.handleNext}
-          />
-          <ProceedWarning appended={ appended }/>
+          <div className='warning-holder'>
+            <ProceedWarning appended={ appended }/>
+          </div>
+          <div className={btnholderClass}>
+            <FlatButton
+              className={ btnClass }
+              label={this.renderStepbutton(stepIndex)}
+              primary={true}
+              onTouchTap={this.handleNext}
+            />
+          </div>
         </div>
       </div>
     );
