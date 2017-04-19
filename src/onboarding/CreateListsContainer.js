@@ -76,9 +76,7 @@ class CreateListsContainer extends PureComponent {
     const { handleSubmit, reset, submitting, pristine } = this.props
     return (
       <div className='create-lists-wrapper'>
-
         <ResponsiveContent />
-
         <ul className="network-lists">
           { this.renderNetworkLists() }
         </ul>
