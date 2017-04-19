@@ -44,20 +44,21 @@ class OnboardingDeskModal extends PureComponent {
       //   primary={true}
       //   onTouchTap={this.handleClose}
       // />,
-      <FlatButton
-        label="Submit"
-        primary={true}
-        disabled={true}
-        onTouchTap={this.handleClose}
-      />,
+      // <FlatButton
+      //   label="Submit"
+      //   primary={true}
+      //   disabled={true}
+      //   onTouchTap={this.handleClose}
+      // />,
     ]
 
     return (
       <Dialog
+        bodyStyle={styles.bodyStyle}
         contentClassName="onboard-desk-modal"
         actions={actions}
         modal={true}
-        contentStyle={customContentStyle}
+        contentStyle={styles.customContentStyle}
         open={this.state.open}
       >
         <OnboardingStepper orientation='horizontal'/>
