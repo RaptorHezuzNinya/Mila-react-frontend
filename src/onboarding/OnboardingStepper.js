@@ -1,16 +1,21 @@
 import React, { PureComponent, PropTypes } from 'react'
 import Media from 'react-media'
-// Material UI Components
-import { Step, Stepper, StepLabel, StepContent } from 'material-ui/Stepper'
-import FlatButton from 'material-ui/FlatButton'
 //Components
 import ScanningInbox from './ScanningInbox'
 import CreateListsContainer from './CreateListsContainer'
 import ProceedWarning from './ProceedWarning'
 import StartSorting from './StartSorting'
+// Material UI Components
+import { Step, Stepper, StepLabel, StepContent } from 'material-ui/Stepper'
+import FlatButton from 'material-ui/FlatButton'
 // Styles
 import './OnboardingStepper.sass'
 
+const styles = {
+  stepper: {
+    backgroundColor: '#ffffff'
+  }
+}
 class OnboardingStepper extends PureComponent {
   constructor(props){
     super(props)
@@ -99,9 +104,8 @@ class OnboardingStepper extends PureComponent {
   }
 
   renderStepActions() {
-    const { stepIndex, listCount, appended } = this.state;
+    const { stepIndex, listCount, appended } = this.state
 
-    // console.log('logging listcount', listCount)
     return (
       <div>
         <div className="onboarding-next">
