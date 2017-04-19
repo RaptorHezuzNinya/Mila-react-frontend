@@ -27,7 +27,7 @@ class OnboardingStepper extends PureComponent {
       stepperwidth: 450,
       displayOtherTools: false,
       listCount: 0,
-      appended: false
+      proceedWarning: false
     }
   };
 
@@ -36,7 +36,7 @@ class OnboardingStepper extends PureComponent {
     if (stepIndex === 1 && listCount <= 1) {
       return (
         this.setState({
-          appended: true
+          proceedWarning: true
         })
       );
     };
@@ -49,7 +49,10 @@ class OnboardingStepper extends PureComponent {
   handlePrev = () => {
     const {stepIndex} = this.state;
     if (stepIndex > 0) {
-      this.setState({stepIndex: stepIndex - 1});
+      this.setState({
+        stepIndex: stepIndex - 1,
+        proceedWarning: false
+      });
     }
   };
 
@@ -72,7 +75,7 @@ class OnboardingStepper extends PureComponent {
     const { listCount } = this.state
     if (listCount >= 1) {
       this.setState({
-        appended: false
+        proceedWarning: false
       })
     }
   }
@@ -105,7 +108,7 @@ class OnboardingStepper extends PureComponent {
   }
 
   renderStepActions() {
-    const { stepIndex, listCount, appended } = this.state
+    const { stepIndex, listCount, proceedWarning } = this.state
     const btnClass = classNames({
       'btn-green': true,
       'btn-desktop': stepIndex === 0 || stepIndex === 2,
@@ -113,15 +116,31 @@ class OnboardingStepper extends PureComponent {
     })
     const btnholderClass = classNames({
       'buttons-holder': true,
-      'buttons-holder-step1': stepIndex === 1
+      'buttons-holder-step1': stepIndex === 1 || stepIndex === 2
     })
+    let backBtn
+    if (stepIndex < 1) {
+      backBtn = null
+    } else {
+      backBtn = (
+        <Media query='(min-width: 769px)' render={() => (
+          <FlatButton
+            className='btn-grey'
+            label='Back'
+            primary={true}
+            onTouchTap={this.handlePrev}
+          />
+        )}/>
+      )
+    }
     return (
       <div>
         <div className='onboarding-next'>
           <div className='warning-holder'>
-            <ProceedWarning appended={ appended }/>
+            <ProceedWarning proceedWarning={ proceedWarning }/>
           </div>
           <div className={btnholderClass}>
+            {backBtn}
             <FlatButton
               className={ btnClass }
               label={this.renderStepbutton(stepIndex)}
@@ -135,11 +154,16 @@ class OnboardingStepper extends PureComponent {
   }
 
   render() {
-    const { stepIndex, stepperwidth } = this.state;
+    const { stepIndex, stepperwidth } = this.state
+    console.log('STEP INDEX', stepIndex)
     const { orientation } = this.props
+    const stepWrapClass = classNames({
+      'stepper-wrapper': true,
+      'step-wrap-step1-desk': stepIndex === 1
+    })
     return (
-      <div className={ stepIndex === 1 ? 'step-wrap-step1-desk' : 'stepper-wrapper' }>
-        <Stepper activeStep={stepIndex} orientation={orientation} style={styles.stepper} className="stepper">
+      <div className={ stepWrapClass }>
+        <Stepper activeStep={stepIndex} orientation={orientation} style={styles.stepper}>
           <Step >
             <StepLabel className="steplabel">Scanning your inbox</StepLabel>
             <StepContent>
