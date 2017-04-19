@@ -1,16 +1,22 @@
 import React, { PureComponent, PropTypes } from 'react'
 import Media from 'react-media'
-// Material UI Components
-import { Step, Stepper, StepLabel, StepContent } from 'material-ui/Stepper'
-import FlatButton from 'material-ui/FlatButton'
+import classNames from 'classNames'
 //Components
 import ScanningInbox from './ScanningInbox'
 import CreateListsContainer from './CreateListsContainer'
 import ProceedWarning from './ProceedWarning'
 import StartSorting from './StartSorting'
+// Material UI Components
+import { Step, Stepper, StepLabel, StepContent } from 'material-ui/Stepper'
+import FlatButton from 'material-ui/FlatButton'
 // Styles
 import './OnboardingStepper.sass'
 
+const styles = {
+  stepper: {
+    backgroundColor: '#ffffff'
+  }
+}
 class OnboardingStepper extends PureComponent {
   constructor(props){
     super(props)
@@ -99,19 +105,30 @@ class OnboardingStepper extends PureComponent {
   }
 
   renderStepActions() {
-    const { stepIndex, listCount, appended } = this.state;
-
-    // console.log('logging listcount', listCount)
+    const { stepIndex, listCount, appended } = this.state
+    const btnClass = classNames({
+      'btn-green': true,
+      'btn-desktop': stepIndex === 0 || stepIndex === 2,
+      'btn-desktop-step1': stepIndex === 1
+    })
+    const btnholderClass = classNames({
+      'buttons-holder': true,
+      'buttons-holder-step1': stepIndex === 1
+    })
     return (
       <div>
-        <div className="onboarding-next">
-          <FlatButton
-            className="btn-green"
-            label={this.renderStepbutton(stepIndex)}
-            primary={true}
-            onTouchTap={this.handleNext}
-          />
-          <ProceedWarning appended={ appended }/>
+        <div className='onboarding-next'>
+          <div className='warning-holder'>
+            <ProceedWarning appended={ appended }/>
+          </div>
+          <div className={btnholderClass}>
+            <FlatButton
+              className={ btnClass }
+              label={this.renderStepbutton(stepIndex)}
+              primary={true}
+              onTouchTap={this.handleNext}
+            />
+          </div>
         </div>
       </div>
     );
@@ -122,9 +139,9 @@ class OnboardingStepper extends PureComponent {
     const { orientation } = this.props
     console.log('STEPINDEX:', stepIndex)
     return (
-      <div className="stepper-wrapper">
-        <Stepper activeStep={stepIndex} orientation={orientation} className="stepper">
-          <Step>
+      <div className={ stepIndex === 1 ? 'step-wrap-step1-desk' : 'stepper-wrapper' }>
+        <Stepper activeStep={stepIndex} orientation={orientation} style={styles.stepper} className="stepper">
+          <Step >
             <StepLabel className="steplabel">Scanning your inbox</StepLabel>
             <StepContent>
               {this.getStepContent(stepIndex)}
@@ -147,7 +164,7 @@ class OnboardingStepper extends PureComponent {
           </Step>
         </Stepper>
         <Media query="(min-width: 769px)" render={() => (
-          <div>
+          <div className="desktop-stepcontent">
             {this.getStepContent(stepIndex)}
             {this.renderStepActions()}
           </div>

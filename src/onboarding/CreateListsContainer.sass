@@ -3,17 +3,38 @@
 @import "../assets/styles/base/mixins.sass"
 
 .create-lists-wrapper
-  // display: flex
-  p
-    +mont-light
-    +f(15px)
-    font-weight: 300
-  p
-    color: $blueA
 
+  // ResponsiveContent.js
+  .mobile-content
+    p
+      +mont-light
+      +f(15px)
+      font-weight: 300
+      color: $blueA
+
+  .desktop-content
+    background-color: $greenA
+    padding: 0 80px
+    h3
+      margin-top: 0
+      padding-top: 25px
+      +mont-light($greyB !important)
+      +f(26px)
+      text-align: center
+      font-weight: 200
+    p
+      +mont-light($greyB)
+      +f(16px)
+      text-align: center
+      margin-bottom: 0
+      padding-bottom: 30px
+
+// CreateListsContainer.js
 .network-lists
   list-style-type: none
   padding-left: 0
+  +breakpoint($breakpoint-medium)
+    padding: 0 50px
 
   .list-item
     display: flex
@@ -31,12 +52,14 @@
 
 .list-form-holder
   margin-top: 15px
+  +breakpoint($breakpoint-medium)
+    padding: 0 50px
 
   .list-input
     margin-bottom: 15px
 
-.form-btn-holder
-  display: flex
-  margin-top: 10px
-  .form-btn
-    align-self: center
+  .form-btn-holder
+    margin-top: 10px
+    display: flex
+    justify-content: center
+    .form-btn

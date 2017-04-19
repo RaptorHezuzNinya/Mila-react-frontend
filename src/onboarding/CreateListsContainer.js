@@ -2,10 +2,10 @@ import React, { PureComponent, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { Field, reduxForm } from 'redux-form'
 import { reset } from 'redux-form'
-
 // actions
 import { createNetworkList, deleteNetworkList } from '../actions/networklists/index'
-
+// Components
+import ResponsiveContent from './ResponsiveContent'
 // Material UI Components
 import FlatButton from 'material-ui/FlatButton'
 import TextField from 'material-ui/TextField'
@@ -39,6 +39,11 @@ class CreateListsContainer extends PureComponent {
     this.props.lowerListCount()
   }
 
+  onSubmit(props){
+    this.props.createNetworkList(props);
+    this.props.addListCount();
+  }
+
   renderNetworkLists = () => {
     return this.props.networkLists.map((networkList) => {
       return (
@@ -67,17 +72,11 @@ class CreateListsContainer extends PureComponent {
     />
   )
 
-  onSubmit(props){
-    this.props.createNetworkList(props);
-    this.props.addListCount();
-  }
-
   render() {
     const { handleSubmit, reset, submitting, pristine } = this.props
     return (
-      <div className="create-lists-wrapper">
-        <p>Ok, In the mean time, tell me: Which lists shall we use to sort your contacts? Do you (want to) keep a newslettes, sales-funnel, prospects?
-        </p>
+      <div className='create-lists-wrapper'>
+        <ResponsiveContent />
         <ul className="network-lists">
           { this.renderNetworkLists() }
         </ul>

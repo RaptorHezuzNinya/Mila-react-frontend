@@ -3,27 +3,30 @@
 @import "../assets/styles/base/mixins.sass"
 // Onboarding class component
 
-// ScanningInbox.js
-.scanning-inbox
-  h3
-    +mont-bold($blueA)
-    +f(18px)
-  p
-    +mont-light
-    +f(15px)
-
-// from /.ProceedWarning.js
-.warning-holder
-  display: flex
-  justify-content: center
-  .proceed-warning
-    background-color: $blueA;
-    padding: 6px 20px;
-    border-radius: 7px;
-    +mont-light($greyB)
-    +f(12px)
-
 // StartSorting.js
 .startsorting-holder
   +mont-light($blueA)
   +f(15px)
+  h3
+    text-align: center
+
+// ScanningInbox.js && StartSorting.js
+.scanning-inbox, .startsorting-holder
+  +breakpoint($breakpoint-medium)
+    padding: 0 110px
+  h3
+    +mont-bold($blueA)
+    +f(18px)
+    +breakpoint($breakpoint-medium)
+      +f(26px)
+      +mont-light($greyB)
+      margin-top: 30px
+      margin-bottom: 30px
+      text-align: center
+      font-weight: 200
+  p
+    +mont-light
+    +f(15px)
+    +breakpoint($breakpoint-medium)
+      +f(16px)
+      color: $greyB

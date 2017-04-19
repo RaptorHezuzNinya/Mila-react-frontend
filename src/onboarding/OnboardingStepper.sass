@@ -12,15 +12,50 @@
   padding-bottom: 40px
   background-color: $greyB
   +breakpoint($breakpoint-medium)
-    z-index: 3
-    padding-top: 0
+    padding: 0
     margin-top: 0
+    background-color: $greenA
 
-
+.step-wrap-step1-desk
+  +breakpoint($breakpoint-medium)
+    background-color: $greyB
 
 .steplabel
-  font-size: 16px !important
+  +f(16px !important)
   +mont-reg($blueA !important)
+  +breakpoint($breakpoint-medium)
+    +f(13px !important)
 
 .onboarding-next
   margin-top: 40px
+  +breakpoint($breakpoint-medium)
+    margin: 40px 0
+    padding: 0 30px
+
+  // from /.ProceedWarning.js
+  .warning-holder
+    display: flex
+    justify-content: space-around
+    .warning
+      .proceed-warning
+        background-color: $blueA;
+        padding: 6px 20px;
+        border-radius: 7px;
+        +mont-light($greyB)
+        +f(12px)
+
+  .buttons-holder
+    display: flex
+    justify-content: center
+
+    .btn-desktop
+      +breakpoint($breakpoint-medium)
+        display: flex !important
+        justify-content: center
+        border: 2px solid $greyB !important
+        width: 275px
+
+  .buttons-holder-step1
+    +breakpoint($breakpoint-medium)
+      display: flex
+      justify-content: flex-end

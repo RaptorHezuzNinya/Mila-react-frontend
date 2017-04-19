@@ -10,12 +10,20 @@ import FlatButton from 'material-ui/FlatButton'
 // styles
 import './OnboardingDeskModal.sass'
 
-const customContentStyle = {
-  width: '700px',
-  height: '500px',
-  color: 'green'
+const styles = {
+  dialogRoot: {
+    display: 'flex',
+    justifyContent: 'center',
+    paddingTop: '30px'
+  },
+  bodyStyle: {
+    padding: 0
+  },
+  customContentStyle: {
+    width: '700px',
+    height: '100%'
+  }
 }
-
 class OnboardingDeskModal extends PureComponent {
   constructor(props) {
     super(props)
@@ -40,20 +48,23 @@ class OnboardingDeskModal extends PureComponent {
       //   primary={true}
       //   onTouchTap={this.handleClose}
       // />,
-      <FlatButton
-        label="Submit"
-        primary={true}
-        disabled={true}
-        onTouchTap={this.handleClose}
-      />,
+      // <FlatButton
+      //   label="Submit"
+      //   primary={true}
+      //   disabled={true}
+      //   onTouchTap={this.handleClose}
+      // />,
     ]
 
     return (
       <Dialog
         contentClassName="onboard-desk-modal"
+        style={styles.dialogRoot}
+        bodyStyle={styles.bodyStyle}
+        contentStyle={styles.customContentStyle}
+         autoScrollBodyContent={true}
         actions={actions}
         modal={true}
-        contentStyle={customContentStyle}
         open={this.state.open}
       >
         <OnboardingStepper orientation='horizontal'/>
