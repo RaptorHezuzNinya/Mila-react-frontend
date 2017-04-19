@@ -2,10 +2,10 @@ import React, { PureComponent, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { Field, reduxForm } from 'redux-form'
 import { reset } from 'redux-form'
-
 // actions
 import { createNetworkList, deleteNetworkList } from '../actions/networklists/index'
-
+// Components
+import ResponsiveContent from './ResponsiveContent'
 // Material UI Components
 import FlatButton from 'material-ui/FlatButton'
 import TextField from 'material-ui/TextField'
