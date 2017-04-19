@@ -13,7 +13,6 @@ import './OnboardingDeskModal.sass'
 const styles = {
   dialogRoot: {
     display: 'flex',
-    // alignItems: 'center',
     justifyContent: 'center',
     paddingTop: '30px'
   },
