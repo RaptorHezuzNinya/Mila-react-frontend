@@ -62,6 +62,7 @@ class OnboardingDeskModal extends PureComponent {
         style={styles.dialogRoot}
         bodyStyle={styles.bodyStyle}
         contentStyle={styles.customContentStyle}
+         autoScrollBodyContent={true}
         actions={actions}
         modal={true}
         open={this.state.open}
