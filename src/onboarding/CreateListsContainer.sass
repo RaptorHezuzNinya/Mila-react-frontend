@@ -3,12 +3,28 @@
 @import "../assets/styles/base/mixins.sass"
 
 .create-lists-wrapper
-  p
-    +mont-light
-    +f(15px)
-    font-weight: 300
-    color: $blueA
+  .mobile-content
+    p
+      +mont-light
+      +f(15px)
+      font-weight: 300
+      color: $blueA
 
+  .desktop-content
+    background-color: $greenA
+    h3
+      margin-top: 0
+      padding-top: 25px
+      +mont-light($greyB !important)
+      +f(26px)
+      text-align: center
+      font-weight: 200
+    p
+      +mont-light($greyB)
+      +f(16px)
+      text-align: center
+      margin-bottom: 0
+      padding-bottom: 30px
 
 .network-lists
   list-style-type: none
