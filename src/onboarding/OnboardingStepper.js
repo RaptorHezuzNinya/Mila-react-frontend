@@ -110,7 +110,7 @@ class OnboardingStepper extends PureComponent {
       <div>
         <div className="onboarding-next">
           <FlatButton
-            className="btn-green"
+            className="btn-green btn-desktop"
             label={this.renderStepbutton(stepIndex)}
             primary={true}
             onTouchTap={this.handleNext}

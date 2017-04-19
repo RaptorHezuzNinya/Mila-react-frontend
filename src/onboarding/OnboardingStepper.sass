@@ -17,9 +17,18 @@
     background-color: $greenA
 
 .steplabel
-  font-size: 16px !important
+  +f(16px !important)
   +mont-reg($blueA !important)
   +breakpoint($breakpoint-medium)
+    +f(13px !important)
 
 .onboarding-next
   margin-top: 40px
+  +breakpoint($breakpoint-medium)
+    display: flex
+    justify-content: center
+    margin: 60px 0
+  .btn-desktop
+    +breakpoint($breakpoint-medium)
+      border: 2px solid $greyB !important
+      width: 275px
