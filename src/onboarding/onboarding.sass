@@ -3,11 +3,18 @@
 @import "../assets/styles/base/mixins.sass"
 // Onboarding class component
 
-// ScanningInbox.js
-.scanning-inbox
+// StartSorting.js
+.startsorting-holder
+  +mont-light($blueA)
+  +f(15px)
+  h3
+    text-align: center
+
+// ScanningInbox.js && StartSorting.js
+.scanning-inbox, .startsorting-holder
   +breakpoint($breakpoint-medium)
     padding: 0 110px
-  h1
+  h3
     +mont-bold($blueA)
     +f(18px)
     +breakpoint($breakpoint-medium)
@@ -23,8 +30,3 @@
     +breakpoint($breakpoint-medium)
       +f(16px)
       color: $greyB
-
-// StartSorting.js
-.startsorting-holder
-  +mont-light($blueA)
-  +f(15px)
