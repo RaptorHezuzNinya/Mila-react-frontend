@@ -3,7 +3,7 @@ import React from 'react'
 const ProceedWarning = (props) => {
   let button = null
 
-  if (props.appended) {
+  if (props.proceedWarning) {
       button = <p className='proceed-warning'>You need atleast 2 lists to proceed</p>;
   } else {
       button = '';
