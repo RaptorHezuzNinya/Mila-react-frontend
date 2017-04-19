@@ -17,6 +17,7 @@ const styles = {
     backgroundColor: '#ffffff'
   }
 }
+
 class OnboardingStepper extends PureComponent {
   constructor(props){
     super(props)
@@ -27,7 +28,6 @@ class OnboardingStepper extends PureComponent {
       displayOtherTools: false,
       listCount: 0,
       appended: false
-
     }
   };
 
