@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import Media from 'react-media'
 import classNames from 'classNames'
 // actions
-import { incrStepIndex, decrStepIndex, incrListCount, decrListCount } from '../actions/onboarding'
+import { incrStepIndex, decrStepIndex, incrListCount, decrListCount, showProceedWarn, hideProceedWarn } from '../actions/onboarding'
 //Components
 import ScanningInbox from './ScanningInbox'
 import CreateListsContainer from './CreateListsContainer'

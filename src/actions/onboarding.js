@@ -29,3 +29,17 @@ export const decrListCount = (listCount) => {
     payload: listCount
   }
 }
+
+export const SHOW_PROCEED_WARN = 'SHOW_PROCEED_WARN'
+export const showProceedWarn = () => {
+  return {
+    type: SHOW_PROCEED_WARN,
+  }
+}
+
+export const HIDE_PROCEED_WARN = 'HIDE_PROCEED_WARN'
+export const hideProceedWarn = () => {
+  return {
+    type: HIDE_PROCEED_WARN,
+  }
+}
