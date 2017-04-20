@@ -70,9 +70,9 @@ class OnboardingStepper extends PureComponent {
         return <ScanningInbox />
       case 1:
         return <CreateListsContainer
-                disableProceedWarn={this.disableProceedWarn.bind(this)}
-                addListCount={this.addListCount.bind(this)}
-                lowerListCount={this.lowerListCount.bind(this)} />
+                disableProceedWarn={this.disableProceedWarn}
+                addListCount={this.addListCount}
+                lowerListCount={this.lowerListCount} />
       case 2:
         return <StartSorting />
       default:
