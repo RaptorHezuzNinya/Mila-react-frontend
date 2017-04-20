@@ -53,13 +53,14 @@ class OnboardingStepper extends PureComponent {
   };
 
   handlePrev = () => {
-    const {stepIndex} = this.props
-    if (stepIndex > 0) {
-      this.setState({
-        stepIndex: stepIndex - 1,
-        proceedWarning: false
-      });
-    }
+    const { stepIndex, decrStepIndex } = this.props
+    decrStepIndex(stepIndex)
+    // if (stepIndex > 0) {
+    //   this.setState({
+    //     stepIndex: stepIndex - 1,
+    //     proceedWarning: false
+    //   });
+    // }
   };
 
   addListCount = () => {
@@ -210,4 +211,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, {addStepIndex})(OnboardingStepper)
+export default connect(mapStateToProps, {incrStepIndex, decrStepIndex})(OnboardingStepper)
