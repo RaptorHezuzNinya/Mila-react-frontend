@@ -13,7 +13,7 @@ import Onboarding from './onboarding/Onboarding'
 import NewContactsContainer from './newContacts/NewContactsContainer'
 import Contact from './newContacts/Contact'
 import NetworkContainer from './myNetwork/NetworkContainer'
-import AccountSettings from './accountSettings/AccountSettings'
+import SettingsAccount from './settingsAccount/SettingsAccount'
 // base styles
 import './assets/styles/main.sass'
 import 'normalize.css'
@@ -27,7 +27,7 @@ ReactDOM.render(
         <Route path={routes.onboardingPath} component={Onboarding} />
         <Route path={routes.newContactsPath} component={NewContactsContainer} />
         <Route path={routes.myNetworkPath} component={NetworkContainer} />
-        <Route path={routes.accountSettingsPath} component={AccountSettings} />
+        <Route path={routes.settingsAccountPath} component={SettingsAccount} />
       </Route>
     </Router>
   </Provider>,

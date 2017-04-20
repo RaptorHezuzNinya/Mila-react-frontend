@@ -1,6 +1,6 @@
 const routes = {
   rootPath: '/',
-  accountSettingsPath: 'settings/account',
+  settingsAccountPath: 'settings/account',
   onboardingPath: '/onboarding',
   newContactsPath: '/newcontacts',
   myNetworkPath: '/mynetwork'
