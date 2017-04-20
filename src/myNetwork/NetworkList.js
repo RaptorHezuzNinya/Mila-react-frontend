@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 // Components
-import DeleteButton from '../components/DeleteButton'
+import DeleteButton from './DeleteButton'
 // Actions
 import deleteContacts from '../actions/contacts/delete'
 // Material UI Components
