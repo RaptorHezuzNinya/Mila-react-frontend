@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import Media from 'react-media'
 import classNames from 'classNames'
 // actions
-import { addStepIndex } from '../actions/onboarding'
+import { incrStepIndex, decrStepIndex } from '../actions/onboarding'
 //Components
 import ScanningInbox from './ScanningInbox'
 import CreateListsContainer from './CreateListsContainer'
@@ -36,8 +36,9 @@ class OnboardingStepper extends PureComponent {
 
   handleNext = () => {
     const { listCount } = this.state
-    const { stepIndex } = this.props
-    return this.props.addStepIndex(stepIndex)
+    const { stepIndex, incrStepIndex } = this.props
+    incrStepIndex(stepIndex)
+
     // if (stepIndex === 1 && listCount <= 1) {
     //   return (
     //     this.setState({
