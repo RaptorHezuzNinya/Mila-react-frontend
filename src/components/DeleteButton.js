@@ -15,7 +15,7 @@ import './DeleteButton.sass'
 
 class DeleteButton extends PureComponent {
   static propTypes = {
-    selectedContacts: PropTypes.array.isRequired
+    selectedContacts: PropTypes.string.isRequired
   }
 
 

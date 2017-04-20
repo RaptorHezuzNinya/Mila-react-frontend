@@ -8,6 +8,10 @@ import ListIcon from 'material-ui/svg-icons/action/list'
 import './NetworkButton.sass'
 
 class NetworkButton extends PureComponent {
+  static propType = {
+    title: PropTypes.string.isRequired
+  }
+  
   render() {
     const { title } = this.props
     return (
