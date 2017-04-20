@@ -2,6 +2,7 @@ import React, { PureComponent, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { Field, reduxForm } from 'redux-form'
 import { reset } from 'redux-form'
+import Media from 'react-media'
 // actions
 import { createNetworkList, deleteNetworkList } from '../actions/networklists/index'
 // Components
@@ -47,14 +48,21 @@ class CreateListsContainer extends PureComponent {
   renderNetworkLists = () => {
     return this.props.networkLists.map((networkList) => {
       return (
-        <li className="list-item" key={networkList.id}>
-          <span><ListIcon className="list-icon"/></span>
-          <p className="list-title">{networkList.title}</p>
-          <span>
-            <IconButton onClick={this.handleDeleteListClick.bind(this, networkList)}>
-              <DeleteIcon />
-            </IconButton>
-          </span>
+        <li className='list-item' key={networkList.id}>
+          <span><ListIcon className='list-icon'/></span>
+          <p className='list-title'>{networkList.title}</p>
+          <Media query='(max-width: 769px)' render={() => (
+            <span>
+              <IconButton onClick={this.handleDeleteListClick.bind(this, networkList)}>
+                <DeleteIcon />
+              </IconButton>
+            </span>
+          )}/>
+          <Media query='(min-width: 769px)' render={() => (
+            <span>
+              <FlatButton className='list-delete-btn' label='delete' onClick={this.handleDeleteListClick.bind(this, networkList)} />
+            </span>
+          )}/>
         </li>
       )
     })
