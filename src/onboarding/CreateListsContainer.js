@@ -42,7 +42,7 @@ class CreateListsContainer extends PureComponent {
   }
 
   handleDeleteListClick(networkList) {
-    this.props.deleteNetworkList(networkList.id)
+    this.props.deleteNetworkList(networkList.title)
     this.props.lowerListCount()
   }
 
@@ -57,7 +57,8 @@ class CreateListsContainer extends PureComponent {
   renderNetworkLists = () => {
     return this.props.networkLists.map((networkList) => {
       return (
-        <li className='list-item' key={networkList.id}>
+                                  //FIXME when there is an api key needs to be .id
+        <li className='list-item' key={networkList.title}>
           <span><ListIcon className='list-icon'/></span>
           <p className='list-title'>{networkList.title}</p>
           <Media query='(max-width: 769px)' render={() => (
@@ -69,7 +70,7 @@ class CreateListsContainer extends PureComponent {
           )}/>
           <Media query='(min-width: 769px)' render={() => (
             <span>
-              <FlatButton className='list-edit-btn' label='edit' onClick={this.handleDeleteListClick.bind(this, networkList)} />
+              {/* <FlatButton className='list-edit-btn' label='edit' onClick={this.handleEditClick} /> */}
               <FlatButton className='list-delete-btn' label='delete' onClick={this.handleDeleteListClick.bind(this, networkList)} />
             </span>
           )}/>
