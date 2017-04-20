@@ -1,6 +1,5 @@
 import React, { PureComponent, PropTypes } from 'react'
 import { Link } from 'react-router'
-
 // material-ui Components
 import Appbar from 'material-ui/AppBar'
 import FlatButton from 'material-ui/FlatButton'
@@ -10,11 +9,8 @@ import UserIconBlue from '../assets/images/icons/user-blue.jpg'
 import UserIconGrey from '../assets/images/icons/user-grey.svg'
 import milaLogo from '../assets/images/logos/logo-white.png'
 import UserCircle from 'material-ui/svg-icons/action/account-circle'
-// import ArrowDown from 'material-ui/svg-icons/hardware/keyboard-arrow-down'
-
 // Styles
 import './Navigation.sass'
-import '../assets/styles/base/colors.sass'
 
 export class Navigation extends PureComponent {
 
@@ -44,7 +40,6 @@ export class Navigation extends PureComponent {
         />
       </header>
     )
-
   }
 }
 
