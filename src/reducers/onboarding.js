@@ -1,17 +1,17 @@
-
+import { ADD_STEP_INDEX } from '../actions/onboarding'
 
 const initialState = {
   stepIndex: 0,
-  listCount: 0,
-  ProceedWarning: false
 }
 
 export default function onboarding(state = initialState, {type, payload} = {}) {
   switch (type) {
-    case expression:
 
-      break;
+    case ADD_STEP_INDEX:
+      return Object.assign({}, state, {stepIndex: payload + 1})
+
     default:
+      return state
 
   }
 }
