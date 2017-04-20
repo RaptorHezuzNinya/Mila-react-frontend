@@ -30,12 +30,18 @@ const styles = {
 }
 
 class CreateListsContainer extends PureComponent {
+  constructor(props){
+    super(props)
+    this.handleTextFieldClick = this.handleTextFieldClick.bind(this)
+    this.onSubmit = this.onSubmit.bind(this)
+  }
   static propTypes = {
-    addListCount: PropTypes.func.isRequired
+    addListCount: PropTypes.func.isRequired,
+    lowerListCount: PropTypes.func.isRequired,
+    disableProceedWarn: PropTypes.func.isRequired,
   }
 
   handleDeleteListClick(networkList) {
-    console.log('logging yolo', networkList)
     this.props.deleteNetworkList(networkList.id)
     this.props.lowerListCount()
   }
