@@ -203,4 +203,10 @@ class OnboardingStepper extends PureComponent {
   }
 }
 
-export default OnboardingStepper
+const mapStateToProps = (state) => {
+  return {
+    stepIndex: state.onboarding.stepIndex
+  }
+}
+
+export default connect(mapStateToProps, {addStepIndex})(OnboardingStepper)
