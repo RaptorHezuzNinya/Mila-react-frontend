@@ -81,6 +81,7 @@ class CreateListsContainer extends PureComponent {
   renderTextField = ({ input, label, meta: { touched, error } }) => (
     <TextField
       className='list-input'
+      onClick={this.handleTextFieldClick}
       hintText={label}
       hintStyle={styles.hint}
       fullWidth={true}
