@@ -187,7 +187,8 @@ const mapStateToProps = (state) => {
   return {
     stepIndex: state.onboarding.stepIndex,
     listCount: state.onboarding.listCount,
+    proceedWarning: state.onboarding.proceedWarning,
   }
 }
 
-export default connect(mapStateToProps, {incrStepIndex, decrStepIndex, incrListCount, decrListCount})(OnboardingStepper)
+export default connect(mapStateToProps, {incrStepIndex, decrStepIndex, incrListCount, decrListCount, showProceedWarn, hideProceedWarn})(OnboardingStepper)
