@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import Media from 'react-media'
 import classNames from 'classNames'
 // actions
-import { addStepIndex } from '../actions/onboarding'
+import { incrStepIndex, decrStepIndex, incrListCount, decrListCount, showProceedWarn, hideProceedWarn } from '../actions/onboarding'
 //Components
 import ScanningInbox from './ScanningInbox'
 import CreateListsContainer from './CreateListsContainer'
@@ -25,72 +25,54 @@ class OnboardingStepper extends PureComponent {
   constructor(props){
     super(props)
     this.state = {
-      finished: false,
-      // stepIndex: 0,
+      // finished: false, after step 2, finished on true so can add a link to the GETSTARTED button to bring them to contact sort
       stepperwidth: 450,
-      displayOtherTools: false,
-      listCount: 0,
-      proceedWarning: false
     }
+    this.disableProceedWarn = this.disableProceedWarn.bind(this)
+    this.addListCount = this.addListCount.bind(this)
+    this.lowerListCount = this.lowerListCount.bind(this)
   };
 
   handleNext = () => {
-    const { listCount } = this.state
-    const { stepIndex } = this.props
-    return this.props.addStepIndex(stepIndex)
-    // if (stepIndex === 1 && listCount <= 1) {
-    //   return (
-    //     this.setState({
-    //       proceedWarning: true
-    //     })
-    //   );
-    // };
-    // this.setState({
-    //   stepIndex: stepIndex + 1,
-    //   finished: stepIndex >= 2,
-    // });
+    const { stepIndex, incrStepIndex, listCount, showProceedWarn } = this.props
+    if (stepIndex === 1 && listCount <= 1) {
+      return showProceedWarn()
+    }
+    incrStepIndex(stepIndex)
   };
 
   handlePrev = () => {
-    const {stepIndex} = this.props
+    const { stepIndex, decrStepIndex, hideProceedWarn } = this.props
+    decrStepIndex(stepIndex)
     if (stepIndex > 0) {
-      this.setState({
-        stepIndex: stepIndex - 1,
-        proceedWarning: false
-      });
+      hideProceedWarn()
     }
   };
 
   addListCount = () => {
-    const { listCount } = this.state
-    this.setState({
-      listCount: listCount + 1
-    })
+    const { listCount, incrListCount } = this.props
+    incrListCount(listCount)
   }
 
   lowerListCount = () => {
-    const { listCount } = this.state
-    this.setState({
-      listCount: listCount - 1
-    })
+    const { listCount, decrListCount } = this.props
+    decrListCount(listCount)
   }
 
   disableProceedWarn = () => {
-    this.setState({
-      proceedWarning: false
-    })
+    this.props.hideProceedWarn()
   }
 
   getStepContent(stepIndex) {
-    const { listCount } = this.state
+    const { listCount } = this.props
     switch (stepIndex) {
       case 0:
         return <ScanningInbox />
       case 1:
         return <CreateListsContainer
-                disableProceedWarn={this.disableProceedWarn.bind(this)}
-                addListCount={this.addListCount.bind(this)}
-                lowerListCount={this.lowerListCount.bind(this)} />
+                disableProceedWarn={this.disableProceedWarn}
+                addListCount={this.addListCount}
+                lowerListCount={this.lowerListCount} />
       case 2:
         return <StartSorting />
       default:
@@ -112,8 +94,7 @@ class OnboardingStepper extends PureComponent {
   }
 
   renderStepActions() {
-    const { listCount, proceedWarning } = this.state
-    const { stepIndex } = this.props
+    const { stepIndex, listCount, proceedWarning } = this.props
     const btnClass = classNames({
       'btn-green': true,
       'btn-desktop': stepIndex === 0 || stepIndex === 2,
@@ -142,7 +123,7 @@ class OnboardingStepper extends PureComponent {
       <div>
         <div className='onboarding-next'>
           <div className='warning-holder'>
-            <ProceedWarning proceedWarning={ proceedWarning }/>
+            <ProceedWarning proceedWarning={proceedWarning}/>
           </div>
           <div className={btnholderClass}>
             {backBtn}
@@ -160,13 +141,12 @@ class OnboardingStepper extends PureComponent {
 
   render() {
     const { stepperwidth } = this.state
-    const { orientation, stepIndex } = this.props
-    console.log('STEPINDEX in stepper', stepIndex )
+    const { orientation, stepIndex, listCount } = this.props
     const stepWrapClass = classNames({
       'stepper-wrapper': true,
       'step-wrap-step1-desk': stepIndex === 1
     })
-
+    console.log(stepIndex, listCount)
     return (
       <div className={ stepWrapClass }>
         <Stepper activeStep={stepIndex} orientation={orientation} style={styles.stepper}>
@@ -205,8 +185,10 @@ class OnboardingStepper extends PureComponent {
 
 const mapStateToProps = (state) => {
   return {
-    stepIndex: state.onboarding.stepIndex
+    stepIndex: state.onboarding.stepIndex,
+    listCount: state.onboarding.listCount,
+    proceedWarning: state.onboarding.proceedWarning,
   }
 }
 
-export default connect(mapStateToProps, {addStepIndex})(OnboardingStepper)
+export default connect(mapStateToProps, {incrStepIndex, decrStepIndex, incrListCount, decrListCount, showProceedWarn, hideProceedWarn})(OnboardingStepper)
