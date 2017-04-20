@@ -25,18 +25,17 @@ class OnboardingStepper extends PureComponent {
   constructor(props){
     super(props)
     this.state = {
-      finished: false,
+      // finished: false,
       // stepIndex: 0,
       stepperwidth: 450,
       displayOtherTools: false,
-      listCount: 0,
+      // listCount: 0,
       proceedWarning: false
     }
   };
 
   handleNext = () => {
-    const { listCount } = this.state
-    const { stepIndex, incrStepIndex } = this.props
+    const { stepIndex, incrStepIndex, listCount } = this.props
     incrStepIndex(stepIndex)
 
     // if (stepIndex === 1 && listCount <= 1) {
@@ -64,17 +63,19 @@ class OnboardingStepper extends PureComponent {
   };
 
   addListCount = () => {
-    const { listCount } = this.state
-    this.setState({
-      listCount: listCount + 1
-    })
+    const { listCount, incrListCount } = this.props
+    incrListCount(listCount)
+    // this.setState({
+    //   listCount: listCount + 1
+    // })
   }
 
   lowerListCount = () => {
-    const { listCount } = this.state
-    this.setState({
-      listCount: listCount - 1
-    })
+    const { listCount, decrListCount } = this.props
+    decrListCount(listCount)
+    // this.setState({
+    //   listCount: listCount - 1
+    // })
   }
 
   disableProceedWarn = () => {
@@ -84,7 +85,7 @@ class OnboardingStepper extends PureComponent {
   }
 
   getStepContent(stepIndex) {
-    const { listCount } = this.state
+    const { listCount } = this.props
     switch (stepIndex) {
       case 0:
         return <ScanningInbox />
