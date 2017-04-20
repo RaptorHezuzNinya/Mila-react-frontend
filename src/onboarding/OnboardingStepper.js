@@ -26,7 +26,7 @@ class OnboardingStepper extends PureComponent {
     super(props)
     this.state = {
       finished: false,
-      stepIndex: 0,
+      // stepIndex: 0,
       stepperwidth: 450,
       displayOtherTools: false,
       listCount: 0,
