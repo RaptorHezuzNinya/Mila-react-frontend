@@ -35,22 +35,24 @@ class OnboardingStepper extends PureComponent {
   };
 
   handleNext = () => {
-    const { stepIndex, listCount } = this.state;
-    if (stepIndex === 1 && listCount <= 1) {
-      return (
-        this.setState({
-          proceedWarning: true
-        })
-      );
-    };
-    this.setState({
-      stepIndex: stepIndex + 1,
-      finished: stepIndex >= 2,
-    });
+    const { listCount } = this.state
+    const { stepIndex } = this.props
+    return this.props.addStepIndex(stepIndex)
+    // if (stepIndex === 1 && listCount <= 1) {
+    //   return (
+    //     this.setState({
+    //       proceedWarning: true
+    //     })
+    //   );
+    // };
+    // this.setState({
+    //   stepIndex: stepIndex + 1,
+    //   finished: stepIndex >= 2,
+    // });
   };
 
   handlePrev = () => {
-    const {stepIndex} = this.state;
+    const {stepIndex} = this.props
     if (stepIndex > 0) {
       this.setState({
         stepIndex: stepIndex - 1,
