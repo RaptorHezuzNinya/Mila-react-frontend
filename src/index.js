@@ -6,13 +6,14 @@ import store, { history } from './store'
 import injectTapEventPlugin from 'react-tap-event-plugin'
 injectTapEventPlugin()
 
-import routes from '~/middleware/routes'
+import routes from './middleware/routes'
 // Components
 import App from './App'
 import Onboarding from './onboarding/Onboarding'
 import NewContactsContainer from './newContacts/NewContactsContainer'
 import Contact from './newContacts/Contact'
-import NetworkContainer from '~/myNetwork/NetworkContainer'
+import NetworkContainer from './myNetwork/NetworkContainer'
+import AccountSettings from './accountSettings/AccountSettings'
 // base styles
 import './assets/styles/main.sass'
 import 'normalize.css'
@@ -26,6 +27,7 @@ ReactDOM.render(
         <Route path={routes.onboardingPath} component={Onboarding} />
         <Route path={routes.newContactsPath} component={NewContactsContainer} />
         <Route path={routes.myNetworkPath} component={NetworkContainer} />
+        <Route path={routes.accountSettingsPath} component={AccountSettings} />
       </Route>
     </Router>
   </Provider>,
