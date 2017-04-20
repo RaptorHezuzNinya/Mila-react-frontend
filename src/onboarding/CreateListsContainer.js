@@ -69,6 +69,7 @@ class CreateListsContainer extends PureComponent {
           )}/>
           <Media query='(min-width: 769px)' render={() => (
             <span>
+              <FlatButton className='list-edit-btn' label='edit' onClick={this.handleDeleteListClick.bind(this, networkList)} />
               <FlatButton className='list-delete-btn' label='delete' onClick={this.handleDeleteListClick.bind(this, networkList)} />
             </span>
           )}/>
