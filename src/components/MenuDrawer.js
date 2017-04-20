@@ -1,8 +1,9 @@
 import React, { PureComponent } from 'react'
-
 // material ui
 import Drawer from 'material-ui/Drawer'
 import FlatButton from 'material-ui/FlatButton'
+
+import './MenuDrawer.sass'
 
 class MenuDrawer extends PureComponent {
   constructor(props){
