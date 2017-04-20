@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import Media from 'react-media'
 import classNames from 'classNames'
 // actions
-import { incrStepIndex, decrStepIndex, incrListCount, decrListCount, showProceedWarn, hideProceedWarn } from '../actions/onboarding'
+import { incrStepIndex, decrStepIndex, incrListCount, decrListCount, toggleProceedWarn } from '../actions/onboarding'
 //Components
 import ScanningInbox from './ScanningInbox'
 import CreateListsContainer from './CreateListsContainer'
@@ -34,18 +34,18 @@ class OnboardingStepper extends PureComponent {
   };
 
   handleNext = () => {
-    const { stepIndex, incrStepIndex, listCount, showProceedWarn } = this.props
+    const { stepIndex, incrStepIndex, listCount, toggleProceedWarn, proceedWarning } = this.props
     if (stepIndex === 1 && listCount <= 1) {
-      return showProceedWarn()
+      return toggleProceedWarn(proceedWarning)
     }
     incrStepIndex(stepIndex)
   };
 
   handlePrev = () => {
-    const { stepIndex, decrStepIndex, hideProceedWarn } = this.props
+    const { stepIndex, decrStepIndex, toggleProceedWarn, proceedWarning } = this.props
     decrStepIndex(stepIndex)
     if (stepIndex > 0) {
-      hideProceedWarn()
+      toggleProceedWarn(proceedWarning)
     }
   };
 
@@ -60,7 +60,9 @@ class OnboardingStepper extends PureComponent {
   }
 
   disableProceedWarn = () => {
-    this.props.hideProceedWarn()
+    const { toggleProceedWarn, proceedWarning }  = this.props
+    console.log(proceedWarning)
+    toggleProceedWarn(proceedWarning)
   }
 
   getStepContent(stepIndex) {
@@ -191,4 +193,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, {incrStepIndex, decrStepIndex, incrListCount, decrListCount, showProceedWarn, hideProceedWarn})(OnboardingStepper)
+export default connect(mapStateToProps, {incrStepIndex, decrStepIndex, incrListCount, decrListCount, toggleProceedWarn})(OnboardingStepper)
