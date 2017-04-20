@@ -3,26 +3,20 @@ import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import { Router, Route, IndexRoute } from 'react-router'
 import store, { history } from './store'
-
 import injectTapEventPlugin from 'react-tap-event-plugin'
 injectTapEventPlugin()
 
-// Styles
-import './assets/styles/main.sass'
-import 'normalize.css'
-
-// Routes
 import routes from '~/middleware/routes'
-
 // Components
 import App from './App'
-// onboarding related container & components
 import Onboarding from './onboarding/Onboarding'
-// newContacts related container & components
 import NewContactsContainer from './newContacts/NewContactsContainer'
 import Contact from './newContacts/Contact'
-// myNetwork related container & components
 import NetworkContainer from '~/myNetwork/NetworkContainer'
+// base styles
+import './assets/styles/main.sass'
+import 'normalize.css'
+import './assets/styles/base/basestyles.sass'
 
 ReactDOM.render(
   <Provider store={store}>
