@@ -2,6 +2,7 @@ import React, { PureComponent, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { Field, reduxForm } from 'redux-form'
 import { reset } from 'redux-form'
+import Media from 'react-media'
 // actions
 import { createNetworkList, deleteNetworkList } from '../actions/networklists/index'
 // Components
@@ -47,14 +48,21 @@ class CreateListsContainer extends PureComponent {
   renderNetworkLists = () => {
     return this.props.networkLists.map((networkList) => {
       return (
-        <li className="list-item" key={networkList.id}>
-          <span><ListIcon className="list-icon"/></span>
-          <p className="list-title">{networkList.title}</p>
-          <span>
-            <IconButton onClick={this.handleDeleteListClick.bind(this, networkList)}>
-              <DeleteIcon />
-            </IconButton>
-          </span>
+        <li className='list-item' key={networkList.id}>
+          <span><ListIcon className='list-icon'/></span>
+          <p className='list-title'>{networkList.title}</p>
+          <Media query='(max-width: 769px)' render={() => (
+            <span>
+              <IconButton onClick={this.handleDeleteListClick.bind(this, networkList)}>
+                <DeleteIcon />
+              </IconButton>
+            </span>
+          )}/>
+          <Media query='(min-width: 769px)' render={() => (
+            <span>
+              <FlatButton className='list-delete-btn' label='delete' onClick={this.handleDeleteListClick.bind(this, networkList)} />
+            </span>
+          )}/>
         </li>
       )
     })
@@ -62,7 +70,7 @@ class CreateListsContainer extends PureComponent {
 
   renderTextField = ({ input, label, meta: { touched, error } }) => (
     <TextField
-      className="list-input"
+      className='list-input'
       hintText={label}
       hintStyle={styles.hint}
       fullWidth={true}
@@ -77,22 +85,22 @@ class CreateListsContainer extends PureComponent {
     return (
       <div className='create-lists-wrapper'>
         <ResponsiveContent />
-        <ul className="network-lists">
+        <ul className='network-lists'>
           { this.renderNetworkLists() }
         </ul>
-        <div className="list-form-holder">
+        <div className='list-form-holder'>
           <form onSubmit={ handleSubmit(this.onSubmit.bind(this)) }>
             <div>
               <Field
-                name="title"
-                label="Enter list title, e.g. clients, prospects …"
+                name='title'
+                label='Enter list title, e.g. clients, prospects …'
                 component={ this.renderTextField } />
             </div>
-            <div className="form-btn-holder">
+            <div className='form-btn-holder'>
               <FlatButton
-                type="submit"
-                className="btn-grey form-btn"
-                label="Create List"
+                type='submit'
+                className='btn-grey form-btn'
+                label='Create List'
                 disabled={pristine || submitting}/>
             </div>
           </form>
