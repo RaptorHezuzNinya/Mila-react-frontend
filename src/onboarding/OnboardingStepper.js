@@ -1,6 +1,9 @@
 import React, { PureComponent, PropTypes } from 'react'
+import { connect } from 'react-redux'
 import Media from 'react-media'
 import classNames from 'classNames'
+// actions
+import { addStepIndex } from '../actions/onboarding'
 //Components
 import ScanningInbox from './ScanningInbox'
 import CreateListsContainer from './CreateListsContainer'
