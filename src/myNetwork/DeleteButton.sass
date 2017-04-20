@@ -1,0 +1,18 @@
+@import "../assets/styles/base/colors.sass"
+@import "../assets/styles/base/breakpoints.sass"
+// doenst work yet
+
+.delete-button-container
+  display: flex !important
+  flex-direction: row !important
+  justify-content: flex-end !important
+
+  .delete-button-network-desk
+    display: none !important
+    +breakpoint($breakpoint-medium)
+      display: flex !important
+
+  .delete-button-network-mob
+    // justify-content: flex-end !important
+    +breakpoint($breakpoint-medium)
+      display: none !important
