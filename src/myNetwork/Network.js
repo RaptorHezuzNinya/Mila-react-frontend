@@ -1,7 +1,7 @@
 import React, { PureComponent, PropTypes } from 'react'
 // Components
-import NetworkButton from '../components/NetworkButton'
-import NetworkButtonDrop from '../components/NetworkButtonDrop'
+import NetworkButton from './NetworkButton'
+import NetworkButtonDrop from './NetworkButtonDrop'
 import NetworkList from './NetworkList'
 import ButtonModal from '../modals/ButtonModal'
 // styles
