@@ -94,8 +94,7 @@ class OnboardingStepper extends PureComponent {
   }
 
   renderStepActions() {
-    const { proceedWarning } = this.state
-    const { stepIndex, listCount } = this.props
+    const { stepIndex, listCount, proceedWarning } = this.props
     const btnClass = classNames({
       'btn-green': true,
       'btn-desktop': stepIndex === 0 || stepIndex === 2,
@@ -124,7 +123,7 @@ class OnboardingStepper extends PureComponent {
       <div>
         <div className='onboarding-next'>
           <div className='warning-holder'>
-            <ProceedWarning proceedWarning={ proceedWarning }/>
+            <ProceedWarning proceedWarning={proceedWarning}/>
           </div>
           <div className={btnholderClass}>
             {backBtn}
@@ -143,13 +142,11 @@ class OnboardingStepper extends PureComponent {
   render() {
     const { stepperwidth } = this.state
     const { orientation, stepIndex, listCount } = this.props
-    console.log('STEPINDEX in stepper', stepIndex )
-    console.log('LISTCOUNT in stepper', listCount )
     const stepWrapClass = classNames({
       'stepper-wrapper': true,
       'step-wrap-step1-desk': stepIndex === 1
     })
-
+    console.log(stepIndex, listCount)
     return (
       <div className={ stepWrapClass }>
         <Stepper activeStep={stepIndex} orientation={orientation} style={styles.stepper}>
