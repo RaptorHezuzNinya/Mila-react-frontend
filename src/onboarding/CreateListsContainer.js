@@ -100,7 +100,7 @@ class CreateListsContainer extends PureComponent {
           { this.renderNetworkLists() }
         </ul>
         <div className='list-form-holder'>
-          <form onSubmit={ handleSubmit(this.onSubmit.bind(this)) }>
+          <form onSubmit={ handleSubmit(this.onSubmit) }>
             <div>
               <Field
                 name='title'
