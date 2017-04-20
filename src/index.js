@@ -19,6 +19,7 @@ import './assets/styles/main.sass'
 import 'normalize.css'
 import './assets/styles/base/basestyles.sass'
 
+
 ReactDOM.render(
   <Provider store={store}>
     <Router history={history}>

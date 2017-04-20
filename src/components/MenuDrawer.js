@@ -21,7 +21,7 @@ class MenuDrawer extends PureComponent {
 
   render () {
     return (
-      <div>
+      <div className='menu-drawer-wrapper'>
         <FlatButton label='open' onClick={this.handleOpen.bind(this)}/>
         <Drawer open={this.state.open}>
 
