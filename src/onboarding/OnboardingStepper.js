@@ -25,63 +25,42 @@ class OnboardingStepper extends PureComponent {
   constructor(props){
     super(props)
     this.state = {
-      // finished: false,
-      // stepIndex: 0,
+      // finished: false, after step 2, finished on true so can add a link to the GETSTARTED button to bring them to contact sort
       stepperwidth: 450,
-      displayOtherTools: false,
-      // listCount: 0,
-      proceedWarning: false
     }
+    this.disableProceedWarn = this.disableProceedWarn.bind(this)
+    this.addListCount = this.addListCount.bind(this)
+    this.lowerListCount = this.lowerListCount.bind(this)
   };
 
   handleNext = () => {
-    const { stepIndex, incrStepIndex, listCount } = this.props
+    const { stepIndex, incrStepIndex, listCount, showProceedWarn } = this.props
+    if (stepIndex === 1 && listCount <= 1) {
+      return showProceedWarn()
+    }
     incrStepIndex(stepIndex)
-
-    // if (stepIndex === 1 && listCount <= 1) {
-    //   return (
-    //     this.setState({
-    //       proceedWarning: true
-    //     })
-    //   );
-    // };
-    // this.setState({
-    //   stepIndex: stepIndex + 1,
-    //   finished: stepIndex >= 2,
-    // });
   };
 
   handlePrev = () => {
-    const { stepIndex, decrStepIndex } = this.props
+    const { stepIndex, decrStepIndex, hideProceedWarn } = this.props
     decrStepIndex(stepIndex)
-    // if (stepIndex > 0) {
-    //   this.setState({
-    //     stepIndex: stepIndex - 1,
-    //     proceedWarning: false
-    //   });
-    // }
+    if (stepIndex > 0) {
+      hideProceedWarn()
+    }
   };
 
   addListCount = () => {
     const { listCount, incrListCount } = this.props
     incrListCount(listCount)
-    // this.setState({
-    //   listCount: listCount + 1
-    // })
   }
 
   lowerListCount = () => {
     const { listCount, decrListCount } = this.props
     decrListCount(listCount)
-    // this.setState({
-    //   listCount: listCount - 1
-    // })
   }
 
   disableProceedWarn = () => {
-    this.setState({
-      proceedWarning: false
-    })
+    this.props.hideProceedWarn()
   }
 
   getStepContent(stepIndex) {
