@@ -2,15 +2,17 @@ import React, { PureComponent } from 'react'
 // material ui
 import Drawer from 'material-ui/Drawer'
 import FlatButton from 'material-ui/FlatButton'
-
+import Menu from 'material-ui/Menu'
+import MenuItem from 'material-ui/MenuItem'
 import './MenuDrawer.sass'
 const styles = {
   style: {
-    backgroundColor: 'red !important'
   },
   containerStyle: {
     height: 'calc(100% - 60px)',
     top: 60,
+    width: 220,
+    backgroundColor: '#dadce0'
 
   }
 }
