@@ -32,15 +32,38 @@ class MenuDrawer extends PureComponent {
 
   render () {
     return (
-      <div className='menu-drawer-wrapper'>
-        <FlatButton className='' label='open' onClick={this.handleOpen.bind(this)}/>
-        <Drawer
+      <Drawer
           style={styles.style}
           open={this.state.open}
           containerStyle={styles.containerStyle}>
-
-        </Drawer>
-      </div>
+        <div className='drawer-menu-wrapper'>
+          <Menu className='top-menu-holder'>
+            <MenuItem className='menu-btn-item'>
+              <FlatButton className='menu-button' label='free trail' />
+            </MenuItem>
+            <MenuItem className='menu-item' onClick={() => console.log('YOLOSWAG ITEM1 ClICKED')}>
+                New Contacts
+            </MenuItem>
+            <MenuItem className='menu-item' onClick={() => console.log('YOLOSWAG ITEM1 ClICKED')}>
+                My Network
+            </MenuItem>
+            <MenuItem className='menu-item' onClick={() => console.log('YOLOSWAG ITEM1 ClICKED')}>
+                Lists Settings
+            </MenuItem>
+          </Menu>
+          <Menu className='bot-menu-holder'>
+            <MenuItem className='menu-item' onClick={() => console.log('YOLOSWAG ITEM1 ClICKED')}>
+                FAQ
+            </MenuItem>
+            <MenuItem className='menu-item' onClick={() => console.log('YOLOSWAG ITEM1 ClICKED')}>
+                BLOG
+            </MenuItem>
+            <MenuItem className='menu-item' onClick={() => console.log('YOLOSWAG ITEM1 ClICKED')}>
+                ABOUT
+            </MenuItem>
+          </Menu>
+        </div>
+      </Drawer>
     )
   }
 }
