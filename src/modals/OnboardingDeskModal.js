@@ -42,19 +42,6 @@ class OnboardingDeskModal extends PureComponent {
   }
 
   render(){
-    const actions = [
-      // <FlatButton
-      //   label="Cancel"
-      //   primary={true}
-      //   onTouchTap={this.handleClose}
-      // />,
-      // <FlatButton
-      //   label="Submit"
-      //   primary={true}
-      //   disabled={true}
-      //   onTouchTap={this.handleClose}
-      // />,
-    ]
 
     return (
       <Dialog
@@ -62,8 +49,7 @@ class OnboardingDeskModal extends PureComponent {
         style={styles.dialogRoot}
         bodyStyle={styles.bodyStyle}
         contentStyle={styles.customContentStyle}
-         autoScrollBodyContent={true}
-        actions={actions}
+        autoScrollBodyContent={true}
         modal={true}
         open={this.state.open}
       >
