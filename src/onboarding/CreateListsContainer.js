@@ -50,13 +50,9 @@ class CreateListsContainer extends PureComponent {
     this.props.createNetworkList(props);
     this.props.addListCount();
   }
-  
+
   handleTextFieldClick () {
-    const { proceedWarning } = this.props
-    if (proceedWarning) {
-      return this.props.disableProceedWarn()
-    }
-    return null
+    this.props.disableProceedWarn()
   }
 
   renderNetworkLists = () => {

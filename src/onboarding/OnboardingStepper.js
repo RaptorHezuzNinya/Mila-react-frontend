@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import Media from 'react-media'
 import classNames from 'classNames'
 // actions
-import { incrStepIndex, decrStepIndex, incrListCount, decrListCount, toggleProceedWarn } from '../actions/onboarding'
+import { incrStepIndex, decrStepIndex, incrListCount, decrListCount, showProceedWarn, hideProceedWarn } from '../actions/onboarding'
 //Components
 import ScanningInbox from './ScanningInbox'
 import CreateListsContainer from './CreateListsContainer'
@@ -34,21 +34,18 @@ class OnboardingStepper extends PureComponent {
   };
 
   handleNext = () => {
-    const { stepIndex, incrStepIndex, listCount, toggleProceedWarn, proceedWarning } = this.props
-    if (proceedWarning) {
-      return null
-    }
+    const { stepIndex, incrStepIndex, listCount, showProceedWarn, proceedWarning } = this.props
     if (stepIndex === 1 && listCount <= 1) {
-      return toggleProceedWarn(proceedWarning)
+      return showProceedWarn()
     }
     incrStepIndex(stepIndex)
   };
 
   handlePrev = () => {
-    const { stepIndex, decrStepIndex, toggleProceedWarn, proceedWarning } = this.props
+    const { stepIndex, decrStepIndex, hideProceedWarn } = this.props
     decrStepIndex(stepIndex)
     if (stepIndex > 0) {
-      toggleProceedWarn(proceedWarning)
+      hideProceedWarn()
     }
   };
 
