@@ -21,7 +21,7 @@ class App extends Component {
   render() {
     return (
       <MuiThemeProvider muiTheme={muiTheme}>
-        <div className="app">
+        <div className='app'>
           <Navigation />
           <ModalRoot />
           { this.props.children }
