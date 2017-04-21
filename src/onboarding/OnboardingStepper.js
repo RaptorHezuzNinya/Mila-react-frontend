@@ -60,9 +60,8 @@ class OnboardingStepper extends PureComponent {
   }
 
   disableProceedWarn = () => {
-    const { toggleProceedWarn, proceedWarning }  = this.props
-    console.log(proceedWarning)
-    toggleProceedWarn(proceedWarning)
+    const { hideProceedWarn}  = this.props
+    hideProceedWarn()
   }
 
   getStepContent(stepIndex) {
@@ -72,7 +71,6 @@ class OnboardingStepper extends PureComponent {
         return <ScanningInbox />
       case 1:
         return <CreateListsContainer
-                proceedWarning={this.props.proceedWarning}
                 disableProceedWarn={this.disableProceedWarn}
                 addListCount={this.addListCount}
                 lowerListCount={this.lowerListCount} />
@@ -194,4 +192,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, {incrStepIndex, decrStepIndex, incrListCount, decrListCount, toggleProceedWarn})(OnboardingStepper)
+export default connect(mapStateToProps, {incrStepIndex, decrStepIndex, incrListCount, decrListCount, showProceedWarn, hideProceedWarn})(OnboardingStepper)
