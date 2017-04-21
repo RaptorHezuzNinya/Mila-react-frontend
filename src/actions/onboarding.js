@@ -30,10 +30,18 @@ export const decrListCount = (listCount) => {
   }
 }
 
-export const TOGGLE_PROCEED_WARN = 'TOGGLE_PROCEED_WARN'
-export const toggleProceedWarn = (proceedWarning) => {
+export const SHOW_PROCEED_WARN = 'SHOW_PROCEED_WARN'
+export const showProceedWarn = (proceedWarning) => {
   return {
-    type: TOGGLE_PROCEED_WARN,
+    type: SHOW_PROCEED_WARN,
+    payload: proceedWarning
+  }
+}
+
+export const HIDE_PROCEED_WARN = 'HIDE_PROCEED_WARN'
+export const hideProceedWarn = (proceedWarning) => {
+  return {
+    type: HIDE_PROCEED_WARN,
     payload: proceedWarning
   }
 }
