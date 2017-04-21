@@ -46,10 +46,11 @@ class CreateListsContainer extends PureComponent {
     this.props.lowerListCount()
   }
 
-  onSubmit(props){
+  onSubmit (props) {
     this.props.createNetworkList(props);
     this.props.addListCount();
   }
+
   handleTextFieldClick () {
     this.props.disableProceedWarn()
   }
@@ -57,7 +58,7 @@ class CreateListsContainer extends PureComponent {
   renderNetworkLists = () => {
     return this.props.networkLists.map((networkList) => {
       return (
-                                  //FIXME when there is an api key needs to be .id
+          //FIXME when there is an api key needs to be .id
         <li className='list-item' key={networkList.title}>
           <span><ListIcon className='list-icon'/></span>
           <p className='list-title'>{networkList.title}</p>
@@ -70,7 +71,6 @@ class CreateListsContainer extends PureComponent {
           )}/>
           <Media query='(min-width: 769px)' render={() => (
             <span>
-              {/* <FlatButton className='list-edit-btn' label='edit' onClick={this.handleEditClick} /> */}
               <FlatButton className='list-delete-btn' label='delete' onClick={this.handleDeleteListClick.bind(this, networkList)} />
             </span>
           )}/>
