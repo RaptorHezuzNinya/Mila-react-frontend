@@ -35,6 +35,9 @@ class OnboardingStepper extends PureComponent {
 
   handleNext = () => {
     const { stepIndex, incrStepIndex, listCount, toggleProceedWarn, proceedWarning } = this.props
+    if (proceedWarning) {
+      return null
+    }
     if (stepIndex === 1 && listCount <= 1) {
       return toggleProceedWarn(proceedWarning)
     }
@@ -72,6 +75,7 @@ class OnboardingStepper extends PureComponent {
         return <ScanningInbox />
       case 1:
         return <CreateListsContainer
+                proceedWarning={this.props.proceedWarning}
                 disableProceedWarn={this.disableProceedWarn}
                 addListCount={this.addListCount}
                 lowerListCount={this.lowerListCount} />
