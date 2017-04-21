@@ -2,10 +2,11 @@
 @import "../assets/styles/base/mixins.sass"
 @import "../assets/styles/base/breakpoints.sass"
 
-.menu-drawer-wrapper
-  +breakpoint($breakpoint-medium)
-  display: flex
-  justify-content: flex-end
+.drawer-menu-wrapper
+  
 
-.containerClassName
-  display: none !important
+  .top-menu-wrapper
+    flex-grow: 1
+    .menu-btn-item
+      display: flex !important
+      justify-content: center
