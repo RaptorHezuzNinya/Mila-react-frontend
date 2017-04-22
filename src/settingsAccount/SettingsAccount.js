@@ -7,10 +7,6 @@ import './SettingsAccount.sass'
 class SettingsAccount extends PureComponent {
   constructor(props){
     super(props)
-    this.state = {
-
-    }
-    // this.handleOpen = this.handleOpen.bind(this)
   }
 
 
@@ -18,8 +14,8 @@ class SettingsAccount extends PureComponent {
   render () {
     return (
       <div>
-        <div className='open-btn'>
-          {/* <FlatButton label='open' onClick={this.handleOpen} /> */}
+        <div>
+
           Settings Account
         </div>
 
