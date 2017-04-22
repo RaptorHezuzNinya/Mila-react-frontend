@@ -12,21 +12,26 @@ import UserCircle from 'material-ui/svg-icons/action/account-circle'
 // Styles
 import './Navigation.sass'
 
-export class Navigation extends PureComponent {
+class Navigation extends PureComponent {
+  static propTypes = {
+    handleOpenMenuDrawer: PropTypes.func.isRequired
+  }
+
+
 
   render(){
+    const { handleOpenMenuDrawer } = this.props
     const styles = {
       button: {
         color: '$steelC'
       }
     }
-
     const rightIconLinks = (
       <div className='right-icons-wrap'>
-        <Link to='/newcontacts'><div className='sub-button' ><p className='sub-text'>295 CONTACTS FREE</p></div></Link>
+        {/* <Link to='/newcontacts'><div className='sub-button' ><p className='sub-text'>295 CONTACTS FREE</p></div></Link> */}
         <Link to='/newcontacts'><FlatButton className='new-contact' label='New Contacts' style={styles.button}/></Link>
         <Link to='/'><FlatButton className='network-button' label='My Network' style={styles.button}/></Link>
-        <Link to='/newcontacts'><div className='wrap-icon-grey'><img className='user-grey' src={UserIconGrey} /></div></Link>
+        <Link to='/mynetwork'><div className='wrap-icon-grey'><img className='user-grey' src={UserIconGrey} /></div></Link>
         <Link to='/settings/account'><div className='wrap-icon-blue'><img className='user-blue' src={UserIconBlue} /></div></Link>
       </div>
     )
@@ -35,7 +40,9 @@ export class Navigation extends PureComponent {
       <header className='nav-bar'>
         <Appbar
         className='appbar'
-        iconElementLeft={ <Link to='/'><div className='wrapper-logo'><img className='logo-mila' src={milaLogo} /></div></Link> }
+        iconElementLeft={ <div className='wrapper-logo' onClick={handleOpenMenuDrawer}>
+                            <img className='logo-mila' src={milaLogo} />
+                          </div> }
         iconElementRight={ rightIconLinks }
         />
       </header>
