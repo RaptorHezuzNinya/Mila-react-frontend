@@ -35,9 +35,11 @@ class MenuDrawer extends PureComponent {
             <MenuItem className='menu-item'>
               <div className='trial-item'>Free trial</div>
             </MenuItem>
-            <MenuItem className='menu-item' onClick={() => console.log('YOLOSWAG ITEM1 ClICKED')}>
-                New Contacts
-            </MenuItem>
+            <Link to='/newcontacts'>
+              <MenuItem className='menu-item' style={{textDecoration: 'none'}} onClick={() => console.log('YOLOSWAG ITEM1 ClICKED')}>
+                  New Contacts
+              </MenuItem>
+            </Link>
             <MenuItem className='menu-item' onClick={() => console.log('YOLOSWAG ITEM1 ClICKED')}>
                 My Network
             </MenuItem>
