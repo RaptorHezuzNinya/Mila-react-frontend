@@ -17,24 +17,12 @@ const styles = {
   }
 }
 class MenuDrawer extends PureComponent {
-  constructor(props){
-    super(props)
-    this.state = {
-      open: true
-    }
-  }
-
-  handleOpen () {
-    this.setState({
-      open: !this.state.open
-    })
-  }
 
   render () {
     return (
       <Drawer
           style={styles.style}
-          open={this.state.open}
+          open={this.props.open}
           containerStyle={styles.containerStyle}>
 
         <div className='drawer-menu-wrapper'>
