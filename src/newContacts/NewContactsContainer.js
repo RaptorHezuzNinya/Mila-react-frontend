@@ -20,10 +20,7 @@ export class NewContactsContainer extends PureComponent {
 
     return (
       <div>
-        <h1>New Contact Container!</h1>
-        <div>
-          {contacts.map(this.renderContact.bind(this))}
-        </div>
+        {contacts.map(this.renderContact.bind(this))}
       </div>
     )
   }
