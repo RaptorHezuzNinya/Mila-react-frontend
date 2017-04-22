@@ -22,20 +22,20 @@ export class Navigation extends PureComponent {
     }
 
     const rightIconLinks = (
-      <div className="right-icons-wrap">
-        <Link to="/newcontacts"><div className="sub-button" ><p className="sub-text">295 CONTACTS FREE</p></div></Link>
-        <Link to="/newcontacts"><FlatButton className="new-contact" label="New Contacts" style={styles.button}/></Link>
-        <Link to="/"><FlatButton className="network-button" label="My Network" style={styles.button}/></Link>
-        <Link to="/newcontacts"><div className="wrap-icon-grey"><img className="user-grey" src={UserIconGrey} /></div></Link>
-        <Link to=""><div className="wrap-icon-blue"><img className="user-blue" src={UserIconBlue} /></div></Link>
+      <div className='right-icons-wrap'>
+        <Link to='/newcontacts'><div className='sub-button' ><p className='sub-text'>295 CONTACTS FREE</p></div></Link>
+        <Link to='/newcontacts'><FlatButton className='new-contact' label='New Contacts' style={styles.button}/></Link>
+        <Link to='/'><FlatButton className='network-button' label='My Network' style={styles.button}/></Link>
+        <Link to='/newcontacts'><div className='wrap-icon-grey'><img className='user-grey' src={UserIconGrey} /></div></Link>
+        <Link to='/settings/account'><div className='wrap-icon-blue'><img className='user-blue' src={UserIconBlue} /></div></Link>
       </div>
     )
 
     return (
-      <header className="nav-bar">
+      <header className='nav-bar'>
         <Appbar
-        className="appbar"
-        iconElementLeft={ <Link to="/"><div className="wrapper-logo"><img className="logo-mila" src={milaLogo} /></div></Link> }
+        className='appbar'
+        iconElementLeft={ <Link to='/'><div className='wrapper-logo'><img className='logo-mila' src={milaLogo} /></div></Link> }
         iconElementRight={ rightIconLinks }
         />
       </header>
