@@ -16,7 +16,7 @@ class SettingsAccount extends PureComponent {
   handleOpen () {
     console.log('clicked')
     this.setState({
-      openDrawer: !this.state.open
+      openDrawer: !this.state.openDrawer
     })
   }
 
@@ -26,7 +26,7 @@ class SettingsAccount extends PureComponent {
         <div className='open-btn'>
           <FlatButton label='open' onClick={this.handleOpen} />
         </div>
-        <MenuDrawer open={this.state.openDrawer}/>
+        <MenuDrawer openDrawer={this.state.openDrawer}/>
 
       </div>
     )
