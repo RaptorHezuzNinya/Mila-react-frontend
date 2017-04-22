@@ -17,8 +17,6 @@ class Navigation extends PureComponent {
     handleOpenMenuDrawer: PropTypes.func.isRequired
   }
 
-
-
   render(){
     const { handleOpenMenuDrawer } = this.props
     const styles = {
