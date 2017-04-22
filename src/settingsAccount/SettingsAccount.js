@@ -8,25 +8,20 @@ class SettingsAccount extends PureComponent {
   constructor(props){
     super(props)
     this.state = {
-      openDrawer: false
+
     }
-    this.handleOpen = this.handleOpen.bind(this)
+    // this.handleOpen = this.handleOpen.bind(this)
   }
 
-  handleOpen () {
-    console.log('clicked')
-    this.setState({
-      openDrawer: !this.state.openDrawer
-    })
-  }
+
 
   render () {
     return (
       <div>
         <div className='open-btn'>
-          <FlatButton label='open' onClick={this.handleOpen} />
+          {/* <FlatButton label='open' onClick={this.handleOpen} /> */}
+          Settings Account
         </div>
-        <MenuDrawer openDrawer={this.state.openDrawer}/>
 
       </div>
     )
