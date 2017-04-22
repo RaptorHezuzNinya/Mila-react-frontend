@@ -36,10 +36,12 @@ class MenuDrawer extends PureComponent {
           style={styles.style}
           open={this.state.open}
           containerStyle={styles.containerStyle}>
+
         <div className='drawer-menu-wrapper'>
-          <Menu className='top-menu-holder'>
-            <MenuItem className='menu-btn-item'>
-              <FlatButton className='menu-button' label='free trail' />
+
+          <Menu className='top-menu-holder' width='100px'>
+            <MenuItem className='menu-item'>
+              <div className='trial-item'>Free trial</div>
             </MenuItem>
             <MenuItem className='menu-item' onClick={() => console.log('YOLOSWAG ITEM1 ClICKED')}>
                 New Contacts
@@ -51,6 +53,7 @@ class MenuDrawer extends PureComponent {
                 Lists Settings
             </MenuItem>
           </Menu>
+
           <Menu className='bot-menu-holder'>
             <MenuItem className='menu-item' onClick={() => console.log('YOLOSWAG ITEM1 ClICKED')}>
                 FAQ
@@ -62,7 +65,9 @@ class MenuDrawer extends PureComponent {
                 ABOUT
             </MenuItem>
           </Menu>
+
         </div>
+
       </Drawer>
     )
   }
