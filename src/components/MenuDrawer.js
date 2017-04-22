@@ -11,7 +11,7 @@ const styles = {
   containerStyle: {
     height: 'calc(100% - 60px)',
     top: 60,
-    width: 220,
+    width: 224,
     backgroundColor: '#dadce0'
 
   }
