@@ -27,13 +27,21 @@ class App extends Component {
     return { muiTheme }
   }
 
+  handleOpenMenuDrawer () {
+    console.log('clicked')
+    this.setState({
+      openDrawer: !this.state.openDrawer
+    })
+  }
+
   render() {
     return (
       <MuiThemeProvider muiTheme={muiTheme}>
         <div className='app'>
-          <Navigation />
+          <Navigation handleOpenMenuDrawer={this.handleOpenMenuDrawer}/>
+          <MenuDrawer openDrawer={this.state.openDrawer}/>
           <ModalRoot />
-          { this.props.children }
+          {this.props.children}
         </div>
       </MuiThemeProvider>
     )
