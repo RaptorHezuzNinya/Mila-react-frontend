@@ -1,4 +1,5 @@
 import React, { PureComponent, PropTypes } from 'react'
+import { Link } from 'react-router'
 // material ui
 import Drawer from 'material-ui/Drawer'
 import FlatButton from 'material-ui/FlatButton'
@@ -9,7 +10,7 @@ const styles = {
   style: {
   },
   containerStyle: {
-    height: 'calc(100% - 60px)',
+    height: 'calc(100vh - 60px)',
     top: 60,
     width: 224,
     backgroundColor: '#dadce0'
