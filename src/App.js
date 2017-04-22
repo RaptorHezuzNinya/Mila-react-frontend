@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 // import { Link } from 'react-router'
 import Navigation from './components/Navigation'
+import MenuDrawer from './components/MenuDrawer'
 import ModalRoot from './modals/ModalRoot'
 
 // Material UI Components
@@ -10,6 +11,14 @@ import muiTheme from './assets/styles/theme'
 
 
 class App extends Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      openDrawer: false
+    }
+    this.handleOpenMenuDrawer = this.handleOpenMenuDrawer.bind(this)
+  }
+
   static childContextTypes = {
     muiTheme: React.PropTypes.object.isRequired,
   }
