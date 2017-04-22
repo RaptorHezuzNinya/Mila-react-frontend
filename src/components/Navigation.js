@@ -66,11 +66,13 @@ class Navigation extends PureComponent {
       <header className='nav-bar'>
         <Appbar
         className='appbar'
-        iconElementLeft={ <div className='wrapper-logo' onClick={handleOpenMenuDrawer}>
-                            <img className='logo-mila' src={milaLogo} />
-                          </div> }
+        title={<MilaLogo />}
+        titleStyle={styles.title}
+        iconElementLeft={leftIcon}
         iconElementRight={ rightIconLinks }
-        />
+      />
+
+
       </header>
     )
   }
