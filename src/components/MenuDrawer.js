@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react'
+import React, { PureComponent, PropTypes } from 'react'
 // material ui
 import Drawer from 'material-ui/Drawer'
 import FlatButton from 'material-ui/FlatButton'
@@ -17,12 +17,15 @@ const styles = {
   }
 }
 class MenuDrawer extends PureComponent {
+  static propTypes = {
+    openDrawer: PropTypes.bool.isRequired
+  }
 
   render () {
     return (
       <Drawer
           style={styles.style}
-          open={this.props.open}
+          open={this.props.openDrawer}
           containerStyle={styles.containerStyle}>
 
         <div className='drawer-menu-wrapper'>
@@ -40,7 +43,6 @@ class MenuDrawer extends PureComponent {
             <MenuItem className='menu-item' onClick={() => console.log('YOLOSWAG ITEM1 ClICKED')}>
                 Lists Settings
             </MenuItem>
-
           </Menu>
 
           <Menu className='bot-menu-holder'>

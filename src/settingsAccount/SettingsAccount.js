@@ -5,7 +5,6 @@ import FlatButton from 'material-ui/FlatButton'
 import './SettingsAccount.sass'
 
 class SettingsAccount extends PureComponent {
-
   constructor(props){
     super(props)
     this.state = {
