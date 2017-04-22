@@ -40,6 +40,7 @@ class MenuDrawer extends PureComponent {
             <MenuItem className='menu-item' onClick={() => console.log('YOLOSWAG ITEM1 ClICKED')}>
                 Lists Settings
             </MenuItem>
+
           </Menu>
 
           <Menu className='bot-menu-holder'>
