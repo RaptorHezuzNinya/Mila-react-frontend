@@ -32,9 +32,11 @@ class MenuDrawer extends PureComponent {
         <div className='drawer-menu-wrapper'>
 
           <Menu className='top-menu-holder' width='100px'>
-            <MenuItem className='menu-item'>
-              <div className='trial-item'>Free trial</div>
-            </MenuItem>
+            <Link to='/onboarding' style={{ textDecoration: 'none' }}>
+              <MenuItem className='menu-item'>
+                <div className='trial-item'>Free trial</div>
+              </MenuItem>
+            </Link>
             <Link to='/newcontacts' style={{ textDecoration: 'none' }}>
               <MenuItem className='menu-item' style={{textDecoration: 'none'}} onClick={() => console.log('YOLOSWAG ITEM1 ClICKED')}>
                   New Contacts
