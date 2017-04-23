@@ -77,8 +77,14 @@ class Navigation extends PureComponent {
       </div>
     )
 
+
     const rightIconLinks = (
       <div className='right-icons-wrap'>
+        <Media query='(min-width: 769px)' render={() => (
+          <div className='username-holder'>
+            {"#{userName}"}
+          </div>
+        )}/>
         <div className='wrap-icon-blue' onTouchTap={this.handleTouchTap}>
           <img className='user-blue' src={UserIconBlue} />
         </div>
