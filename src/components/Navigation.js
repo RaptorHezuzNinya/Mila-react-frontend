@@ -1,5 +1,6 @@
 import React, { PureComponent, PropTypes } from 'react'
 import { Link } from 'react-router'
+import MilaLogo from './MilaLogo'
 // material-ui Components
 import Appbar from 'material-ui/AppBar'
 import FlatButton from 'material-ui/FlatButton'
@@ -9,6 +10,7 @@ import UserIconBlue from '../assets/images/icons/user-blue.jpg'
 import UserIconGrey from '../assets/images/icons/user-grey.svg'
 import milaLogo from '../assets/images/logos/logo-white.png'
 import UserCircle from 'material-ui/svg-icons/action/account-circle'
+import HamBurger from 'material-ui/svg-icons/image/dehaze'
 // Styles
 import './Navigation.sass'
 
@@ -17,22 +19,44 @@ class Navigation extends PureComponent {
     handleOpenMenuDrawer: PropTypes.func.isRequired
   }
 
-
-
   render(){
-    const { handleOpenMenuDrawer } = this.props
     const styles = {
-      button: {
-        color: '$steelC'
+      mediumIcon: {
+        width: 40,
+        height: 40,
+      },
+      title: {
+        display: 'flex',
+        justifyContent: 'center',
+        flex: 'inherit',
+        height: '100%'
+      },
+      hamburger: {
+        color: 'white'
+      },
+      iconStyle: {
+        marginLeft: 0,
+        marginRight: 0,
+        marginTop: 0,
       }
     }
+
+    const { handleOpenMenuDrawer } = this.props
+    const leftIcon = (
+      <div className='left-icon-wrap'>
+        <div className='hamburger'>
+          <HamBurger style={styles.mediumIcon} color={'white'} onClick={handleOpenMenuDrawer}/>
+        </div>
+      </div>
+    )
+
     const rightIconLinks = (
       <div className='right-icons-wrap'>
-        {/* <Link to='/newcontacts'><div className='sub-button' ><p className='sub-text'>295 CONTACTS FREE</p></div></Link> */}
-        <Link to='/newcontacts'><FlatButton className='new-contact' label='New Contacts' style={styles.button}/></Link>
-        <Link to='/'><FlatButton className='network-button' label='My Network' style={styles.button}/></Link>
-        <Link to='/mynetwork'><div className='wrap-icon-grey'><img className='user-grey' src={UserIconGrey} /></div></Link>
-        <Link to='/settings/account'><div className='wrap-icon-blue'><img className='user-blue' src={UserIconBlue} /></div></Link>
+        <Link to='/settings/account'>
+          <div className='wrap-icon-blue'>
+            <img className='user-blue' src={UserIconBlue} />
+          </div>
+        </Link>
       </div>
     )
 
@@ -40,11 +64,13 @@ class Navigation extends PureComponent {
       <header className='nav-bar'>
         <Appbar
         className='appbar'
-        iconElementLeft={ <div className='wrapper-logo' onClick={handleOpenMenuDrawer}>
-                            <img className='logo-mila' src={milaLogo} />
-                          </div> }
+        title={<MilaLogo />}
+        titleStyle={styles.title}
+        iconElementLeft={leftIcon}
+        iconStyleLeft={styles.iconStyle}
         iconElementRight={ rightIconLinks }
-        />
+        iconStyleRight={styles.iconStyle}
+      />
       </header>
     )
   }

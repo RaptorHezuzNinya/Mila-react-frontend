@@ -5,16 +5,17 @@ import Drawer from 'material-ui/Drawer'
 import FlatButton from 'material-ui/FlatButton'
 import Menu from 'material-ui/Menu'
 import MenuItem from 'material-ui/MenuItem'
+// styles
 import './MenuDrawer.sass'
 const styles = {
-  style: {
-  },
   containerStyle: {
-    height: 'calc(100vh - 60px)',
-    top: 60,
+    height: 'calc(100vh - 70px)',
+    top: 70,
     width: 224,
     backgroundColor: '#dadce0'
-
+  },
+  link: {
+    textDecoration: 'none'
   }
 }
 class MenuDrawer extends PureComponent {
@@ -25,43 +26,49 @@ class MenuDrawer extends PureComponent {
   render () {
     return (
       <Drawer
-          style={styles.style}
           open={this.props.openDrawer}
           containerStyle={styles.containerStyle}>
-
         <div className='drawer-menu-wrapper'>
-
-          <Menu className='top-menu-holder' width='100px'>
-            <MenuItem className='menu-item'>
-              <div className='trial-item'>Free trial</div>
-            </MenuItem>
-            <Link to='/newcontacts'>
-              <MenuItem className='menu-item' style={{textDecoration: 'none'}} onClick={() => console.log('YOLOSWAG ITEM1 ClICKED')}>
+          <Menu className='top-menu-holder'>
+            <Link to='/onboarding' style={styles.link}>
+              <MenuItem className='menu-item'>
+                <div className='trial-item'>Free trial</div>
+              </MenuItem>
+            </Link>
+            <Link to='/newcontacts' style={styles.link}>
+              <MenuItem className='menu-item'>
                   New Contacts
               </MenuItem>
             </Link>
-            <MenuItem className='menu-item' onClick={() => console.log('YOLOSWAG ITEM1 ClICKED')}>
-                My Network
-            </MenuItem>
-            <MenuItem className='menu-item' onClick={() => console.log('YOLOSWAG ITEM1 ClICKED')}>
-                Lists Settings
-            </MenuItem>
+            <Link to='/mynetwork' style={styles.link}>
+              <MenuItem className='menu-item'>
+                  My Network
+              </MenuItem>
+            </Link>
+            <Link to='/settings/account' style={styles.link}>
+              <MenuItem className='menu-item'>
+                  Lists Settings
+              </MenuItem>
+            </Link>
           </Menu>
-
           <Menu className='bot-menu-holder'>
-            <MenuItem className='menu-item' onClick={() => console.log('YOLOSWAG ITEM1 ClICKED')}>
-                FAQ
-            </MenuItem>
-            <MenuItem className='menu-item' onClick={() => console.log('YOLOSWAG ITEM1 ClICKED')}>
-                BLOG
-            </MenuItem>
-            <MenuItem className='menu-item' onClick={() => console.log('YOLOSWAG ITEM1 ClICKED')}>
-                ABOUT
-            </MenuItem>
+            <a href='https://milahq.com/faq/' target='_blank' style={styles.link}>
+              <MenuItem className='menu-item'>
+                  FAQ
+              </MenuItem>
+            </a>
+            <a href='https://milahq.com/blog/' target='_blank' style={styles.link}>
+              <MenuItem className='menu-item'>
+                  BLOG
+              </MenuItem>
+            </a>
+            <a href='https://milahq.com/about/' target='_blank' style={styles.link}>
+              <MenuItem className='menu-item'>
+                  ABOUT
+              </MenuItem>
+            </a>
           </Menu>
-
         </div>
-
       </Drawer>
     )
   }

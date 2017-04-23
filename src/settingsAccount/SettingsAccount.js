@@ -9,16 +9,10 @@ class SettingsAccount extends PureComponent {
     super(props)
   }
 
-
-
   render () {
     return (
       <div>
-        <div>
-
-          Settings Account
-        </div>
-
+        Settings Account
       </div>
     )
   }
