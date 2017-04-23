@@ -15,6 +15,7 @@
     width: 65px
     .hamburger
       padding: 14px 12px 13px 12px
+
     // MilaLogo.js   Component
   .wrapper-logo
     padding: 21px
@@ -23,6 +24,10 @@
       width: 90px !important
 
   .right-icons-wrap
+    .username-holder
+      +mont-light($steelC)
+      +f(16px)
+      padding: 26px 6px
     .wrap-icon-blue
       background-color: $blueB
       width: 65px
@@ -32,3 +37,5 @@
         height: 35px
         border-radius: 20px
         margin: 17px 15px
+    +breakpoint($breakpoint-medium)
+      display: flex
