@@ -23,17 +23,18 @@ class Navigation extends PureComponent {
     const { handleOpenMenuDrawer } = this.props
     const styles = {
       mediumIcon: {
-        width: 48,
-        height: 48,
+        width: 40,
+        height: 40,
       },
       medium: {
-        width: 48,
-        height: 48,
+        width: 40,
+        height: 40,
         padding: 5,
       },
       title: {
         display: 'flex',
         justifyContent: 'center',
+        height: '100%'
       },
       button: {
         color: '$steelC'
