@@ -29,7 +29,7 @@ class MenuDrawer extends PureComponent {
   render () {
     return (
       <Drawer
-          docked={false}
+          docked={window.innerWidth >= 769}
           onRequestChange={this.props.handleOpenMenuDrawer}
           open={this.props.openDrawer}
           containerStyle={styles.containerStyle}>
