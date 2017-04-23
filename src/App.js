@@ -35,13 +35,19 @@ class App extends Component {
   }
 
   render() {
+    const { openDrawer } = this.state
+    const contentClass = classNames({
+      'content': true,
+      'content-drawer-open-desk': openDrawer,
+
+    })
     return (
       <MuiThemeProvider muiTheme={muiTheme}>
         <div className='app'>
           <Navigation handleOpenMenuDrawer={this.handleOpenMenuDrawer}/>
           <MenuDrawer handleOpenMenuDrawer={this.handleOpenMenuDrawer} openDrawer={this.state.openDrawer}/>
           <ModalRoot />
-          <div className='content'>
+          <div className={contentClass}>
             {this.props.children}
           </div>
         </div>
