@@ -1,7 +1,7 @@
 import React, { PureComponent, PropTypes } from 'react'
 import { Link } from 'react-router'
 import MilaLogo from './MilaLogo'
-import PopOverSettings from './SettingsPopOver'
+import SettingsPopOver from './SettingsPopOver'
 // material-ui Components
 import Appbar from 'material-ui/AppBar'
 import FlatButton from 'material-ui/FlatButton'
@@ -82,7 +82,7 @@ class Navigation extends PureComponent {
           <div className='wrap-icon-blue' onTouchTap={this.handleTouchTap}>
             <img className='user-blue' src={UserIconBlue} />
           </div>
-          <PopOverSettings
+          <SettingsPopOver
             openSettingsPopOver={this.state.openSettingsPopOver}
             anchorEl={this.state.anchorEl}
             handleRequestClose={this.handleRequestClose} />
