@@ -78,15 +78,13 @@ class Navigation extends PureComponent {
 
     const rightIconLinks = (
       <div className='right-icons-wrap'>
-        {/* <Link to='/settings/account'> */}
-          <div className='wrap-icon-blue' onTouchTap={this.handleTouchTap}>
-            <img className='user-blue' src={UserIconBlue} />
-          </div>
-          <SettingsPopOver
-            openSettingsPopOver={this.state.openSettingsPopOver}
-            anchorEl={this.state.anchorEl}
-            handleRequestClose={this.handleRequestClose} />
-        {/* </Link> */}
+        <div className='wrap-icon-blue' onTouchTap={this.handleTouchTap}>
+          <img className='user-blue' src={UserIconBlue} />
+        </div>
+        <SettingsPopOver
+          openSettingsPopOver={this.state.openSettingsPopOver}
+          anchorEl={this.state.anchorEl}
+          handleRequestClose={this.handleRequestClose} />
       </div>
     )
 
