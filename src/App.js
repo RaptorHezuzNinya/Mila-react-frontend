@@ -1,10 +1,13 @@
 import React, { Component } from 'react'
+import classNames from 'classNames'
 import Navigation from './components/Navigation'
 import MenuDrawer from './components/MenuDrawer'
 import ModalRoot from './modals/ModalRoot'
 // Material UI Components
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import muiTheme from './assets/styles/theme'
+// styles for app layout
+import './assets/styles/base/layout.sass'
 
 
 class App extends Component {
