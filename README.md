@@ -1,7 +1,4 @@
-# React Starter
-
-## Installation
-
+## How to get it going...
 ```bash
 npm install
 yarn install
@@ -10,5 +7,5 @@ open http://localhost:3000
 
 ```
 
-------------------
 
+Creator: https://github.com/RaptorHezuzNinya
