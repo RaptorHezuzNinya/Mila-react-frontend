@@ -45,7 +45,7 @@ class Navigation extends PureComponent {
     const leftIcon = (
       <div className='left-icon-wrap'>
         <div className='hamburger'>
-          <HamBurger style={styles.mediumIcon} color={'white'} onClick={handleOpenMenuDrawer}/>
+          <HamBurger style={styles.mediumIcon} color={'white'} onClick={handleOpenMenuDrawer} />
         </div>
       </div>
     )
