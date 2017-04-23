@@ -26,55 +26,49 @@ class MenuDrawer extends PureComponent {
   render () {
     return (
       <Drawer
-          style={styles.style}
           open={this.props.openDrawer}
           containerStyle={styles.containerStyle}>
-
         <div className='drawer-menu-wrapper'>
-
-          <Menu className='top-menu-holder' width='100px'>
-            <Link to='/onboarding' style={{ textDecoration: 'none' }}>
+          <Menu className='top-menu-holder'>
+            <Link to='/onboarding' style={styles.link}>
               <MenuItem className='menu-item'>
                 <div className='trial-item'>Free trial</div>
               </MenuItem>
             </Link>
-            <Link to='/newcontacts' style={{ textDecoration: 'none' }}>
-              <MenuItem className='menu-item' style={{textDecoration: 'none'}} onClick={() => console.log('YOLOSWAG ITEM1 ClICKED')}>
+            <Link to='/newcontacts' style={styles.link}>
+              <MenuItem className='menu-item'>
                   New Contacts
               </MenuItem>
             </Link>
-            <Link to='/mynetwork' style={{ textDecoration: 'none' }}>
-              <MenuItem className='menu-item' onClick={() => console.log('YOLOSWAG ITEM1 ClICKED')}>
+            <Link to='/mynetwork' style={styles.link}>
+              <MenuItem className='menu-item'>
                   My Network
               </MenuItem>
             </Link>
-            <Link to='/settings/account' style={{ textDecoration: 'none' }}>
-              <MenuItem className='menu-item' onClick={() => console.log('YOLOSWAG ITEM1 ClICKED')}>
+            <Link to='/settings/account' style={styles.link}>
+              <MenuItem className='menu-item'>
                   Lists Settings
               </MenuItem>
             </Link>
           </Menu>
-
           <Menu className='bot-menu-holder'>
-            <a href='https://milahq.com/faq/' target='_blank' style={{ textDecoration: 'none' }}>
-              <MenuItem className='menu-item' onClick={() => console.log('YOLOSWAG ITEM1 ClICKED')}>
+            <a href='https://milahq.com/faq/' target='_blank' style={styles.link}>
+              <MenuItem className='menu-item'>
                   FAQ
               </MenuItem>
             </a>
-            <a href='https://milahq.com/blog/' target='_blank' style={{ textDecoration: 'none' }}>
-              <MenuItem className='menu-item' onClick={() => console.log('YOLOSWAG ITEM1 ClICKED')}>
+            <a href='https://milahq.com/blog/' target='_blank' style={styles.link}>
+              <MenuItem className='menu-item'>
                   BLOG
               </MenuItem>
             </a>
-            <a href='https://milahq.com/about/' target='_blank' style={{ textDecoration: 'none' }}>
-              <MenuItem className='menu-item' onClick={() => console.log('YOLOSWAG ITEM1 ClICKED')}>
+            <a href='https://milahq.com/about/' target='_blank' style={styles.link}>
+              <MenuItem className='menu-item'>
                   ABOUT
               </MenuItem>
             </a>
           </Menu>
-
         </div>
-
       </Drawer>
     )
   }
