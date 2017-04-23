@@ -34,6 +34,7 @@ class Navigation extends PureComponent {
       title: {
         display: 'flex',
         justifyContent: 'center',
+        flex: 'inherit',
         height: '100%'
       },
       button: {
