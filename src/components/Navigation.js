@@ -20,16 +20,10 @@ class Navigation extends PureComponent {
   }
 
   render(){
-    const { handleOpenMenuDrawer } = this.props
     const styles = {
       mediumIcon: {
         width: 40,
         height: 40,
-      },
-      medium: {
-        width: 40,
-        height: 40,
-        padding: 5,
       },
       title: {
         display: 'flex',
@@ -37,31 +31,27 @@ class Navigation extends PureComponent {
         flex: 'inherit',
         height: '100%'
       },
-      button: {
-        color: '$steelC'
-      },
       hamburger: {
         color: 'white'
+      },
+      iconStyle: {
+        marginLeft: 0,
+        marginRight: 0,
+        marginTop: 0,
       }
     }
+
+    const { handleOpenMenuDrawer } = this.props
     const leftIcon = (
       <div className='left-icon-wrap'>
-
         <div className='hamburger'>
-          <HamBurger style={{height: 40, width: 40}} color={'white'} onClick={this.props.handleOpenMenuDrawer.bind(this)}/>
+          <HamBurger style={styles.mediumIcon} color={'white'} onClick={handleOpenMenuDrawer}/>
         </div>
       </div>
     )
 
     const rightIconLinks = (
       <div className='right-icons-wrap'>
-        {/* <Link to='/newcontacts'><FlatButton className='new-contact' label='New Contacts' style={styles.button}/></Link> */}
-        {/* <Link to='/'><FlatButton className='network-button' label='My Network' style={styles.button}/></Link> */}
-        {/* <Link to='/mynetwork'>
-          <div className='wrap-icon-grey'>
-            <img className='user-grey' src={UserIconGrey} />
-          </div>
-        </Link> */}
         <Link to='/settings/account'>
           <div className='wrap-icon-blue'>
             <img className='user-blue' src={UserIconBlue} />
@@ -77,9 +67,9 @@ class Navigation extends PureComponent {
         title={<MilaLogo />}
         titleStyle={styles.title}
         iconElementLeft={leftIcon}
-        iconStyleLeft={{marginLeft: 0, marginRight: 0, marginTop: 0}}
+        iconStyleLeft={styles.iconStyle}
         iconElementRight={ rightIconLinks }
-        iconStyleRight={{marginLeft: 0, marginRight: 0, marginTop: 0}}
+        iconStyleRight={styles.iconStyle}
       />
       </header>
     )
