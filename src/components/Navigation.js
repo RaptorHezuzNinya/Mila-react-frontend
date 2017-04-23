@@ -77,10 +77,10 @@ class Navigation extends PureComponent {
         title={<MilaLogo />}
         titleStyle={styles.title}
         iconElementLeft={leftIcon}
+        iconStyleLeft={{marginLeft: 0, marginRight: 0, marginTop: 0}}
         iconElementRight={ rightIconLinks }
+        iconStyleRight={{marginLeft: 0, marginRight: 0, marginTop: 0}}
       />
-
-
       </header>
     )
   }
