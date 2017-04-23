@@ -36,7 +36,7 @@ class Network extends PureComponent {
         <div className="network-dropdown">
           <NetworkButtonDrop networkLists={ networkLists }/>
         </div>
-        <div className="network-but-container">
+        <div className="network-lists-container">
           { networkLists.map(this.renderNetworkButton.bind(this)) }
           <ButtonModal usedStyle="create-list-modal" label="+" modal={ createNetworkListModal }/>
         </div>
