@@ -1,6 +1,7 @@
 import React, { PureComponent, PropTypes } from 'react'
 import { Link } from 'react-router'
 import MilaLogo from './MilaLogo'
+import SettingsPopOver from './SettingsPopOver'
 // material-ui Components
 import Appbar from 'material-ui/AppBar'
 import FlatButton from 'material-ui/FlatButton'
@@ -14,49 +15,76 @@ import HamBurger from 'material-ui/svg-icons/image/dehaze'
 // Styles
 import './Navigation.sass'
 
+const styles = {
+  mediumIcon: {
+    width: 40,
+    height: 40,
+  },
+  title: {
+    display: 'flex',
+    justifyContent: 'center',
+    flex: 'inherit',
+    height: '100%'
+  },
+  iconStyle: {
+    marginLeft: 0,
+    marginRight: 0,
+    marginTop: 0,
+  }
+}
+
 class Navigation extends PureComponent {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      openSettingsPopOver: false,
+    }
+    this.handleTouchTap = this.handleTouchTap.bind(this)
+    this.handleRequestClose = this.handleRequestClose.bind(this)
+  }
+
   static propTypes = {
     handleOpenMenuDrawer: PropTypes.func.isRequired
   }
 
-  render(){
-    const styles = {
-      mediumIcon: {
-        width: 40,
-        height: 40,
-      },
-      title: {
-        display: 'flex',
-        justifyContent: 'center',
-        flex: 'inherit',
-        height: '100%'
-      },
-      hamburger: {
-        color: 'white'
-      },
-      iconStyle: {
-        marginLeft: 0,
-        marginRight: 0,
-        marginTop: 0,
-      }
-    }
+  handleTouchTap = (event) => {
+    event.preventDefault()
+    this.setState({
+      openSettingsPopOver: true,
+      anchorEl: event.currentTarget,
+    })
+  }
 
+  handleRequestClose = () => {
+    this.setState({
+      openSettingsPopOver: false,
+    })
+  }
+
+
+  render(){
     const { handleOpenMenuDrawer } = this.props
     const leftIcon = (
       <div className='left-icon-wrap'>
         <div className='hamburger'>
-          <HamBurger style={styles.mediumIcon} color={'white'} onClick={handleOpenMenuDrawer} />
+          <HamBurger
+            style={styles.mediumIcon}
+            color={'white'}
+            onClick={handleOpenMenuDrawer} />
         </div>
       </div>
     )
 
     const rightIconLinks = (
       <div className='right-icons-wrap'>
-        <Link to='/settings/account'>
-          <div className='wrap-icon-blue'>
-            <img className='user-blue' src={UserIconBlue} />
-          </div>
-        </Link>
+        <div className='wrap-icon-blue' onTouchTap={this.handleTouchTap}>
+          <img className='user-blue' src={UserIconBlue} />
+        </div>
+        <SettingsPopOver
+          openSettingsPopOver={this.state.openSettingsPopOver}
+          anchorEl={this.state.anchorEl}
+          handleRequestClose={this.handleRequestClose} />
       </div>
     )
 
