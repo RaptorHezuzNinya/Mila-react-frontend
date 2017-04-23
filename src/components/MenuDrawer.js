@@ -12,10 +12,13 @@ const styles = {
     height: 'calc(100vh - 70px)',
     top: 70,
     width: 224,
-    backgroundColor: '#dadce0'
+    backgroundColor: '#292f36'
   },
   link: {
     textDecoration: 'none'
+  },
+  menuItem: {
+    fontFamily: 'Montserrat-Light',
   }
 }
 class MenuDrawer extends PureComponent {
@@ -31,39 +34,39 @@ class MenuDrawer extends PureComponent {
         <div className='drawer-menu-wrapper'>
           <Menu className='top-menu-holder'>
             <Link to='/onboarding' style={styles.link}>
-              <MenuItem className='menu-item'>
+              <MenuItem className='menu-item' style={styles.menuItem}>
                 <div className='trial-item'>Free trial</div>
               </MenuItem>
             </Link>
             <Link to='/newcontacts' style={styles.link}>
-              <MenuItem className='menu-item'>
+              <MenuItem className='menu-item' style={styles.menuItem}>
                   New Contacts
               </MenuItem>
             </Link>
             <Link to='/mynetwork' style={styles.link}>
-              <MenuItem className='menu-item'>
+              <MenuItem className='menu-item' style={styles.menuItem}>
                   My Network
               </MenuItem>
             </Link>
             <Link to='/settings/account' style={styles.link}>
-              <MenuItem className='menu-item'>
+              <MenuItem className='menu-item' style={styles.menuItem}>
                   Lists Settings
               </MenuItem>
             </Link>
           </Menu>
           <Menu className='bot-menu-holder'>
             <a href='https://milahq.com/faq/' target='_blank' style={styles.link}>
-              <MenuItem className='menu-item'>
+              <MenuItem className='menu-item' style={styles.menuItem}>
                   FAQ
               </MenuItem>
             </a>
             <a href='https://milahq.com/blog/' target='_blank' style={styles.link}>
-              <MenuItem className='menu-item'>
+              <MenuItem className='menu-item' style={styles.menuItem}>
                   BLOG
               </MenuItem>
             </a>
             <a href='https://milahq.com/about/' target='_blank' style={styles.link}>
-              <MenuItem className='menu-item'>
+              <MenuItem className='menu-item' style={styles.menuItem}>
                   ABOUT
               </MenuItem>
             </a>
