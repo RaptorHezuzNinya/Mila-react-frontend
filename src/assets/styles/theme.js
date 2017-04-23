@@ -40,23 +40,23 @@ export const palette = {
 }
 
 // Font
-export const fontFamily = 'Montserrat, sans-serif'
-
-// Typography
-export const typography = {
-  fontWeightLight: 300,
-  fontWeightRegular: 400,
-  fontWeightMedium: 500,
-  fontWeightSemBold: 600,
-  fontWeightBold: 700
-}
-
-export const flatButton = {
-  fontWeight: typography.fontWeightLight
-}
+// export const fontFamily = 'Montserrat, sans-serif'
+//
+// // Typography
+// export const typography = {
+//   fontWeightLight: 300,
+//   fontWeightRegular: 400,
+//   fontWeightMedium: 500,
+//   fontWeightSemBold: 600,
+//   fontWeightBold: 700
+// }
+//
+// export const flatButton = {
+//   fontWeight: typography.fontWeightLight
+// }
 
 export const textField = {
   focusColor: palette.accent7Color,
 }
 
-export default getMuiTheme({ palette, fontFamily, typography, flatButton, textField })
+export default getMuiTheme({ palette, textField })
