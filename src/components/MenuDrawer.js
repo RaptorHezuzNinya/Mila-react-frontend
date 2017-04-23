@@ -5,16 +5,17 @@ import Drawer from 'material-ui/Drawer'
 import FlatButton from 'material-ui/FlatButton'
 import Menu from 'material-ui/Menu'
 import MenuItem from 'material-ui/MenuItem'
+// styles
 import './MenuDrawer.sass'
 const styles = {
-  style: {
-  },
   containerStyle: {
     height: 'calc(100vh - 70px)',
     top: 70,
     width: 224,
     backgroundColor: '#dadce0'
-
+  },
+  link: {
+    textDecoration: 'none'
   }
 }
 class MenuDrawer extends PureComponent {
