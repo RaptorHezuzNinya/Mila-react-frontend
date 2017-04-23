@@ -4,66 +4,34 @@
 
 .nav-bar
   .appbar
-    // padding: 0 0 !important
+    padding: 0 0 !important
     height: 70px !important
+    justify-content: space-between
     +breakpoint($breakpoint-medium)
       padding: 0 20px !important
 
+  .left-icon-wrap
+    width: 65px
+    .hamburger
+      padding: 14px 12px 13px 12px
+    // MilaLogo.js
   .wrapper-logo
-
+    padding: 21px
+    line-height: 0px
     .logo-mila
-      width: 77px !important
-
+      width: 90px !important
 
   .right-icons-wrap
-    margin-top: -8px
+    // display: flex
 
     .wrap-icon-blue
-      // display: inline-block
+
       background-color: $blueB
-      width: 50px
-      height: 60px
-      margin-right: 16px
+      width: 65px
+      height: 70px
+      // margin-right: 16px
       .user-blue
-        width: 30px
-        height: 30px
-        border-radius: 15px
-        margin: 15px 10px 15px 10px
-
-    .wrap-icon-grey
-      // display: inline-block
-      height: 60px
-      width: 50px
-      vertical-align: top
-      +breakpoint($breakpoint-medium)
-        display: none
-      .user-grey
-        width: 22px
-        padding: 19px 15px
-
-    .sub-button
-      +mont-light($greenA)
-      vertical-align: top
-      font-size: 13px
-      // display: inline-block
-      z-index: 10
-      margin-top: 5px
-      &:hover
-        color: white
-      .sub-text
-        padding: 4px 1px
-        border: 2px solid $blueB
-        +breakpoint($breakpoint-medium)
-          margin-top: 5px
-          padding: 10px
-
-    .network-button, .new-contact
-      display: none !important
-      +breakpoint($breakpoint-medium)
-        padding: 0 30px !important
-        display: inline-block !important
-        +mont-light($steelC)
-        margin-top: 11px !important
-        vertical-align: top
-        &:hover
-          color: $greenB
+        width: 35px
+        height: 35px
+        border-radius: 20px
+        margin: 17px 15px
