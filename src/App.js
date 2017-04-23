@@ -36,7 +36,7 @@ class App extends Component {
       <MuiThemeProvider muiTheme={muiTheme}>
         <div className='app'>
           <Navigation handleOpenMenuDrawer={this.handleOpenMenuDrawer}/>
-          <MenuDrawer openDrawer={this.state.openDrawer}/>
+          <MenuDrawer handleOpenMenuDrawer={this.handleOpenMenuDrawer} openDrawer={this.state.openDrawer}/>
           <ModalRoot />
           {this.props.children}
         </div>
