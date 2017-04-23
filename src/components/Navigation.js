@@ -1,5 +1,6 @@
 import React, { PureComponent, PropTypes } from 'react'
 import { Link } from 'react-router'
+import Media from 'react-media'
 import MilaLogo from './MilaLogo'
 import SettingsPopOver from './SettingsPopOver'
 // material-ui Components
