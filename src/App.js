@@ -38,7 +38,9 @@ class App extends Component {
           <Navigation handleOpenMenuDrawer={this.handleOpenMenuDrawer}/>
           <MenuDrawer handleOpenMenuDrawer={this.handleOpenMenuDrawer} openDrawer={this.state.openDrawer}/>
           <ModalRoot />
-          {this.props.children}
+          <div className='content'>
+            {this.props.children}
+          </div>
         </div>
       </MuiThemeProvider>
     )
