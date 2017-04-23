@@ -22,15 +22,24 @@ const styles = {
     height: 40,
   },
   title: {
-    display: 'flex',
     justifyContent: 'center',
     flex: 'inherit',
     height: '100%'
   },
-  iconStyle: {
+  iconStyleLeft: {
     marginLeft: 0,
     marginRight: 0,
     marginTop: 0,
+    flexGrow: 3,
+  },
+  iconStyleRight: {
+    marginLeft: 0,
+    marginRight: 0,
+    marginTop: 0,
+    flexGrow: 2,
+    display: 'flex',
+    justifyContent: 'flex-end'
+
   }
 }
 
@@ -102,9 +111,9 @@ class Navigation extends PureComponent {
         title={<MilaLogo />}
         titleStyle={styles.title}
         iconElementLeft={leftIcon}
-        iconStyleLeft={styles.iconStyle}
+        iconStyleLeft={styles.iconStyleLeft}
         iconElementRight={ rightIconLinks }
-        iconStyleRight={styles.iconStyle}
+        iconStyleRight={styles.iconStyleRight}
       />
       </header>
     )
