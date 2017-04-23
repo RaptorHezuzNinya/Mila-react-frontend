@@ -45,22 +45,28 @@ class Navigation extends PureComponent {
       }
     }
     const leftIcon = (
-      <div>
-        <IconButton
-          iconStyle={styles.mediumIcon}
-          style={styles.medium}
-          >
-          <HamBurger color={'white'} onClick={this.props.handleOpenMenuDrawer.bind(this)}/>
-        </IconButton>
+      <div className='left-icon-wrap'>
+
+        <div className='hamburger'>
+          <HamBurger style={{height: 40, width: 40}} color={'white'} onClick={this.props.handleOpenMenuDrawer.bind(this)}/>
+        </div>
       </div>
     )
 
     const rightIconLinks = (
       <div className='right-icons-wrap'>
-        <Link to='/newcontacts'><FlatButton className='new-contact' label='New Contacts' style={styles.button}/></Link>
-        <Link to='/'><FlatButton className='network-button' label='My Network' style={styles.button}/></Link>
-        <Link to='/mynetwork'><div className='wrap-icon-grey'><img className='user-grey' src={UserIconGrey} /></div></Link>
-        <Link to='/settings/account'><div className='wrap-icon-blue'><img className='user-blue' src={UserIconBlue} /></div></Link>
+        {/* <Link to='/newcontacts'><FlatButton className='new-contact' label='New Contacts' style={styles.button}/></Link> */}
+        {/* <Link to='/'><FlatButton className='network-button' label='My Network' style={styles.button}/></Link> */}
+        {/* <Link to='/mynetwork'>
+          <div className='wrap-icon-grey'>
+            <img className='user-grey' src={UserIconGrey} />
+          </div>
+        </Link> */}
+        <Link to='/settings/account'>
+          <div className='wrap-icon-blue'>
+            <img className='user-blue' src={UserIconBlue} />
+          </div>
+        </Link>
       </div>
     )
 
