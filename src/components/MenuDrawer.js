@@ -10,8 +10,8 @@ const styles = {
   style: {
   },
   containerStyle: {
-    height: 'calc(100vh - 60px)',
-    top: 60,
+    height: 'calc(100vh - 70px)',
+    top: 70,
     width: 224,
     backgroundColor: '#dadce0'
 
