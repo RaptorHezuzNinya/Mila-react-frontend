@@ -13,6 +13,7 @@ import AboutIcon from 'material-ui/svg-icons/action/face'
 import BlogIcon from 'material-ui/svg-icons/communication/chat-bubble'
 // styles
 import './MenuDrawer.sass'
+
 const styles = {
   containerStyle: {
     height: 'calc(100vh - 70px)',
@@ -24,6 +25,7 @@ const styles = {
     textDecoration: 'none'
   }
 }
+
 class MenuDrawer extends PureComponent {
   static propTypes = {
     openDrawer: PropTypes.bool.isRequired
@@ -39,14 +41,15 @@ class MenuDrawer extends PureComponent {
           containerStyle={styles.containerStyle}>
         <div className='drawer-menu-wrapper'>
           <Menu className='top-menu-holder'>
+
             <Link to='/onboarding' style={styles.link}>
               <MenuItem className='top-menu-item'>
                 <div className='trial-item'>Free trial</div>
               </MenuItem>
             </Link>
+
             <Link to='/newcontacts' style={styles.link}>
               <MenuItem className='menu-item'>
-
                 <div className='menu-item-content-holder'>
                   <div className='icon-holder'>
                     <NewContactIcon className='icon'/>
@@ -57,9 +60,9 @@ class MenuDrawer extends PureComponent {
                 </div>
               </MenuItem>
             </Link>
+
             <Link to='/mynetwork' style={styles.link}>
               <MenuItem className='menu-item'>
-
                 <div className='menu-item-content-holder'>
                   <div className='icon-holder'>
                     <NetworkIcon className='icon'/>
@@ -70,6 +73,7 @@ class MenuDrawer extends PureComponent {
                 </div>
               </MenuItem>
             </Link>
+
             <Link to='/settings/account' style={styles.link}>
               <MenuItem className='menu-item'>
                 <div className='menu-item-content-holder'>
@@ -82,7 +86,9 @@ class MenuDrawer extends PureComponent {
                 </div>
               </MenuItem>
             </Link>
+
           </Menu>
+          
           <Menu className='bot-menu-holder'>
             <a href='https://milahq.com/faq/' target='_blank' style={styles.link}>
               <MenuItem className='menu-item'>
