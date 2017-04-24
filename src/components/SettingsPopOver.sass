@@ -1,0 +1,19 @@
+@import "../assets/styles/base/colors.sass"
+@import "../assets/styles/base/mixins.sass"
+@import "../assets/styles/base/breakpoints.sass"
+
+
+.popover-settings
+  background-color: $blueB !important
+  width: 185px !important
+  .popover-links
+    text-decoration: none
+    .menu-item
+      color: $steelC !important
+      font-family: 'Montserrat-Light' !important
+      +f(16px !important)
+      &:hover
+        background-color: $blueC !important
+        border-right: 5px solid $greenA !important 
+      .text
+        text-align: center

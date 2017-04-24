@@ -34,12 +34,12 @@ class App extends Component {
     })
   }
 
+
   render() {
     const { openDrawer } = this.state
     const contentClass = classNames({
       'content': true,
       'content-drawer-open-desk': openDrawer,
-
     })
     return (
       <MuiThemeProvider muiTheme={muiTheme}>
