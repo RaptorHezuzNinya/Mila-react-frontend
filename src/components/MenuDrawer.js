@@ -1,4 +1,5 @@
 import React, { PureComponent, PropTypes } from 'react'
+import { connect } from 'react-redux'
 import { Link } from 'react-router'
 // material ui
 import Drawer from 'material-ui/Drawer'
