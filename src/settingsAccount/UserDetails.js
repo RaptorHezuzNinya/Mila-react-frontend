@@ -7,10 +7,14 @@ class UserDetails extends PureComponent {
   render () {
     return (
       <div className='user-details-wrapper'>
-        <div>
-          <TextField />
-
-
+        <div className='firstname-holder'>
+          <TextField placeholder='First name'/>
+        </div>
+        <div className='lastname-holder'>
+          <TextField placeholder='Last name'/>
+        </div>
+        <div className='email-holder'>
+          <TextField placeholder='Email'/>
         </div>
         <div>
           <FlatButton label='save'/>
