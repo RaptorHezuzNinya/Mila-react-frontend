@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react'
-import MenuDrawer from '../components/MenuDrawer'
-import FlatButton from 'material-ui/FlatButton'
+import PageTitle from '../components/PageTitle'
+
+
 // style
 import './SettingsAccount.sass'
 
@@ -10,8 +11,11 @@ class SettingsAccount extends PureComponent {
   }
   render () {
     return (
-      <div>
-        Settings Account
+      <div className='settings-account-wrapper'>
+        <PageTitle
+          titleClassName='settings-account-title'
+          pageTitleContentH2='Account Settings'
+          pageTitleContentH3="Let's go into the detail"/>
       </div>
     )
   }
