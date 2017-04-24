@@ -31,10 +31,80 @@ class MenuDrawer extends PureComponent {
   static propTypes = {
     openDrawer: PropTypes.bool.isRequired
   }
-  
+
+  renderTopMenu = () => {
+    const { currentRoute } = this.props
+    const dataTopMenu = [
+      {
+        route: '/newcontacts',
+        iconComp: <NewContactIcon className={ currentRoute === '/newcontacts' ? 'icon active-icon' : 'icon'}/>,
+        title: 'New Contacts'
+      },
+      {
+        route: '/mynetwork',
+        iconComp: <NetworkIcon className={ currentRoute === '/mynetwork' ? 'icon active-icon' : 'icon'}/>,
+        title: 'My Network'
+      },
+      {
+        route: '/settings/account',
+        iconComp: <ListSettingsIcon className={ currentRoute === '/settings/account' ? 'icon active-icon' : 'icon'}/>,
+        title: 'List Settings'
+      }
+    ]
+    return dataTopMenu.map((data, index) => {
+      return (
+        <Link to={data.route} style={styles.link}>
+          <MenuItem className={ currentRoute === data.route ? 'menu-item active-menu-item' : 'menu-item' }>
+            <div className='menu-item-content-holder'>
+              <div className='icon-holder'>
+                {data.iconComp}
+              </div>
+              <div className='text'>
+                {data.title}
+              </div>
+            </div>
+          </MenuItem>
+        </Link>
+      )
+    })
+  }
+  renderBottomMenu = () => {
+    const dataBotMenu = [
+      {
+        url: 'https://milahq.com/faq/',
+        title: 'FAQ',
+        iconComp: <FaqIcon className='icon'/>
+      },
+      {
+        url: 'https://milahq.com/blog/',
+        title: 'BLOG',
+        iconComp: <BlogIcon className='icon'/>
+      },
+      {
+        url: 'https://milahq.com/about/',
+        title: 'ABOUT',
+        iconComp: <AboutIcon className='icon'/>
+      }
+    ]
+    return dataBotMenu.map((link, index) => {
+      return (
+        <a href={link.url} target='_blank' style={styles.link} key={index}>
+          <MenuItem className='menu-item'>
+            <div className='menu-item-content-holder'>
+              <div className='icon-holder'>
+                {link.iconComp}
+              </div>
+              <div className='text'>
+                {link.title}
+              </div>
+            </div>
+          </MenuItem>
+        </a>
+      )
+    })
+  }
 
   render () {
-    const {currentRoute} = this.props
     return (
       <Drawer
           docked={window.innerWidth >= 769}
@@ -48,83 +118,11 @@ class MenuDrawer extends PureComponent {
                 <div className='trial-item'>Free trial</div>
               </MenuItem>
             </Link>
-            <Link to='/newcontacts' style={styles.link}>
-              <MenuItem className={ currentRoute === '/newcontacts' ? 'menu-item active-menu-item' : 'menu-item' }>
-                <div className='menu-item-content-holder'>
-                  <div className='icon-holder'>
-                    <NewContactIcon className={ currentRoute === '/newcontacts' ? 'icon active-icon' : 'icon'}/>
-                  </div>
-                  <div className='text'>
-                    New Contacts
-                  </div>
-                </div>
-              </MenuItem>
-            </Link>
-            <Link to='/mynetwork' style={styles.link}>
-              <MenuItem className={ currentRoute === '/mynetwork' ? 'menu-item active-menu-item' : 'menu-item'}>
-                <div className='menu-item-content-holder'>
-                  <div className='icon-holder'>
-                    <NetworkIcon className={ currentRoute === '/mynetwork' ? 'icon active-icon' : 'icon'}/>
-                  </div>
-                  <div className='text'>
-                    My Network
-                  </div>
-                </div>
-              </MenuItem>
-            </Link>
-            <Link to='/settings/account' style={styles.link}>
-              <MenuItem className={ currentRoute === '/settings/account' ? 'menu-item active-menu-item' : 'menu-item'}>
-                <div className='menu-item-content-holder'>
-                  <div className='icon-holder'>
-                    <ListSettingsIcon className={ currentRoute === '/settings/account' ? 'icon active-icon' : 'icon'}/>
-                  </div>
-                  <div className='text'>
-                    List Settings
-                  </div>
-                </div>
-              </MenuItem>
-            </Link>
+            {this.renderTopMenu()}
           </Menu>
-
           <Menu className='bot-menu-holder'>
-            <a href='https://milahq.com/faq/' target='_blank' style={styles.link}>
-              <MenuItem className='menu-item'>
-                <div className='menu-item-content-holder'>
-                  <div className='icon-holder'>
-                    <FaqIcon className='icon'/>
-                  </div>
-                  <div className='text'>
-                    FAQ
-                  </div>
-                </div>
-              </MenuItem>
-            </a>
-            <a href='https://milahq.com/blog/' target='_blank' style={styles.link}>
-              <MenuItem className='menu-item'>
-                <div className='menu-item-content-holder'>
-                  <div className='icon-holder'>
-                    <BlogIcon className='icon'/>
-                  </div>
-                  <div className='text'>
-                    BLOG
-                  </div>
-                </div>
-              </MenuItem>
-            </a>
-            <a href='https://milahq.com/about/' target='_blank' style={styles.link}>
-              <MenuItem className='menu-item'>
-                <div className='menu-item-content-holder'>
-                  <div className='icon-holder'>
-                    <AboutIcon className='icon'/>
-                  </div>
-                  <div className='text'>
-                    ABOUT
-                  </div>
-                </div>
-              </MenuItem>
-            </a>
+            {this.renderBottomMenu()}
           </Menu>
-
         </div>
       </Drawer>
     )
