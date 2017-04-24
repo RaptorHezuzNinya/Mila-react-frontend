@@ -12,10 +12,15 @@ class SettingsAccount extends PureComponent {
   render () {
     return (
       <div className='settings-account-wrapper'>
-        <PageTitle
-          titleClassName='settings-account-title'
-          pageTitleContentH2='Account Settings'
-          pageTitleContentH3="Let's go into the detail"/>
+        <div className='page-title-holder'>
+          <PageTitle
+            titleClassName='settings-account-title'
+            pageTitleContentH2='Account Settings'
+            pageTitleContentH3="Let's go into the detail"/>
+        </div>
+        <div className='settings-account-content'>
+
+        </div>
       </div>
     )
   }
