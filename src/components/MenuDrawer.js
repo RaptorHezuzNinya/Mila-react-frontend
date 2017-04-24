@@ -104,7 +104,6 @@ class MenuDrawer extends PureComponent {
     })
   }
 
-
   render () {
     const {currentRoute} = this.props
     return (
@@ -120,48 +119,11 @@ class MenuDrawer extends PureComponent {
                 <div className='trial-item'>Free trial</div>
               </MenuItem>
             </Link>
-            <Link to='/newcontacts' style={styles.link}>
-              <MenuItem className={ currentRoute === '/newcontacts' ? 'menu-item active-menu-item' : 'menu-item' }>
-                <div className='menu-item-content-holder'>
-                  <div className='icon-holder'>
-                    <NewContactIcon className={ currentRoute === '/newcontacts' ? 'icon active-icon' : 'icon'}/>
-                  </div>
-                  <div className='text'>
-                    New Contacts
-                  </div>
-                </div>
-              </MenuItem>
-            </Link>
-            <Link to='/mynetwork' style={styles.link}>
-              <MenuItem className={ currentRoute === '/mynetwork' ? 'menu-item active-menu-item' : 'menu-item'}>
-                <div className='menu-item-content-holder'>
-                  <div className='icon-holder'>
-                    <NetworkIcon className={ currentRoute === '/mynetwork' ? 'icon active-icon' : 'icon'}/>
-                  </div>
-                  <div className='text'>
-                    My Network
-                  </div>
-                </div>
-              </MenuItem>
-            </Link>
-            <Link to='/settings/account' style={styles.link}>
-              <MenuItem className={ currentRoute === '/settings/account' ? 'menu-item active-menu-item' : 'menu-item'}>
-                <div className='menu-item-content-holder'>
-                  <div className='icon-holder'>
-                    <ListSettingsIcon className={ currentRoute === '/settings/account' ? 'icon active-icon' : 'icon'}/>
-                  </div>
-                  <div className='text'>
-                    List Settings
-                  </div>
-                </div>
-              </MenuItem>
-            </Link>
+            {this.renderTopMenu()}
           </Menu>
-
           <Menu className='bot-menu-holder'>
             {this.renderBottomMenu()}
           </Menu>
-
         </div>
       </Drawer>
     )
