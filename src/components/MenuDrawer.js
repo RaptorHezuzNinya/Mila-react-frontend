@@ -105,7 +105,6 @@ class MenuDrawer extends PureComponent {
   }
 
   render () {
-    const {currentRoute} = this.props
     return (
       <Drawer
           docked={window.innerWidth >= 769}
