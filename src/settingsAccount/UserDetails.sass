@@ -1,0 +1,33 @@
+@import "../assets/styles/base/colors.sass"
+@import "../assets/styles/base/mixins.sass"
+@import "../assets/styles/base/breakpoints.sass"
+
+.user-details-wrapper
+  .details-holder, .notification-holder, .submit-holder
+    border-radius: 2px
+    background-color: $steelC
+    margin-bottom: 10px
+  .slack-slider-holder, .email-slider-holder
+    +mont-light
+    +f(15px)
+    display: flex
+    padding: 20px 10px
+    .slack-text, .email-text
+      margin: 0 0 !important
+      flex: 3 0 0
+    .slack-slider, .email-slider
+      display: flex
+      flex: 1 0 0
+
+
+  .notification-holder
+    // border-radius: 2px
+    // background-color: $steelC
+    // margin-bottom: 10px
+
+  .submit-holder
+    // border-radius: 2px
+    // background-color: $steelC
+    display: flex
+    justify-content: center
+    padding: 10px 0
