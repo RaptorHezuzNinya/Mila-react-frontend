@@ -19,7 +19,7 @@ class SettingsAccount extends PureComponent {
             pageTitleContentH3="Let's go into the detail"/>
         </div>
         <div className='settings-account-content'>
-
+          <UserDetails />
         </div>
       </div>
     )
