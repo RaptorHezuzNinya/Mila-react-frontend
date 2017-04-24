@@ -40,12 +40,12 @@ class MenuDrawer extends PureComponent {
         <div className='drawer-menu-wrapper'>
           <Menu className='top-menu-holder'>
             <Link to='/onboarding' style={styles.link}>
-              <MenuItem className='top-menu-item' touchRippleColor="#52be9c">
+              <MenuItem className='top-menu-item'>
                 <div className='trial-item'>Free trial</div>
               </MenuItem>
             </Link>
             <Link to='/newcontacts' style={styles.link}>
-              <MenuItem className='menu-item' touchRippleColor="#dadce0">
+              <MenuItem className='menu-item'>
 
                 <div className='menu-item-content-holder'>
                   <div className='icon-holder'>
@@ -58,7 +58,7 @@ class MenuDrawer extends PureComponent {
               </MenuItem>
             </Link>
             <Link to='/mynetwork' style={styles.link}>
-              <MenuItem className='menu-item' touchRippleColor="#dadce0">
+              <MenuItem className='menu-item'>
 
                 <div className='menu-item-content-holder'>
                   <div className='icon-holder'>
@@ -71,7 +71,7 @@ class MenuDrawer extends PureComponent {
               </MenuItem>
             </Link>
             <Link to='/settings/account' style={styles.link}>
-              <MenuItem className='menu-item' touchRippleColor="#dadce0">
+              <MenuItem className='menu-item'>
                 <div className='menu-item-content-holder'>
                   <div className='icon-holder'>
                     <ListSettingsIcon className='icon'/>
@@ -85,7 +85,7 @@ class MenuDrawer extends PureComponent {
           </Menu>
           <Menu className='bot-menu-holder'>
             <a href='https://milahq.com/faq/' target='_blank' style={styles.link}>
-              <MenuItem className='menu-item' touchRippleColor="#dadce0">
+              <MenuItem className='menu-item'>
                 <div className='menu-item-content-holder'>
                   <div className='icon-holder'>
                     <FaqIcon className='icon'/>
@@ -97,7 +97,7 @@ class MenuDrawer extends PureComponent {
               </MenuItem>
             </a>
             <a href='https://milahq.com/blog/' target='_blank' style={styles.link}>
-              <MenuItem className='menu-item' touchRippleColor="#dadce0">
+              <MenuItem className='menu-item'>
                 <div className='menu-item-content-holder'>
                   <div className='icon-holder'>
                     <BlogIcon className='icon'/>
@@ -109,7 +109,7 @@ class MenuDrawer extends PureComponent {
               </MenuItem>
             </a>
             <a href='https://milahq.com/about/' target='_blank' style={styles.link}>
-              <MenuItem className='menu-item' touchRippleColor="#dadce0">
+              <MenuItem className='menu-item'>
                 <div className='menu-item-content-holder'>
                   <div className='icon-holder'>
                     <AboutIcon className='icon'/>
