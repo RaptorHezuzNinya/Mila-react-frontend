@@ -5,6 +5,10 @@ import Drawer from 'material-ui/Drawer'
 import FlatButton from 'material-ui/FlatButton'
 import Menu from 'material-ui/Menu'
 import MenuItem from 'material-ui/MenuItem'
+import NewContactIcon from 'material-ui/svg-icons/social/person-add'
+import NetworkIcon from 'material-ui/svg-icons/action/view-list'
+import ListSettingsIcon from 'material-ui/svg-icons/action/settings'
+import BlogIcon from 'material-ui/svg-icons/communication/chat-bubble'
 // styles
 import './MenuDrawer.sass'
 const styles = {
@@ -12,7 +16,7 @@ const styles = {
     height: 'calc(100vh - 70px)',
     top: 70,
     width: 224,
-    backgroundColor: '#292f36'
+    backgroundColor: '#37414d'
   },
   link: {
     textDecoration: 'none'
