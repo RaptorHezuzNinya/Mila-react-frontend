@@ -26,12 +26,67 @@ const styles = {
     textDecoration: 'none'
   }
 }
+const dataTopMenu = [
+  {
+    url: 'https://milahq.com/faq/',
+    title: 'FAQ',
+    iconComp: <FaqIcon className='icon'/>
+  },
+  {
+    url: 'https://milahq.com/blog/',
+    title: 'BLOG',
+    iconComp: <BlogIcon className='icon'/>
+  },
+  {
+    url: 'https://milahq.com/about/',
+    title: 'ABOUT',
+    iconComp: <AboutIcon className='icon'/>
+  }
+]
+
+const dataBotMenu = [
+  {
+    url: 'https://milahq.com/faq/',
+    title: 'FAQ',
+    iconComp: <FaqIcon className='icon'/>
+  },
+  {
+    url: 'https://milahq.com/blog/',
+    title: 'BLOG',
+    iconComp: <BlogIcon className='icon'/>
+  },
+  {
+    url: 'https://milahq.com/about/',
+    title: 'ABOUT',
+    iconComp: <AboutIcon className='icon'/>
+  }
+]
 
 class MenuDrawer extends PureComponent {
   static propTypes = {
     openDrawer: PropTypes.bool.isRequired
   }
   
+
+  renderBottomMenu = () => {
+    return dataBotMenu.map((link, index) => {
+      return (
+        <a href={link.url} target='_blank' style={styles.link} key={index}>
+          <MenuItem className='menu-item'>
+            <div className='menu-item-content-holder'>
+              <div className='icon-holder'>
+                {link.iconComp}
+              </div>
+              <div className='text'>
+                {link.title}
+              </div>
+            </div>
+          </MenuItem>
+        </a>
+      )
+    })
+  }
+
 
   render () {
     const {currentRoute} = this.props
