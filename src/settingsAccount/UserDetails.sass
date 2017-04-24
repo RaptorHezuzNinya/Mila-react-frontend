@@ -3,7 +3,11 @@
 @import "../assets/styles/base/breakpoints.sass"
 
 .user-details-wrapper
-  .slack-holder, .email-holder
+  .details-holder, .notification-holder, .submit-holder
+    border-radius: 2px
+    background-color: $steelC
+    margin-bottom: 10px
+  .slack-slider-holder, .email-slider-holder
     +mont-light
     +f(15px)
     display: flex
@@ -16,7 +20,14 @@
       flex: 1 0 0
 
 
+  .notification-holder
+    // border-radius: 2px
+    // background-color: $steelC
+    // margin-bottom: 10px
+
   .submit-holder
+    // border-radius: 2px
+    // background-color: $steelC
     display: flex
     justify-content: center
     padding: 10px 0
