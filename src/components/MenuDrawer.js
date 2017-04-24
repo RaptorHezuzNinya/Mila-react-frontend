@@ -48,31 +48,39 @@ class MenuDrawer extends PureComponent {
             </Link>
             <Link to='/newcontacts' style={styles.link}>
               <MenuItem className='menu-item' style={styles.menuItem} focusRippleColor="#dadce0" touchRippleColor="#dadce0">
-                <div>
-                  <span>
-                    <NewContactIcon className='drawer-icon'/>
-                  </span>
-                  New Contacts
+
+                <div className='menu-item-content-holder'>
+                  <div className='icon-holder'>
+                    <NewContactIcon className='icon'/>
+                  </div>
+                  <div className='text'>
+                    New Contacts
+                  </div>
                 </div>
               </MenuItem>
             </Link>
             <Link to='/mynetwork' style={styles.link}>
               <MenuItem className='menu-item' style={styles.menuItem} focusRippleColor="#dadce0" touchRippleColor="#dadce0">
-                <div>
-                  <span>
-                    <NetworkIcon className='drawer-icon'/>
-                  </span>
-                  My Network
+
+                <div className='menu-item-content-holder'>
+                  <div className='icon-holder'>
+                    <NetworkIcon className='icon'/>
+                  </div>
+                  <div className='text'>
+                    My Network
+                  </div>
                 </div>
               </MenuItem>
             </Link>
             <Link to='/settings/account' style={styles.link}>
               <MenuItem className='menu-item' style={styles.menuItem} focusRippleColor="#dadce0" touchRippleColor="#dadce0">
-                <div>
-                  <span>
-                    <ListSettingsIcon className='drawer-icon'/>
-                  </span>
-                  Lists Settings
+                <div className='menu-item-content-holder'>
+                  <div className='icon-holder'>
+                    <ListSettingsIcon className='icon'/>
+                  </div>
+                  <div className='text'>
+                    List Settings
+                  </div>
                 </div>
               </MenuItem>
             </Link>
@@ -80,31 +88,37 @@ class MenuDrawer extends PureComponent {
           <Menu className='bot-menu-holder'>
             <a href='https://milahq.com/faq/' target='_blank' style={styles.link}>
               <MenuItem className='menu-item' style={styles.menuItem} focusRippleColor="#dadce0" touchRippleColor="#dadce0">
-                <div>
-                  <span>
-                    <ListSettingsIcon className='drawer-icon'/>
-                  </span>
-                  FAQ
+                <div className='menu-item-content-holder'>
+                  <div className='icon-holder'>
+                    <FaqIcon className='icon'/>
+                  </div>
+                  <div className='text'>
+                    FAQ
+                  </div>
                 </div>
               </MenuItem>
             </a>
             <a href='https://milahq.com/blog/' target='_blank' style={styles.link}>
               <MenuItem className='menu-item' style={styles.menuItem} focusRippleColor="#dadce0" touchRippleColor="#dadce0">
-                <div>
-                  <span>
-                    <BlogIcon className='drawer-icon'/>
-                  </span>
-                  BLOG
+                <div className='menu-item-content-holder'>
+                  <div className='icon-holder'>
+                    <BlogIcon className='icon'/>
+                  </div>
+                  <div className='text'>
+                    BLOG
+                  </div>
                 </div>
               </MenuItem>
             </a>
             <a href='https://milahq.com/about/' target='_blank' style={styles.link}>
               <MenuItem className='menu-item' style={styles.menuItem} focusRippleColor="#dadce0" touchRippleColor="#dadce0">
-                <div>
-                  <span>
-                    <ListSettingsIcon className='drawer-icon'/>
-                  </span>
-                  ABOUT
+                <div className='menu-item-content-holder'>
+                  <div className='icon-holder'>
+                    <AboutIcon className='icon'/>
+                  </div>
+                  <div className='text'>
+                    ABOUT
+                  </div>
                 </div>
               </MenuItem>
             </a>
