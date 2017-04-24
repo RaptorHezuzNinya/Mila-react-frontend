@@ -14,7 +14,8 @@ class App extends Component {
   constructor(props){
     super(props)
     this.state = {
-      openDrawer: false
+      openDrawer: false,
+      activeRoute: ''
     }
     this.handleOpenMenuDrawer = this.handleOpenMenuDrawer.bind(this)
   }
