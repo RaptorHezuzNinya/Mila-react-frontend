@@ -3,6 +3,18 @@
 @import "../assets/styles/base/breakpoints.sass"
 
 .user-details-wrapper
+  .slack-holder, .email-holder
+    +mont-light
+    +f(15px)
+    display: flex
+    padding: 20px 10px
+    .slack-text, .email-text
+      margin: 0 0 !important
+      flex: 3 0 0
+    .slack-slider, .email-slider
+      display: flex
+      flex: 1 0 0
+
 
   .submit-holder
     display: flex
