@@ -53,7 +53,7 @@ class MenuDrawer extends PureComponent {
     ]
     return dataTopMenu.map((data, index) => {
       return (
-        <Link to={data.route} style={styles.link}>
+        <Link to={data.route} style={styles.link} key={index}>
           <MenuItem className={ currentRoute === data.route ? 'menu-item active-menu-item' : 'menu-item' }>
             <div className='menu-item-content-holder'>
               <div className='icon-holder'>
