@@ -46,34 +46,64 @@ class MenuDrawer extends PureComponent {
             </Link>
             <Link to='/newcontacts' style={styles.link}>
               <MenuItem className='menu-item' style={styles.menuItem} focusRippleColor="#dadce0" touchRippleColor="#dadce0">
+                <div>
+                  <span>
+                    <NewContactIcon className='drawer-icon'/>
+                  </span>
                   New Contacts
+                </div>
               </MenuItem>
             </Link>
             <Link to='/mynetwork' style={styles.link}>
               <MenuItem className='menu-item' style={styles.menuItem} focusRippleColor="#dadce0" touchRippleColor="#dadce0">
+                <div>
+                  <span>
+                    <NetworkIcon className='drawer-icon'/>
+                  </span>
                   My Network
+                </div>
               </MenuItem>
             </Link>
             <Link to='/settings/account' style={styles.link}>
               <MenuItem className='menu-item' style={styles.menuItem} focusRippleColor="#dadce0" touchRippleColor="#dadce0">
+                <div>
+                  <span>
+                    <ListSettingsIcon className='drawer-icon'/>
+                  </span>
                   Lists Settings
+                </div>
               </MenuItem>
             </Link>
           </Menu>
           <Menu className='bot-menu-holder'>
             <a href='https://milahq.com/faq/' target='_blank' style={styles.link}>
               <MenuItem className='menu-item' style={styles.menuItem} focusRippleColor="#dadce0" touchRippleColor="#dadce0">
+                <div>
+                  <span>
+                    <ListSettingsIcon className='drawer-icon'/>
+                  </span>
                   FAQ
+                </div>
               </MenuItem>
             </a>
             <a href='https://milahq.com/blog/' target='_blank' style={styles.link}>
               <MenuItem className='menu-item' style={styles.menuItem} focusRippleColor="#dadce0" touchRippleColor="#dadce0">
+                <div>
+                  <span>
+                    <BlogIcon className='drawer-icon'/>
+                  </span>
                   BLOG
+                </div>
               </MenuItem>
             </a>
             <a href='https://milahq.com/about/' target='_blank' style={styles.link}>
               <MenuItem className='menu-item' style={styles.menuItem} focusRippleColor="#dadce0" touchRippleColor="#dadce0">
+                <div>
+                  <span>
+                    <ListSettingsIcon className='drawer-icon'/>
+                  </span>
                   ABOUT
+                </div>
               </MenuItem>
             </a>
           </Menu>
