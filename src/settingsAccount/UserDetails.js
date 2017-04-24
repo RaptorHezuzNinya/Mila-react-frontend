@@ -17,7 +17,7 @@ class UserDetails extends PureComponent {
           <TextField placeholder='Email' fullWidth={true}/>
         </div>
         <div className='submit-holder'>
-          <FlatButton label='save'/>
+          <FlatButton className='btn-green' label='save'/>
         </div>
       </div>
     )
