@@ -26,49 +26,66 @@ const styles = {
     textDecoration: 'none'
   }
 }
-const dataTopMenu = [
-  {
-    url: 'https://milahq.com/faq/',
-    title: 'FAQ',
-    iconComp: <FaqIcon className='icon'/>
-  },
-  {
-    url: 'https://milahq.com/blog/',
-    title: 'BLOG',
-    iconComp: <BlogIcon className='icon'/>
-  },
-  {
-    url: 'https://milahq.com/about/',
-    title: 'ABOUT',
-    iconComp: <AboutIcon className='icon'/>
-  }
-]
-
-const dataBotMenu = [
-  {
-    url: 'https://milahq.com/faq/',
-    title: 'FAQ',
-    iconComp: <FaqIcon className='icon'/>
-  },
-  {
-    url: 'https://milahq.com/blog/',
-    title: 'BLOG',
-    iconComp: <BlogIcon className='icon'/>
-  },
-  {
-    url: 'https://milahq.com/about/',
-    title: 'ABOUT',
-    iconComp: <AboutIcon className='icon'/>
-  }
-]
 
 class MenuDrawer extends PureComponent {
   static propTypes = {
     openDrawer: PropTypes.bool.isRequired
   }
-  
 
+  renderTopMenu = () => {
+    const { currentRoute } = this.props
+    const dataTopMenu = [
+      {
+        route: '/newcontacts',
+        iconComp: <NewContactIcon className={ currentRoute === '/newcontacts' ? 'icon active-icon' : 'icon'}/>,
+        title: 'New Contacts'
+      },
+      {
+        route: '/mynetwork',
+        iconComp: <NetworkIcon className={ currentRoute === '/mynetwork' ? 'icon active-icon' : 'icon'}/>,
+        title: 'My Network'
+      },
+      {
+        route: '/settings/account',
+        iconComp: <ListSettingsIcon className={ currentRoute === '/settings/account' ? 'icon active-icon' : 'icon'}/>,
+        title: 'List Settings'
+      }
+    ]
+    return dataTopMenu.map((data, index) => {
+      return (
+        <Link to={data.route} style={styles.link}>
+          <MenuItem className={ currentRoute === data.route ? 'menu-item active-menu-item' : 'menu-item' }>
+            <div className='menu-item-content-holder'>
+              <div className='icon-holder'>
+                {data.iconComp}
+              </div>
+              <div className='text'>
+                {data.title}
+              </div>
+            </div>
+          </MenuItem>
+        </Link>
+      )
+    })
+  }
   renderBottomMenu = () => {
+    const dataBotMenu = [
+      {
+        url: 'https://milahq.com/faq/',
+        title: 'FAQ',
+        iconComp: <FaqIcon className='icon'/>
+      },
+      {
+        url: 'https://milahq.com/blog/',
+        title: 'BLOG',
+        iconComp: <BlogIcon className='icon'/>
+      },
+      {
+        url: 'https://milahq.com/about/',
+        title: 'ABOUT',
+        iconComp: <AboutIcon className='icon'/>
+      }
+    ]
     return dataBotMenu.map((link, index) => {
       return (
         <a href={link.url} target='_blank' style={styles.link} key={index}>
