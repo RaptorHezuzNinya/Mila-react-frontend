@@ -1,8 +1,6 @@
 import React, { PureComponent } from 'react'
 import PageTitle from '../components/PageTitle'
 import UserDetails from './UserDetails'
-
-// style
 import './SettingsAccount.sass'
 
 class SettingsAccount extends PureComponent {
