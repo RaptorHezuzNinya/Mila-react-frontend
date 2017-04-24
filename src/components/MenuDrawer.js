@@ -31,9 +31,10 @@ class MenuDrawer extends PureComponent {
   static propTypes = {
     openDrawer: PropTypes.bool.isRequired
   }
+  
 
   render () {
-
+    const {currentRoute} = this.props
     return (
       <Drawer
           docked={window.innerWidth >= 769}
@@ -42,18 +43,16 @@ class MenuDrawer extends PureComponent {
           containerStyle={styles.containerStyle}>
         <div className='drawer-menu-wrapper'>
           <Menu className='top-menu-holder'>
-
-            <Link to='/onboarding' style={styles.link}>
+            <Link to='/' style={styles.link}>
               <MenuItem className='top-menu-item'>
                 <div className='trial-item'>Free trial</div>
               </MenuItem>
             </Link>
-
             <Link to='/newcontacts' style={styles.link}>
-              <MenuItem className='menu-item'>
+              <MenuItem className={ currentRoute === '/newcontacts' ? 'menu-item active-menu-item' : 'menu-item' }>
                 <div className='menu-item-content-holder'>
                   <div className='icon-holder'>
-                    <NewContactIcon className='icon'/>
+                    <NewContactIcon className={ currentRoute === '/newcontacts' ? 'icon active-icon' : 'icon'}/>
                   </div>
                   <div className='text'>
                     New Contacts
@@ -61,12 +60,11 @@ class MenuDrawer extends PureComponent {
                 </div>
               </MenuItem>
             </Link>
-
             <Link to='/mynetwork' style={styles.link}>
-              <MenuItem className='menu-item'>
+              <MenuItem className={ currentRoute === '/mynetwork' ? 'menu-item active-menu-item' : 'menu-item'}>
                 <div className='menu-item-content-holder'>
                   <div className='icon-holder'>
-                    <NetworkIcon className='icon'/>
+                    <NetworkIcon className={ currentRoute === '/mynetwork' ? 'icon active-icon' : 'icon'}/>
                   </div>
                   <div className='text'>
                     My Network
@@ -74,12 +72,11 @@ class MenuDrawer extends PureComponent {
                 </div>
               </MenuItem>
             </Link>
-
             <Link to='/settings/account' style={styles.link}>
-              <MenuItem className='menu-item'>
+              <MenuItem className={ currentRoute === '/settings/account' ? 'menu-item active-menu-item' : 'menu-item'}>
                 <div className='menu-item-content-holder'>
                   <div className='icon-holder'>
-                    <ListSettingsIcon className='icon'/>
+                    <ListSettingsIcon className={ currentRoute === '/settings/account' ? 'icon active-icon' : 'icon'}/>
                   </div>
                   <div className='text'>
                     List Settings
@@ -87,9 +84,8 @@ class MenuDrawer extends PureComponent {
                 </div>
               </MenuItem>
             </Link>
-
           </Menu>
-          
+
           <Menu className='bot-menu-holder'>
             <a href='https://milahq.com/faq/' target='_blank' style={styles.link}>
               <MenuItem className='menu-item'>
