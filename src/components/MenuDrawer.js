@@ -142,42 +142,7 @@ class MenuDrawer extends PureComponent {
           </Menu>
 
           <Menu className='bot-menu-holder'>
-            <a href='https://milahq.com/faq/' target='_blank' style={styles.link}>
-              <MenuItem className='menu-item'>
-                <div className='menu-item-content-holder'>
-                  <div className='icon-holder'>
-                    <FaqIcon className='icon'/>
-                  </div>
-                  <div className='text'>
-                    FAQ
-                  </div>
-                </div>
-              </MenuItem>
-            </a>
-            <a href='https://milahq.com/blog/' target='_blank' style={styles.link}>
-              <MenuItem className='menu-item'>
-                <div className='menu-item-content-holder'>
-                  <div className='icon-holder'>
-                    <BlogIcon className='icon'/>
-                  </div>
-                  <div className='text'>
-                    BLOG
-                  </div>
-                </div>
-              </MenuItem>
-            </a>
-            <a href='https://milahq.com/about/' target='_blank' style={styles.link}>
-              <MenuItem className='menu-item'>
-                <div className='menu-item-content-holder'>
-                  <div className='icon-holder'>
-                    <AboutIcon className='icon'/>
-                  </div>
-                  <div className='text'>
-                    ABOUT
-                  </div>
-                </div>
-              </MenuItem>
-            </a>
+            {this.renderBottomMenu()}
           </Menu>
 
         </div>
