@@ -5,6 +5,12 @@ import Drawer from 'material-ui/Drawer'
 import FlatButton from 'material-ui/FlatButton'
 import Menu from 'material-ui/Menu'
 import MenuItem from 'material-ui/MenuItem'
+import NewContactIcon from 'material-ui/svg-icons/social/person-add'
+import FaqIcon from 'material-ui/svg-icons/social/whatshot'
+import NetworkIcon from 'material-ui/svg-icons/action/view-list'
+import ListSettingsIcon from 'material-ui/svg-icons/action/settings'
+import AboutIcon from 'material-ui/svg-icons/action/face'
+import BlogIcon from 'material-ui/svg-icons/communication/chat-bubble'
 // styles
 import './MenuDrawer.sass'
 const styles = {
@@ -12,13 +18,10 @@ const styles = {
     height: 'calc(100vh - 70px)',
     top: 70,
     width: 224,
-    backgroundColor: '#292f36'
+    backgroundColor: '#37414d'
   },
   link: {
     textDecoration: 'none'
-  },
-  menuItem: {
-    fontFamily: 'Montserrat-Light',
   }
 }
 class MenuDrawer extends PureComponent {
@@ -27,6 +30,7 @@ class MenuDrawer extends PureComponent {
   }
 
   render () {
+
     return (
       <Drawer
           docked={window.innerWidth >= 769}
@@ -36,40 +40,84 @@ class MenuDrawer extends PureComponent {
         <div className='drawer-menu-wrapper'>
           <Menu className='top-menu-holder'>
             <Link to='/onboarding' style={styles.link}>
-              <MenuItem className='menu-item' style={styles.menuItem} focusRippleColor="#52be9c" touchRippleColor="#52be9c">
+              <MenuItem className='top-menu-item' touchRippleColor="#52be9c">
                 <div className='trial-item'>Free trial</div>
               </MenuItem>
             </Link>
             <Link to='/newcontacts' style={styles.link}>
-              <MenuItem className='menu-item' style={styles.menuItem} focusRippleColor="#dadce0" touchRippleColor="#dadce0">
-                  New Contacts
+              <MenuItem className='menu-item' touchRippleColor="#dadce0">
+
+                <div className='menu-item-content-holder'>
+                  <div className='icon-holder'>
+                    <NewContactIcon className='icon'/>
+                  </div>
+                  <div className='text'>
+                    New Contacts
+                  </div>
+                </div>
               </MenuItem>
             </Link>
             <Link to='/mynetwork' style={styles.link}>
-              <MenuItem className='menu-item' style={styles.menuItem} focusRippleColor="#dadce0" touchRippleColor="#dadce0">
-                  My Network
+              <MenuItem className='menu-item' touchRippleColor="#dadce0">
+
+                <div className='menu-item-content-holder'>
+                  <div className='icon-holder'>
+                    <NetworkIcon className='icon'/>
+                  </div>
+                  <div className='text'>
+                    My Network
+                  </div>
+                </div>
               </MenuItem>
             </Link>
             <Link to='/settings/account' style={styles.link}>
-              <MenuItem className='menu-item' style={styles.menuItem} focusRippleColor="#dadce0" touchRippleColor="#dadce0">
-                  Lists Settings
+              <MenuItem className='menu-item' touchRippleColor="#dadce0">
+                <div className='menu-item-content-holder'>
+                  <div className='icon-holder'>
+                    <ListSettingsIcon className='icon'/>
+                  </div>
+                  <div className='text'>
+                    List Settings
+                  </div>
+                </div>
               </MenuItem>
             </Link>
           </Menu>
           <Menu className='bot-menu-holder'>
             <a href='https://milahq.com/faq/' target='_blank' style={styles.link}>
-              <MenuItem className='menu-item' style={styles.menuItem} focusRippleColor="#dadce0" touchRippleColor="#dadce0">
-                  FAQ
+              <MenuItem className='menu-item' touchRippleColor="#dadce0">
+                <div className='menu-item-content-holder'>
+                  <div className='icon-holder'>
+                    <FaqIcon className='icon'/>
+                  </div>
+                  <div className='text'>
+                    FAQ
+                  </div>
+                </div>
               </MenuItem>
             </a>
             <a href='https://milahq.com/blog/' target='_blank' style={styles.link}>
-              <MenuItem className='menu-item' style={styles.menuItem} focusRippleColor="#dadce0" touchRippleColor="#dadce0">
-                  BLOG
+              <MenuItem className='menu-item' touchRippleColor="#dadce0">
+                <div className='menu-item-content-holder'>
+                  <div className='icon-holder'>
+                    <BlogIcon className='icon'/>
+                  </div>
+                  <div className='text'>
+                    BLOG
+                  </div>
+                </div>
               </MenuItem>
             </a>
             <a href='https://milahq.com/about/' target='_blank' style={styles.link}>
-              <MenuItem className='menu-item' style={styles.menuItem} focusRippleColor="#dadce0" touchRippleColor="#dadce0">
-                  ABOUT
+              <MenuItem className='menu-item' touchRippleColor="#dadce0">
+                <div className='menu-item-content-holder'>
+                  <div className='icon-holder'>
+                    <AboutIcon className='icon'/>
+                  </div>
+                  <div className='text'>
+                    ABOUT
+                  </div>
+                </div>
               </MenuItem>
             </a>
           </Menu>

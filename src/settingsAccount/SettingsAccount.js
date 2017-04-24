@@ -8,7 +8,6 @@ class SettingsAccount extends PureComponent {
   constructor(props){
     super(props)
   }
-
   render () {
     return (
       <div>

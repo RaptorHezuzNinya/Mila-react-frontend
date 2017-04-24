@@ -14,10 +14,33 @@
 
   .top-menu-holder, .bot-menu-holder
 
-    .menu-item
+    .top-menu-item, .menu-item
+      font-family: 'Montserrat-Light' !important
       color: $steelC !important
+      padding: 10px 10px !important
+      &:hover
+        background-color: $blueC !important
+        border-left: 5px solid $greenA !important
 
       .trial-item
         text-align: center
-        border: 1px solid $greenA
-        border-radius: 3px
+        border: 2px solid $greenA
+        border-radius: 5px
+        &:hover
+          color: $greenA
+          border-color: $steelC
+
+    .menu-item
+      padding: 5px 5px !important
+      .menu-item-content-holder
+        display: flex
+        .icon-holder
+          padding: 0 15px
+          margin-top: 5px
+        .icon
+          color: $blueC !important
+        &:hover
+          .icon
+            color: $greenA !important
+
+          .text
