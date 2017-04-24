@@ -17,10 +17,17 @@ class UserDetails extends PureComponent {
         <div className='email-holder'>
           <TextField placeholder='Email' fullWidth={true}/>
         </div>
+
         <div className='slack-holder'>
-          <p>Slack Notifications</p>
-          <Toggle />
+          <p className='slack-text'>Slack Notifications</p>
+          <Toggle className='slack-slider'/>
         </div>
+        <div className='email-holder'>
+          <p className='email-text'>Email Notifications</p>
+          <Toggle className='email-slider'/>
+        </div>
+
+
         <div className='submit-holder'>
           <FlatButton className='btn-green' label='save'/>
         </div>
