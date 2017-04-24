@@ -124,10 +124,16 @@ class MenuDrawer extends PureComponent {
               </MenuItem>
             </a>
           </Menu>
+
         </div>
       </Drawer>
     )
   }
 }
+const mapStateToProps = (state) => {
+  return {
+    currentRoute: state.routing.locationBeforeTransitions.pathname
+  }
+}
 
-export default MenuDrawer
+export default connect(mapStateToProps)(MenuDrawer)
