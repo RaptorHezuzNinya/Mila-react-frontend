@@ -3,18 +3,13 @@ import { connect } from 'react-redux'
 import { Field, reduxForm } from 'redux-form'
 import { reset } from 'redux-form'
 import Media from 'react-media'
-// actions
 import { createNetworkList, deleteNetworkList } from '../actions/networklists/index'
-// Components
 import ResponsiveContent from './ResponsiveContent'
-// Material UI Components
 import FlatButton from 'material-ui/FlatButton'
 import TextField from 'material-ui/TextField'
 import IconButton from 'material-ui/IconButton'
 import DeleteIcon from 'material-ui/svg-icons/action/delete'
 import ListIcon from 'material-ui/svg-icons/action/list'
-
-// Styles
 import './CreateListsContainer.sass'
 
 const styles = {
