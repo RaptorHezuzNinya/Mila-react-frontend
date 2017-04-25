@@ -17,15 +17,17 @@ const steelC    = '#f2f6fa'
 const greyA     = '#cccccc'
 const greyB     = '#ffffff'
 
+const redA      = '#F44336'
+
 const transparent = 'rgba(0, 0, 0, 0)'
 
 // Palette
 export const palette = {
-  primary1Color: blueA,
+  primary1Color: greenA,
   primary2Color: blueB,
   primary3Color: blueC,
   accent1Color: greenA,  // secondary color
-  accent2Color: greenB,
+  accent2Color: redA,
   accent3Color: greenC,
   accent4Color: steelA,
   accent5Color: steelB,
@@ -33,6 +35,7 @@ export const palette = {
   accent7Color: greyA,
   accent8Color: greyB,
   textColor: blueA,
+
   // alternateTextColor: steelC,
   // canvasColor: white,
   // borderColor: grey,
