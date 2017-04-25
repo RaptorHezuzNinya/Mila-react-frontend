@@ -4,19 +4,40 @@
 
 .settings-account-wrapper
   padding: 0px 5px
-  // display: flex
-  // flex-flow: row
+  display: flex
+  flex-wrap: wrap
+  +breakpoint($breakpoint-medium)
+    justify-content: space-around
 
   .page-title-wrapper
-    text-align: center
+
+    display: flex
+    flex: 1 100%
+    justify-content: center
+    padding: 15px 0
+    +breakpoint($breakpoint-medium)
+      padding: 25px 0px
+      order: 1
+
+
 
   .user-details-wrapper
-    display: flex
-    flex-direction: column
+    flex: 1 100%
     margin-bottom: 5px
+    +breakpoint($breakpoint-medium)
+      order: 2
+      flex: 2 0 0
 
   .plugin-wrapper
-    display: flex
+    flex: 1 100%
     margin-bottom: 5px
+    +breakpoint($breakpoint-medium)
+      order: 4
 
   .secure-server-wrapper
+    margin-bottom: 5px
+    +breakpoint($breakpoint-medium)
+      margin-left: 5px
+      display: flex
+      flex: 1 0 0
+      order: 3
