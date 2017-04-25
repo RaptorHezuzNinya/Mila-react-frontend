@@ -29,7 +29,7 @@ class SettingsAccount extends PureComponent {
             gmailBtnlabel='Gmail'
             slackBtnlabel='Slack'/>
         </div>
-        <div className='sercure-server-wrapper'>
+        <div className='secure-server-wrapper'>
           <SecureServer />
         </div>
       </div>
