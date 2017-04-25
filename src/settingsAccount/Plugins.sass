@@ -16,6 +16,10 @@
     display: flex
     justify-content: space-between
     flex: 0 0 90%
+    +breakpoint($breakpoint-medium)
+      justify-content: space-around
+      flex: 0 0 100%
+      
   .plugin-text
     padding: 25px 5px
     margin: 0px 0px
