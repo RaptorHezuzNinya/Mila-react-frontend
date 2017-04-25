@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react'
 import PageTitle from '../components/PageTitle'
 import UserDetails from './UserDetails'
 import Plugins from './Plugins'
+import SecureServer from '../components/SecureServer'
 import './SettingsAccount.sass'
 
 class SettingsAccount extends PureComponent {
@@ -27,6 +28,9 @@ class SettingsAccount extends PureComponent {
             btnHolderClassName='btn-holder'
             gmailBtnlabel='Gmail'
             slackBtnlabel='Slack'/>
+        </div>
+        <div className='sercure-server-wrapper'>
+          <SecureServer />
         </div>
       </div>
     )
