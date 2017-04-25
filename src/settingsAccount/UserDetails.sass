@@ -2,10 +2,14 @@
 @import "../assets/styles/base/mixins.sass"
 @import "../assets/styles/base/breakpoints.sass"
 
-.user-details-wrapper
-  .details-holder, .notification-holder, .submit-holder
-    border-radius: 2px
-    background-color: $steelC
+.user-details-holder
+  background-color: $steelC
+  border-radius: 2px
+  +breakpoint($breakpoint-medium)
+
+  .details-holder
+    +breakpoint($breakpoint-medium)
+
   .slack-slider-holder, .email-slider-holder
     +mont-light
     +f(15px)
@@ -19,14 +23,9 @@
       flex: 1 0 0
 
   .notification-holder
-    // border-radius: 2px
-    // background-color: $steelC
-    // margin-bottom: 10px
+
 
   .submit-holder
-    // border-radius: 2px
-    // background-color: $steelC
-    margin-bottom: 5px
     display: flex
     justify-content: center
     padding-top: 5px

@@ -15,10 +15,12 @@ class UserDetails extends PureComponent {
       }
     }
     return (
-      <div className='user-details-wrapper'>
+      <div className='user-details-holder'>
+
         <form onSubmit={this.handleFormSubmit}>
 
           <div className='details-holder'>
+
             <div className='firstname-holder'>
               <TextField
                 hintText='First name'
@@ -59,6 +61,7 @@ class UserDetails extends PureComponent {
           </div>
 
         </form>
+
       </div>
     )
   }
