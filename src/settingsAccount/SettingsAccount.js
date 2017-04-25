@@ -12,15 +12,18 @@ class SettingsAccount extends PureComponent {
   render () {
     return (
       <div className='settings-account-wrapper'>
-        <div className='page-title-holder'>
+
+        <div className='page-title-wrapper'>
           <PageTitle
             titleClassName='settings-account-title'
             pageTitleContentH2='Account Settings'
             pageTitleContentH3="Let's go into the detail"/>
         </div>
-        <div className='settings-account-content'>
+
+        <div className='user-details-wrapper'>
           <UserDetails />
         </div>
+
         <div className='plugin-wrapper'>
           <Plugins
             pluginHolderClassName='plugin-holder'
@@ -29,9 +32,11 @@ class SettingsAccount extends PureComponent {
             gmailBtnlabel='Gmail'
             slackBtnlabel='Slack'/>
         </div>
+
         <div className='secure-server-wrapper'>
           <SecureServer />
         </div>
+
       </div>
     )
   }
