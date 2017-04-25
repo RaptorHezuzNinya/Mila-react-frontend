@@ -22,8 +22,9 @@ class SettingsAccount extends PureComponent {
         </div>
         <div className='plugin-wrapper'>
           <Plugins
-            pluginHolderClassName='plugin-holder-settings-account'
+            pluginHolderClassName='plugin-holder'
             textClassName='plugin-text'
+            btnHolderClassName='btn-holder'
             gmailBtnlabel='Gmail'
             slackBtnlabel='Slack'/>
         </div>
