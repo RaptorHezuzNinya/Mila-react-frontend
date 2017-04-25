@@ -17,7 +17,7 @@ const steelC    = '#f2f6fa'
 const greyA     = '#cccccc'
 const greyB     = '#ffffff'
 
-const redA      = '#F44336'
+const redA      = '#FF6666'
 
 const transparent = 'rgba(0, 0, 0, 0)'
 
