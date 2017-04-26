@@ -1,4 +1,6 @@
 import React, {PureComponent} from 'react'
+import { connect } from 'react-redux'
+import { toggleSlackNotification, toggleGmailNotification } from '../actions/user'
 import TextField from 'material-ui/TextField'
 import FlatButton from 'material-ui/FlatButton'
 import Toggle from 'material-ui/Toggle'
