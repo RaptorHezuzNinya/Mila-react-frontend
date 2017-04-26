@@ -75,5 +75,11 @@ class UserDetails extends PureComponent {
     )
   }
 }
+const mapStateToProps = (state) => {
+  return {
+    slackNotification: state.user.slackNotification,
+    gmailNotification: state.user.gmailNotification
+  }
+}
 
-export default UserDetails
+export default connect(mapStateToProps, {toggleSlackNotification, toggleGmailNotification})(UserDetails)
