@@ -7,6 +7,11 @@ import Toggle from 'material-ui/Toggle'
 import './UserDetails.sass'
 
 class UserDetails extends PureComponent {
+
+  handleFormSubmit () {
+    console.log('FORM SUBMIT HANDLED')
+  }
+
   render () {
     const styles = {
       hintText: {
@@ -16,14 +21,12 @@ class UserDetails extends PureComponent {
         marginLeft: 40
       }
     }
+
     const { toggleSlackNotification, toggleGmailNotification, slackNotification, gmailNotification } = this.props
     return (
       <div className='user-details-holder'>
-
         <form onSubmit={this.handleFormSubmit}>
-
           <div className='details-holder'>
-
             <div className='firstname-holder'>
               <TextField
                 hintText='First name'
@@ -64,13 +67,10 @@ class UserDetails extends PureComponent {
             </div>
           </div>
 
-
           <div className='submit-holder'>
             <FlatButton className='btn-green' label='save' type='submit'/>
           </div>
-
         </form>
-
       </div>
     )
   }
