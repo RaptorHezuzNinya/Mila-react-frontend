@@ -16,6 +16,7 @@ class UserDetails extends PureComponent {
         marginLeft: 40
       }
     }
+    const { toggleSlackNotification, toggleGmailNotification, slackNotification, gmailNotification } = this.props
     return (
       <div className='user-details-holder'>
 
