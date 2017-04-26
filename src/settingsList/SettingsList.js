@@ -1,9 +1,18 @@
 import React, { PureComponent, PropTypes } from 'react'
+import PageTitle from '../components/PageTitle'
+import './SettingsList.sass'
 
 class SettingsList extends PureComponent {
   render () {
     return (
-      <div>settingsLists comp</div>
+      <div className='settings-list-wrapper'>
+        <div className='pagetitle-list-wrapper'>
+          <PageTitle
+            titleClassName='settings-list-title'
+            pageTitleContentH2='Tools & Lists'
+            pageTitleContentH3='Use your favorite sales and marketing tools or create your own lists to keep in touch.'/>
+        </div>
+      </div>
     )
   }
 }
