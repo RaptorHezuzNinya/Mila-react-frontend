@@ -10,11 +10,13 @@ class EditNetworkList extends PureComponent {
     return networkLists.map((networkList) => {
       return (
         <div className='list-item-holder' key={networkList.id}>
-          <span>
-            <NetworkIcon />
-          </span>
-          {networkList.title}
-          <div>
+          <div className='list-title'>
+            <span>
+              <NetworkIcon />
+            </span>
+            {networkList.title}
+          </div>
+          <div className='list-btns'>
             <FlatButton label='EDIT' />
             <FlatButton label='DELETE' />
           </div>
