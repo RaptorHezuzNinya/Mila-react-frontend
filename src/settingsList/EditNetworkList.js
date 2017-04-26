@@ -17,6 +17,7 @@ class EditNetworkList extends PureComponent {
             {networkList.title}
           </div>
           <div className='list-btns'>
+            <FlatButton label='SHOW' />
             <FlatButton label='EDIT' />
             <FlatButton label='DELETE' />
           </div>
