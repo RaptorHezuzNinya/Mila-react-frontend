@@ -13,7 +13,7 @@ class SettingsAccount extends PureComponent {
     return (
       <div className='settings-account-wrapper'>
 
-        <div className='page-title-wrapper'>
+        <div className='pagetitle-account-wrapper'>
           <PageTitle
             titleClassName='settings-account-title'
             pageTitleContentH2='Account Settings'
