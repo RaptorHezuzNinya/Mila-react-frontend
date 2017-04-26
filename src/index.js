@@ -14,6 +14,7 @@ import NewContactsContainer from './newContacts/NewContactsContainer'
 import Contact from './newContacts/Contact'
 import NetworkContainer from './myNetwork/NetworkContainer'
 import SettingsAccount from './settingsAccount/SettingsAccount'
+import SettingsList from './settingsList/SettingsList'
 // base styles
 import './assets/styles/main.sass'
 import 'normalize.css'
@@ -29,6 +30,7 @@ ReactDOM.render(
         <Route path={routes.newContactsPath} component={NewContactsContainer} />
         <Route path={routes.myNetworkPath} component={NetworkContainer} />
         <Route path={routes.settingsAccountPath} component={SettingsAccount} />
+        <Route path={routes.settingsListPath} component={SettingsList} />
       </Route>
     </Router>
   </Provider>,

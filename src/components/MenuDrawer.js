@@ -46,8 +46,8 @@ class MenuDrawer extends PureComponent {
         title: 'My Network'
       },
       {
-        route: '/settings/account',
-        iconComp: <ListSettingsIcon className={ currentRoute === '/settings/account' ? 'icon active-icon' : 'icon'}/>,
+        route: '/settings/list',
+        iconComp: <ListSettingsIcon className={ currentRoute === '/settings/list' ? 'icon active-icon' : 'icon'}/>,
         title: 'List Settings'
       }
     ]
