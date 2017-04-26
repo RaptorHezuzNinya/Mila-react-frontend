@@ -1,4 +1,6 @@
 import React, {PureComponent} from 'react'
+import { connect } from 'react-redux'
+import { toggleSlackNotification, toggleGmailNotification } from '../actions/user'
 import TextField from 'material-ui/TextField'
 import FlatButton from 'material-ui/FlatButton'
 import Toggle from 'material-ui/Toggle'
@@ -14,6 +16,7 @@ class UserDetails extends PureComponent {
         marginLeft: 40
       }
     }
+    const { toggleSlackNotification, toggleGmailNotification, slackNotification, gmailNotification } = this.props
     return (
       <div className='user-details-holder'>
 
@@ -47,11 +50,17 @@ class UserDetails extends PureComponent {
           <div className='notification-holder'>
             <div className='slack-slider-holder'>
               <p className='slack-text'>Slack Notifications</p>
-              <Toggle className='slack-slider'/>
+              <Toggle
+                className='slack-slider'
+                onToggle={toggleSlackNotification}
+                toggled={slackNotification}/>
             </div>
             <div className='email-slider-holder'>
               <p className='email-text'>Email Notifications</p>
-              <Toggle className='email-slider'/>
+              <Toggle
+                className='email-slider'
+                onToggle={toggleGmailNotification}
+                toggled={gmailNotification}/>
             </div>
           </div>
 
@@ -66,5 +75,11 @@ class UserDetails extends PureComponent {
     )
   }
 }
+const mapStateToProps = (state) => {
+  return {
+    slackNotification: state.user.slackNotification,
+    gmailNotification: state.user.gmailNotification
+  }
+}
 
-export default UserDetails
+export default connect(mapStateToProps, {toggleSlackNotification, toggleGmailNotification})(UserDetails)
