@@ -47,7 +47,9 @@ class UserDetails extends PureComponent {
           <div className='notification-holder'>
             <div className='slack-slider-holder'>
               <p className='slack-text'>Slack Notifications</p>
-              <Toggle className='slack-slider'/>
+              <Toggle
+                className='slack-slider'
+                onToggle={() => console.log('toggled slack')}/>
             </div>
             <div className='email-slider-holder'>
               <p className='email-text'>Email Notifications</p>
