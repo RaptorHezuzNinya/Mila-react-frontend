@@ -12,7 +12,7 @@ class EditNetworkList extends PureComponent {
         <div className='list-item-holder' key={networkList.id}>
           <div className='list-title'>
             <span>
-              <NetworkIcon />
+              <NetworkIcon color='#52be9c'/>
             </span>
             {networkList.title}
           </div>
