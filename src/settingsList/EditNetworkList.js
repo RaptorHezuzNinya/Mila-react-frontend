@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
+import FlatButton from 'material-ui/FlatButton'
 import NetworkIcon from 'material-ui/svg-icons/action/view-list'
 class EditNetworkList extends PureComponent {
 
@@ -12,6 +13,10 @@ class EditNetworkList extends PureComponent {
             <NetworkIcon />
           </span>
           {networkList.title}
+          <div>
+            <FlatButton label='EDIT' />
+            <FlatButton label='DELETE' />
+          </div>
         </div>
       )
     })
@@ -20,7 +25,9 @@ class EditNetworkList extends PureComponent {
   render () {
     return (
       <div className='edit-networklist-holder'>
+
         {this.renderNetworkLists()}
+
       </div>
     )
   }
