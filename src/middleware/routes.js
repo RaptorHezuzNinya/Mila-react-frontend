@@ -1,9 +1,10 @@
 const routes = {
   rootPath: '/',
-  settingsAccountPath: 'settings/account',
   onboardingPath: '/onboarding',
   newContactsPath: '/newcontacts',
-  myNetworkPath: '/mynetwork'
+  myNetworkPath: '/mynetwork',
+  settingsAccountPath: 'settings/account',
+  settingsListPath: 'settings/list'
 }
 
 export default routes
