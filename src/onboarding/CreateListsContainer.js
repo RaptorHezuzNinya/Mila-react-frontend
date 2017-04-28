@@ -142,4 +142,4 @@ export default connect(mapStateToProps, { createNetworkList, deleteNetworkList }
   form: 'onboardCreateNWL',
   validate,
   onSubmitSuccess: afterSubmit
-})(CreateListsContainer));
+})(CreateListsContainer))
