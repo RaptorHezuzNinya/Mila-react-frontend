@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import { deleteNetworkList, updateNetworkList } from '../actions/networklists'
 import FlatButton from 'material-ui/FlatButton'
+import TextField from 'material-ui/TextField'
 import NetworkIcon from 'material-ui/svg-icons/action/view-list'
 import './EditNetworkList.sass'
 class EditNetworkList extends PureComponent {
