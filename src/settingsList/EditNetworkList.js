@@ -47,4 +47,4 @@ const mapStateToProps = (state) => {
     networkLists: state.networkLists
   }
 }
-export default connect(mapStateToProps)(EditNetworkList)
+export default connect(mapStateToProps, {updateNetworkList, deleteNetworkList})(EditNetworkList)
