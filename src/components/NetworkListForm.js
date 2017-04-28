@@ -17,7 +17,26 @@ const styles = {
   }
 }
 
+const formData = [
+  {
+    name: 'title',
+    label: 'Enter list title, e.g. clients, prospects …'
+  },
+  {
+    name: 'description',
+    label: 'Enter list description',
+  }
+]
+
 class NetworkListForm extends PureComponent {
+  constructor(props) {
+    super(props)
+    this.onSubmit = this.onSubmit.bind(this)
+  }
+
+  onSubmit(props) {
+    this.props.createNetworkList(props)
+  }
 
   renderTextField = ({ input, label, meta: { touched, error } }) => (
     <TextField
