@@ -1,7 +1,4 @@
 export const CREATE_NETWORKLIST = 'CREATE_NETWORKLIST'
-export const UPDATE_NETWORKLIST = 'UPDATE_NETWORKLIST'
-export const DELETE_NETWORKLIST = 'DELETE_NETWORKLIST'
-
 export const createNetworkList = (networkList) => {
 
   return {
@@ -10,6 +7,7 @@ export const createNetworkList = (networkList) => {
   }
 }
 
+export const UPDATE_NETWORKLIST = 'UPDATE_NETWORKLIST'
 export const updateNetworkList = (networkList) =>{
 
   return {
@@ -18,6 +16,7 @@ export const updateNetworkList = (networkList) =>{
   }
 }
 
+export const DELETE_NETWORKLIST = 'DELETE_NETWORKLIST'
 export const deleteNetworkList = (id) => {
   return {
     type: DELETE_NETWORKLIST,

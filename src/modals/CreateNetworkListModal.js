@@ -1,20 +1,13 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
-
-// actions
 import { hideModal } from '../actions/modals/index'
-import { createNetworkList } from '../actions/networklists/index'
-// import networkList from '../reducers/networklists'
-
-// material-ui Components
+import { createNetworkList } from '../actions/networklists'
 import Dialog from 'material-ui/Dialog'
 import FlatButton from 'material-ui/FlatButton'
 import RaisedButton from 'material-ui/RaisedButton'
 import Paper from 'material-ui/Paper'
 import TextField from 'material-ui/TextField'
 import CheckBox from 'material-ui/Checkbox'
-
-// styling
 import './CreateNetworkListModal.sass'
 
 const maxTitleCount = 25
