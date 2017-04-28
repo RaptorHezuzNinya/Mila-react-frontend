@@ -92,24 +92,17 @@ const validate = (values) => {
   return errors
 }
 
+const afterSubmit = (result, dispatch) => {
+  dispatch(reset('networkListForm'))
+}
+
+export default connect(null, { createNetworkList })(reduxForm({
+  form: 'networkListForm',
+  validate,
+  onSubmitSuccess: afterSubmit
+})(NetworkListForm))
+
 // export default reduxForm({
 //   form: 'networkListForm',
 //   validate
 // })(NetworkListForm)
-
-
-// NetworkListForm = reduxForm({
-//   form: 'networkListForm' // a unique name for this form
-// })(NetworkListForm)
-
-// export default NetworkListForm
-
-// export default connect(null, { createNetworkList })(reduxForm({
-//   form: 'networkListForm',
-//   validate
-// })(NetworkListForm))
-
-export default connect(null, { createNetworkList })(reduxForm({
-  form: 'createNWLForm',
-  validate
-})(NetworkListForm))
