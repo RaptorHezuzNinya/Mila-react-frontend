@@ -36,7 +36,13 @@ class EditNetworkList extends PureComponent {
   render () {
     return (
       <div className='edit-networklist-holder'>
-        {this.renderNetworkLists()}
+        <div className='add-list-holder'>
+          <TextField name='' hintText='Enter new list title'/>
+          <FlatButton label='+ add list' onClick={() => console.log('addbutton clickked')}/>
+        </div>
+        <div className='list-item-wrapper'>
+          {this.renderNetworkLists()}
+        </div>
       </div>
     )
   }
