@@ -1,7 +1,6 @@
 import React, { PureComponent, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { Field, reduxForm } from 'redux-form'
-import { reset } from 'redux-form'
+import { Field, reduxForm, reset } from 'redux-form'
 import Media from 'react-media'
 import { createNetworkList, deleteNetworkList } from '../actions/networklists'
 import ResponsiveContent from './ResponsiveContent'
