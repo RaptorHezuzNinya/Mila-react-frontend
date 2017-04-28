@@ -2,17 +2,13 @@ import React, { PureComponent, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import Media from 'react-media'
 import classNames from 'classNames'
-// actions
 import { incrStepIndex, decrStepIndex, incrListCount, decrListCount, showProceedWarn, hideProceedWarn } from '../actions/onboarding'
-//Components
 import ScanningInbox from './ScanningInbox'
 import CreateListsContainer from './CreateListsContainer'
 import ProceedWarning from './ProceedWarning'
 import StartSorting from './StartSorting'
-// Material UI Components
 import { Step, Stepper, StepLabel, StepContent } from 'material-ui/Stepper'
 import FlatButton from 'material-ui/FlatButton'
-// Styles
 import './OnboardingStepper.sass'
 
 const styles = {

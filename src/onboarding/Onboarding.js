@@ -1,9 +1,7 @@
 import React, { PureComponent, PropTypes } from 'react'
 import Media from 'react-media'
-// Components
 import OnboardingDeskModal from '../modals/OnboardingDeskModal'
 import OnboardingStepper from './OnboardingStepper'
-// Styles
 import './Onboarding.sass'
 
 class Onboarding extends PureComponent {
