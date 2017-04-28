@@ -50,16 +50,25 @@ class NetworkListForm extends PureComponent {
     />
   )
 
+  renderFormFields = () => {
+    return formData.map((form) => {
+      return (
+        <div key={form.name}>
+          <Field
+            name={form.name}
+            label={form.label}
+            component={ this.renderTextField } />
+        </div>
+      )
+    })
+  }
+
   render () {
+    const { handleSubmit } = this.props
     return (
       <div>
-        <form>
-          <div>
-            <Field
-              name='title'
-              label='Enter list title, e.g. clients, prospects …'
-              component={ this.renderTextField } />
-          </div>
+        <form onSubmit={handleSubmit(this.onSubmit)}>
+          {this.renderFormFields()}
           <div>
             <FlatButton
               type='submit'
