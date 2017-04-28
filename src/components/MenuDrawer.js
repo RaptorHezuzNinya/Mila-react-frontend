@@ -1,7 +1,6 @@
 import React, { PureComponent, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
-// material ui
 import Drawer from 'material-ui/Drawer'
 import FlatButton from 'material-ui/FlatButton'
 import Menu from 'material-ui/Menu'
@@ -12,7 +11,6 @@ import NetworkIcon from 'material-ui/svg-icons/action/view-list'
 import ListSettingsIcon from 'material-ui/svg-icons/action/settings'
 import AboutIcon from 'material-ui/svg-icons/action/face'
 import BlogIcon from 'material-ui/svg-icons/communication/chat-bubble'
-// styles
 import './MenuDrawer.sass'
 
 const styles = {

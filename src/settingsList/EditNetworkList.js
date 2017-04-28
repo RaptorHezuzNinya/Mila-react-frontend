@@ -1,16 +1,13 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import { deleteNetworkList, updateNetworkList } from '../actions/networklists'
+import NetworkListForm from '../components/NetworkListForm'
 import FlatButton from 'material-ui/FlatButton'
+import TextField from 'material-ui/TextField'
 import NetworkIcon from 'material-ui/svg-icons/action/view-list'
 import './EditNetworkList.sass'
+
 class EditNetworkList extends PureComponent {
-
-  handleDeleteListClick(networkList) {
-    console.log(networkList)
-    // this.props.deleteNetworkList({networkList})
-
-  }
 
   renderNetworkLists () {
     const { networkLists } = this.props
@@ -35,12 +32,16 @@ class EditNetworkList extends PureComponent {
   render () {
     return (
       <div className='edit-networklist-holder'>
-        {this.renderNetworkLists()}
+        <div className='add-list-holder'>
+          <NetworkListForm />
+        </div>
+        <div className='list-item-wrapper'>
+          {this.renderNetworkLists()}
+        </div>
       </div>
     )
   }
 }
-
 
 const mapStateToProps = (state) => {
   return {
