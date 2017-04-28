@@ -33,8 +33,7 @@ class EditNetworkList extends PureComponent {
     return (
       <div className='edit-networklist-holder'>
         <div className='add-list-holder'>
-          <TextField name='' hintText='Enter new list title'/>
-          <FlatButton label='+ add list' onClick={() => console.log('addbutton clickked')}/>
+          <NetworkListForm />
         </div>
         <div className='list-item-wrapper'>
           {this.renderNetworkLists()}
@@ -43,7 +42,6 @@ class EditNetworkList extends PureComponent {
     )
   }
 }
-
 
 const mapStateToProps = (state) => {
   return {
