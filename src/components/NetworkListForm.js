@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import { createNetworkList } from '../actions/networklists'
-import { Field, reduxForm } from 'redux-form'
+import { Field, reduxForm, reset } from 'redux-form'
 import TextField from 'material-ui/TextField'
 import FlatButton from 'material-ui/FlatButton'
 
