@@ -43,7 +43,6 @@ class NetworkListForm extends PureComponent {
 
   renderTextField = ({ input, label, meta: { touched, error } }) => (
     <TextField
-      className='list-input'
       hintText={label}
       hintStyle={styles.hint}
       fullWidth={true}
@@ -56,7 +55,7 @@ class NetworkListForm extends PureComponent {
   renderFormFields = () => {
     return formData.map((form) => {
       return (
-        <div key={form.name}>
+        <div className='field-holder' key={form.name}>
           <Field
             name={form.name}
             label={form.label}
