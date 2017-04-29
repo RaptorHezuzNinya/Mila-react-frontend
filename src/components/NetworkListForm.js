@@ -66,14 +66,14 @@ class NetworkListForm extends PureComponent {
   }
 
   render () {
-    const { handleSubmit, btnLabel } = this.props
+    const { handleSubmit, btnLabel, editListBtn, editListBtnHolder } = this.props
     return (
       <div>
         <form onSubmit={handleSubmit(this.onSubmit)}>
           {this.renderFormFields()}
-          <div>
+          <div className={editListBtnHolder}>
             <FlatButton
-              className='btn-grey-wide'
+              className={editListBtn}
               type='submit'
               label={btnLabel}
             />
