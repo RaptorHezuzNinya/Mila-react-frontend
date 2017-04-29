@@ -55,7 +55,7 @@ class NetworkListForm extends PureComponent {
   renderFormFields = () => {
     return formData.map((form) => {
       return (
-        <div className='field-holder' key={form.name}>
+        <div className={this.props.fieldHolder} key={form.name}>
           <Field
             name={form.name}
             label={form.label}
@@ -66,14 +66,14 @@ class NetworkListForm extends PureComponent {
   }
 
   render () {
-    const { handleSubmit, btnLabel, editListBtn, editListBtnHolder } = this.props
+    const { handleSubmit, btnLabel, btnClass, btnHolder } = this.props
     return (
       <div>
         <form onSubmit={handleSubmit(this.onSubmit)}>
           {this.renderFormFields()}
-          <div className={editListBtnHolder}>
+          <div className={btnHolder}>
             <FlatButton
-              className={editListBtn}
+              className={btnClass}
               type='submit'
               label={btnLabel}
             />
