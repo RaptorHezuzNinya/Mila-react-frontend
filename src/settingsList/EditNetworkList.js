@@ -34,9 +34,10 @@ class EditNetworkList extends PureComponent {
       <div className='edit-networklist-holder'>
         <div className='add-list-holder'>
           <NetworkListForm
+            fieldHolder='edit-list-field-holder'
             btnLabel='+ add list'
-            editListBtn='btn-grey-wide'
-            editListBtnHolder='edit-list-btnholder'/>
+            btnClass='btn-grey-wide'
+            btnHolder='edit-list-btnholder'/>
         </div>
         <div className='list-item-wrapper'>
           {this.renderNetworkLists()}
