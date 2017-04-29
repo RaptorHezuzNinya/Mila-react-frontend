@@ -10,10 +10,11 @@
     justify-content: space-around
 
   .pagetitle-account-wrapper
-    display: flex
-    flex: 1 100%
-    justify-content: center
     padding: 15px 0
+    +breakpoint($breakpoint-land)
+      display: flex
+      flex: 1 100%
+      justify-content: center
     +breakpoint($breakpoint-medium)
       padding: 25px 0px
       order: 1
