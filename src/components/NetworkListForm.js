@@ -4,15 +4,18 @@ import { createNetworkList } from '../actions/networklists'
 import { Field, reduxForm, reset } from 'redux-form'
 import TextField from 'material-ui/TextField'
 import FlatButton from 'material-ui/FlatButton'
+import './NetworkListForm.sass'
 
 const styles = {
   hint: {
     fontSize: 14,
-    fontFamily: 'Montserrat-Light'
+    fontFamily: 'Montserrat-Light',
+    marginLeft: 15,
   },
   inputStyle: {
     fontSize: 15,
     fontFamily: 'Montserrat-Light',
+    marginLeft: 15,
     color: '#292f36',
   }
 }
@@ -40,7 +43,6 @@ class NetworkListForm extends PureComponent {
 
   renderTextField = ({ input, label, meta: { touched, error } }) => (
     <TextField
-      className='list-input'
       hintText={label}
       hintStyle={styles.hint}
       fullWidth={true}
@@ -53,7 +55,7 @@ class NetworkListForm extends PureComponent {
   renderFormFields = () => {
     return formData.map((form) => {
       return (
-        <div key={form.name}>
+        <div className={this.props.fieldHolder} key={form.name}>
           <Field
             name={form.name}
             label={form.label}
@@ -64,15 +66,16 @@ class NetworkListForm extends PureComponent {
   }
 
   render () {
-    const { handleSubmit } = this.props
+    const { handleSubmit, btnLabel, btnClass, btnHolder } = this.props
     return (
       <div>
         <form onSubmit={handleSubmit(this.onSubmit)}>
           {this.renderFormFields()}
-          <div>
+          <div className={btnHolder}>
             <FlatButton
+              className={btnClass}
               type='submit'
-              label='+ add list'
+              label={btnLabel}
             />
           </div>
         </form>
