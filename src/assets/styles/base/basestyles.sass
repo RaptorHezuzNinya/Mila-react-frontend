@@ -1,5 +1,6 @@
 @import "./colors.sass"
 @import "./mixins.sass"
+@import "./breakpoints.sass"
 
 .btn-green
   width: 150px
@@ -23,7 +24,8 @@
   height: 45px !important
   border-radius: 30px !important
   border: 1px solid $border1 !important
-  &:active
-    border: 2px solid $greenA !important
-    span
-      color: $greenA !important
+  +breakpoint($breakpoint-medium)
+    &:hover
+      border: 2px solid $greenA !important
+      span
+        color: $greenA !important
