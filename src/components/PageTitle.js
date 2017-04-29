@@ -1,11 +1,11 @@
 import React from 'react'
 import './PageTitle.sass'
 
-const PageTitle = (props) => {
+const PageTitle = ({titleClassName, pageTitleContentH2, pageTitleContentH3}) => {
   return (
-    <div className={props.titleClassName}>
-      <h2>{props.pageTitleContentH2}</h2>
-      <h3>{props.pageTitleContentH3}</h3>
+    <div className={titleClassName}>
+      <h2>{pageTitleContentH2}</h2>
+      <h3>{pageTitleContentH3}</h3>
     </div>
   )
 }
