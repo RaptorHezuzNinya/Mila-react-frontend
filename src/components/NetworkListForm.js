@@ -71,6 +71,7 @@ class NetworkListForm extends PureComponent {
           {this.renderFormFields()}
           <div>
             <FlatButton
+              className='btn-grey-wide'
               type='submit'
               label={btnLabel}
             />
