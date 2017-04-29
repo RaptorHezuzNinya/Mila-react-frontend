@@ -55,7 +55,7 @@ class NetworkListForm extends PureComponent {
   renderFormFields = () => {
     return formData.map((form) => {
       return (
-        <div className='field-holder' key={form.name}>
+        <div className={this.props.fieldHolder} key={form.name}>
           <Field
             name={form.name}
             label={form.label}
