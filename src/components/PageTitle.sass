@@ -2,8 +2,8 @@
 @import "../assets/styles/base/mixins.sass"
 @import "../assets/styles/base/breakpoints.sass"
 
-// SettingsAccount.js & SettingsList.js (user same swagsettings)
-.settings-account-title, .settings-list-title
+// imported in SettingsAccount.js
+.settings-account-title
   h2
     +mont-light($steelC)
     +f(21px)
@@ -14,3 +14,18 @@
     +f(14px)
     margin-top: 0px
     font-weight: 100
+
+// imported in SettingsList.js
+.settings-list-title
+  h2
+    +mont-light($steelC)
+    +f(21px)
+    margin-bottom: 10px
+    font-weight: 100
+    text-align: center
+  h3
+    +mont-light($steelC)
+    +f(14px)
+    margin-top: 0px
+    font-weight: 100
+    text-align: center
