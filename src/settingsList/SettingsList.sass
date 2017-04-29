@@ -7,10 +7,11 @@
   display: flex
   flex-wrap: wrap
   .pagetitle-list-wrapper
-    // display: flex
-    // justify-content: center
-    // flex: 1 100%
     padding: 10px
+    +breakpoint($breakpoint-land)
+      display: flex
+      justify-content: center
+      flex: 1 100%
 
   .editnetworklist-list-wrapper
     flex: 0 0 100%
