@@ -4,15 +4,18 @@ import { createNetworkList } from '../actions/networklists'
 import { Field, reduxForm, reset } from 'redux-form'
 import TextField from 'material-ui/TextField'
 import FlatButton from 'material-ui/FlatButton'
+import './NetworkListForm.sass'
 
 const styles = {
   hint: {
     fontSize: 14,
-    fontFamily: 'Montserrat-Light'
+    fontFamily: 'Montserrat-Light',
+    marginLeft: 15,
   },
   inputStyle: {
     fontSize: 15,
     fontFamily: 'Montserrat-Light',
+    marginLeft: 15,
     color: '#292f36',
   }
 }
