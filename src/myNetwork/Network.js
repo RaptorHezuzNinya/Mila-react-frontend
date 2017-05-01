@@ -1,25 +1,16 @@
-import React, { PureComponent } from 'react'
-import { connect } from 'react-redux'
+import React from 'react'
+import PageTitle from '../components/PageTitle'
 import NetworkContainer from './NetworkContainer'
 
-class Network extends PureComponent {
-
-  render(){
-    const styles = {
-      textAlign: 'center',
-      color: '#fff',
-      fontFamily: 'Montserrat-Light',
-      margin: '60px 0',
-      fontWeight: 100,
-    }
-
-    return (
-      <div>
-        <h2 style={styles}>Admire your contact paradise. It's my pleasure.</h2>
-        <NetworkContainer />
-      </div>
-    )
-  }
+const Network = () => {
+  return (
+    <div>
+      <PageTitle
+        titleClassName='network-page-title'
+        pageTitleContentH2="Admire your contact paradise. It's my pleasure." />
+      <NetworkContainer />
+    </div>
+  )
 }
 
 export default Network
