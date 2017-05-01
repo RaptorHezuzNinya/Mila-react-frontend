@@ -33,6 +33,7 @@ class EditNetworkList extends PureComponent {
     return (
       <div className='edit-networklist-holder'>
         <div className='add-list-holder'>
+          <h3 className='create-header'>Create new contact lists</h3>
           <NetworkListForm
             fieldHolder='edit-list-field-holder'
             btnLabel='+ add list'
@@ -40,6 +41,7 @@ class EditNetworkList extends PureComponent {
             btnHolder='edit-list-btnholder'/>
         </div>
         <div className='list-item-wrapper'>
+          <h3 className='list-header'>Your contact lists</h3>
           {this.renderNetworkLists()}
         </div>
       </div>
