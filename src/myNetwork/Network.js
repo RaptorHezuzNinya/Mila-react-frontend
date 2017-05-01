@@ -1,47 +1,23 @@
-import React, { PureComponent, PropTypes } from 'react'
+import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
-import NetworkButton from './NetworkButton'
-import NetworkButtonDrop from './NetworkButtonDrop'
-import NetworkList from './NetworkList'
-import ModalButton from '../modals/ModalButton'
-import './Network.sass'
+import NetworkContainer from './NetworkContainer'
 
 class Network extends PureComponent {
-  constructor(props){
-    super(props)
-    this.state = {
-      createNetworkListModal: 'CREATE_NETWORKLIST_MODAL',
+
+  render(){
+    const styles = {
+      textAlign: 'center',
+      color: '#fff',
+      fontFamily: 'Montserrat-Light',
+      margin: '60px 0',
+      fontWeight: 100,
     }
-  }
-
-  static propTypes = {
-    networkLists: PropTypes.array.isRequired,
-    contacts: PropTypes.array.isRequired
-  }
-
-  renderNetworkButton(networkList, index){
-    return <NetworkButton key={ index } { ...networkList }/>
-  }
-
-  render() {
-    const { createNetworkListModal } = this.state
-    const { networkLists, contacts } = this.props
-    if (!networkLists) return null
 
     return (
-      <div className="network-component">
-        <div className="network-dropdown">
-          <NetworkButtonDrop networkLists={ networkLists }/>
-        </div>
-        <div className="network-lists-container">
-          { networkLists.map(this.renderNetworkButton) }
-          <ModalButton usedClassName="create-list-modal" label="+" modal={ createNetworkListModal }/>
-        </div>
-        <div className="networklist">
-          <NetworkList contacts={contacts} />
-        </div>
+      <div>
+        <h2 style={styles}>Admire your contact paradise. It's my pleasure.</h2>
+        <NetworkContainer />
       </div>
-
     )
   }
 }
