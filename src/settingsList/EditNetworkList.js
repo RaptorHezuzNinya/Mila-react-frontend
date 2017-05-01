@@ -46,7 +46,7 @@ class EditNetworkList extends PureComponent {
           <Media query='(max-width: 769px)' render={() => (
             <NetworkListForm
               fieldHolder='edit-list-field-holder'
-              btnLabel='+ add list'
+              btnLabel='create'
               btnClass='btn-grey-wide'
               btnHolder='edit-list-btnholder' />
           )} />
