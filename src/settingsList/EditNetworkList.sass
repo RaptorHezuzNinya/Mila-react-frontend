@@ -13,11 +13,28 @@
     +breakpoint($brp-m)
       flex: 1 0 0
 
+    .create-header
+      +mont-light($blueA)
+      +f(16px)
+      font-weight: 100
+      text-align: center
+
+
   .list-item-wrapper
     background-color: $steelC
     border-radius: 2px
+    padding-top: 5px
+    margin-bottom: 5px
     +breakpoint($brp-m)
       flex: 1 0 0
+    .list-header
+      +mont-light($blueA)
+      +f(16px)
+      margin-bottom: 25px
+      font-weight: 100
+      text-align: center
+
+
 
     .list-item-holder
       border-bottom: 1px solid $border1
