@@ -40,7 +40,7 @@ class EditNetworkList extends PureComponent {
             btnClass='btn-grey-wide'
             btnHolder='edit-list-btnholder'/>
         </div>
-        <div className='list-item-wrapper'>
+        <div className='list-item-wrap'>
           <h3 className='list-header'>Your contact lists</h3>
           {this.renderNetworkLists()}
         </div>
