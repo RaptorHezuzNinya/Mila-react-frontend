@@ -71,6 +71,8 @@ class CreateNetworkListModal extends PureComponent {
       <div className='modal-wrapper'>
         <Dialog
           className='createlist-dialog'
+
+          autoScrollBodyContent={true}
           modal={true}
           contentStyle={styles.customContentStyle}
           open={this.state.open}
@@ -79,11 +81,12 @@ class CreateNetworkListModal extends PureComponent {
             <PageTitle
               titleClassName='createlist-modal-title'
               pageTitleContentH2='Create a new Mila list'
-              pageTitleContentH3='Use lists to group your contacts'/>
+              pageTitleContentH3='Use lists to group your contacts' />
 
             <div className='listname-container'>
               <p className='list-name'>LIST NAME</p>
               <p className='char-count'> {maxTitleCount - this.state.title.length} left</p>
+
               <TextField
                 hintStyle={styles.hintStyle}
                 className='list-input'
@@ -93,6 +96,7 @@ class CreateNetworkListModal extends PureComponent {
                 onChange={ this.handleChange.bind(this) }
                 maxLength='25'>
               </TextField>
+
             </div>
             <div className='descript-container'>
               <p className='desc-name'>DESCRIPTION (optional)</p>
