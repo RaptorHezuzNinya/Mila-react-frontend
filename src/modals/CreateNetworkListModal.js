@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import { hideModal } from '../actions/modals/index'
 import { createNetworkList } from '../actions/networklists'
+import NetworkListForm from '../components/NetworkListForm'
 import PageTitle from '../components/PageTitle'
 import Dialog from 'material-ui/Dialog'
 import FlatButton from 'material-ui/FlatButton'
@@ -24,6 +25,7 @@ const styles = {
     fontWeight: 100,
     fontFamily: 'Montserrat-Light'
   },
+
 }
 
 class CreateNetworkListModal extends PureComponent {
