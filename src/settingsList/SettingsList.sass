@@ -6,9 +6,15 @@
   padding: 0 5px
   display: flex
   flex-wrap: wrap
-  .pagetitle-list-wrapper
-    text-align: center
-    padding: 10px
+  .pagetitle-list-wrap
+    padding: 15px
+    +breakpoint($brp-land)
+      display: flex
+      justify-content: center
+      flex: 1 100%
 
-  .editnetworklist-list-wrapper
+  .editnetworklist-list-wrap
+    flex: 0 0 100%
+
+  .sync-contacts-list-wrap
     flex: 0 0 100%

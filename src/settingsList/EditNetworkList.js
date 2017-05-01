@@ -10,7 +10,7 @@ import './EditNetworkList.sass'
 class EditNetworkList extends PureComponent {
 
   renderNetworkLists () {
-    const { networkLists } = this.props
+    const { networkLists, updateNetworkList, deleteNetworkList } = this.props
     return networkLists.map((networkList) => {
       return (
         <div className='list-item-holder' key={networkList.id}>
@@ -21,8 +21,8 @@ class EditNetworkList extends PureComponent {
             {networkList.title}
           </div>
           <div className='list-btns'>
-            <FlatButton label='EDIT' primary={true} onClick={this.props.updateNetworkList.bind(this, networkList.title)} />
-            <FlatButton label='DELETE' primary={true} onClick={this.props.deleteNetworkList.bind(this, networkList.title)} />
+            <FlatButton label='EDIT' primary={true} onClick={updateNetworkList.bind(this, networkList.title)} />
+            <FlatButton label='DELETE' primary={true} onClick={deleteNetworkList.bind(this, networkList.title)} />
           </div>
         </div>
       )
@@ -33,13 +33,15 @@ class EditNetworkList extends PureComponent {
     return (
       <div className='edit-networklist-holder'>
         <div className='add-list-holder'>
+          <h3 className='create-header'>Create new contact lists</h3>
           <NetworkListForm
             fieldHolder='edit-list-field-holder'
             btnLabel='+ add list'
             btnClass='btn-grey-wide'
             btnHolder='edit-list-btnholder'/>
         </div>
-        <div className='list-item-wrapper'>
+        <div className='list-item-wrap'>
+          <h3 className='list-header'>Your contact lists</h3>
           {this.renderNetworkLists()}
         </div>
       </div>

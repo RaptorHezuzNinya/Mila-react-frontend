@@ -4,7 +4,7 @@
 
 .container
   position: relative
-  +breakpoint($breakpoint-land)
+  +breakpoint($brp-land)
   display: flex
   justify-content: center
   align-items: center
@@ -13,7 +13,7 @@
     width: 100%
     position: relative
     margin-bottom: 10px
-    +breakpoint($breakpoint-land)
+    +breakpoint($brp-land)
       max-width: 60%
 
     .contact-card
@@ -23,7 +23,7 @@
 
       .contact-card-input
         width: 100%
-        +breakpoint($breakpoint-small)
+        +breakpoint($brp-s)
 
       .contact-card-row-top,
       .contact-card-row-bottom
@@ -48,10 +48,10 @@
       width: 80px
       position: absolute
       right: 0
-      +breakpoint($breakpoint-land)
+      +breakpoint($brp-land)
         height: 100px
         width: 100px
-        +breakpoint($breakpoint-medium)
+        +breakpoint($brp-m)
           height: 120px
           width: 120px
 
