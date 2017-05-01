@@ -10,6 +10,12 @@ import NetworkIcon from 'material-ui/svg-icons/action/view-list'
 import './EditNetworkList.sass'
 
 class EditNetworkList extends PureComponent {
+  constructor(props){
+    super(props)
+    this.state = {
+      createNetworkListModal: 'CREATE_NETWORKLIST_MODAL'
+    }
+  }
 
   renderNetworkLists () {
     const { networkLists, updateNetworkList, deleteNetworkList } = this.props
