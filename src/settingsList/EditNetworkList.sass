@@ -5,19 +5,27 @@
 .edit-networklist-holder
   +breakpoint($brp-m)
     display: flex
+    flex-wrap: wrap
   .add-list-holder
     background-color: $steelC
     padding-top: 5px
     margin-bottom: 5px
     border-radius: 2px
     +breakpoint($brp-m)
-      flex: 1 0 0
+      flex: 1 0 100%
+      order: 2
+      margin-bottom: 0
 
     .create-header
       +mont-reg($blueA)
       +f(16px)
       font-weight: 100
       text-align: center
+    .modal-btn-holder
+      +breakpoint($brp-m)
+        display: flex
+        justify-content: center
+        padding: 10px 0
 
 
   .list-item-wrap
@@ -26,7 +34,8 @@
     padding-top: 5px
     margin-bottom: 5px
     +breakpoint($brp-m)
-      flex: 1 0 0
+      flex: 1 0 100%
+      order: 1
     .list-header
       +mont-reg($blueA)
       +f(16px)
@@ -35,7 +44,7 @@
       text-align: center
 
     .list-item-holder
-      border-bottom: 1px solid $border1
+      border-top: 1px solid $border1
       padding-top: 10px
       padding-bottom: 5px
       margin-bottom: 5px
