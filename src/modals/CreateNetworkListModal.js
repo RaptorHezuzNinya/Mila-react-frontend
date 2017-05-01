@@ -131,6 +131,11 @@ class CreateNetworkListModal extends PureComponent {
                   onTouchTap={this.handleClose}
                 />
               </div>
+              <NetworkListForm
+                fieldHolder='NWL-modal-field-holder'
+                btnLabel='create'
+                btnClass='btn-grey-wide'
+                btnHolder='NWL-modal-btnholder' />
             </div>
           </div>
         </Dialog>
