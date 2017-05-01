@@ -12,7 +12,7 @@ import App from './App'
 import Onboarding from './onboarding/Onboarding'
 import NewContactsContainer from './newContacts/NewContactsContainer'
 import Contact from './newContacts/Contact'
-import NetworkContainer from './myNetwork/NetworkContainer'
+import Network from './myNetwork/Network'
 import SettingsAccount from './settingsAccount/SettingsAccount'
 import SettingsList from './settingsList/SettingsList'
 // base styles
@@ -25,10 +25,10 @@ ReactDOM.render(
   <Provider store={store}>
     <Router history={history}>
       <Route path="/" component={App}>
-        <IndexRoute component={NetworkContainer} />
+        <IndexRoute component={Network} />
         <Route path={routes.onboardingPath} component={Onboarding} />
         <Route path={routes.newContactsPath} component={NewContactsContainer} />
-        <Route path={routes.myNetworkPath} component={NetworkContainer} />
+        <Route path={routes.myNetworkPath} component={Network} />
         <Route path={routes.settingsAccountPath} component={SettingsAccount} />
         <Route path={routes.settingsListPath} component={SettingsList} />
       </Route>

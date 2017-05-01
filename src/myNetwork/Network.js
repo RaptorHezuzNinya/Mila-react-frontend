@@ -1,4 +1,5 @@
 import React, { PureComponent, PropTypes } from 'react'
+import { connect } from 'react-redux'
 import NetworkButton from './NetworkButton'
 import NetworkButtonDrop from './NetworkButtonDrop'
 import NetworkList from './NetworkList'
