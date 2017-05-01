@@ -71,7 +71,6 @@ class CreateNetworkListModal extends PureComponent {
       <div className='modal-wrapper'>
         <Dialog
           className='createlist-dialog'
-
           autoScrollBodyContent={true}
           modal={true}
           contentStyle={styles.customContentStyle}
@@ -83,7 +82,7 @@ class CreateNetworkListModal extends PureComponent {
               pageTitleContentH2='Create a new Mila list'
               pageTitleContentH3='Use lists to group your contacts' />
 
-            <div className='listname-container'>
+            {/* <div className='listname-container'>
               <p className='list-name'>LIST NAME</p>
               <p className='char-count'> {maxTitleCount - this.state.title.length} left</p>
 
@@ -113,17 +112,22 @@ class CreateNetworkListModal extends PureComponent {
                 onChange={ this.handleChange.bind(this) }
                 maxLength='250'>
               </TextField>
-            </div>
+            </div> */}
+            <NetworkListForm
+              fieldHolder='NWL-modal-field-holder'
+              btnLabel='create'
+              btnClass='btn-grey-wide'
+              btnHolder='NWL-modal-btnholder' />
             <div className='cta-container'>
               <CheckBox className='team-checkb' label='Share this list with your team.'/>
-              <div className='submit-but'>
+              {/* <div className='submit-but'>
                 <FlatButton
                   label='CREATE'
                   primary={true}
                   disabled={false}
                   onClick={this.createNetworkList.bind(this)}
                 />
-              </div>
+              </div> */}
               <div className='cancel-but'>
                 <FlatButton
                   label='Cancel'
@@ -131,11 +135,6 @@ class CreateNetworkListModal extends PureComponent {
                   onTouchTap={this.handleClose}
                 />
               </div>
-              <NetworkListForm
-                fieldHolder='NWL-modal-field-holder'
-                btnLabel='create'
-                btnClass='btn-grey-wide'
-                btnHolder='NWL-modal-btnholder' />
             </div>
           </div>
         </Dialog>
