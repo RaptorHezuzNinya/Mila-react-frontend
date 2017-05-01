@@ -24,7 +24,7 @@ class EditNetworkList extends PureComponent {
         <div className='list-item-holder' key={networkList.id}>
           <div className='list-title'>
             <span className='list-icon'>
-              <NetworkIcon color='#52be9c'/>
+              <NetworkIcon color='#52be9c' />
             </span>
             {networkList.title}
           </div>
@@ -38,15 +38,27 @@ class EditNetworkList extends PureComponent {
   }
 
   render () {
+    const { createNetworkListModal } = this.state
     return (
       <div className='edit-networklist-holder'>
         <div className='add-list-holder'>
           <h3 className='create-header'>Create new contact lists</h3>
-          <NetworkListForm
-            fieldHolder='edit-list-field-holder'
-            btnLabel='+ add list'
-            btnClass='btn-grey-wide'
-            btnHolder='edit-list-btnholder'/>
+          <Media query='(max-width: 769px)' render={() => (
+            <NetworkListForm
+              fieldHolder='edit-list-field-holder'
+              btnLabel='+ add list'
+              btnClass='btn-grey-wide'
+              btnHolder='edit-list-btnholder' />
+          )} />
+
+          <Media query='(min-width: 769px)' render={() => (
+            <div className='modal-btn-holder'>
+              <ModalButton
+                usedClassName='btn-grey-wide'
+                label='+ add list'
+                modal={createNetworkListModal}/>
+            </div>
+          )} />
         </div>
         <div className='list-item-wrap'>
           <h3 className='list-header'>Your contact lists</h3>
