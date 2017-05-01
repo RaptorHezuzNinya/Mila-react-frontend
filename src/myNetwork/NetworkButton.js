@@ -1,6 +1,4 @@
 import React, { PureComponent, PropTypes } from 'react'
-
-// Material ui comp
 import FlatButton from 'material-ui/FlatButton'
 import ListIcon from 'material-ui/svg-icons/action/list'
 
