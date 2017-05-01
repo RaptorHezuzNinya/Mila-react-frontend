@@ -1,10 +1,8 @@
 import React, { PureComponent, PropTypes } from 'react'
-// Components
 import NetworkButton from './NetworkButton'
 import NetworkButtonDrop from './NetworkButtonDrop'
 import NetworkList from './NetworkList'
 import ModalButton from '../modals/ModalButton'
-// styles
 import './Network.sass'
 
 class Network extends PureComponent {
@@ -16,7 +14,8 @@ class Network extends PureComponent {
   }
 
   static propTypes = {
-    networkLists: PropTypes.array.isRequired
+    networkLists: PropTypes.array.isRequired,
+    contacts: PropTypes.array.isRequired
   }
 
   renderNetworkButton(networkList, index){
