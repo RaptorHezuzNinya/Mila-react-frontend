@@ -20,15 +20,14 @@ class NetworkContainer extends PureComponent {
   }
 
   renderNetworkButton(networkList, index){
-    console.log('LOGGING NEWL', networkList)
     return <NetworkButton key={ index } { ...networkList }/>
   }
 
   render() {
     const { createNetworkListModal } = this.state
     const { networkLists, contacts } = this.props
+    // FIXME check this ! return statement
     if (!networkLists) return null
-
     return (
       <div className='network-component'>
         <div className='network-dropdown'>
