@@ -1,14 +1,10 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
-// Components
 import DeleteButton from './DeleteButton'
-// Actions
 import deleteContacts from '../actions/contacts/delete'
-// Material UI Components
 import { Table, TableBody, TableFooter, TableHeader, TableHeaderColumn, TableRow, TableRowColumn } from 'material-ui/Table'
 import TextField from 'material-ui/TextField'
 import Avatar from 'material-ui/Avatar'
-// styles & icons
 import './Networklist.sass'
 
 const styles = {
