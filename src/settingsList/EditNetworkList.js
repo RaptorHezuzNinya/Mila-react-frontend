@@ -1,6 +1,8 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import { deleteNetworkList, updateNetworkList } from '../actions/networklists'
+import Media from 'react-media'
+import ModalButton from '../modals/ModalButton'
 import NetworkListForm from '../components/NetworkListForm'
 import FlatButton from 'material-ui/FlatButton'
 import TextField from 'material-ui/TextField'

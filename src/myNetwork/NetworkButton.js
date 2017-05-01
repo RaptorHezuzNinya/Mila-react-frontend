@@ -9,7 +9,7 @@ class NetworkButton extends PureComponent {
   static propType = {
     title: PropTypes.string.isRequired
   }
-  
+
   render() {
     const { title } = this.props
     return (
