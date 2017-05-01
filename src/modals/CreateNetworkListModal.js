@@ -117,7 +117,8 @@ class CreateNetworkListModal extends PureComponent {
               fieldHolder='NWL-modal-field-holder'
               btnLabel='create'
               btnClass='btn-grey-wide'
-              btnHolder='NWL-modal-btnholder' />
+              btnHolder='NWL-modal-btnholder'
+              handleCloseModal={this.handleClose}/>
             <div className='cta-container'>
               <CheckBox className='team-checkb' label='Share this list with your team.'/>
               {/* <div className='submit-but'>
