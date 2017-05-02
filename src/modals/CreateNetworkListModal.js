@@ -110,6 +110,10 @@ class CreateNetworkListModal extends PureComponent {
             onChange={this.handleFormChange}
             name={form.name}
             label={form.label}
+            maxChars={form.maxChars}
+            multiLine={form.multiLine}
+            rows={form.rows}
+            rowsMax={form.rowsMax}
             component={ this.renderTextField } />
         </div>
       )
