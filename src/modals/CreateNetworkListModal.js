@@ -31,7 +31,7 @@ class CreateNetworkListModal extends PureComponent {
       titleCount: 0,
       descCount: 0,
       maxTitleCount: 25,
-      maxDescCount: 250
+      maxDescCount: 130
     }
     this.handleFormChange = this.handleFormChange.bind(this)
     this.onSubmit = this.onSubmit.bind(this)
