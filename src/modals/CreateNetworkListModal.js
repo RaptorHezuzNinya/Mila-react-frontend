@@ -36,14 +36,16 @@ class CreateNetworkListModal extends PureComponent {
   constructor(){
     super()
     this.state = {
-      open: true,
       titleCount: 0,
-      descCount: 0
+      descCount: 0,
+      maxTitleCount: 25,
+      maxDescCount: 250
     }
+    this.handleFormChange = this.handleFormChange.bind(this)
+    this.onSubmit = this.onSubmit.bind(this)
   }
 
   handleClose = () => {
-    // this.setState({open: !this.state.open})
     this.props.hideModal()
   }
 
