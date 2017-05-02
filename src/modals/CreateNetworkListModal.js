@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
+import { Field, reduxForm, reset } from 'redux-form'
 import { hideModal } from '../actions/modals/index'
 import { createNetworkList } from '../actions/networklists'
 import NetworkListForm from '../components/NetworkListForm'
