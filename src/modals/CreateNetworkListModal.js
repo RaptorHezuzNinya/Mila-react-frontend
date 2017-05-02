@@ -127,8 +127,8 @@ class CreateNetworkListModal extends PureComponent {
         <Dialog
           className='createlist-dialog'
           modal={true}
-          contentStyle={styles.customContentStyle}
-          open={true} >
+          open={true}
+          contentStyle={styles.customContentStyle}>
           <div className='content-wrapper'>
             <PageTitle
               titleClassName='createlist-modal-title'
@@ -144,7 +144,7 @@ class CreateNetworkListModal extends PureComponent {
                   <FlatButton
                     className='btn-green-modal'
                     type='submit'
-                    label='CREATE'
+                    label='Create'
                     disabled={false} />
                 </div>
                 <div className='cancel-but'>
