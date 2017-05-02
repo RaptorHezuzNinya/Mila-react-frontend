@@ -12,9 +12,6 @@ import TextField from 'material-ui/TextField'
 import CheckBox from 'material-ui/Checkbox'
 import './CreateNetworkListModal.sass'
 
-
-
-
 const styles = {
   customContentStyle: {
     width: '600px',
@@ -26,11 +23,6 @@ const styles = {
     fontFamily: 'Montserrat-Light'
   }
 }
-
-const required = (value) => value ? undefined : 'Required'
-const maxLength = (max) => (value) =>
-  value && value.length > max ? `Must be ${max} characters or less` : undefined
-const maxLength15 = maxLength(15)
 
 class CreateNetworkListModal extends PureComponent {
   constructor(){
@@ -50,7 +42,6 @@ class CreateNetworkListModal extends PureComponent {
   }
 
   onSubmit (formProps) {
-    console.log('submitted')
     this.props.createNetworkList(formProps)
     this.handleClose()
   }
