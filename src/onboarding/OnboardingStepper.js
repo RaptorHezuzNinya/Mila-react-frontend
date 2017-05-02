@@ -1,5 +1,6 @@
 import React, { PureComponent, PropTypes } from 'react'
 import { connect } from 'react-redux'
+import { history } from '../store'
 import Media from 'react-media'
 import classNames from 'classNames'
 import { incrStepIndex, decrStepIndex, incrListCount, decrListCount, showProceedWarn, hideProceedWarn } from '../actions/onboarding'
@@ -21,7 +22,6 @@ class OnboardingStepper extends PureComponent {
   constructor(props){
     super(props)
     this.state = {
-      // finished: false, after step 2, finished on true so can add a link to the GETSTARTED button to bring them to contact sort
       stepperwidth: 450,
     }
     this.disableProceedWarn = this.disableProceedWarn.bind(this)
