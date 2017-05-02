@@ -173,9 +173,11 @@ class CreateNetworkListModal extends PureComponent {
     )
   }
 }
+
 const validate = (values) => {
   const errors = {}
-  const requiredFields = [ 'title', 'description']
+  const requiredFields = [ 'title' ]
+
   requiredFields.forEach( (field) => {
     if (!values[ field ]) {
       errors[ field ] = 'Required'
