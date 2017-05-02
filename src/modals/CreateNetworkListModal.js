@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
-import classNames from 'classnames'
 import { Field, reduxForm, reset } from 'redux-form'
 import { hideModal } from '../actions/modals/index'
 import { createNetworkList } from '../actions/networklists'
@@ -13,8 +12,8 @@ import TextField from 'material-ui/TextField'
 import CheckBox from 'material-ui/Checkbox'
 import './CreateNetworkListModal.sass'
 
-const maxTitleCount = 25
-const maxDescCount = 250
+
+
 
 const styles = {
   customContentStyle: {
