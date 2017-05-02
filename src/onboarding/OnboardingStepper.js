@@ -110,7 +110,6 @@ class OnboardingStepper extends PureComponent {
           <FlatButton
             className='btn-grey'
             label='Back'
-
             onClick={this.handlePrev}
           />
         )}/>
