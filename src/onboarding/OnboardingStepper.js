@@ -110,7 +110,7 @@ class OnboardingStepper extends PureComponent {
           <FlatButton
             className='btn-grey'
             label='Back'
-            primary={true}
+
             onClick={this.handlePrev}
           />
         )}/>
@@ -139,7 +139,6 @@ class OnboardingStepper extends PureComponent {
   render() {
     const { finished, stepperwidth } = this.state
     const { orientation, stepIndex, listCount } = this.props
-    console.log('finished', finished, 'stepINDEX', stepIndex)
     const stepWrapClass = classNames({
       'stepper-wrapper': true,
       'step-wrap-step1-desk': stepIndex === 1
