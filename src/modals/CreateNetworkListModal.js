@@ -70,12 +70,8 @@ class CreateNetworkListModal extends PureComponent {
     }
   }
 
-  renderTextField = ({ name, input, multiLine, rows, rowsMax, maxChars, label, meta: { touched, error } }) => {
-    console.log(multiLine)
-    const maxLengthHack = classNames({
-      10 : multiLine,
-      5 : !multiLine,
-    })
+  renderTextField = ({ input, meta: { touched, error }, label, multiLine, rows, rowsMax }) => {
+
     return (
       <TextField
         name={name}
@@ -84,8 +80,8 @@ class CreateNetworkListModal extends PureComponent {
         fullWidth={true}
         inputStyle={styles.inputStyle}
         errorText={touched && error}
-        maxLength={maxLengthHack}
         multiLine={multiLine}
+        maxLength={25}
         rows={rows}
         rowsMax={rowsMax}
         {...input}
