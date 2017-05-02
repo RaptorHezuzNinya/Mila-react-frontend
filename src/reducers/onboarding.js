@@ -13,7 +13,6 @@ export default function onboarding(state = initialState, {type, payload} = {}) {
       return {...state, stepIndex: payload + 1}
 
     case DECR_STEP_INDEX:
-      
       return {...state, stepIndex: payload - 1}
 
     case INCR_LIST_COUNT:
