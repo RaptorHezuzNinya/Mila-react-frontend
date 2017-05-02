@@ -90,26 +90,27 @@ class CreateNetworkListModal extends PureComponent {
   }
 
   renderFormFields = () => {
+    const { titleCount, maxTitleCount, descCount, maxDescCount } = this.state
     const formData = [
       {
         name: 'title',
         label: 'Type a list name, e.g. Top clients, freelancers, potential investors',
-        maxChars: 25,
-        formHeader: <div className='details-holder'><p className='list-name'>Your list title</p><p>{maxTitleCount - this.state.titleCount} LEFT</p></div>,
+        formHeader: <div className='title-details'><p className='list-name'>Your list title</p><p>{maxTitleCount - titleCount} LEFT</p></div>,
         className: 'title-holder',
         rows: 1,
         multiLine: false,
-        rowsMax: null
+        rowsMax: null,
+        maxChars: 25,
       },
       {
         name: 'description',
         label: 'What do you do with this list? e.g. The VIP list is used for people who have asked questions about our product and want to try our next update',
-        maxChars: 250,
-        formHeader: <div className='details-holder'><p className='desc-name'>Your list description(optional)</p><p>{maxDescCount - this.state.descCount} LEFT</p></div>,
+        formHeader: <div className='desc-details'><p className='desc-name'>Your list description(optional)</p><p>{maxDescCount - descCount} LEFT</p></div>,
         className: 'desc-holder',
         rows: 2,
         multiLine: true,
-        rowsMax: 4
+        rowsMax: 4,
+        maxChars: 250,
       }
     ]
 
@@ -118,7 +119,7 @@ class CreateNetworkListModal extends PureComponent {
         <div key={form.name} className={form.className}>
           {form.formHeader}
           <Field
-            onChange={this.handleFormChange.bind(this)}
+            onChange={this.handleFormChange}
             name={form.name}
             label={form.label}
             component={ this.renderTextField } />
