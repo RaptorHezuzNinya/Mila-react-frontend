@@ -32,16 +32,16 @@ class OnboardingStepper extends PureComponent {
   handleNext = () => {
     const { stepIndex, incrStepIndex, listCount, showProceedWarn, proceedWarning } = this.props
     if (stepIndex === 1 && listCount <= 1) {
-      return showProceedWarn()
+      showProceedWarn()
     }
     incrStepIndex(stepIndex)
-  };
+  }
 
   handlePrev = () => {
     const { stepIndex, decrStepIndex, hideProceedWarn } = this.props
     decrStepIndex(stepIndex)
     if (stepIndex > 0) {
-      hideProceedWarn()
+      return hideProceedWarn()
     }
   };
 
