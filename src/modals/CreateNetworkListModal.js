@@ -25,9 +25,28 @@ const styles = {
     fontSize: 14,
     fontWeight: 100,
     fontFamily: 'Montserrat-Light'
-  },
-
+  }
 }
+
+const formData = [
+  {
+    name: 'title',
+    label: 'Type a list name, e.g. Top clients, freelancers, potential investors',
+    maxLength: 25,
+    formHeader: <p className='list-name'>LIST NAME</p>
+  },
+  {
+    name: 'description',
+    label: 'What do you do with this list? e.g. The VIP list is used for people who have asked questions about our product and want to try our next update',
+    maxLength: 250,
+    formHeader: <p className='desc-name'>DESCRIPTION (optional)</p>
+  }
+]
+
+const required = (value) => value ? undefined : 'Required'
+const maxLength = (max) => (value) =>
+  value && value.length > max ? `Must be ${max} characters or less` : undefined
+const maxLength15 = maxLength(15)
 
 class CreateNetworkListModal extends PureComponent {
 
