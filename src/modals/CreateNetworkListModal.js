@@ -61,24 +61,22 @@ class CreateNetworkListModal extends PureComponent {
     }
   }
 
-  renderTextField = ({ input, meta: { touched, error }, label, multiLine, rows, rowsMax }) => {
+  renderTextField = ({ input, label, multiLine, rows, rowsMax, maxChars, meta: { touched, error } }) => (
+    <TextField
+      name={name}
+      hintText={label}
+      hintStyle={styles.hintStyle}
+      fullWidth={true}
+      inputStyle={styles.inputStyle}
+      errorText={touched && error}
+      multiLine={multiLine}
+      maxLength={maxChars}
+      rows={rows}
+      rowsMax={rowsMax}
+      {...input}
+    />
+  )
 
-    return (
-      <TextField
-        name={name}
-        hintText={label}
-        hintStyle={styles.hintStyle}
-        fullWidth={true}
-        inputStyle={styles.inputStyle}
-        errorText={touched && error}
-        multiLine={multiLine}
-        maxLength={25}
-        rows={rows}
-        rowsMax={rowsMax}
-        {...input}
-      />
-    )
-  }
 
   renderFormFields = () => {
     const { titleCount, maxTitleCount, descCount, maxDescCount } = this.state
