@@ -54,26 +54,74 @@ class CreateNetworkListModal extends PureComponent {
     this.handleClose()
   }
 
-  renderTextField = ({ input, maxLength, label, meta: { touched, error } }) => (
-    <TextField
-      name={name}
-      hintText={label}
-      hintStyle={styles.hintStyle}
-      fullWidth={true}
-      inputStyle={styles.inputStyle}
-      errorText={touched && error}
-      maxLength={maxLength}
-      {...input}
-    />
-  )
+  handleFormChange (value) {
+    const fieldName = value.currentTarget.name
+    const fieldValue = value.currentTarget.value.length
+    if (fieldName === 'title') {
+      return this.setState({
+        titleCount: fieldValue
+      })
+    }
+    if (fieldName === 'description') {
+      return this.setState({
+        descCount: fieldValue
+      })
+    }
+  }
+
+  renderTextField = ({ name, input, multiLine, rows, rowsMax, maxChars, label, meta: { touched, error } }) => {
+    console.log(multiLine)
+    const maxLengthHack = classNames({
+      10 : multiLine,
+      5 : !multiLine,
+    })
+    return (
+      <TextField
+        name={name}
+        hintText={label}
+        hintStyle={styles.hintStyle}
+        fullWidth={true}
+        inputStyle={styles.inputStyle}
+        errorText={touched && error}
+        maxLength={maxLengthHack}
+        multiLine={multiLine}
+        rows={rows}
+        rowsMax={rowsMax}
+        {...input}
+      />
+    )
+  }
 
   renderFormFields = () => {
+    const formData = [
+      {
+        name: 'title',
+        label: 'Type a list name, e.g. Top clients, freelancers, potential investors',
+        maxChars: 25,
+        formHeader: <div className='details-holder'><p className='list-name'>Your list title</p><p>{maxTitleCount - this.state.titleCount} LEFT</p></div>,
+        className: 'title-holder',
+        rows: 1,
+        multiLine: false,
+        rowsMax: null
+      },
+      {
+        name: 'description',
+        label: 'What do you do with this list? e.g. The VIP list is used for people who have asked questions about our product and want to try our next update',
+        maxChars: 250,
+        formHeader: <div className='details-holder'><p className='desc-name'>Your list description(optional)</p><p>{maxDescCount - this.state.descCount} LEFT</p></div>,
+        className: 'desc-holder',
+        rows: 2,
+        multiLine: true,
+        rowsMax: 4
+      }
+    ]
+
     return formData.map((form) => {
       return (
-        <div key={form.name}>
+        <div key={form.name} className={form.className}>
           {form.formHeader}
           <Field
-            validate={[ maxLength15 ]}
+            onChange={this.handleFormChange.bind(this)}
             name={form.name}
             label={form.label}
             component={ this.renderTextField } />
