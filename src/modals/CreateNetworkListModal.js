@@ -173,12 +173,7 @@ const validate = (values) => {
   return errors
 }
 
-const afterSubmit = (result, dispatch) => {
-  dispatch(reset('createNWLModalForm'))
-}
-
 export default connect(null, { hideModal, createNetworkList } )(reduxForm({
   form: 'createNWLModalForm',
-  validate,
-  onSubmitSuccess: afterSubmit
+  validate
 })(CreateNetworkListModal))
