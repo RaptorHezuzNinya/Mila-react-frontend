@@ -37,8 +37,12 @@ class NetworkListForm extends PureComponent {
     this.onSubmit = this.onSubmit.bind(this)
   }
 
-  onSubmit(props) {
-    this.props.createNetworkList(props)
+  onSubmit(formProps) {
+    this.props.createNetworkList(formProps)
+    if (this.props.handleCloseModal) {
+      this.props.handleCloseModal()
+    }
+    console.log('boooya')
   }
 
   renderTextField = ({ input, label, meta: { touched, error } }) => (

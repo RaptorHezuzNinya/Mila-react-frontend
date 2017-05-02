@@ -20,8 +20,8 @@ class EditNetworkList extends PureComponent {
   renderNetworkLists () {
     const { networkLists, updateNetworkList, deleteNetworkList } = this.props
     return networkLists.map((networkList) => {
-      return (
-        <div className='list-item-holder' key={networkList.id}>
+      return (                                     // FIXME when Api is here needs to be networkLIst.id
+        <div className='list-item-holder' key={networkList.title}>
           <div className='list-title'>
             <span className='list-icon'>
               <NetworkIcon color='#52be9c' />
