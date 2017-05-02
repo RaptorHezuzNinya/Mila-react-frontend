@@ -4,68 +4,38 @@
 
 .modal-wrapper
 
-  // cl == createlist
 .content-wrapper
   padding: 0px 31px 15px
 
-  .listname-container, .descript-container
-    display: flex
-    flex-flow: wrap
-    .list-name, .desc-name
-      text-align: left
-      flex: 50%
-    .char-count
-      text-align: right
-      flex: 50%
-    .list-input
-      margin-top: 30px
-      flex: 100%
+  .form-container
+    .title-holder
+      margin-bottom: 15px
+      .title-details
+        display: flex
+        justify-content: space-between
+    .desc-holder
+      margin-bottom: 25px
+      .desc-details
+        display: flex
+        justify-content: space-between
+        padding-bottom: 45px
 
-  .listname-container
+  .team-cb
     margin-bottom: 40px
-
-  .descript-container
-    margin-bottom: 20px
-    .desc-name
-      text-align: left
-
-    .char-count
+    label
+      color: $steelA
+      +mont-light
+      +f(12px)
 
   .cta-container
     display: flex
     flex-flow: wrap
-    .team-checkb
-      flex: auto
-      margin-bottom: 40px
-      label
-        color: $steelA
-        +mont-light
-        +f(12px)
-
     .submit-but
-      text-align: center
-      flex: 100%
       margin-bottom: 20px
-      button
-        width: 240px
-        border: 2px solid $border1 !important
-        height: 60px !important
-        border-radius: 30px !important
-        &:hover
-          border-color: $greenA !important
-          span
-            color: $greenA !important
-        span
-          +mont-light
-          color: $blueA !important
-          font-size: 16px !important
-
+      display: flex
+      justify-content: center
+      flex: 0 0 100%
     .cancel-but
-      button
-        width: 240px
-        height: 60px !important
-        border-radius: 30px !important
-
-    .cancel-but
-      text-align: center
-      flex: 100%
+      display: flex
+      justify-content: center
+      flex: 0 0 100%
