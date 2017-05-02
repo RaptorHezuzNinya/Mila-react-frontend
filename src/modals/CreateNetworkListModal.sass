@@ -10,55 +10,32 @@
   .form-container
     .title-holder
       margin-bottom: 15px
-
       .title-details
-
         display: flex
         justify-content: space-between
-
     .desc-holder
       margin-bottom: 25px
-
       .desc-details
         display: flex
         justify-content: space-between
         padding-bottom: 45px
 
+  .team-cb
+    margin-bottom: 40px
+    label
+      color: $steelA
+      +mont-light
+      +f(12px)
+
   .cta-container
     display: flex
     flex-flow: wrap
-    .team-checkb
-      flex: auto
-      margin-bottom: 40px
-      label
-        color: $steelA
-        +mont-light
-        +f(12px)
-
     .submit-but
-      text-align: center
-      flex: 100%
       margin-bottom: 20px
-      button
-        width: 220px
-        border: 2px solid $border1 !important
-        height: 50px !important
-        border-radius: 30px !important
-        &:hover
-          border-color: $greenA !important
-          span
-            color: $greenA !important
-        span
-          +mont-light
-          color: $blueA !important
-          font-size: 16px !important
-
+      display: flex
+      justify-content: center
+      flex: 0 0 100%
     .cancel-but
-      button
-        width: 220px
-        height: 50px !important
-        border-radius: 30px !important
-
-    .cancel-but
-      text-align: center
-      flex: 100%
+      display: flex
+      justify-content: center
+      flex: 0 0 100%
