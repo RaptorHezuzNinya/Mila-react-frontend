@@ -111,7 +111,7 @@ class OnboardingStepper extends PureComponent {
             className='btn-grey'
             label='Back'
             primary={true}
-            onTouchTap={this.handlePrev}
+            onClick={this.handlePrev}
           />
         )}/>
       )
@@ -137,40 +137,40 @@ class OnboardingStepper extends PureComponent {
   }
 
   render() {
-    const { stepperwidth } = this.state
+    const { finished, stepperwidth } = this.state
     const { orientation, stepIndex, listCount } = this.props
+    console.log('finished', finished, 'stepINDEX', stepIndex)
     const stepWrapClass = classNames({
       'stepper-wrapper': true,
       'step-wrap-step1-desk': stepIndex === 1
     })
-    console.log(stepIndex, listCount)
     return (
       <div className={ stepWrapClass }>
         <Stepper activeStep={stepIndex} orientation={orientation} style={styles.stepper}>
-          <Step >
-            <StepLabel className="steplabel">Scanning your inbox</StepLabel>
+          <Step>
+            <StepLabel className='steplabel'>Scanning your inbox</StepLabel>
             <StepContent>
               {this.getStepContent(stepIndex)}
               {this.renderStepActions()}
             </StepContent>
           </Step>
           <Step>
-            <StepLabel className="steplabel">Create lists</StepLabel>
+            <StepLabel className='steplabel'>Create lists</StepLabel>
             <StepContent>
               {this.getStepContent(stepIndex)}
               {this.renderStepActions()}
             </StepContent>
           </Step>
           <Step >
-            <StepLabel className="steplabel">Start sorting</StepLabel>
+            <StepLabel className='steplabel'>Start sorting</StepLabel>
             <StepContent>
               {this.getStepContent(stepIndex)}
               {this.renderStepActions()}
             </StepContent>
           </Step>
         </Stepper>
-        <Media query="(min-width: 769px)" render={() => (
-          <div className="desktop-stepcontent">
+        <Media query='(min-width: 769px)' render={() => (
+          <div className='desktop-stepcontent'>
             {this.getStepContent(stepIndex)}
             {this.renderStepActions()}
           </div>
