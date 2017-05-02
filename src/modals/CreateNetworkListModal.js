@@ -130,10 +130,8 @@ class CreateNetworkListModal extends PureComponent {
     })
   }
 
-
   render(){
-    const { title, description, handleSubmit } = this.props
-    console.log('name props', this.props.networkListFormValue)
+    const { handleSubmit } = this.props
     return (
       <div className='modal-wrapper'>
         <Dialog
@@ -147,19 +145,15 @@ class CreateNetworkListModal extends PureComponent {
               pageTitleContentH2='Create a new Mila list'
               pageTitleContentH3='Use lists to group your contacts' />
 
+            <form onSubmit={handleSubmit(this.onSubmit)}>
 
-            <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
-              <div className='listname-container'>
+              <div className='form-container'>
                 { this.renderFormFields() }
               </div>
-              <div className='descript-container'>
 
 
-              </div>
               <div className='cta-container'>
-
                 <CheckBox className='team-checkb' label='Share this list with your team.' />
-
                 <div className='submit-but'>
                   <FlatButton
                     type='submit'
