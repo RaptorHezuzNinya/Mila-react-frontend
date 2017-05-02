@@ -84,25 +84,24 @@ class CreateNetworkListModal extends PureComponent {
       {
         name: 'title',
         label: 'Type a list name, e.g. Top clients, freelancers, potential investors',
-        formHeader: <div className='title-details'><p className='list-name'>Your list title</p><p>{maxTitleCount - titleCount} LEFT</p></div>,
+        formHeader: <div className='title-details'><p className='list-name'>Your list title</p><p>{maxTitleCount - titleCount} left</p></div>,
         className: 'title-holder',
+        maxChars: 25,
         rows: 1,
         multiLine: false,
         rowsMax: null,
-        maxChars: 25,
       },
       {
         name: 'description',
         label: 'What do you do with this list? e.g. The VIP list is used for people who have asked questions about our product and want to try our next update',
-        formHeader: <div className='desc-details'><p className='desc-name'>Your list description(optional)</p><p>{maxDescCount - descCount} LEFT</p></div>,
+        formHeader: <div className='desc-details'><p className='desc-name'>Your list description(optional)</p><p>{maxDescCount - descCount} left</p></div>,
         className: 'desc-holder',
+        maxChars: 130,
         rows: 2,
         multiLine: true,
         rowsMax: 4,
-        maxChars: 250,
       }
     ]
-
     return formData.map((form) => {
       return (
         <div key={form.name} className={form.className}>
