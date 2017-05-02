@@ -133,21 +133,22 @@ class CreateNetworkListModal extends PureComponent {
               titleClassName='createlist-modal-title'
               pageTitleContentH2='Create a new Mila list'
               pageTitleContentH3='Use lists to group your contacts' />
-
             <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
               <div className='form-container'>
                 { this.renderFormFields() }
               </div>
+              <CheckBox className='team-cb' label='Share this list with your team.' />
               <div className='cta-container'>
-                <CheckBox className='team-checkb' label='Share this list with your team.' />
                 <div className='submit-but'>
                   <FlatButton
+                    className='btn-green-modal'
                     type='submit'
                     label='CREATE'
                     disabled={false} />
                 </div>
                 <div className='cancel-but'>
                   <FlatButton
+                    className='btn-grey-modal'
                     label='Cancel'
                     onClick={this.handleClose} />
                 </div>
