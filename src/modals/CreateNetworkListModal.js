@@ -31,7 +31,7 @@ class CreateNetworkListModal extends PureComponent {
       titleCount: 0,
       descCount: 0,
       maxTitleCount: 25,
-      maxDescCount: 250
+      maxDescCount: 130
     }
     this.handleFormChange = this.handleFormChange.bind(this)
     this.onSubmit = this.onSubmit.bind(this)
@@ -61,24 +61,22 @@ class CreateNetworkListModal extends PureComponent {
     }
   }
 
-  renderTextField = ({ input, meta: { touched, error }, label, multiLine, rows, rowsMax }) => {
+  renderTextField = ({ input, label, multiLine, rows, rowsMax, maxChars, meta: { touched, error } }) => (
+    <TextField
+      name={name}
+      hintText={label}
+      hintStyle={styles.hintStyle}
+      fullWidth={true}
+      inputStyle={styles.inputStyle}
+      errorText={touched && error}
+      multiLine={multiLine}
+      maxLength={maxChars}
+      rows={rows}
+      rowsMax={rowsMax}
+      {...input}
+    />
+  )
 
-    return (
-      <TextField
-        name={name}
-        hintText={label}
-        hintStyle={styles.hintStyle}
-        fullWidth={true}
-        inputStyle={styles.inputStyle}
-        errorText={touched && error}
-        multiLine={multiLine}
-        maxLength={25}
-        rows={rows}
-        rowsMax={rowsMax}
-        {...input}
-      />
-    )
-  }
 
   renderFormFields = () => {
     const { titleCount, maxTitleCount, descCount, maxDescCount } = this.state
@@ -86,25 +84,24 @@ class CreateNetworkListModal extends PureComponent {
       {
         name: 'title',
         label: 'Type a list name, e.g. Top clients, freelancers, potential investors',
-        formHeader: <div className='title-details'><p className='list-name'>Your list title</p><p>{maxTitleCount - titleCount} LEFT</p></div>,
+        formHeader: <div className='title-details'><p className='list-name'>Your list title</p><p>{maxTitleCount - titleCount} left</p></div>,
         className: 'title-holder',
+        maxChars: 25,
         rows: 1,
         multiLine: false,
         rowsMax: null,
-        maxChars: 25,
       },
       {
         name: 'description',
         label: 'What do you do with this list? e.g. The VIP list is used for people who have asked questions about our product and want to try our next update',
-        formHeader: <div className='desc-details'><p className='desc-name'>Your list description(optional)</p><p>{maxDescCount - descCount} LEFT</p></div>,
+        formHeader: <div className='desc-details'><p className='desc-name'>Your list description(optional)</p><p>{maxDescCount - descCount} left</p></div>,
         className: 'desc-holder',
+        maxChars: 130,
         rows: 2,
         multiLine: true,
         rowsMax: 4,
-        maxChars: 250,
       }
     ]
-
     return formData.map((form) => {
       return (
         <div key={form.name} className={form.className}>
@@ -113,6 +110,10 @@ class CreateNetworkListModal extends PureComponent {
             onChange={this.handleFormChange}
             name={form.name}
             label={form.label}
+            maxChars={form.maxChars}
+            multiLine={form.multiLine}
+            rows={form.rows}
+            rowsMax={form.rowsMax}
             component={ this.renderTextField } />
         </div>
       )
@@ -126,8 +127,8 @@ class CreateNetworkListModal extends PureComponent {
         <Dialog
           className='createlist-dialog'
           modal={true}
-          contentStyle={styles.customContentStyle}
-          open={true} >
+          open={true}
+          contentStyle={styles.customContentStyle}>
           <div className='content-wrapper'>
             <PageTitle
               titleClassName='createlist-modal-title'
@@ -143,7 +144,7 @@ class CreateNetworkListModal extends PureComponent {
                   <FlatButton
                     className='btn-green-modal'
                     type='submit'
-                    label='CREATE'
+                    label='Create'
                     disabled={false} />
                 </div>
                 <div className='cancel-but'>
@@ -172,12 +173,7 @@ const validate = (values) => {
   return errors
 }
 
-const afterSubmit = (result, dispatch) => {
-  dispatch(reset('createNWLModalForm'))
-}
-
 export default connect(null, { hideModal, createNetworkList } )(reduxForm({
   form: 'createNWLModalForm',
-  validate,
-  onSubmitSuccess: afterSubmit
+  validate
 })(CreateNetworkListModal))

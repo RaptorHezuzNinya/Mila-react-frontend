@@ -56,7 +56,7 @@ class OnboardingStepper extends PureComponent {
   }
 
   disableProceedWarn = () => {
-    const { hideProceedWarn}  = this.props
+    const { hideProceedWarn } = this.props
     hideProceedWarn()
   }
 
