@@ -13,7 +13,7 @@ const styles = {
 class ContactCard extends PureComponent {
   render () {
     return (
-      <div className='contact-card-wrapper'>
+      <div className='contact-card-holder'>
         <Paper style={styles.paper} zDepth={3}/>
       </div>
     )
