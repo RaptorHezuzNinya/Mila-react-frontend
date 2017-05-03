@@ -3,10 +3,10 @@ import { connect } from 'react-redux'
 import { createNetworkList } from '../actions/networklists'
 import { Field, reduxForm, reset } from 'redux-form'
 import { formDataNetworkListForm as formData } from '../helpers/formData'
-import { inlineNetworkListFormStyles as styles } from '../helpers/inLineStyles'
 import TextField from 'material-ui/TextField'
 import FlatButton from 'material-ui/FlatButton'
 import './NetworkListForm.sass'
+import { inlineNetworkListFormStyles as styles } from '../helpers/inlineStyles'
 
 class NetworkListForm extends PureComponent {
   constructor(props) {
@@ -17,9 +17,8 @@ class NetworkListForm extends PureComponent {
   onSubmit(formProps) {
     this.props.createNetworkList(formProps)
     if (this.props.handleCloseModal) {
-      this.props.handleCloseModal()
+      return this.props.handleCloseModal()
     }
-    console.log('boooya')
   }
 
   renderTextField = ({ input, label, meta: { touched, error } }) => (
