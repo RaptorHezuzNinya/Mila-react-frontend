@@ -12,18 +12,7 @@ import Paper from 'material-ui/Paper'
 import TextField from 'material-ui/TextField'
 import CheckBox from 'material-ui/Checkbox'
 import './CreateNetworkListModal.sass'
-
-const styles = {
-  customContentStyle: {
-    width: '600px',
-  },
-  hintStyle: {
-    color: '#737a80',
-    fontSize: 14,
-    fontWeight: 100,
-    fontFamily: 'Montserrat-Light'
-  }
-}
+import { inlineCreateNetworkListModalStyles as styles } from '../helpers/inlineStyles'
 
 class CreateNetworkListModal extends PureComponent {
   constructor(){
