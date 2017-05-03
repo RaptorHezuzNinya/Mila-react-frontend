@@ -56,7 +56,6 @@ class Navigation extends PureComponent {
       </div>
     )
 
-
     const rightIconLinks = (
       <div className='right-icons-wrap'>
         <Media query='(min-width: 769px)' render={() => (
@@ -77,14 +76,13 @@ class Navigation extends PureComponent {
     return (
       <header className='nav-bar'>
         <Appbar
-        className='appbar'
-        title={<MilaLogo />}
-        titleStyle={styles.title}
-        iconElementLeft={leftIcon}
-        iconStyleLeft={styles.iconStyleLeft}
-        iconElementRight={ rightIconLinks }
-        iconStyleRight={styles.iconStyleRight}
-      />
+          className='appbar'
+          title={<MilaLogo />}
+          titleStyle={styles.title}
+          iconElementLeft={leftIcon}
+          iconStyleLeft={styles.iconStyleLeft}
+          iconElementRight={ rightIconLinks }
+          iconStyleRight={styles.iconStyleRight} />
       </header>
     )
   }
