@@ -7,6 +7,7 @@ const styles = {
     color: '#cccccc'
   }
 }
+
 class ProgressIndicator extends PureComponent {
   constructor(props) {
     super(props)
