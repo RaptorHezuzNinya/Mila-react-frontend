@@ -43,3 +43,31 @@ export const inlineCreateNetworkListModalStyles = {
     fontFamily: 'Montserrat-Light'
   }
 }
+// used in ~/components/Navigation.js
+export const inlineNavigationStyles = {
+  mediumIcon: {
+    width: 40,
+    height: 40,
+  },
+  title: {
+    justifyContent: 'center',
+    flex: '1 0 0',
+    height: '100%'
+  },
+  iconStyleLeft: {
+    marginLeft: 0,
+    marginRight: 0,
+    marginTop: 0,
+    display: 'flex',
+    flex: '1 0 0',
+    justifyContent: 'flex-start'
+  },
+  iconStyleRight: {
+    marginLeft: 0,
+    marginRight: 0,
+    marginTop: 0,
+    flex: '1 0 0',
+    display: 'flex',
+    justifyContent: 'flex-end'
+  }
+}
