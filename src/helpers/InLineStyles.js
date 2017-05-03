@@ -1,4 +1,4 @@
-// imported in ~/onboarding/CreateListsContainer.js
+// imported in ~/components/onboarding/CreateListsContainer.js
 export const inlineCreateListsContainerStyles = {
   hint: {
     fontSize: 14,
@@ -24,14 +24,14 @@ export const inlineNetworkListFormStyles = {
     color: '#292f36',
   }
 }
-// used in ~/onboarding/OnboardingStepper.js
+// used in ~/components/onboarding/OnboardingStepper.js
 export const inlineOnboardingStepperStyles = {
   stepper: {
     backgroundColor: '#ffffff'
   }
 }
 
-// used in ~/modals/CreateNetworkListModal.js
+// used in ~/components/modals/CreateNetworkListModal.js
 export const inlineCreateNetworkListModalStyles = {
   customContentStyle: {
     width: '600px',
