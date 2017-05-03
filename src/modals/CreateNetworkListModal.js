@@ -70,7 +70,7 @@ class CreateNetworkListModal extends PureComponent {
   renderFormFields = () => {
     const { titleCount, maxTitleCount, descCount, maxDescCount } = this.state
 
-    return formData.map((form) => {
+    return formData(maxTitleCount, titleCount, maxDescCount, descCount).map((form) => {
       return (
         <div key={form.name} className={form.className}>
           {form.formHeader}
