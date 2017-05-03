@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import { createNetworkList } from '../actions/networklists'
 import { Field, reduxForm, reset } from 'redux-form'
+import { formDataNetworkListForm as formData } from '../helpers/formData'
 import TextField from 'material-ui/TextField'
 import FlatButton from 'material-ui/FlatButton'
 import './NetworkListForm.sass'
@@ -19,17 +20,6 @@ const styles = {
     color: '#292f36',
   }
 }
-
-const formData = [
-  {
-    name: 'title',
-    label: 'Enter list title, e.g. clients, prospects …'
-  },
-  {
-    name: 'description',
-    label: 'Enter list description',
-  }
-]
 
 class NetworkListForm extends PureComponent {
   constructor(props) {
