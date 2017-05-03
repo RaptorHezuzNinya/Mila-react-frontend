@@ -9,12 +9,12 @@ injectTapEventPlugin()
 import routes from './middleware/routes'
 // Components
 import App from './App'
-import Onboarding from './onboarding/Onboarding'
-import NewContactsContainer from './newContacts/NewContactsContainer'
-import Contact from './newContacts/Contact'
-import Network from './myNetwork/Network'
-import SettingsAccount from './settingsAccount/SettingsAccount'
-import SettingsList from './settingsList/SettingsList'
+import Onboarding from './components/onboarding/Onboarding'
+import NewContactsContainer from './components/newContacts/NewContactsContainer'
+import Contact from './components/newContacts/Contact'
+import Network from './components/myNetwork/Network'
+import SettingsAccount from './components/settingsAccount/SettingsAccount'
+import SettingsList from './components/settingsList/SettingsList'
 // base styles
 import './assets/styles/main.sass'
 import 'normalize.css'
