@@ -11,12 +11,7 @@ import StartSorting from './StartSorting'
 import { Step, Stepper, StepLabel, StepContent } from 'material-ui/Stepper'
 import FlatButton from 'material-ui/FlatButton'
 import './OnboardingStepper.sass'
-
-const styles = {
-  stepper: {
-    backgroundColor: '#ffffff'
-  }
-}
+import { inlineOnboardingStepperStyles as styles } from '../helpers/inlineStyles'
 
 class OnboardingStepper extends PureComponent {
   constructor(props){
