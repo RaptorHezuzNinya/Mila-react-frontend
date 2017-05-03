@@ -1,0 +1,69 @@
+@import "../../assets/styles/base/breakpoints.sass"
+@import "../../assets/styles/base/colors.sass"
+@import "../../assets/styles/base/mixins.sass"
+
+.create-lists-wrapper
+
+  // ResponsiveContent.js
+  .mobile-content
+    p
+      +mont-light
+      +f(15px)
+      font-weight: 300
+      color: $blueA
+
+  .desktop-content
+    background-color: $greenA
+    padding: 0 80px
+    h3
+      margin-top: 0
+      padding-top: 25px
+      +mont-light($greyB !important)
+      +f(26px)
+      text-align: center
+      font-weight: 200
+    p
+      +mont-light($greyB)
+      +f(16px)
+      text-align: center
+      margin-bottom: 0
+      padding-bottom: 30px
+
+// CreateListsContainer.js
+.network-lists
+  list-style-type: none
+  padding-left: 0
+  +breakpoint($brp-m)
+    padding: 0 50px
+
+  .list-item
+    display: flex
+    justify-content: space-between
+    border-bottom: 1px solid $border1
+
+  .list-icon
+    fill: $greenA !important
+    position: relative
+    top: 13px
+
+  .list-delete-btn, .list-edit-btn
+    top: 5px
+    color: $greenA !important
+
+  .list-title
+    +mont-light($blueA !important)
+    color: $blueA
+
+.list-form-holder
+  margin-top: 15px
+  +breakpoint($brp-m)
+    padding: 0 50px
+
+  .list-input
+    margin-bottom: 15px
+
+  .form-btn-holder
+    margin-top: 10px
+    display: flex
+    justify-content: center
+    .form-btn

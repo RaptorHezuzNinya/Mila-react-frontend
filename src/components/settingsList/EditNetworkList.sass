@@ -1,0 +1,62 @@
+@import "../../assets/styles/base/colors.sass"
+@import "../../assets/styles/base/mixins.sass"
+@import "../../assets/styles/base/breakpoints.sass"
+
+.edit-networklist-holder
+  +breakpoint($brp-m)
+    display: flex
+    flex-wrap: wrap
+  .add-list-holder
+    background-color: $steelC
+    padding-top: 5px
+    margin-bottom: 5px
+    border-radius: 2px
+    +breakpoint($brp-m)
+      flex: 1 0 100%
+      order: 2
+      margin-bottom: 0
+
+    .create-header
+      +mont-reg($blueA)
+      +f(16px)
+      font-weight: 100
+      text-align: center
+    .modal-btn-holder
+      +breakpoint($brp-m)
+        display: flex
+        justify-content: center
+        padding: 10px 0
+
+
+  .list-item-wrap
+    background-color: $steelC
+    border-radius: 2px
+    padding-top: 5px
+    margin-bottom: 5px
+    +breakpoint($brp-m)
+      flex: 1 0 100%
+      order: 1
+    .list-header
+      +mont-reg($blueA)
+      +f(16px)
+      margin-bottom: 25px
+      font-weight: 100
+      text-align: center
+
+    .list-item-holder
+      border-top: 1px solid $border1
+      padding-top: 10px
+      padding-bottom: 5px
+      margin-bottom: 5px
+      .list-title
+        display: flex
+        justify-content: center
+        +mont-light
+        .list-icon
+          position: relative
+          bottom: 4px
+          right: 10px
+
+      .list-btns
+        display: flex
+        justify-content: space-around

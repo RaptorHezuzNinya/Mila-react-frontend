@@ -1,0 +1,27 @@
+@import "../../assets/styles/base/colors.sass"
+@import "../../assets/styles/base/mixins.sass"
+@import "../../assets/styles/base/breakpoints.sass"
+
+.settings-list-wrapper
+  padding: 0 5px
+  display: flex
+  flex-wrap: wrap
+  .pagetitle-list-wrap
+    padding: 15px
+    +breakpoint($brp-land)
+      display: flex
+      justify-content: center
+      flex: 1 100%
+
+  .editnetworklist-list-wrap
+    flex: 0 0 100%
+    +breakpoint($brp-m)
+      flex: 1 0 0
+
+  .sync-contacts-list-wrap
+    flex: 0 0 100%
+    background-color: $steelC
+    border-radius: 2px
+    +breakpoint($brp-m)
+      margin-left: 5px
+      flex: 1 0 0
