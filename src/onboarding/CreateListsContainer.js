@@ -9,19 +9,9 @@ import TextField from 'material-ui/TextField'
 import IconButton from 'material-ui/IconButton'
 import DeleteIcon from 'material-ui/svg-icons/action/delete'
 import ListIcon from 'material-ui/svg-icons/action/list'
-import './CreateListsContainer.sass'
 
-const styles = {
-  hint: {
-    fontSize: 14,
-    fontFamily: 'Montserrat-Light'
-  },
-  inputStyle: {
-    fontSize: 15,
-    fontFamily: 'Montserrat-Light',
-    color: '#292f36',
-  }
-}
+import { inlineCreateListsContainerStyles as styles } from '../helpers/inLineStyles'
+import './CreateListsContainer.sass'
 
 class CreateListsContainer extends PureComponent {
   constructor(props){
