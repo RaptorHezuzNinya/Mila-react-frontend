@@ -3,50 +3,20 @@ import { Link } from 'react-router'
 import Media from 'react-media'
 import MilaLogo from './MilaLogo'
 import SettingsPopOver from './SettingsPopOver'
-// material-ui Components
 import Appbar from 'material-ui/AppBar'
 import FlatButton from 'material-ui/FlatButton'
 import IconButton from 'material-ui/IconButton'
-// logos icons
 import UserIconBlue from '../assets/images/icons/user-blue.jpg'
 import UserIconGrey from '../assets/images/icons/user-grey.svg'
 import milaLogo from '../assets/images/logos/logo-white.png'
 import UserCircle from 'material-ui/svg-icons/action/account-circle'
 import HamBurger from 'material-ui/svg-icons/image/dehaze'
-// Styles
 import './Navigation.sass'
-
-const styles = {
-  mediumIcon: {
-    width: 40,
-    height: 40,
-  },
-  title: {
-    justifyContent: 'center',
-    flex: 'inherit',
-    height: '100%'
-  },
-  iconStyleLeft: {
-    marginLeft: 0,
-    marginRight: 0,
-    marginTop: 0,
-    flexGrow: 3,
-  },
-  iconStyleRight: {
-    marginLeft: 0,
-    marginRight: 0,
-    marginTop: 0,
-    flexGrow: 2,
-    display: 'flex',
-    justifyContent: 'flex-end'
-
-  }
-}
+import { inlineNavigationStyles as styles } from '../helpers/inlineStyles'
 
 class Navigation extends PureComponent {
   constructor(props) {
     super(props)
-
     this.state = {
       openSettingsPopOver: false,
     }
