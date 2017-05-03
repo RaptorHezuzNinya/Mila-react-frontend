@@ -24,3 +24,22 @@ export const inlineNetworkListFormStyles = {
     color: '#292f36',
   }
 }
+// used in ~/onboarding/OnboardingStepper.js
+export const inlineOnboardingStepperStyles = {
+  stepper: {
+    backgroundColor: '#ffffff'
+  }
+}
+
+// used in ~/modals/CreateNetworkListModal.js
+export const inlineCreateNetworkListModalStyles = {
+  customContentStyle: {
+    width: '600px',
+  },
+  hintStyle: {
+    color: '#737a80',
+    fontSize: 14,
+    fontWeight: 100,
+    fontFamily: 'Montserrat-Light'
+  }
+}
