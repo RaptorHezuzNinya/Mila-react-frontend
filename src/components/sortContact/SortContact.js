@@ -7,29 +7,44 @@ import NavigateContacts from './NavigateContacts'
 import './SortContact.sass'
 
 class SortContact extends PureComponent {
+  constructor(props){
+    super(props)
+    this.state = {
+      contactIndex: 0
+    }
+  }
+
   static propTypes = {
     contacts: PropTypes.array.isRequired
   }
 
   getOneContact () {
     const { contacts } = this.props
-    console.log('logging CONTACTS', contacts.length)
-    return contacts.filter((contact) => {
-      return contact.contactId === 1
+    const { contactIndex } = this.state
+    return contacts.filter((contact, index) => {
+      return index === contactIndex
     })
   }
 
   handleNextContact () {
-    console.log('NEXT PRESSED')
+    const { contactIndex } = this.state
+    if (contactIndex >= 24 ) return null
+    this.setState({
+      contactIndex: this.state.contactIndex + 1
+    })
   }
 
   handlePrevContact () {
-    console.log('PREV PRESSED')
+    const { contactIndex } = this.state
+    if (contactIndex === 0) return null
+    this.setState({
+      contactIndex: contactIndex - 1
+    })
   }
 
   render () {
+
     console.log(this.getOneContact())
-    // const { contacts } = this.props
     return (
       <div className='sort-contact-wrapper'>
 
@@ -43,8 +58,8 @@ class SortContact extends PureComponent {
         </div>
 
         <NavigateContacts
-          handleNextContact={this.handleNextContact}
-          handlePrevContact={this.handlePrevContact} />
+          handleNextContact={this.handleNextContact.bind(this)}
+          handlePrevContact={this.handlePrevContact.bind(this)} />
 
         <div className='contact-card-wrapper'>
           <ContactCard oneContact={this.getOneContact()} />
