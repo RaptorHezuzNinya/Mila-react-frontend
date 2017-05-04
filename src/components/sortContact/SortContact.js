@@ -27,11 +27,10 @@ class SortContact extends PureComponent {
             mode='determinate' />
         </div>
         <div className='contact-card-wrapper'>
-          <ContactCard contact={this.getOneContact().map((contact) => this.returnSomeMarkup(contact))}/>
+          <ContactCard contact={contact}/>
         </div>
         <div className=''>
-          <pre><code>{JSON.stringify(this.getOneContact(), null, 4)}</code></pre>
-          { this.getOneContact().map((contact) => this.returnSomeMarkup(contact))}
+
         </div>
       </div>
     )
@@ -39,7 +38,9 @@ class SortContact extends PureComponent {
 }
 const mapStateToProps = (state) => {
   return {
-    contacts: state.contacts
+    contact: state.contacts.filter((contact) => {
+      return contact.contactId === 1
+    })
   }
 }
 
