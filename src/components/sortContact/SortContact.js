@@ -6,7 +6,7 @@ import PageTitle from '../PageTitle'
 import NavigateContacts from './NavigateContacts'
 import './SortContact.sass'
 
-class SortContact extends PureComponent {
+class SortContactContainer extends PureComponent {
   constructor(props){
     super(props)
     this.state = {
@@ -75,4 +75,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(SortContact)
+export default connect(mapStateToProps)(SortContactContainer)
