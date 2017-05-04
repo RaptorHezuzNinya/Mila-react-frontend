@@ -5,8 +5,8 @@ import './ContactCard.sass'
 const styles = {
   paper: {
     justifyContent: 'center',
-    flex: '0 0 50%',
-    height: 250
+    flex: '0 0 100%',
+    height: 230
   }
 }
 
