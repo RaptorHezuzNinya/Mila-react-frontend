@@ -14,15 +14,8 @@ class SortContact extends PureComponent {
     })
   }
 
-  returnSomeMarkup = (contact) => (
-    <div>
-      {contact.contactId}
-      {contact.firstName}
-    </div>
-  )
-
   render () {
-    const { contacts } = this.props
+    const { contact } = this.props
     return (
       <div className='sort-contact-wrapper'>
         <div className='progress-indicator-wrapper'>

@@ -7,8 +7,17 @@
   justify-content: center
   padding: 0 5px 5px
 
-  .details-holder
+  .paper-content-holder
+    display: flex
+    height: 100%
+    flex-wrap: wrap
+    .details-holder
+      flex: 1 0 0
 
-  .avatar-holder
+    .avatar-holder
+      // display: inline-flex
 
-  .email-header-holder
+    .email-header-holder
+      display: flex
+      flex: 0 0 100%
+      flex-direction: column-reverse
