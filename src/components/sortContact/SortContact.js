@@ -34,12 +34,13 @@ class SortContact extends PureComponent {
           <ProgressIndicator
             mode='determinate' />
         </div>
+
+        <NavigateContacts />
+
         <div className='contact-card-wrapper'>
           <ContactCard oneContact={this.getOneContact()}/>
         </div>
-        <div className=''>
-
-        </div>
+        
       </div>
     )
   }
