@@ -14,7 +14,17 @@ class ContactCard extends PureComponent {
   render () {
     return (
       <div className='contact-card-holder'>
-        <Paper style={styles.paper} zDepth={3}/>
+        <Paper style={styles.paper} zDepth={3}>
+          <div className='details-holder'>
+
+          </div>
+          <div className='avatar-holder'>
+
+          </div>
+          <div className='email-header-holder'>
+
+          </div>
+        </Paper>
       </div>
     )
   }
