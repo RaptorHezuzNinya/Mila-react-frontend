@@ -16,24 +16,7 @@ class MenuDrawer extends PureComponent {
 
   renderTopMenu = () => {
     const { currentRoute } = this.props
-    const dataTopMenu = [
-      {
-        route: '/newcontacts',
-        iconComp: <NewContactIcon className={ currentRoute === '/newcontacts' ? 'icon active-icon' : 'icon'}/>,
-        title: 'New Contacts'
-      },
-      {
-        route: '/mynetwork',
-        iconComp: <NetworkIcon className={ currentRoute === '/mynetwork' ? 'icon active-icon' : 'icon'}/>,
-        title: 'My Network'
-      },
-      {
-        route: '/settings/list',
-        iconComp: <ListSettingsIcon className={ currentRoute === '/settings/list' ? 'icon active-icon' : 'icon'}/>,
-        title: 'List Settings'
-      }
-    ]
-    return dataTopMenu.map((data, index) => {
+    return dataTopMenu(currentRoute).map((data, index) => {
       return (
         <Link to={data.route} style={styles.link} key={index}>
           <MenuItem className={ currentRoute === data.route ? 'menu-item active-menu-item' : 'menu-item' }>
@@ -51,23 +34,6 @@ class MenuDrawer extends PureComponent {
     })
   }
   renderBottomMenu = () => {
-    const dataBotMenu = [
-      {
-        url: 'https://milahq.com/faq/',
-        title: 'FAQ',
-        iconComp: <FaqIcon className='icon'/>
-      },
-      {
-        url: 'https://milahq.com/blog/',
-        title: 'BLOG',
-        iconComp: <BlogIcon className='icon'/>
-      },
-      {
-        url: 'https://milahq.com/about/',
-        title: 'ABOUT',
-        iconComp: <AboutIcon className='icon'/>
-      }
-    ]
     return dataBotMenu.map((link, index) => {
       return (
         <a href={link.url} target='_blank' style={styles.link} key={index}>
