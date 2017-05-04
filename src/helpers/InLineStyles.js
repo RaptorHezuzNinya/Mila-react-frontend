@@ -1,3 +1,16 @@
+// imported in ~/components/MenuDrawer.js
+export const inlineMenuDrawerStyles = {
+  containerStyle: {
+    height: 'calc(100vh - 70px)',
+    top: 70,
+    width: 224,
+    backgroundColor: '#37414d'
+  },
+  link: {
+    textDecoration: 'none'
+  }
+}
+
 // imported in ~/components/onboarding/CreateListsContainer.js
 export const inlineCreateListsContainerStyles = {
   hint: {
