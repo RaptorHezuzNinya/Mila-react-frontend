@@ -13,16 +13,23 @@ class SortContact extends PureComponent {
 
   getOneContact () {
     const { contacts } = this.props
-    console.log('logging CONTACTS', contacts)
+    console.log('logging CONTACTS', contacts.length)
     return contacts.filter((contact) => {
       return contact.contactId === 1
     })
   }
 
+  handleNextContact () {
+    console.log('NEXT PRESSED')
+  }
+
+  handlePrevContact () {
+    console.log('PREV PRESSED')
+  }
+
   render () {
     console.log(this.getOneContact())
     // const { contacts } = this.props
-
     return (
       <div className='sort-contact-wrapper'>
 
@@ -30,17 +37,19 @@ class SortContact extends PureComponent {
           <PageTitle
             titleClassName='sortcontact-title'
             pageTitleContentH2='1 / 1 new contact'
-            pageTitleContentH3='since your last vist'/>
+            pageTitleContentH3='since your last vist' />
           <ProgressIndicator
             mode='determinate' />
         </div>
 
-        <NavigateContacts />
+        <NavigateContacts
+          handleNextContact={this.handleNextContact}
+          handlePrevContact={this.handlePrevContact} />
 
         <div className='contact-card-wrapper'>
-          <ContactCard oneContact={this.getOneContact()}/>
+          <ContactCard oneContact={this.getOneContact()} />
         </div>
-        
+
       </div>
     )
   }
