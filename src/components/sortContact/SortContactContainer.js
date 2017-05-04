@@ -10,7 +10,10 @@ class SortContactContainer extends PureComponent {
   constructor(props){
     super(props)
     this.state = {
-      contactIndex: 0
+      contactIndex: 0,
+      currentContact: 1,
+      totalContacts: this.props.contacts.length,
+      completedProgress: 4
     }
   }
 
