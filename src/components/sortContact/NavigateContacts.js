@@ -20,22 +20,24 @@ class NavigateContacts extends PureComponent {
   render () {
     return (
       <div className='navigate-contacts-holder'>
-        <div className='button-contact-navigate'>
-          <IconButton
-            iconClassName='material-icons'
-            hoveredStyle={styles.hoveredStyle}
-            iconStyle={styles.iconStyle}
-            style={styles.button}>
-            navigate_next
-          </IconButton>
-        </div>
         <div className='button-contact-navigatez'>
           <IconButton
+            onClick={this.props.handlePrevContact}
             iconClassName='material-icons'
             hoveredStyle={styles.hoveredStyle}
             iconStyle={styles.iconStyle}
             style={styles.button}>
             navigate_before
+          </IconButton>
+        </div>
+        <div className='button-contact-navigate'>
+          <IconButton
+            onClick={this.props.handleNextContact}
+            iconClassName='material-icons'
+            hoveredStyle={styles.hoveredStyle}
+            iconStyle={styles.iconStyle}
+            style={styles.button}>
+            navigate_next
           </IconButton>
         </div>
       </div>
