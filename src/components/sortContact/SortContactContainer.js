@@ -4,7 +4,7 @@ import ContactCard from './ContactCard'
 import ProgressIndicator from './ProgressIndicator'
 import PageTitle from '../PageTitle'
 import NavigateContacts from './NavigateContacts'
-import './SortContact.sass'
+import './SortContactContainer.sass'
 
 class SortContactContainer extends PureComponent {
   constructor(props){
