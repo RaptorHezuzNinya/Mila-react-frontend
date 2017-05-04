@@ -8,7 +8,7 @@ class SortContact extends PureComponent {
   render () {
     return (
       <div className='sort-contact-wrapper'>
-        <div className='linear-progress-wrapper'>
+        <div className='progress-indicator-wrapper'>
           <PageTitle
             titleClassName='sortcontact-title'
             pageTitleContentH2='1 / 1 new contact'
