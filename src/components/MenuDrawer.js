@@ -61,7 +61,7 @@ class MenuDrawer extends PureComponent {
           containerStyle={styles.containerStyle}>
         <div className='drawer-menu-wrapper'>
           <Menu className='top-menu-holder'>
-            <Link to='/' style={styles.link}>
+            <Link to='/sortcontact' style={styles.link}>
               <MenuItem className='top-menu-item'>
                 <div className='trial-item'>Free trial</div>
               </MenuItem>
