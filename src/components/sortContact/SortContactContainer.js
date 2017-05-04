@@ -30,34 +30,40 @@ class SortContactContainer extends PureComponent {
   }
 
   handleNextContact () {
-    const { contactIndex } = this.state
+    const { contactIndex, currentContact, totalContacts, completedProgress } = this.state
     if (contactIndex >= 24 ) return null
     this.setState({
-      contactIndex: this.state.contactIndex + 1
+      contactIndex: contactIndex + 1,
+      currentContact: currentContact + 1,
+      completedProgress: completedProgress + (100 / totalContacts)
     })
   }
 
   handlePrevContact () {
-    const { contactIndex } = this.state
+    const { contactIndex, currentContact, totalContacts, completedProgress } = this.state
     if (contactIndex === 0) return null
     this.setState({
-      contactIndex: contactIndex - 1
+      contactIndex: contactIndex - 1,
+      currentContact: currentContact - 1,
+      completedProgress: completedProgress - (100 / totalContacts)
     })
   }
 
   render () {
-
-    console.log(this.getOneContact())
+    console.log(this.state.currentContact)
+    console.log(this.state.totalContacts)
+    const { currentContact, totalContacts, completedProgress } = this.state
     return (
       <div className='sort-contact-wrapper'>
 
         <div className='progress-indicator-wrapper'>
           <PageTitle
             titleClassName='sortcontact-title'
-            pageTitleContentH2='1 / 1 new contact'
+            pageTitleContentH2={`${currentContact} / ${totalContacts}`}
             pageTitleContentH3='since your last vist' />
           <ProgressIndicator
-            mode='determinate' />
+            mode='determinate'
+            completedProgress={completedProgress}/>
         </div>
 
         <NavigateContacts
