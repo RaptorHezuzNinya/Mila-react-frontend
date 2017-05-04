@@ -1,5 +1,6 @@
 import React, { PureComponent, PropTypes } from 'react'
 import IconButton from 'material-ui/IconButton'
+import './NavigateContacts.sass'
 
 const styles = {
   iconStyle: {
