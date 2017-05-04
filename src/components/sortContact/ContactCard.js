@@ -14,6 +14,7 @@ class ContactCard extends PureComponent {
       return (
         <div className='details-holder' key={c.contactId}>
           <div className='detail-item'>{c.firstName}</div>
+          <div className='detail-item'><strong>{c.contactId}</strong></div>
           <div className='detail-item'>{c.lastName}</div>
           <div className='detail-item'>{c.companyName}</div>
           <div className='detail-item'>{c.companyRole}</div>
@@ -46,6 +47,7 @@ class ContactCard extends PureComponent {
 
   render () {
     const { oneContact } = this.props
+    console.log(oneContact.map((contact) => contact.contactId))
     return (
       <div className='contact-card-holder'>
 
