@@ -68,7 +68,7 @@ class OnboardingStepper extends PureComponent {
       case 2:
         return <StartSorting />
       default:
-        return history.push('/newcontacts')
+        return history.push('/sortcontact')
     }
   }
 

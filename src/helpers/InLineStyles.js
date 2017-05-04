@@ -1,3 +1,16 @@
+// imported in ~/components/MenuDrawer.js
+export const inlineMenuDrawerStyles = {
+  containerStyle: {
+    height: 'calc(100vh - 70px)',
+    top: 70,
+    width: 224,
+    backgroundColor: '#37414d'
+  },
+  link: {
+    textDecoration: 'none'
+  }
+}
+
 // imported in ~/components/onboarding/CreateListsContainer.js
 export const inlineCreateListsContainerStyles = {
   hint: {
@@ -69,5 +82,15 @@ export const inlineNavigationStyles = {
     flex: '1 0 0',
     display: 'flex',
     justifyContent: 'flex-end'
+  }
+}
+
+// used in ~/components/sortContact/SortContact.js
+export const inlineContactCardStyles = {
+  paper: {
+    // justifyContent: 'center',
+    flex: '0 0 100%',
+    // width: 415,
+    height: 230
   }
 }

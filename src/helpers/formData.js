@@ -1,7 +1,49 @@
-// React must be in scope if you use jsx
 import React from 'react'
 
-// // used in ~/modals/CreateNetworkList.js
+// used in ~/components/MenuDrawer
+import NewContactIcon from 'material-ui/svg-icons/social/person-add'
+import NetworkIcon from 'material-ui/svg-icons/action/view-list'
+import ListSettingsIcon from 'material-ui/svg-icons/action/settings'
+export const dataTopMenu = (currentRoute) => [
+  {
+    route: '/newcontacts',
+    iconComp: <NewContactIcon className={ currentRoute === '/newcontacts' ? 'icon active-icon' : 'icon'}/>,
+    title: 'New Contacts'
+  },
+  {
+    route: '/mynetwork',
+    iconComp: <NetworkIcon className={ currentRoute === '/mynetwork' ? 'icon active-icon' : 'icon'}/>,
+    title: 'My Network'
+  },
+  {
+    route: '/settings/list',
+    iconComp: <ListSettingsIcon className={ currentRoute === '/settings/list' ? 'icon active-icon' : 'icon'}/>,
+    title: 'List Settings'
+  }
+]
+
+import FaqIcon from 'material-ui/svg-icons/social/whatshot'
+import AboutIcon from 'material-ui/svg-icons/action/face'
+import BlogIcon from 'material-ui/svg-icons/communication/chat-bubble'
+export const dataBotMenu = [
+  {
+    url: 'https://milahq.com/faq/',
+    title: 'FAQ',
+    iconComp: <FaqIcon className='icon'/>
+  },
+  {
+    url: 'https://milahq.com/blog/',
+    title: 'BLOG',
+    iconComp: <BlogIcon className='icon'/>
+  },
+  {
+    url: 'https://milahq.com/about/',
+    title: 'ABOUT',
+    iconComp: <AboutIcon className='icon'/>
+  }
+]
+
+// used in ~/components/modals/CreateNetworkList.js
 export const formDataCreateNetworkListModal = (maxTitleCount, titleCount, maxDescCount, descCount) => [
   {
     name: 'title',
