@@ -15,7 +15,7 @@ class SortContact extends PureComponent {
   }
 
   render () {
-    const { contact } = this.props
+    // const { contacts } = this.props
     return (
       <div className='sort-contact-wrapper'>
         <div className='progress-indicator-wrapper'>

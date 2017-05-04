@@ -9,8 +9,8 @@ class ContactCard extends PureComponent {
 
   }
   renderContactDetails () {
-    const { contact } = this.props
-    return contact.map((c) => {
+    const { oneContact } = this.props
+    return oneContact.map((c) => {
       return (
         <div className='details-holder'>
           <div className='detail-item'>{c.firstName}</div>
@@ -24,8 +24,8 @@ class ContactCard extends PureComponent {
   }
 
   renderContactAvatar () {
-    const { contact } = this.props
-    return contact.map((c) => {
+    const { oneContact } = this.props
+    return oneContact.map((c) => {
       return (
         <div className='avatar-holder'>
           <img src={c.avatar} alt='user avatar'/>
@@ -34,8 +34,8 @@ class ContactCard extends PureComponent {
     })
   }
   renderContactEmail () {
-    const { contact } = this.props
-    return contact.map((c) => {
+    const { oneContact } = this.props
+    return oneContact.map((c) => {
       return (
         <div className='email-header-holder'>
           <p>{c.message}</p>
@@ -45,7 +45,7 @@ class ContactCard extends PureComponent {
   }
 
   render () {
-    const { contact } = this.props
+    const { oneContact } = this.props
     return (
       <div className='contact-card-holder'>
 
