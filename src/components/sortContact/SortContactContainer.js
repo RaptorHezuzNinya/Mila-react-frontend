@@ -62,7 +62,7 @@ class SortContactContainer extends PureComponent {
         <div className='progress-indicator-wrapper'>
           <PageTitle
             titleClassName='sortcontact-title'
-            pageTitleContentH2={`${currentContact} / ${totalContacts}`}
+            pageTitleContentH2={`${currentContact} / ${totalContacts} new contacts`}
             pageTitleContentH3='since your last vist' />
           <ProgressIndicator
             mode='determinate'
