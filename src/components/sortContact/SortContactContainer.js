@@ -13,8 +13,10 @@ class SortContactContainer extends PureComponent {
       contactIndex: 0,
       currentContact: 1,
       totalContacts: this.props.contacts.length,
-      completedProgress: 4
+      completedProgress: 100 / this.props.contacts.length
     }
+    this.handleNextContact = this.handleNextContact.bind(this)
+    this.handlePrevContact = this.handlePrevContact.bind(this)
   }
 
   static propTypes = {
