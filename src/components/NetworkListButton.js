@@ -1,5 +1,6 @@
 import React, { PureComponent, PropTypes } from 'react'
 import FlatButton from 'material-ui/FlatButton'
+import ListIcon from 'material-ui/svg-icons/action/list'
 import './NetworkListButton.sass'
 
 class NetworkListButton extends PureComponent {
@@ -13,11 +14,11 @@ class NetworkListButton extends PureComponent {
       return (
         <div className='network-lists' key={networkList.id}>
 
-            <FlatButton
-              className='network-list-btn'
-              label={networkList.title}>
-              {/* something */}
-            </FlatButton>
+          <FlatButton
+            className='network-list-btn'
+            label={networkList.title}>
+            <ListIcon className='list-icon' />
+          </FlatButton>
 
         </div>
       )
