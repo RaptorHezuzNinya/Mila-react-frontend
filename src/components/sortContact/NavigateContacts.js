@@ -17,6 +17,10 @@ const styles = {
 }
 
 class NavigateContacts extends PureComponent {
+  static propTypes = {
+    handlePrevContact: PropTypes.func.isRequired,
+    handleNextContact: PropTypes.func.isRequired
+  }
   render () {
     return (
       <div className='navigate-contacts-holder'>

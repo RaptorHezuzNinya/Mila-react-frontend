@@ -2,6 +2,7 @@ import React, { PureComponent, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import ContactCard from './ContactCard'
 import ProgressIndicator from './ProgressIndicator'
+import NetworkListButton from '../NetworkListButton'
 import PageTitle from '../PageTitle'
 import NavigateContacts from './NavigateContacts'
 import './SortContactContainer.sass'
@@ -13,8 +14,10 @@ class SortContactContainer extends PureComponent {
       contactIndex: 0,
       currentContact: 1,
       totalContacts: this.props.contacts.length,
-      completedProgress: 4
+      completedProgress: 100 / this.props.contacts.length
     }
+    this.handleNextContact = this.handleNextContact.bind(this)
+    this.handlePrevContact = this.handlePrevContact.bind(this)
   }
 
   static propTypes = {
@@ -31,7 +34,7 @@ class SortContactContainer extends PureComponent {
 
   handleNextContact () {
     const { contactIndex, currentContact, totalContacts, completedProgress } = this.state
-    if (contactIndex >= 24 ) return null
+    if (contactIndex >= (totalContacts - 1) ) return null
     this.setState({
       contactIndex: contactIndex + 1,
       currentContact: currentContact + 1,
@@ -50,9 +53,9 @@ class SortContactContainer extends PureComponent {
   }
 
   render () {
-    console.log(this.state.currentContact)
-    console.log(this.state.totalContacts)
     const { currentContact, totalContacts, completedProgress } = this.state
+    const { networkLists } = this.props
+
     return (
       <div className='sort-contact-wrapper'>
 
@@ -67,20 +70,23 @@ class SortContactContainer extends PureComponent {
         </div>
 
         <NavigateContacts
-          handleNextContact={this.handleNextContact.bind(this)}
-          handlePrevContact={this.handlePrevContact.bind(this)} />
+          handleNextContact={this.handleNextContact}
+          handlePrevContact={this.handlePrevContact} />
 
         <div className='contact-card-wrapper'>
           <ContactCard oneContact={this.getOneContact()} />
         </div>
-
+        <div className='network-lists-wrapper'>
+          <NetworkListButton networkLists={networkLists}/>
+        </div>
       </div>
     )
   }
 }
 const mapStateToProps = (state) => {
   return {
-    contacts: state.contacts
+    contacts: state.contacts,
+    networkLists: state.networkLists
   }
 }
 
