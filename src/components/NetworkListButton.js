@@ -1,5 +1,6 @@
 import React, { PureComponent, PropTypes } from 'react'
 import FlatButton from 'material-ui/FlatButton'
+import './NetworkListButton.sass'
 
 class NetworkListButton extends PureComponent {
   static propTypes = {
