@@ -8,6 +8,7 @@ class ContactCard extends PureComponent {
     super(props)
 
   }
+
   renderContactDetails () {
     const { oneContact } = this.props
     return oneContact.map((c) => {
@@ -52,14 +53,13 @@ class ContactCard extends PureComponent {
       <div className='contact-card-holder'>
 
         <Paper style={styles.paper} zDepth={3}>
-
           <div className='paper-content-holder'>
             {this.renderContactDetails()}
             {this.renderContactAvatar()}
             {this.renderContactEmail()}
           </div>
-
         </Paper>
+
       </div>
     )
   }
