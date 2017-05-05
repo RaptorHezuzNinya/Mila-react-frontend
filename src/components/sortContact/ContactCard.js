@@ -56,7 +56,7 @@ class ContactCard extends PureComponent {
     return (
       <div className='contact-card-holder'>
 
-        <Paper style={styles.paper} zDepth={3}>
+        <Paper style={styles.paper} zDepth={2}>
           <div className='paper-content-holder'>
             {this.renderContactDetails()}
             {this.renderContactAvatar()}
