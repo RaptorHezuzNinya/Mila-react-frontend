@@ -2,6 +2,7 @@ import React, { PureComponent, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import ContactCard from './ContactCard'
 import ProgressIndicator from './ProgressIndicator'
+import NetworkListButton from '../NetworkListButton'
 import PageTitle from '../PageTitle'
 import NavigateContacts from './NavigateContacts'
 import './SortContactContainer.sass'
@@ -53,6 +54,7 @@ class SortContactContainer extends PureComponent {
 
   render () {
     const { currentContact, totalContacts, completedProgress } = this.state
+    const { networkLists } = this.props
 
     return (
       <div className='sort-contact-wrapper'>
@@ -75,7 +77,7 @@ class SortContactContainer extends PureComponent {
           <ContactCard oneContact={this.getOneContact()} />
         </div>
         <div className='network-lists-wrapper'>
-
+          <NetworkListButton networkLists={networkLists}/>
         </div>
       </div>
     )
