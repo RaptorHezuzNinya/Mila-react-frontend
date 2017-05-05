@@ -4,3 +4,18 @@
 
 .contact-details-holder
   flex: 1 0 0
+
+  .contact-details
+    display: flex
+    .details-form
+      flex: 0 0 100%
+      display: flex
+      flex-wrap: wrap
+
+      .detail-item1
+        +mont-light($blueA !important) 
+        flex: 1 0 50%
+      .detail-item2
+        flex: 1 0 50%
+      .detail-item3, .detail-item4, .detail-item5
+        flex: 1 0 100%
