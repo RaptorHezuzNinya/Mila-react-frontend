@@ -33,7 +33,7 @@ class SortContactContainer extends PureComponent {
 
   handleNextContact () {
     const { contactIndex, currentContact, totalContacts, completedProgress } = this.state
-    if (contactIndex >= 24 ) return null
+    if (contactIndex >= (totalContacts - 1) ) return null
     this.setState({
       contactIndex: contactIndex + 1,
       currentContact: currentContact + 1,
