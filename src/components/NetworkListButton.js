@@ -1,6 +1,7 @@
 import React, { PureComponent, PropTypes } from 'react'
 import FlatButton from 'material-ui/FlatButton'
 import ListIcon from 'material-ui/svg-icons/action/list'
+import IconButton from 'material-ui/IconButton'
 import './NetworkListButton.sass'
 
 class NetworkListButton extends PureComponent {
