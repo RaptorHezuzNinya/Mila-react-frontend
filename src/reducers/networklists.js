@@ -7,16 +7,16 @@ const initialState = [
     title: 'Business',
     description: 'The VIP list is used for people who have asked questions about our product and want to try our next update'
   },
-  {
-    id: 3,
-    title: 'Business Int',
-    description: 'The VIP list is used for people who have asked questions about our product and want to try our next update'
-  },
-  {
-    id: 4,
-    title: 'Friends',
-    description: 'The VIP list is used for people who have asked questions about our product and want to try our next update'
-  },
+  // {
+  //   id: 3,
+  //   title: 'Business Int',
+  //   description: 'The VIP list is used for people who have asked questions about our product and want to try our next update'
+  // },
+  // {
+  //   id: 4,
+  //   title: 'Friends',
+  //   description: 'The VIP list is used for people who have asked questions about our product and want to try our next update'
+  // },
   {
     id: 5,
     title: 'All',
