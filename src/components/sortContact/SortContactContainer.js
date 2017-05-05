@@ -52,9 +52,8 @@ class SortContactContainer extends PureComponent {
   }
 
   render () {
-    console.log(this.state.currentContact)
-    console.log(this.state.totalContacts)
     const { currentContact, totalContacts, completedProgress } = this.state
+
     return (
       <div className='sort-contact-wrapper'>
 
@@ -69,13 +68,15 @@ class SortContactContainer extends PureComponent {
         </div>
 
         <NavigateContacts
-          handleNextContact={this.handleNextContact.bind(this)}
-          handlePrevContact={this.handlePrevContact.bind(this)} />
+          handleNextContact={this.handleNextContact}
+          handlePrevContact={this.handlePrevContact} />
 
         <div className='contact-card-wrapper'>
           <ContactCard oneContact={this.getOneContact()} />
         </div>
+        <div className='network-lists-wrapper'>
 
+        </div>
       </div>
     )
   }
