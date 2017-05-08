@@ -6,7 +6,6 @@ const styles = {
   txtfield: {
     fontFamily: 'Montserrat-Light',
     fontSize: 14,
-
   },
   input: {
     paddingLeft: 10
