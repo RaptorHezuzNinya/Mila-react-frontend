@@ -1,7 +1,7 @@
 import React, { PureComponent, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import ContactCard from './ContactCard'
-import ProgressIndicator from './ProgressIndicator'
+import ProgressIndicator from '../ProgressIndicator'
 import NetworkListButton from './NetworkListButton'
 import PageTitle from '../PageTitle'
 import NavigateContacts from './NavigateContacts'
@@ -67,6 +67,8 @@ class SortContactContainer extends PureComponent {
             pageTitleContentH3='since your last visit' />
           <ProgressIndicator
             mode='determinate'
+            holderClass='progress-indicator-holder'
+            color='#5DD9B2'
             completedProgress={completedProgress}/>
         </div>
 
