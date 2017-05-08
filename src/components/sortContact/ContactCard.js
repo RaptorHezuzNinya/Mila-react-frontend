@@ -1,4 +1,5 @@
 import React, { PureComponent, PropTypes } from 'react'
+import ContactDetails from './ContactDetails'
 import Paper from 'material-ui/Paper'
 import './ContactCard.sass'
 import { inlineContactCardStyles as styles } from '../../helpers/inlineStyles'
@@ -8,24 +9,9 @@ class ContactCard extends PureComponent {
     super(props)
 
   }
+
   static propTypes = {
     oneContact: PropTypes.array.isRequired
-  }
-
-  renderContactDetails () {
-    const { oneContact } = this.props
-    return oneContact.map((c) => {
-      return (
-        <div className='details-holder' key={c.contactId}>
-          <div className='detail-item'>{c.firstName}</div>
-          <div className='detail-item'><strong>{c.contactId}</strong></div>
-          <div className='detail-item'>{c.lastName}</div>
-          <div className='detail-item'>{c.companyName}</div>
-          <div className='detail-item'>{c.companyRole}</div>
-          <div className='detail-item'>{c.email}</div>
-        </div>
-      )
-    })
   }
 
   renderContactAvatar () {
@@ -52,18 +38,15 @@ class ContactCard extends PureComponent {
 
   render () {
     const { oneContact } = this.props
-    // console.log(oneContact.map((contact) => contact.contactId))
     return (
       <div className='contact-card-holder'>
-
         <Paper style={styles.paper} zDepth={2}>
           <div className='paper-content-holder'>
-            {this.renderContactDetails()}
+            <ContactDetails oneContact={oneContact} />
             {this.renderContactAvatar()}
             {this.renderContactEmail()}
           </div>
         </Paper>
-
       </div>
     )
   }
