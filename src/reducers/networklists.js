@@ -50,8 +50,8 @@ export default function networklists(state = initialState, { type, payload } = {
       return state.map(networkList => {
         if (networkList.id === payload.networkListId){
           let newContactIdsArray = networkList.contactIds.slice()
-          newContactsIdArray.splice(0, 0, payload.contactId)
-          return {...networkList, contactIds: newContactsIdsArray}
+          newContactIdsArray.splice(0, 0, payload.contactId)
+          return {...networkList, contactIds: newContactIdsArray}
         }
         return networkList
       })
