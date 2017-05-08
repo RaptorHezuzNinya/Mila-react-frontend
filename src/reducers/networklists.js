@@ -49,9 +49,8 @@ export default function networklists(state = initialState, { type, payload } = {
     case ADD_CONTACT_TO_NETWORKLIST:
       return state.map(networkList => {
         if (networkList.id === payload.networkListId){
-          let newContactsIdsArray = networkList.contactIds.slice()
-          newContactsIdsArray.splice(0, 0, payload.contactId)
-          console.log(newContactsIdsArray)
+          let newContactIdsArray = networkList.contactIds.slice()
+          newContactsIdArray.splice(0, 0, payload.contactId)
           return {...networkList, contactIds: newContactsIdsArray}
         }
         return networkList
