@@ -1,4 +1,6 @@
 import React, { PureComponent, PropTypes } from 'react'
+import { connect } from 'react-redux'
+import { addContactToNetworklist } from '../actions/networklists'
 import FlatButton from 'material-ui/FlatButton'
 import ListIcon from 'material-ui/svg-icons/action/list'
 import './NetworkListButton.sass'
@@ -6,6 +8,15 @@ import './NetworkListButton.sass'
 class NetworkListButton extends PureComponent {
   static propTypes = {
     networkLists: PropTypes.array.isRequired
+  }
+
+  handleNetworkButtonClick (networkListId) {
+    const { oneContact } = this.props
+    // console.log('ContactId', oneContact.map((contact) => contact.contactId))
+    // console.log('networkListID', networkListId)
+    const mappedContactId = oneContact.map((contact) => contact.contactId)
+    const oneId = mappedContactId[0]
+    this.props.addContactToNetworklist({ networkListId, oneId})
   }
 
   renderNetworkLists () {
