@@ -18,7 +18,6 @@ class SortContactContainer extends PureComponent {
     }
     this.handleNextContact = this.handleNextContact.bind(this)
     this.handlePrevContact = this.handlePrevContact.bind(this)
-    this.handleNetworkButtonClick = this.handleNetworkButtonClick.bind(this)
   }
 
   static propTypes = {
@@ -53,12 +52,6 @@ class SortContactContainer extends PureComponent {
     })
   }
 
-  handleNetworkButtonClick (networkListId) {
-    const { oneContact } = this.props
-    const theOneContactId = oneContact[0].id
-    this.props.addContactToNetworklist(theOneContactId, networkListId)
-    this.props.addNetworkListToContact(networkListId, theOneContactId)
-  }
 
   render () {
     const { currentContact, totalContacts, completedProgress } = this.state
@@ -86,7 +79,6 @@ class SortContactContainer extends PureComponent {
         </div>
         <div className='network-lists-wrapper'>
           <NetworkListButton
-            handleNetworkButtonClick={this.handleNetworkButtonClick.bind(this)}
             oneContact={this.getOneContact()}
             networkLists={networkLists} />
         </div>
