@@ -39,14 +39,32 @@ export default function networklists(state = initialState, { type, payload } = {
         return networklist
       })
 
-    case CREATE_NETWORKLIST :
+    case CREATE_NETWORKLIST:
       const newNetworkList = Object.assign({}, payload)
         return [newNetworkList].concat(state)
 
-    case DELETE_NETWORKLIST : //FIXME when api, key needs to be networklist.id
+    case DELETE_NETWORKLIST: //FIXME when api, key needs to be networklist.id
       return state.filter((networklist) => networklist.title !== payload )
+
+
+    case ADD_CONTACT_TO_NETWORKLIST:
+
+
+
+      const updatedNetworkList = state.map(networkList => {
+        if(networkList.id === payload.networkListId){
+          return { ...networkList, [contactIds].concat(payload.contactId)  }
+        }
+        return networkList
+      })
+      return updatedNetworkList
+
 
     default :
       return state
   }
 }
+
+//
+// case INCR_STEP_INDEX:
+//   return {...state, stepIndex: payload + 1}
