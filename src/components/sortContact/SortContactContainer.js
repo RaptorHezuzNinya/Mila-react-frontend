@@ -77,7 +77,9 @@ class SortContactContainer extends PureComponent {
           <ContactCard oneContact={this.getOneContact()} />
         </div>
         <div className='network-lists-wrapper'>
-          <NetworkListButton networkLists={networkLists}/>
+          <NetworkListButton
+            oneContact={this.getOneContact()}
+            networkLists={networkLists} />
         </div>
       </div>
     )
