@@ -7,13 +7,12 @@ import './NetworkListButton.sass'
 
 class NetworkListButton extends PureComponent {
   static propTypes = {
-    networkLists: PropTypes.array.isRequired
+    networkLists: PropTypes.array.isRequired,
+    oneContact: PropTypes.array.isRequired
   }
 
   handleNetworkButtonClick (networkListId) {
     const { oneContact } = this.props
-    // console.log('ContactId', oneContact.map((contact) => contact.contactId))
-    // console.log('networkListID', networkListId)
     const mappedContactId = oneContact.map((contact) => contact.contactId)
     const theOneContactId = mappedContactId[0]
     this.props.addContactToNetworklist(networkListId, theOneContactId)
