@@ -45,4 +45,4 @@ class NetworkListButton extends PureComponent {
   }
 }
 
-export default connect(null, { addContactToNetworklist })(NetworkListButton)
+export default connect(null, { addContactToNetworklist, addNetworkListToContact })(NetworkListButton)
