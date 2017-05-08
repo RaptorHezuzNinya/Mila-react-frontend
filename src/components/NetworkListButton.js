@@ -14,8 +14,7 @@ class NetworkListButton extends PureComponent {
 
   handleNetworkButtonClick (networkListId) {
     const { oneContact } = this.props
-    const mappedContactId = oneContact.map((contact) => contact.id)
-    const theOneContactId = mappedContactId[0]
+    const theOneContactId = oneContact[0].id
     this.props.addContactToNetworklist(theOneContactId, networkListId)
     this.props.addNetworkListToContact(networkListId, theOneContactId)
   }
