@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import DeleteButton from './DeleteButton'
-import deleteContacts from '../../actions/contacts/delete'
+import {deleteContacts} from '../../actions/contacts'
 import { Table, TableBody, TableFooter, TableHeader, TableHeaderColumn, TableRow, TableRowColumn } from 'material-ui/Table'
 import TextField from 'material-ui/TextField'
 import Avatar from 'material-ui/Avatar'
