@@ -23,21 +23,45 @@ class ContactDetails extends PureComponent {
         <div className='contact-details' key={c.contactId}>
           <form className='details-form'>
             <div className='detail-item1'>
-              <TextField inputStyle={styles.input} style={styles.txtfield} value={c.firstName} fullWidth={true} />
+              <TextField
+                name='firstname'
+                inputStyle={styles.input}
+                style={styles.txtfield}
+                value={c.firstName}
+                fullWidth={true} />
             </div>
             <div className='detail-item2'>
-              <TextField style={styles.txtfield} value={c.lastName} fullWidth={true} />
+              <TextField
+                name='lastname'
+                style={styles.txtfield}
+                value={c.lastName}
+                fullWidth={true} />
             </div>
 
             <div className='detail-item3'>
-              <TextField inputStyle={styles.input} style={styles.txtfield} value={c.companyName} fullWidth={true} />
+              <TextField
+                name='companyname'
+                inputStyle={styles.input}
+                style={styles.txtfield}
+                value={c.companyName}
+                fullWidth={true} />
             </div>
 
             <div className='detail-item4'>
-              <TextField inputStyle={styles.input} style={styles.txtfield} value={c.companyRole} fullWidth={true} />
+              <TextField
+                name='companyrole'
+                inputStyle={styles.input}
+                style={styles.txtfield}
+                value={c.companyRole}
+                fullWidth={true} />
             </div>
             <div className='detail-item5'>
-              <TextField inputStyle={styles.input} style={styles.txtfield} value={c.email} fullWidth={true} />
+              <TextField
+                name='email'
+                inputStyle={styles.input}
+                style={styles.txtfield}
+                value={c.email}
+                fullWidth={true} />
             </div>
           </form>
         </div>
