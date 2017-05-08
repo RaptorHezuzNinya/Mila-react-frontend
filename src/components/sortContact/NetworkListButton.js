@@ -79,4 +79,10 @@ class NetworkListButton extends PureComponent {
   }
 }
 
-export default connect(null, { addContactToNetworklist, addNetworkListToContact })(NetworkListButton)
+const mapStateToProps = (state) => {
+  return {
+    networkLists: state.networkLists
+  }
+}
+
+export default connect(mapStateToProps, { addContactToNetworklist, addNetworkListToContact })(NetworkListButton)
