@@ -9,23 +9,17 @@ import './NetworkListButton.sass'
 class NetworkListButton extends PureComponent {
   static propTypes = {
     networkLists: PropTypes.array.isRequired,
-    oneContact: PropTypes.array.isRequired
-  }
-
-  handleNetworkButtonClick (networkListId) {
-    const { oneContact } = this.props
-    const theOneContactId = oneContact[0].id
-    this.props.addContactToNetworklist(theOneContactId, networkListId)
-    this.props.addNetworkListToContact(networkListId, theOneContactId)
+    oneContact: PropTypes.array.isRequired,
+    handleNetworkButtonClick: PropTypes.func.isRequired
   }
 
   renderNetworkLists () {
-    const { networkLists } = this.props
+    const { networkLists, handleNetworkButtonClick } = this.props
     return networkLists.map((networkList) => {
       return (
         <div className='network-lists' key={networkList.id}>
           <FlatButton
-            onClick={this.handleNetworkButtonClick.bind(this, networkList.id)}
+            onClick={handleNetworkButtonClick.bind(this, networkList.id)}
             className='network-list-btn'
             label={networkList.title}>
             <ListIcon className='list-icon' />
