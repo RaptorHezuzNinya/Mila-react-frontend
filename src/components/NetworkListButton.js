@@ -26,6 +26,7 @@ class NetworkListButton extends PureComponent {
         <div className='network-lists' key={networkList.id}>
 
           <FlatButton
+            onClick={this.handleNetworkButtonClick.bind(this, networkList.id)}
             className='network-list-btn'
             label={networkList.title}>
             <ListIcon className='list-icon' />
@@ -45,4 +46,4 @@ class NetworkListButton extends PureComponent {
   }
 }
 
-export default NetworkListButton
+export default connect(null, { addContactToNetworklist })(NetworkListButton)
