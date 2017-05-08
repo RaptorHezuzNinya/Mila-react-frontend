@@ -24,5 +24,16 @@ export const deleteNetworkList = (id) => {
   }
 }
 
+export const ADD_CONTACT_TO_NETWORKLIST = 'ADD_CONTACT_TO_NETWORKLIST'
+export const addContactToNetworklist = (networkListId, contactId) => {
+  return {
+    type: ADD_CONTACT_TO_NETWORKLIST,
+    payload: {
+      networkListId,
+      contactId
+    }
+  }
+}
+
 // If you wanna stack multiple action in 1 index.js file write them like this and....
 // import === import { createNetworkList } from '../actions/networklists/create'

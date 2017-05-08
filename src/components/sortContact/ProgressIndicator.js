@@ -2,12 +2,6 @@ import React, { PureComponent } from 'react'
 import LinearProgress from 'material-ui/LinearProgress'
 import './ProgressIndicator.sass'
 
-// const styles = {
-//   progress: {
-//     color: '#cccccc'
-//   }
-// }
-
 class ProgressIndicator extends PureComponent {
   constructor(props) {
     super(props)

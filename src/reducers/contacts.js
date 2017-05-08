@@ -5,7 +5,7 @@ import avatar from '../assets/images/avatars/user-darkgreen.svg'
 
 const initialState = [
   {
-    contactId: 1,
+    contactId: 11,
     firstName: 'Naam1',
     lastName: 'DePadrian',
     companyRole: 'CEO',
@@ -15,7 +15,7 @@ const initialState = [
     message: 'Re: FoundedX - Exclusive invitation to lead the creative society'
   },
   {
-    contactId: 2,
+    contactId: 22,
     firstName: 'Naam2',
     lastName: 'BlaBla',
     companyRole: 'CEO',
@@ -25,7 +25,7 @@ const initialState = [
     message: 'Re: FoundedX - Exclusive invitation to lead the creative society'
   },
   {
-    contactId: 3,
+    contactId: 13,
     firstName: 'Ward3',
     lastName: 'BlaBla',
     companyRole: 'CEO',
@@ -35,7 +35,7 @@ const initialState = [
     message: 'Re: FoundedX - Exclusive invitation to lead the creative society'
   },
   {
-    contactId: 4,
+    contactId: 47,
     firstName: 'Andreas',
     lastName: 'BlaBla',
     companyRole: 'CEO',
@@ -45,7 +45,7 @@ const initialState = [
     message: 'Re: FoundedX - Exclusive invitation to lead the creative society'
   },
   {
-    contactId: 5,
+    contactId: 59,
     firstName: 'Wouter',
     lastName: 'BlaBla',
     companyRole: 'CEO',
@@ -55,7 +55,7 @@ const initialState = [
     message: 'Re: FoundedX - Exclusive invitation to lead the creative society'
   },
   {
-    contactId: 6,
+    contactId: 65,
     firstName: 'Rembert',
     lastName: 'BlaBla',
     companyRole: 'CEO',
@@ -65,7 +65,7 @@ const initialState = [
     message: 'Re: FoundedX - Exclusive invitation to lead the creative society'
   },
   {
-    contactId: 7,
+    contactId: 71,
     firstName: 'Math',
     lastName: 'BlaBla',
     companyRole: 'CEO',
@@ -75,7 +75,7 @@ const initialState = [
     message: 'Re: FoundedX - Exclusive invitation to lead the creative society'
   },
   {
-    contactId: 8,
+    contactId: 85,
     firstName: 'Math',
     lastName: 'BlaBla',
     companyRole: 'CEO',
