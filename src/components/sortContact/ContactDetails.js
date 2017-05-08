@@ -20,7 +20,7 @@ class ContactDetails extends PureComponent {
     const { oneContact } = this.props
     return oneContact.map((c) => {
       return (
-        <div className='contact-details' key={c.contactId}>
+        <div className='contact-details' key={c.id}>
           <form className='details-form'>
             <div className='detail-item1'>
               <TextField
