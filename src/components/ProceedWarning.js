@@ -6,7 +6,7 @@ const ProceedWarning = ({proceedWarning, holderClass, textClass, warningText}) =
   if (proceedWarning) {
       button = <p className={textClass}>{warningText}</p>;
   } else {
-      button = '';
+      button = ''
   }
   return (
     <div className={holderClass}>

@@ -52,7 +52,6 @@ class SortContactContainer extends PureComponent {
     })
   }
 
-
   render () {
     const { currentContact, totalContacts, completedProgress } = this.state
     const { networkLists } = this.props
@@ -75,7 +74,6 @@ class SortContactContainer extends PureComponent {
         <NavigateContacts
           handleNextContact={this.handleNextContact}
           handlePrevContact={this.handlePrevContact} />
-
         <div className='contact-card-wrapper'>
           <ContactCard oneContact={this.getOneContact()} />
         </div>
