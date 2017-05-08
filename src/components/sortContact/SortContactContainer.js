@@ -1,8 +1,8 @@
 import React, { PureComponent, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import ContactCard from './ContactCard'
-import ProgressIndicator from './ProgressIndicator'
-import NetworkListButton from '../NetworkListButton'
+import ProgressIndicator from '../ProgressIndicator'
+import NetworkListButton from './NetworkListButton'
 import PageTitle from '../PageTitle'
 import NavigateContacts from './NavigateContacts'
 import './SortContactContainer.sass'
@@ -52,6 +52,7 @@ class SortContactContainer extends PureComponent {
     })
   }
 
+
   render () {
     const { currentContact, totalContacts, completedProgress } = this.state
     const { networkLists } = this.props
@@ -66,6 +67,8 @@ class SortContactContainer extends PureComponent {
             pageTitleContentH3='since your last visit' />
           <ProgressIndicator
             mode='determinate'
+            holderClass='progress-indicator-holder'
+            color='#5DD9B2'
             completedProgress={completedProgress}/>
         </div>
 
@@ -79,7 +82,7 @@ class SortContactContainer extends PureComponent {
         <div className='network-lists-wrapper'>
           <NetworkListButton
             oneContact={this.getOneContact()}
-            networkLists={networkLists} />
+          />
         </div>
       </div>
     )
@@ -87,8 +90,7 @@ class SortContactContainer extends PureComponent {
 }
 const mapStateToProps = (state) => {
   return {
-    contacts: state.contacts,
-    networkLists: state.networkLists
+    contacts: state.contacts
   }
 }
 

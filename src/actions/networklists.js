@@ -25,7 +25,7 @@ export const deleteNetworkList = (id) => {
 }
 
 export const ADD_CONTACT_TO_NETWORKLIST = 'ADD_CONTACT_TO_NETWORKLIST'
-export const addContactToNetworklist = (networkListId, contactId) => {
+export const addContactToNetworklist = (contactId, networkListId) => {
   return {
     type: ADD_CONTACT_TO_NETWORKLIST,
     payload: {
