@@ -23,14 +23,12 @@ class NetworkListButton extends PureComponent {
     return networkLists.map((networkList) => {
       return (
         <div className='network-lists' key={networkList.id}>
-
           <FlatButton
             onClick={this.handleNetworkButtonClick.bind(this, networkList.id)}
             className='network-list-btn'
             label={networkList.title}>
             <ListIcon className='list-icon' />
           </FlatButton>
-
         </div>
       )
     })
