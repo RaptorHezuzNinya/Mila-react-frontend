@@ -6,7 +6,7 @@ import classNames from 'classNames'
 import { incrStepIndex, decrStepIndex, incrListCount, decrListCount, showProceedWarn, hideProceedWarn } from '../../actions/onboarding'
 import ScanningInbox from './ScanningInbox'
 import CreateListsContainer from './CreateListsContainer'
-import ProceedWarning from './ProceedWarning'
+import ProceedWarning from '../ProceedWarning'
 import StartSorting from './StartSorting'
 import { Step, Stepper, StepLabel, StepContent } from 'material-ui/Stepper'
 import FlatButton from 'material-ui/FlatButton'
@@ -114,7 +114,11 @@ class OnboardingStepper extends PureComponent {
       <div>
         <div className='onboarding-next'>
           <div className='warning-holder'>
-            <ProceedWarning proceedWarning={proceedWarning}/>
+            <ProceedWarning
+              holderClass='warning'
+              textClass='proceed-warning'
+              warningText='You need atleast 2 lists to proceed'
+              proceedWarning={proceedWarning} />
           </div>
           <div className={btnholderClass}>
             {backBtn}
