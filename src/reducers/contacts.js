@@ -269,16 +269,27 @@ export default function contacts(state = initialState, { type, payload } = {}) {
 
     case UPDATE_CONTACT :
       return state.map((contact) => {
-        if (contact.contactId === payload.contactId) {
+        if (contact.id === payload.id) {
           return Object.assign({}, payload)
         }
         return contact
       })
     case DELETE_CONTACT :
       const mappedIds = payload.map((contact) => {
-        return contact.contactId
+        return contact.id
       })
-      return state.filter((contact) => (mappedIds.indexOf(contact.contactId) === -1 ))
+      return state.filter((contact) => (mappedIds.indexOf(contact.id) === -1 ))
+
+    case ADD_NETWORKLIST_TO_CONTACT:
+    console.log(payload)
+      return state.map(contact => {
+        if (contact.id === payload.contactId){
+          let newNetworkListIdsArray = contact.networkListIds.slice()
+          newNetworkListIdsArray.splice(0, 0, payload.networkListId)
+          return {...contact, networkListIds: newNetworkListIdsArray}
+        }
+        return contact
+      })
 
     default :
       return state
