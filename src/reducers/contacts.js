@@ -1,5 +1,4 @@
-import { UPDATE_CONTACT } from '~/actions/contacts/update'
-import { DELETE_CONTACT } from '../actions/contacts/delete'
+import { UPDATE_CONTACT, DELETE_CONTACT } from '../actions/contacts'
 
 import avatar from '../assets/images/avatars/user-darkgreen.svg'
 
