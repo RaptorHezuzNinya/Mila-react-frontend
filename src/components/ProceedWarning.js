@@ -1,5 +1,5 @@
 import React from 'react'
-
+// sass can be found in sass file of comp proceedwarning is rendered
 const ProceedWarning = ({proceedWarning, holderClass, textClass, warningText}) => {
   let button = null
 
