@@ -51,7 +51,7 @@ class NetworkListButton extends PureComponent {
     const { networkLists, } = this.props
     return networkLists.map((networkList) => {
       return (
-        <div className='network-lists' key={networkList.id}>
+        <div className='network-list' key={networkList.id}>
           <FlatButton
             onClick={this.handleNetworkButtonClick.bind(this, networkList.id)}
             className='network-list-btn'
