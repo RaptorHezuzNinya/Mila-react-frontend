@@ -1,33 +1,37 @@
-import { CREATE_NETWORKLIST, UPDATE_NETWORKLIST, DELETE_NETWORKLIST } from '../actions/networklists'
+import { CREATE_NETWORKLIST, UPDATE_NETWORKLIST, DELETE_NETWORKLIST, ADD_CONTACT_TO_NETWORKLIST } from '../actions/networklists'
 
 
 const initialState = [
   {
     id: 1,
     title: 'Business',
-    description: 'The VIP list is used for people who have asked questions about our product and want to try our next update'
+    description: 'The VIP list is used for people who have asked questions about our product and want to try our next update',
+    contactIds: []
   },
   // {
   //   id: 3,
   //   title: 'Business Int',
-  //   description: 'The VIP list is used for people who have asked questions about our product and want to try our next update'
+  //   description: 'The VIP list is used for people who have asked questions about our product and want to try our next update',
+  //   contactIds: []
   // },
   // {
   //   id: 4,
   //   title: 'Friends',
-  //   description: 'The VIP list is used for people who have asked questions about our product and want to try our next update'
+  //   description: 'The VIP list is used for people who have asked questions about our product and want to try our next update',
+  //   contactIds: []
   // },
   {
     id: 5,
     title: 'All',
-    description: 'The VIP list is used for people who have asked questions about our product and want to try our next update'
+    description: 'The VIP list is used for people who have asked questions about our product and want to try our next update',
+    contactIds: []
   },
 ]
 
 export default function networklists(state = initialState, { type, payload } = {}) {
   switch (type) {
 
-    case UPDATE_NETWORKLIST :
+    case UPDATE_NETWORKLIST:
       return state.map((networklist) => {
         if (networklist.id === payload.id) {
           return Object.assign({}, payload)
