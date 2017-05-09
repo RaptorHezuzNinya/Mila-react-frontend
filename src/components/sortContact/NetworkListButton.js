@@ -70,7 +70,6 @@ class NetworkListButton extends PureComponent {
       <div className='network-lists-holder'>
         {this.renderNetworkLists()}
         <Snackbar
-          // className='snackbar'
           open={snackOpen}
           autoHideDuration={3000}
           action="undo"
