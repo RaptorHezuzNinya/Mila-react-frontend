@@ -72,7 +72,6 @@ class NetworkListButton extends PureComponent {
         <Snackbar
           open={snackOpen}
           autoHideDuration={3000}
-          action="undo"
           message={`${oneContact[0].firstName} already added`}
           onRequestClose={this.handleRequestClose} />
       </div>
