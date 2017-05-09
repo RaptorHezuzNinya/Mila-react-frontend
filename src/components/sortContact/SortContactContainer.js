@@ -7,6 +7,7 @@ import PageTitle from '../PageTitle'
 import NavigateContacts from './NavigateContacts'
 import Snackbar from 'material-ui/Snackbar'
 import './SortContactContainer.sass'
+import _ from 'lodash'
 
 class SortContactContainer extends PureComponent {
   constructor(props){
@@ -50,20 +51,27 @@ class SortContactContainer extends PureComponent {
     const { contactIndex, currentContact, totalContacts, completedProgress } = this.state
     const { networkLists } = this.props
     if (contactIndex >= (totalContacts - 1) ) return null
-    // const theOneContactId = this.getOneContact().map((contact) => {
-    //   return contact.id
-    // })
-    // const networkListsContactIds = networkLists.map((networkList) => {
-    //   return networkList.contactIds
-    // })
-    // if (true) {
-    //   debugger
-    // }
-    this.setState({
-      contactIndex: contactIndex + 1,
-      currentContact: currentContact + 1,
-      completedProgress: completedProgress + (100 / totalContacts)
+    const theOneContactId = this.getOneContact().map((contact) => {
+      return contact.id
     })
+    const networkListsContactIds = networkLists.map((networkList) => {
+      return networkList.contactIds
+    })
+    const jemoeder = _.flatten(networkListsContactIds)
+    return console.log(jemoeder)
+    if (jemoeder.includes(theOneContactId[0])) {
+      this.setState({
+        contactIndex: contactIndex + 1,
+        currentContact: currentContact + 1,
+        completedProgress: completedProgress + (100 / totalContacts)
+      })
+    } else {
+      return this.setState({
+        snackOpen: true
+      })
+    }
+
+
   }
 
   handlePrevContact () {
