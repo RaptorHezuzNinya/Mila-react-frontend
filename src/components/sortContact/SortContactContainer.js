@@ -5,12 +5,15 @@ import ProgressIndicator from '../ProgressIndicator'
 import NetworkListButton from './NetworkListButton'
 import PageTitle from '../PageTitle'
 import NavigateContacts from './NavigateContacts'
+import Snackbar from 'material-ui/Snackbar'
 import './SortContactContainer.sass'
+import _ from 'lodash'
 
 class SortContactContainer extends PureComponent {
   constructor(props){
     super(props)
     this.state = {
+      snackOpen: false,
       contactIndex: 0,
       currentContact: 1,
       totalContacts: this.props.contacts.length,
@@ -24,6 +27,18 @@ class SortContactContainer extends PureComponent {
     contacts: PropTypes.array.isRequired
   }
 
+  handleRequestClose = () => {
+    this.setState({
+      snackOpen: false,
+    })
+  }
+
+  handleRequestOpen = () => {
+    this.setState({
+      snackOpen: true,
+    })
+  }
+
   getOneContact () {
     const { contacts } = this.props
     const { contactIndex } = this.state
@@ -34,12 +49,29 @@ class SortContactContainer extends PureComponent {
 
   handleNextContact () {
     const { contactIndex, currentContact, totalContacts, completedProgress } = this.state
+    const { networkLists } = this.props
     if (contactIndex >= (totalContacts - 1) ) return null
-    this.setState({
-      contactIndex: contactIndex + 1,
-      currentContact: currentContact + 1,
-      completedProgress: completedProgress + (100 / totalContacts)
+    const theOneContactId = this.getOneContact().map((contact) => {
+      return contact.id
     })
+    const networkListsContactIds = networkLists.map((networkList) => {
+      return networkList.contactIds
+    })
+    const jemoeder = _.flatten(networkListsContactIds)
+    return console.log(jemoeder)
+    if (jemoeder.includes(theOneContactId[0])) {
+      this.setState({
+        contactIndex: contactIndex + 1,
+        currentContact: currentContact + 1,
+        completedProgress: completedProgress + (100 / totalContacts)
+      })
+    } else {
+      return this.setState({
+        snackOpen: true
+      })
+    }
+
+
   }
 
   handlePrevContact () {
@@ -52,11 +84,10 @@ class SortContactContainer extends PureComponent {
     })
   }
 
-
   render () {
-    const { currentContact, totalContacts, completedProgress } = this.state
+    const { currentContact, totalContacts, completedProgress, snackOpen } = this.state
     const { networkLists } = this.props
-
+    console.log()
     return (
       <div className='sort-contact-wrapper'>
 
@@ -75,7 +106,6 @@ class SortContactContainer extends PureComponent {
         <NavigateContacts
           handleNextContact={this.handleNextContact}
           handlePrevContact={this.handlePrevContact} />
-
         <div className='contact-card-wrapper'>
           <ContactCard oneContact={this.getOneContact()} />
         </div>
@@ -84,13 +114,19 @@ class SortContactContainer extends PureComponent {
             oneContact={this.getOneContact()}
           />
         </div>
+        <Snackbar
+          autoHideDuration={3000}
+          message='Assign Name to a list before pressing next'
+          open={snackOpen}
+          onRequestClose={this.handleRequestClose}/>
       </div>
     )
   }
 }
 const mapStateToProps = (state) => {
   return {
-    contacts: state.contacts
+    contacts: state.contacts,
+    networkLists: state.networkLists
   }
 }
 

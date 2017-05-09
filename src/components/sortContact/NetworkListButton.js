@@ -71,8 +71,8 @@ class NetworkListButton extends PureComponent {
         {this.renderNetworkLists()}
         <Snackbar
           open={snackOpen}
-          message={`${oneContact[0].firstName} already added`}
           autoHideDuration={3000}
+          message={`${oneContact[0].firstName} already added`}
           onRequestClose={this.handleRequestClose} />
       </div>
     )
