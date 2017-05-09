@@ -71,9 +71,9 @@ class SortContactContainer extends PureComponent {
   }
 
   render () {
-    const { currentContact, totalContacts, completedProgress } = this.state
+    const { currentContact, totalContacts, completedProgress, snackOpen } = this.state
     const { networkLists } = this.props
-
+    console.log()
     return (
       <div className='sort-contact-wrapper'>
 
@@ -100,13 +100,19 @@ class SortContactContainer extends PureComponent {
             oneContact={this.getOneContact()}
           />
         </div>
+        <Snackbar
+          autoHideDuration={3000}
+          message='Assign Name to a list before pressing next'
+          open={snackOpen}
+          onRequestClose={this.handleRequestClose}/>
       </div>
     )
   }
 }
 const mapStateToProps = (state) => {
   return {
-    contacts: state.contacts
+    contacts: state.contacts,
+    networkLists: state.networkLists
   }
 }
 
