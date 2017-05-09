@@ -5,12 +5,14 @@ import ProgressIndicator from '../ProgressIndicator'
 import NetworkListButton from './NetworkListButton'
 import PageTitle from '../PageTitle'
 import NavigateContacts from './NavigateContacts'
+import Snackbar from 'material-ui/Snackbar'
 import './SortContactContainer.sass'
 
 class SortContactContainer extends PureComponent {
   constructor(props){
     super(props)
     this.state = {
+      snackOpen: false,
       contactIndex: 0,
       currentContact: 1,
       totalContacts: this.props.contacts.length,
@@ -24,6 +26,18 @@ class SortContactContainer extends PureComponent {
     contacts: PropTypes.array.isRequired
   }
 
+  handleRequestClose = () => {
+    this.setState({
+      snackOpen: false,
+    })
+  }
+
+  handleRequestOpen = () => {
+    this.setState({
+      snackOpen: true,
+    })
+  }
+
   getOneContact () {
     const { contacts } = this.props
     const { contactIndex } = this.state
@@ -35,6 +49,10 @@ class SortContactContainer extends PureComponent {
   handleNextContact () {
     const { contactIndex, currentContact, totalContacts, completedProgress } = this.state
     if (contactIndex >= (totalContacts - 1) ) return null
+    const theOneContactId = this.getOneContact().map((contact) => {
+      return contact.id
+    })
+
     this.setState({
       contactIndex: contactIndex + 1,
       currentContact: currentContact + 1,
