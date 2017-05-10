@@ -25,12 +25,6 @@ class NetworkListButton extends PureComponent {
     })
   }
 
-  handleRequestOpen = () => {
-    this.setState({
-      snackOpen: true,
-    })
-  }
-
   handleNetworkButtonClick (networkListId) {
     const { oneContact, networkLists } = this.props
     const theOneContactId = oneContact[0].id

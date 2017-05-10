@@ -33,12 +33,6 @@ class SortContactContainer extends PureComponent {
     })
   }
 
-  handleRequestOpen = () => {
-    this.setState({
-      snackOpen: true,
-    })
-  }
-
   getOneContact () {
     const { contacts } = this.props
     const { contactIndex } = this.state
