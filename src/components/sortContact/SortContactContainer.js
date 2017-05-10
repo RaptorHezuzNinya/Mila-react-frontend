@@ -114,12 +114,7 @@ class SortContactContainer extends PureComponent {
             oneContact={this.getOneContact()}
           />
         </div>
-        <Snackbar
-          className='snackbar'
-          autoHideDuration={3000}
-          message='Assign Name to a list before pressing next'
-          open={snackOpen}
-          onRequestClose={this.handleRequestClose}/>
+        { this.renderSnackBar() }
       </div>
     )
   }
