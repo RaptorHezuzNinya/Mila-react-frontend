@@ -58,7 +58,7 @@ class SortContactContainer extends PureComponent {
       return networkList.contactIds
     })
     const jemoeder = _.flatten(networkListsContactIds)
-    return console.log(jemoeder)
+
     if (jemoeder.includes(theOneContactId[0])) {
       this.setState({
         contactIndex: contactIndex + 1,
