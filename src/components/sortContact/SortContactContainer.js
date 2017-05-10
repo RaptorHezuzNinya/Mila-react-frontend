@@ -79,8 +79,7 @@ class SortContactContainer extends PureComponent {
 
   render () {
     const { currentContact, totalContacts, completedProgress, snackOpen } = this.state
-    const { networkLists } = this.props
-    console.log()
+    console.log(this.props.addedContactIds)
     return (
       <div className='sort-contact-wrapper'>
 
@@ -108,6 +107,7 @@ class SortContactContainer extends PureComponent {
           />
         </div>
         <Snackbar
+          className='snackbar'
           autoHideDuration={3000}
           message='Assign Name to a list before pressing next'
           open={snackOpen}
