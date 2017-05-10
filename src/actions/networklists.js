@@ -29,8 +29,8 @@ export const addContactToNetworklist = (contactId, networkListId) => {
   return {
     type: ADD_CONTACT_TO_NETWORKLIST,
     payload: {
-      networkListId,
-      contactId
+      contactId,
+      networkListId
     }
   }
 }
