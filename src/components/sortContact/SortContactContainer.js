@@ -7,7 +7,6 @@ import PageTitle from '../PageTitle'
 import NavigateContacts from './NavigateContacts'
 import Snackbar from 'material-ui/Snackbar'
 import './SortContactContainer.sass'
-import _ from 'lodash'
 
 class SortContactContainer extends PureComponent {
   constructor(props){
@@ -15,7 +14,7 @@ class SortContactContainer extends PureComponent {
     this.state = {
       snackOpen: false,
       contactIndex: 0,
-      currentContact: 1,
+      curContactNumb: 1,
       totalContacts: this.props.contacts.length,
       completedProgress: 100 / this.props.contacts.length
     }
@@ -48,14 +47,14 @@ class SortContactContainer extends PureComponent {
   }
 
   handleNextContact () {
-    const { contactIndex, currentContact, totalContacts, completedProgress } = this.state
+    const { contactIndex, curContactNumb, totalContacts, completedProgress } = this.state
     const { addedContactIds } = this.props
     if (contactIndex >= (totalContacts - 1) ) return null
     const theCurrentContactId = this.getOneContact()
     if (addedContactIds.includes(theCurrentContactId[0].id)) {
       this.setState({
         contactIndex: contactIndex + 1,
-        currentContact: currentContact + 1,
+        curContactNumb: curContactNumb + 1,
         completedProgress: completedProgress + (100 / totalContacts)
       })
     } else {
@@ -63,30 +62,38 @@ class SortContactContainer extends PureComponent {
         snackOpen: true
       })
     }
-
-
   }
 
   handlePrevContact () {
-    const { contactIndex, currentContact, totalContacts, completedProgress } = this.state
+    const { contactIndex, curContactNumb, totalContacts, completedProgress } = this.state
     if (contactIndex === 0) return null
     this.setState({
       contactIndex: contactIndex - 1,
-      currentContact: currentContact - 1,
+      curContactNumb: curContactNumb - 1,
       completedProgress: completedProgress - (100 / totalContacts)
     })
   }
+  renderSnackBar () {
+    const currentContact = this.getOneContact()
+    return (
+    <Snackbar
+      className='snackbar'
+      autoHideDuration={3000}
+      message={`Assign ${currentContact[0].firstName} to a list before pressing next`}
+      open={this.state.snackOpen}
+      onRequestClose={this.handleRequestClose} />
+    )
+  }
 
   render () {
-    const { currentContact, totalContacts, completedProgress, snackOpen } = this.state
-    console.log(this.props.addedContactIds)
+    const { curContactNumb, totalContacts, completedProgress, snackOpen } = this.state
+
     return (
       <div className='sort-contact-wrapper'>
-
         <div className='progress-indicator-wrapper'>
           <PageTitle
             titleClassName='sortcontact-title'
-            pageTitleContentH2={`${currentContact} / ${totalContacts} new contacts`}
+            pageTitleContentH2={`${curContactNumb} / ${totalContacts} new contacts`}
             pageTitleContentH3='since your last visit' />
           <ProgressIndicator
             mode='determinate'
