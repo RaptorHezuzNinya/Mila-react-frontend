@@ -107,7 +107,8 @@ class ContactDetails extends PureComponent {
                 style={styles.txtfield}
                 value={c.email}
                 fullWidth={true} />
-            </div>
+            </div> */}
+            { this.renderFormFields()}
           </form>
         </div>
       )
@@ -122,4 +123,19 @@ class ContactDetails extends PureComponent {
     )
   }
 }
-export default ContactDetails
+
+const validate = (values) => {
+  const errors = {}
+  const requiredFields = [ 'firstname', 'lastname', 'companyrole', 'company' ]
+  requiredFields.forEach( (field) => {
+    if (!values[ field ]) {
+      errors[ field ] = 'Required'
+    }
+  })
+  return errors
+}
+
+export default reduxForm({
+  form: 'contactDetailsForm',
+  validate
+})(ContactDetails)
