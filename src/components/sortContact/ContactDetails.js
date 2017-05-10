@@ -1,4 +1,5 @@
 import React, { PureComponent, PropTypes } from 'react'
+import { Field, reduxForm, reset } from 'redux-form'
 import TextField from 'material-ui/TextField'
 import './ContactDetails.sass'
 
@@ -16,13 +17,57 @@ class ContactDetails extends PureComponent {
     oneContact: PropTypes.array.isRequired
   }
 
+  renderTextField = ({ input, label, multiLine, rows, rowsMax, maxChars, meta: { touched, error } }) => (
+    <TextField
+      name={name}
+      hintText={label}
+      hintStyle={styles.hintStyle}
+      fullWidth={true}
+      inputStyle={styles.inputStyle}
+      errorText={touched && error}
+      {...input}
+    />
+  )
+
+  renderFormFields = () => {
+    const formData = [
+      {
+        name: 'firstname',
+        label: ''
+      },
+      {
+        name: 'lastname',
+        label: ''
+      },
+      {
+        name: 'companyname',
+        label: ''
+      },
+      {
+        name: 'companyrole',
+        label: ''
+      }
+    ]
+
+    return formData.map((form) => {
+      return (
+        <div key={form.name} className='holder'>
+          <Field
+            name={form.name}
+            label={form.name}
+            component={ this.renderTextField } />
+        </div>
+      )
+    })
+  }
+
   renderContactDetails () {
     const { oneContact } = this.props
     return oneContact.map((c) => {
       return (
         <div className='contact-details' key={c.id}>
           <form className='details-form'>
-            <div className='detail-item1'>
+            {/* <div className='detail-item1'>
               <TextField
                 name='firstname'
                 inputStyle={styles.input}
