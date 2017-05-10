@@ -12,8 +12,6 @@ export default function sortContactReducer(state = initialState, { type, payload
       }
       return { ...state, addedContactIds: [...state.addedContactIds, payload.contactId] }
 
-
-
     default:
       return state
 

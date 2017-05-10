@@ -25,12 +25,6 @@ class NetworkListButton extends PureComponent {
     })
   }
 
-  handleRequestOpen = () => {
-    this.setState({
-      snackOpen: true,
-    })
-  }
-
   handleNetworkButtonClick (networkListId) {
     const { oneContact, networkLists } = this.props
     const theOneContactId = oneContact[0].id
@@ -70,6 +64,7 @@ class NetworkListButton extends PureComponent {
       <div className='network-lists-holder'>
         {this.renderNetworkLists()}
         <Snackbar
+          className='snackbar'
           open={snackOpen}
           autoHideDuration={3000}
           message={`${oneContact[0].firstName} already added`}
