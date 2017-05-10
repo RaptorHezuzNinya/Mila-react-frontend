@@ -23,7 +23,8 @@ class SortContactContainer extends PureComponent {
   }
 
   static propTypes = {
-    contacts: PropTypes.array.isRequired
+    contacts: PropTypes.array.isRequired,
+    addedContactIds: PropTypes.array.isRequired
   }
 
   handleRequestClose = () => {
