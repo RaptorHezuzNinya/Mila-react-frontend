@@ -5,11 +5,13 @@ import './NavigateContacts.sass'
 const styles = {
   iconStyle: {
     color: '#f2f6fa',
-    fontSize: 40
+    fontSize: 40,
+    display: 'flex',
+    justifyContent: 'center'
   },
   button: {
     height: 100,
-    width: 100
+    width: 50
   },
   hoveredStyle: {
     backgroundColor:'rgba(41, 47, 54, 0.3)'
