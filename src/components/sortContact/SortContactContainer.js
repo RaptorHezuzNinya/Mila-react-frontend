@@ -119,7 +119,7 @@ class SortContactContainer extends PureComponent {
 const mapStateToProps = (state) => {
   return {
     contacts: state.contacts,
-    networkLists: state.networkLists
+    addedContactIds: state.sortContact.addedContactIds
   }
 }
 
