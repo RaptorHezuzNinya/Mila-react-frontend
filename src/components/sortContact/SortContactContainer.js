@@ -49,17 +49,10 @@ class SortContactContainer extends PureComponent {
 
   handleNextContact () {
     const { contactIndex, currentContact, totalContacts, completedProgress } = this.state
-    const { networkLists } = this.props
+    const { addedContactIds } = this.props
     if (contactIndex >= (totalContacts - 1) ) return null
-    const theOneContactId = this.getOneContact().map((contact) => {
-      return contact.id
-    })
-    const networkListsContactIds = networkLists.map((networkList) => {
-      return networkList.contactIds
-    })
-    const jemoeder = _.flatten(networkListsContactIds)
-
-    if (jemoeder.includes(theOneContactId[0])) {
+    const theCurrentContactId = this.getOneContact()
+    if (addedContactIds.includes(theCurrentContactId[0].id)) {
       this.setState({
         contactIndex: contactIndex + 1,
         currentContact: currentContact + 1,
