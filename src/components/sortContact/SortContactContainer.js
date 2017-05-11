@@ -41,7 +41,11 @@ class SortContactContainer extends PureComponent {
     })
   }
 
-  handleNextContact () {
+  onSubmit (formProps) {
+    console.log(formProps)
+  }
+
+  handleNextContact (dispatch) {
     const { contactIndex, curContactNumb, totalContacts, completedProgress } = this.state
     const { addedContactIds } = this.props
     if (contactIndex >= (totalContacts - 1) ) return null
@@ -68,6 +72,7 @@ class SortContactContainer extends PureComponent {
       completedProgress: completedProgress - (100 / totalContacts)
     })
   }
+
   renderSnackBar () {
     const currentContact = this.getOneContact()
     return (
@@ -101,7 +106,7 @@ class SortContactContainer extends PureComponent {
           handleNextContact={this.handleNextContact}
           handlePrevContact={this.handlePrevContact} />
         <div className='contact-card-wrapper'>
-          <ContactCard oneContact={this.getOneContact()} />
+          <ContactCard onSubmit={this.onSubmit.bind(this)} oneContact={this.getOneContact()} />
         </div>
         <div className='network-lists-wrapper'>
           <NetworkListButton
