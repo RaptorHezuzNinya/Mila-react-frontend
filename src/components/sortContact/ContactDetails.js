@@ -65,7 +65,8 @@ class ContactDetails extends PureComponent {
   }
 
   render () {
-    console.log(this.props.initialValues)
+    // console.log(this.props.initialValues)
+    // console.log('loggign oneContact', this.props.oneContact)
     return (
       <div className='contact-details-holder'>
         {this.renderContactDetails()}
@@ -98,5 +99,6 @@ const mapStateToProps = (state, ownProps) => {
 
 export default connect(mapStateToProps)(reduxForm({
   form: 'contactDetailsForm',
+  enableReinitialize: true,
   validate
 })(ContactDetails))
