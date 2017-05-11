@@ -1,4 +1,19 @@
 import React from 'react'
+// used in ~/components/sortContact/ContactDetails.js
+export const formDataContactDetails = [
+  {
+    name: 'firstName'
+  },
+  {
+    name: 'lastName'
+  },
+  {
+    name: 'companyName'
+  },
+  {
+    name: 'companyRole'
+  }
+]
 
 // used in ~/components/MenuDrawer
 import NewContactIcon from 'material-ui/svg-icons/social/person-add'

@@ -41,7 +41,7 @@ class SortContactContainer extends PureComponent {
     })
   }
 
-  handleNextContact () {
+  handleNextContact (dispatch) {
     const { contactIndex, curContactNumb, totalContacts, completedProgress } = this.state
     const { addedContactIds } = this.props
     if (contactIndex >= (totalContacts - 1) ) return null
@@ -68,6 +68,7 @@ class SortContactContainer extends PureComponent {
       completedProgress: completedProgress - (100 / totalContacts)
     })
   }
+
   renderSnackBar () {
     const currentContact = this.getOneContact()
     return (
