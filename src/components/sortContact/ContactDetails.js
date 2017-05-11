@@ -18,39 +18,37 @@ class ContactDetails extends PureComponent {
 
   renderTextField = ({ input, label, multiLine, rows, rowsMax, maxChars, meta: { touched, error } }) => (
     <TextField
-      name={name}
-      hintText={label}
-      hintStyle={styles.hintStyle}
       fullWidth={true}
-      inputStyle={styles.inputStyle}
+      inputStyle={styles.input}
       errorText={touched && error}
       {...input}
     />
   )
 
   renderFormFields = () => {
+    const { initialValues } = this.props
     const formData = [
       {
-        name: 'firstname',
+        name: 'firstName',
         label: ''
       },
       {
-        name: 'lastname',
+        name: 'lastName',
         label: ''
       },
       {
-        name: 'companyname',
+        name: 'companyName',
         label: ''
       },
       {
-        name: 'companyrole',
+        name: 'companyRole',
         label: ''
       }
     ]
 
-    return formData.map((form) => {
+    return formData.map((form, index) => {
       return (
-        <div key={form.name} className='holder'>
+        <div key={form.name} className={`detail-item${index + 1}`}>
           <Field
             name={form.name}
             label={form.name}
