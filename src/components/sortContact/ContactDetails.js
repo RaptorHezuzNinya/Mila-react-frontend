@@ -1,14 +1,13 @@
 import React, { PureComponent, PropTypes } from 'react'
 import { Field, reduxForm, reset } from 'redux-form'
+import { connect } from 'react-redux'
 import TextField from 'material-ui/TextField'
 import './ContactDetails.sass'
 
 const styles = {
-  txtfield: {
+  input: {
     fontFamily: 'Montserrat-Light',
     fontSize: 14,
-  },
-  input: {
     paddingLeft: 10
   }
 }
