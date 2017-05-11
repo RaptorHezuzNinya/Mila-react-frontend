@@ -64,7 +64,7 @@ class ContactDetails extends PureComponent {
                 value={c.email}
                 fullWidth={true} />
             </div>
-            <button type='submit'>save form</button>
+            {/* <button type='submit'>save form</button> */}
           </form>
         </div>
       )
@@ -76,7 +76,7 @@ class ContactDetails extends PureComponent {
     return (
       <div className='contact-details-holder'>
         {this.renderContactDetails()}
-        {/* <button onClick={this.handleButtonClick.bind(this)}>save</button> */}
+        <button onClick={this.handleButtonClick.bind(this)}>save</button>
       </div>
     )
   }
