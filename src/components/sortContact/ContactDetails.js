@@ -64,39 +64,7 @@ class ContactDetails extends PureComponent {
       return (
         <div className='contact-details' key={c.id}>
           <form className='details-form'>
-            {/* <div className='detail-item1'>
-              <TextField
-                name='firstname'
-                inputStyle={styles.input}
-                style={styles.txtfield}
-                value={c.firstName}
-                fullWidth={true} />
-            </div>
-            <div className='detail-item2'>
-              <TextField
-                name='lastname'
-                style={styles.txtfield}
-                value={c.lastName}
-                fullWidth={true} />
-            </div>
-
-            <div className='detail-item3'>
-              <TextField
-                name='companyname'
-                inputStyle={styles.input}
-                style={styles.txtfield}
-                value={c.companyName}
-                fullWidth={true} />
-            </div>
-
-            <div className='detail-item4'>
-              <TextField
-                name='companyrole'
-                inputStyle={styles.input}
-                style={styles.txtfield}
-                value={c.companyRole}
-                fullWidth={true} />
-            </div>
+            { this.renderFormFields()}
             <div className='detail-item5'>
               <TextField
                 name='email'
