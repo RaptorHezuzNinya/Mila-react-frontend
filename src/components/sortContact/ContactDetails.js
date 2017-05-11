@@ -42,21 +42,19 @@ class ContactDetails extends PureComponent {
       )
     })
   }
-  onSubmit () {
-    console.log('submitted?')
+
+  handleButtonClick () {
+    console.log('in handlebtnclick')
+    const submitter = this.props.handleSubmit(this.props.onSubmit)
+    submitter()
   }
-  // handleButtonClick () {
-  //   console.log('in handlebtnclick')
-  //   const submitter = this.props.handleSubmit(this.props.onSubmit)
-  //   submitter()
-  // }
 
   renderContactDetails () {
     const { oneContact, handleSubmit } = this.props
     return oneContact.map((c) => {
       return (
         <div className='contact-details' key={c.id}>
-        <form className='details-form' onSubmit={handleSubmit(this.onSubmit.bind(this))}>
+        <form className='details-form'>
             { this.renderFormFields()}
             <div className='detail-item5'>
               <TextField
