@@ -66,7 +66,7 @@ class ContactDetails extends PureComponent {
                 value={c.email}
                 fullWidth={true} />
             </div>
-            <button type='submit'>save</button>
+            <button type='submit'>save form</button>
           </form>
         </div>
       )
@@ -74,11 +74,11 @@ class ContactDetails extends PureComponent {
   }
 
   render () {
-    // console.log(this.props.initialValues)
-    // console.log('loggign oneContact', this.props.oneContact)
+    console.log(this.props.submit)
     return (
       <div className='contact-details-holder'>
         {this.renderContactDetails()}
+        {/* <button onClick={this.handleButtonClick.bind(this)}>save</button> */}
       </div>
     )
   }
