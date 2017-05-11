@@ -7,7 +7,7 @@ import { inlineContactCardStyles as styles } from '../../helpers/inlineStyles'
 class ContactCard extends PureComponent {
   constructor(props) {
     super(props)
-
+    this.onSubmit = this.onSubmit.bind(this)
   }
 
   static propTypes = {
@@ -46,7 +46,7 @@ class ContactCard extends PureComponent {
       <div className='contact-card-holder'>
         <Paper style={styles.paper} zDepth={2}>
           <div className='paper-content-holder'>
-            <ContactDetails onSubmit={this.onSubmit.bind(this)} oneContact={oneContact} />
+            <ContactDetails onSubmit={this.onSubmit} oneContact={oneContact} />
             {this.renderContactAvatar()}
             {this.renderContactEmail()}
           </div>
