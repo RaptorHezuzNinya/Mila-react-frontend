@@ -12,6 +12,7 @@ const styles = {
     paddingLeft: 10
   }
 }
+
 class ContactDetails extends PureComponent {
   static propTypes = {
     oneContact: PropTypes.array.isRequired
