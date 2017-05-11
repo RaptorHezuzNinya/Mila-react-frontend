@@ -28,24 +28,6 @@ class ContactDetails extends PureComponent {
 
   renderFormFields = () => {
     const { initialValues } = this.props
-    const formData = [
-      {
-        name: 'firstName',
-        label: ''
-      },
-      {
-        name: 'lastName',
-        label: ''
-      },
-      {
-        name: 'companyName',
-        label: ''
-      },
-      {
-        name: 'companyRole',
-        label: ''
-      }
-    ]
 
     return formData.map((form, index) => {
       return (
