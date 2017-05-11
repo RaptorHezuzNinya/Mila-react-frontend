@@ -19,6 +19,7 @@ class ContactDetails extends PureComponent {
 
   renderTextField = ({ input, label, multiLine, rows, rowsMax, maxChars, meta: { touched, error } }) => (
     <TextField
+      name={label}
       fullWidth={true}
       inputStyle={styles.input}
       errorText={touched && error}
