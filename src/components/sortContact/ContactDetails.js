@@ -72,8 +72,7 @@ class ContactDetails extends PureComponent {
                 style={styles.txtfield}
                 value={c.email}
                 fullWidth={true} />
-            </div> */}
-            { this.renderFormFields()}
+            </div>
           </form>
         </div>
       )
