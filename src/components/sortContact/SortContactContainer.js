@@ -41,10 +41,6 @@ class SortContactContainer extends PureComponent {
     })
   }
 
-  onSubmit (formProps) {
-    console.log(formProps)
-  }
-
   handleNextContact (dispatch) {
     const { contactIndex, curContactNumb, totalContacts, completedProgress } = this.state
     const { addedContactIds } = this.props

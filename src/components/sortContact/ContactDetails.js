@@ -86,7 +86,7 @@ class ContactDetails extends PureComponent {
 
 const validate = (values) => {
   const errors = {}
-  const requiredFields = [ 'firstname', 'lastname', 'companyrole', 'company' ]
+  const requiredFields = [ 'firstName', 'lastName', 'companyRole', 'companyName' ]
   requiredFields.forEach( (field) => {
     if (!values[ field ]) {
       errors[ field ] = 'Required'
