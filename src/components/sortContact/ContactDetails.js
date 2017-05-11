@@ -43,11 +43,11 @@ class ContactDetails extends PureComponent {
   }
 
   renderContactDetails () {
-    const { oneContact } = this.props
+    const { oneContact, handleSubmit } = this.props
     return oneContact.map((c) => {
       return (
         <div className='contact-details' key={c.id}>
-          <form className='details-form'>
+          <form className='details-form' onSubmit={handleSubmit(this.props.onSubmit.bind(this))}>
             { this.renderFormFields()}
             <div className='detail-item5'>
               <TextField
@@ -57,6 +57,7 @@ class ContactDetails extends PureComponent {
                 value={c.email}
                 fullWidth={true} />
             </div>
+            <button type='submit'>save</button>
           </form>
         </div>
       )
