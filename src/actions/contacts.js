@@ -1,8 +1,11 @@
 export const UPDATE_CONTACT = 'UPDATE_CONTACT'
-export const updateContact = (updateContact) => {
+export const updateContact = (contact, id) => {
   return {
     type: UPDATE_CONTACT,
-    payload: updateContact
+    payload: {
+      contact,
+      id
+    }
   }
 }
 
