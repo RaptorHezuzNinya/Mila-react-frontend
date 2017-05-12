@@ -268,9 +268,10 @@ export default function contacts(state = initialState, { type, payload } = {}) {
   switch (type) {
 
     case UPDATE_CONTACT :
+    console.log(payload)
       return state.map((contact) => {
         if (contact.id === payload.id) {
-          return Object.assign({}, payload)
+          return Object.assign({}, ...payload.contact)
         }
         return contact
       })
