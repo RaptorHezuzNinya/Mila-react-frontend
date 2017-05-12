@@ -59,7 +59,7 @@ class ContactDetails extends PureComponent {
                 name='email'
                 inputStyle={styles.input}
                 style={styles.txtfield}
-                value={c.email}
+                value={contact.email}
                 fullWidth={true} />
             </div>
             {/* <button type='submit'>save form</button> */}
@@ -70,7 +70,7 @@ class ContactDetails extends PureComponent {
   }
 
   render () {
-    console.log(this.props.submit)
+
     return (
       <div className='contact-details-holder'>
         {this.renderContactDetails()}
