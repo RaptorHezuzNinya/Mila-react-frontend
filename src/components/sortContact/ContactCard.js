@@ -1,4 +1,6 @@
 import React, { PureComponent, PropTypes } from 'react'
+import { connect } from 'react-redux'
+import { updateContact } from '../../actions/contacts'
 import ContactDetails from './ContactDetails'
 import Paper from 'material-ui/Paper'
 import './ContactCard.sass'
