@@ -42,12 +42,6 @@ class ContactDetails extends PureComponent {
     })
   }
 
-  // handleButtonClick (formData) {
-  //   console.log('in handlebtnclick')
-  //   const submitter = this.props.handleSubmit(this.props.onSubmit(formData))
-  //   submitter()
-  // }
-
   renderContactDetails () {
     const { oneContact, handleSubmit } = this.props
     return oneContact.map((contact) => {
