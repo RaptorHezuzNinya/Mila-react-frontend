@@ -46,7 +46,7 @@ class ContactDetails extends PureComponent {
     return oneContact.map((contact) => {
       return (
         <div className='contact-details' key={contact.id}>
-        <form className='details-form' onSubmit={handleSubmit}>
+        <form className='details-form' onSubmit={handleSubmit(this.props.onSubmit)}>
             { this.renderFormFields()}
             <div className='detail-item5'>
               <TextField
@@ -56,7 +56,6 @@ class ContactDetails extends PureComponent {
                 value={contact.email}
                 fullWidth={true} />
             </div>
-
           </form>
         </div>
       )
@@ -64,7 +63,6 @@ class ContactDetails extends PureComponent {
   }
 
   render () {
-
     return (
       <div className='contact-details-holder'>
         {this.renderContactDetails()}
@@ -98,6 +96,5 @@ const mapStateToProps = (state, ownProps) => {
 export default connect(mapStateToProps)(reduxForm({
   form: 'contactDetailsForm',
   enableReinitialize: true,
-  onSubmit: submit,
   validate
 })(ContactDetails))
