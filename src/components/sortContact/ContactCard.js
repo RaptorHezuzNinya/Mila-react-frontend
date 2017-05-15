@@ -1,6 +1,4 @@
 import React, { PureComponent, PropTypes } from 'react'
-import { connect } from 'react-redux'
-import { updateContact } from '../../actions/contacts'
 import ContactDetails from './ContactDetails'
 import Paper from 'material-ui/Paper'
 import './ContactCard.sass'
@@ -9,7 +7,7 @@ import { inlineContactCardStyles as styles } from '../../helpers/inlineStyles'
 class ContactCard extends PureComponent {
   constructor(props) {
     super(props)
-    // this.onSubmit = this.onSubmit.bind(this)
+
   }
 
   static propTypes = {
@@ -37,13 +35,6 @@ class ContactCard extends PureComponent {
       )
     })
   }
-
-  // onSubmit (formData, id) {
-  //   const { oneContact } = this.props
-  //   const contactId = oneContact[0].id
-  //   this.props.updateContact(formData, contactId)
-  //   console.log('submitted?', formData)
-  // }
 
   render () {
     const { oneContact } = this.props
