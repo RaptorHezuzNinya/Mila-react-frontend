@@ -38,12 +38,12 @@ class ContactCard extends PureComponent {
     })
   }
 
-  onSubmit (formData, id) {
-    const { oneContact } = this.props
-    const contactId = oneContact[0].id
-    this.props.updateContact(formData, contactId)
-    console.log('submitted?', formData)
-  }
+  // onSubmit (formData, id) {
+  //   const { oneContact } = this.props
+  //   const contactId = oneContact[0].id
+  //   this.props.updateContact(formData, contactId)
+  //   console.log('submitted?', formData)
+  // }
 
   render () {
     const { oneContact } = this.props
@@ -51,7 +51,7 @@ class ContactCard extends PureComponent {
       <div className='contact-card-holder'>
         <Paper style={styles.paper} zDepth={2}>
           <div className='paper-content-holder'>
-            <ContactDetails onSubmit={this.onSubmit} oneContact={oneContact} />
+            <ContactDetails oneContact={oneContact} />
             {this.renderContactAvatar()}
             {this.renderContactEmail()}
           </div>
