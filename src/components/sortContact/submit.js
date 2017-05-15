@@ -1,6 +1,7 @@
 import {SubmissionError} from 'redux-form'
 
-function submit(values) {
+const submit = (values) => {
+  console.log(values)
   if ([''].includes(values.firstName)) {
     throw new SubmissionError({
       firstName: 'User does not exist',
