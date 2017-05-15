@@ -42,7 +42,6 @@ class ContactCard extends PureComponent {
     const { oneContact } = this.props
     const contactId = oneContact[0].id
     this.props.updateContact(formData, contactId)
-
     console.log('submitted?', formData)
   }
 
