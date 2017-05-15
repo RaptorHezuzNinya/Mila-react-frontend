@@ -45,33 +45,37 @@ class SortContactContainer extends PureComponent {
     })
   }
 
-  handleRemoteContactDetailSubmit = () => {
-    this.props.dispatch(submit('contactDetailsForm'))
-  }
+  onSubmitPromise = () => new Promise((resolve) => {
+    resolve(this.handleRemoteContactDetailSubmit())
+  })
 
   onSubmit (values, dispatch, props) {
-    console.log('VALUES', values, 'ContactId', props.oneContact[0].id)
-
+    console.log('VALUES', values, 'ContactId', props)
     if (values.firstName === '') {
      throw new SubmissionError({
-       firstName: 'Enter username',
+       firstName: 'Enter a name',
        _error: 'First name required'
      })
    } else if (values.lastName === '') {
      throw new SubmissionError({
-      lastName: 'Wrong password',
+      lastName: 'Enter a lastname',
        _error: 'Login failed!'
      })
-   } else {
+   } else if (props.submitSucceeded) {
      dispatch(updateContact(values, props.oneContact[0].id))
    }
+   console.log('1')
   }
 
-  handleNextContact () {
+  handleRemoteContactDetailSubmit = () => {
+    this.props.dispatch(submit('contactDetailsForm'))
+  }
+
+  async handleNextContact () {
     const { contactIndex, curContactNumb, totalContacts, completedProgress } = this.state
     const { addedContactIds } = this.props
-    this.handleRemoteContactDetailSubmit()
-
+    await this.onSubmitPromise()
+    console.log('2')
     if (contactIndex >= (totalContacts - 1) ) return null
     const theCurrentContactId = this.getOneContact()
     if (addedContactIds.includes(theCurrentContactId[0].id)) {
