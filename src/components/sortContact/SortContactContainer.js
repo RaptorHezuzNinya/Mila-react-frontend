@@ -91,6 +91,27 @@ class SortContactContainer extends PureComponent {
     }
   }
 
+  // handleNextContact () {
+  //   const { contactIndex, curContactNumb, totalContacts, completedProgress } = this.state
+  //   const { addedContactIds } = this.props
+  //
+  //   this.handleRemoteContactDetailSubmit()
+  //
+  //   if (contactIndex >= (totalContacts - 1) ) return null
+  //   const theCurrentContactId = this.getOneContact()
+  //   if (addedContactIds.includes(theCurrentContactId[0].id)) {
+  //     this.setState({
+  //       contactIndex: contactIndex + 1,
+  //       curContactNumb: curContactNumb + 1,
+  //       completedProgress: completedProgress + (100 / totalContacts)
+  //     })
+  //   } else {
+  //     return this.setState({
+  //       snackOpen: true
+  //     })
+  //   }
+  // }
+
   handlePrevContact () {
     const { contactIndex, curContactNumb, totalContacts, completedProgress } = this.state
     if (contactIndex === 0) return null
@@ -114,19 +135,6 @@ class SortContactContainer extends PureComponent {
   }
 
   render () {
-    // ASYNC and AWAIT working example. I need this in handle next
-    // const fetchSomething = () => new Promise((resolve) => {
-    //   setTimeout(() => resolve('future value'), 500);
-    // });
-    //
-    // async function asyncFunction() {
-    //   const result = await fetchSomething(); // returns promise
-    //   console.log(result)
-    //
-    //   // waits for promise and uses promise result
-    //   return result + ' 2';
-    // }
-    // console.log(asyncFunction().then(result => console.log(result)))
 
     const { curContactNumb, totalContacts, completedProgress, snackOpen } = this.state
     const { dispatch } = this.props
