@@ -52,4 +52,4 @@ class ContactCard extends PureComponent {
   }
 }
 
-export default connect(null, { updateContact })(ContactCard)
+export default ContactCard
