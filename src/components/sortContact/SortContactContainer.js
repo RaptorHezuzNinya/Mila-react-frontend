@@ -1,6 +1,7 @@
 import React, { PureComponent, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { submit } from 'redux-form'
+import { updateContact } from '../../actions/contacts'
 import ContactCard from './ContactCard'
 import ProgressIndicator from '../ProgressIndicator'
 import NetworkListButton from './NetworkListButton'
@@ -8,6 +9,8 @@ import PageTitle from '../PageTitle'
 import NavigateContacts from './NavigateContacts'
 import Snackbar from 'material-ui/Snackbar'
 import './SortContactContainer.sass'
+
+import {SubmissionError} from 'redux-form'
 
 class SortContactContainer extends PureComponent {
   constructor(props){
