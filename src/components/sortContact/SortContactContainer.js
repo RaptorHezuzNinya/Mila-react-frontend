@@ -10,8 +10,6 @@ import NavigateContacts from './NavigateContacts'
 import Snackbar from 'material-ui/Snackbar'
 import './SortContactContainer.sass'
 
-import {SubmissionError} from 'redux-form'
-
 class SortContactContainer extends PureComponent {
   constructor(props){
     super(props)
@@ -45,36 +43,19 @@ class SortContactContainer extends PureComponent {
     })
   }
 
-  onSubmitPromise = () => new Promise((resolve) => {
-    resolve(this.handleRemoteContactDetailSubmit())
-  })
-
   onSubmit (values, dispatch, props) {
-    console.log('VALUES', values, 'ContactId', props)
-    if (values.firstName === '') {
-     throw new SubmissionError({
-       firstName: 'Enter a name',
-       _error: 'First name required'
-     })
-   } else if (values.lastName === '') {
-     throw new SubmissionError({
-      lastName: 'Enter a lastname',
-       _error: 'Login failed!'
-     })
-   } else if (props.submitSucceeded) {
-     dispatch(updateContact(values, props.oneContact[0].id))
-   }
-   console.log('1')
+    
+    if (props.submitSucceeded) return dispatch(updateContact(values, props.oneContact[0].id))
   }
 
   handleRemoteContactDetailSubmit = () => {
     this.props.dispatch(submit('contactDetailsForm'))
   }
 
-  async handleNextContact () {
+  handleNextContact () {
     const { contactIndex, curContactNumb, totalContacts, completedProgress } = this.state
     const { addedContactIds } = this.props
-    await this.onSubmitPromise()
+    this.handleRemoteContactDetailSubmit()
     console.log('2')
     if (contactIndex >= (totalContacts - 1) ) return null
     const theCurrentContactId = this.getOneContact()
