@@ -105,5 +105,6 @@ const mapStateToProps = (state, ownProps) => {
 export default connect(mapStateToProps)(reduxForm({
   form: 'contactDetailsForm',
   enableReinitialize: true,
+  onSubmit: submit,
   validate
 })(ContactDetails))
