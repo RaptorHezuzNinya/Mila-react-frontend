@@ -9,7 +9,7 @@ import { inlineContactCardStyles as styles } from '../../helpers/inlineStyles'
 class ContactCard extends PureComponent {
   constructor(props) {
     super(props)
-    this.onSubmit = this.onSubmit.bind(this)
+    // this.onSubmit = this.onSubmit.bind(this)
   }
 
   static propTypes = {
