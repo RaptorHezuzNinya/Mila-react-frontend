@@ -82,6 +82,10 @@ const validate = (values) => {
   return errors
 }
 
+const onSubmitFail = (errors) => {
+  console.log(errors)
+}
+
 const mapStateToProps = (state, ownProps) => {
   return {
     initialValues: {
@@ -96,5 +100,6 @@ const mapStateToProps = (state, ownProps) => {
 export default connect(mapStateToProps)(reduxForm({
   form: 'contactDetailsForm',
   enableReinitialize: true,
-  validate
+  validate,
+  onSubmitFail
 })(ContactDetails))
