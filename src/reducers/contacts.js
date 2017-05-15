@@ -268,9 +268,11 @@ export default function contacts(state = initialState, { type, payload } = {}) {
   switch (type) {
 
     case UPDATE_CONTACT :
+      
       return state.map((contact) => {
-        if (contact.id === payload.id) {
-          return console.log('in contact recd')
+        if (contact.id === payload.contactId) {
+          const updatedContactAttributes = payload.contactFields
+          return {...contact, ...updatedContactAttributes}
         }
         return contact
       })
