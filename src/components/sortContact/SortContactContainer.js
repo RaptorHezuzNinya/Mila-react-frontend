@@ -42,15 +42,14 @@ class SortContactContainer extends PureComponent {
     })
   }
 
-  handleRemoteSubmit = () => {
-
+  handleRemoteContactDetailSubmit = () => {
     this.props.dispatch(submit('contactDetailsForm'))
   }
 
   handleNextContact (dispatch) {
     const { contactIndex, curContactNumb, totalContacts, completedProgress } = this.state
     const { addedContactIds } = this.props
-    this.handleRemoteSubmit()
+    this.handleRemoteContactDetailSubmit()
     if (contactIndex >= (totalContacts - 1) ) return null
     const theCurrentContactId = this.getOneContact()
     if (addedContactIds.includes(theCurrentContactId[0].id)) {
@@ -116,7 +115,7 @@ class SortContactContainer extends PureComponent {
             oneContact={this.getOneContact()}
           />
         </div>
-        
+
         { this.renderSnackBar() }
       </div>
     )
