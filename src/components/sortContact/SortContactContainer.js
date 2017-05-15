@@ -110,6 +110,20 @@ class SortContactContainer extends PureComponent {
   }
 
   render () {
+    // ASYNC and AWAIT working example. I need this in handle next
+    // const fetchSomething = () => new Promise((resolve) => {
+    //   setTimeout(() => resolve('future value'), 500);
+    // });
+    //
+    // async function asyncFunction() {
+    //   const result = await fetchSomething(); // returns promise
+    //   console.log(result)
+    //
+    //   // waits for promise and uses promise result
+    //   return result + ' 2';
+    // }
+    // console.log(asyncFunction().then(result => console.log(result)))
+
     const { curContactNumb, totalContacts, completedProgress, snackOpen } = this.state
     const { dispatch } = this.props
     return (
@@ -137,7 +151,6 @@ class SortContactContainer extends PureComponent {
             oneContact={this.getOneContact()}
           />
         </div>
-
         { this.renderSnackBar() }
       </div>
     )
