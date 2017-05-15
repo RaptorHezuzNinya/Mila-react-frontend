@@ -9,6 +9,7 @@ module.exports = {
     'react/lib/ReactContext': true,
   },
   entry: [
+    'babel-polyfill',
     'eventsource-polyfill', // necessary for hot reloading with IE
     'webpack-hot-middleware/client',
     './src/index'
