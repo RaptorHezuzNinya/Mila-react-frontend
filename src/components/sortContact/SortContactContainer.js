@@ -44,8 +44,11 @@ class SortContactContainer extends PureComponent {
   }
 
   onSubmit (values, dispatch, props) {
-    
-    if (props.submitSucceeded) return dispatch(updateContact(values, props.oneContact[0].id))
+    const initVal = props.initialValues
+    console.log('initval', initVal, 'values', values)
+    if (JSON.stringify(initVal) !== JSON.stringify(values)) {
+      return dispatch(updateContact(values, props.oneContact[0].id))
+    }
   }
 
   handleRemoteContactDetailSubmit = () => {
