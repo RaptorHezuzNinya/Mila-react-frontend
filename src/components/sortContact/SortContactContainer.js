@@ -49,7 +49,21 @@ class SortContactContainer extends PureComponent {
     this.props.dispatch(submit('contactDetailsForm'))
   }
 
-  handleNextContact (dispatch) {
+  onSubmit (values, dispatch, props) {
+    console.log('VALUES', values, 'ContactId', props.oneContact[0].id)
+    const requiredFields = [ 'firstName', 'lastName', 'companyRole', 'companyName' ]
+
+    requiredFields.forEach((field) => {
+      if (!values[field]) {
+      throw new SubmissionError({
+          field: 'Required'
+        })
+      }
+    })
+    dispatch(updateContact(values, props.oneContact[0].id))
+  }
+
+  handleNextContact () {
     const { contactIndex, curContactNumb, totalContacts, completedProgress } = this.state
     const { addedContactIds } = this.props
     this.handleRemoteContactDetailSubmit()
