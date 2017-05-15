@@ -32,6 +32,7 @@ class CreateNetworkListModal extends PureComponent {
   }
 
   onSubmit (formProps) {
+    console.log('formprops createNWL', formProps)
     this.props.createNetworkList(formProps)
     this.handleClose()
   }

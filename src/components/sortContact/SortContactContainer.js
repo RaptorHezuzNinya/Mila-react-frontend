@@ -1,5 +1,6 @@
 import React, { PureComponent, PropTypes } from 'react'
 import { connect } from 'react-redux'
+import { submit } from 'redux-form'
 import ContactCard from './ContactCard'
 import ProgressIndicator from '../ProgressIndicator'
 import NetworkListButton from './NetworkListButton'
@@ -41,9 +42,15 @@ class SortContactContainer extends PureComponent {
     })
   }
 
+  handleRemoteSubmit = () => {
+
+    this.props.dispatch(submit('contactDetailsForm'))
+  }
+
   handleNextContact (dispatch) {
     const { contactIndex, curContactNumb, totalContacts, completedProgress } = this.state
     const { addedContactIds } = this.props
+    this.handleRemoteSubmit()
     if (contactIndex >= (totalContacts - 1) ) return null
     const theCurrentContactId = this.getOneContact()
     if (addedContactIds.includes(theCurrentContactId[0].id)) {
@@ -83,7 +90,7 @@ class SortContactContainer extends PureComponent {
 
   render () {
     const { curContactNumb, totalContacts, completedProgress, snackOpen } = this.state
-
+    const { dispatch } = this.props
     return (
       <div className='sort-contact-wrapper'>
         <div className='progress-indicator-wrapper'>
@@ -109,11 +116,13 @@ class SortContactContainer extends PureComponent {
             oneContact={this.getOneContact()}
           />
         </div>
+        
         { this.renderSnackBar() }
       </div>
     )
   }
 }
+
 const mapStateToProps = (state) => {
   return {
     contacts: state.contacts,

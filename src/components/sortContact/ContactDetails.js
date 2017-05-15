@@ -1,5 +1,6 @@
 import React, { PureComponent, PropTypes } from 'react'
 import { Field, reduxForm, reset } from 'redux-form'
+import submit from './submit'
 import { connect } from 'react-redux'
 import TextField from 'material-ui/TextField'
 import { formDataContactDetails as formData } from '../../helpers/formData'
@@ -29,8 +30,6 @@ class ContactDetails extends PureComponent {
   )
 
   renderFormFields = () => {
-    const { initialValues } = this.props
-
     return formData.map((form, index) => {
       return (
         <div key={form.name} className={`detail-item${index + 1}`}>
@@ -43,28 +42,22 @@ class ContactDetails extends PureComponent {
     })
   }
 
-  handleButtonClick () {
-    console.log('in handlebtnclick')
-    const submitter = this.props.handleSubmit(this.props.onSubmit)
-    submitter()
-  }
-
   renderContactDetails () {
     const { oneContact, handleSubmit } = this.props
-    return oneContact.map((c) => {
+    return oneContact.map((contact) => {
       return (
-        <div className='contact-details' key={c.id}>
-        <form className='details-form'>
+        <div className='contact-details' key={contact.id}>
+        <form className='details-form' onSubmit={handleSubmit}>
             { this.renderFormFields()}
             <div className='detail-item5'>
               <TextField
                 name='email'
                 inputStyle={styles.input}
                 style={styles.txtfield}
-                value={c.email}
+                value={contact.email}
                 fullWidth={true} />
             </div>
-            {/* <button type='submit'>save form</button> */}
+
           </form>
         </div>
       )
@@ -72,11 +65,10 @@ class ContactDetails extends PureComponent {
   }
 
   render () {
-    console.log(this.props.submit)
+
     return (
       <div className='contact-details-holder'>
         {this.renderContactDetails()}
-        <button onClick={this.handleButtonClick.bind(this)}>save</button>
       </div>
     )
   }
@@ -107,5 +99,6 @@ const mapStateToProps = (state, ownProps) => {
 export default connect(mapStateToProps)(reduxForm({
   form: 'contactDetailsForm',
   enableReinitialize: true,
+  onSubmit: submit,
   validate
 })(ContactDetails))

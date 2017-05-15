@@ -270,10 +270,11 @@ export default function contacts(state = initialState, { type, payload } = {}) {
     case UPDATE_CONTACT :
       return state.map((contact) => {
         if (contact.id === payload.id) {
-          return Object.assign({}, payload)
+          return console.log('in contact recd')
         }
         return contact
       })
+
     case DELETE_CONTACT :
       const mappedIds = payload.map((contact) => {
         return contact.id
