@@ -30,11 +30,6 @@ class NetworkListButton extends PureComponent {
     const { activeButtonIds } = this.state
     const { oneContact, networkLists } = this.props
     const theOneContactId = oneContact[0].id
-    if (!activeButtonIds.includes(networkListId)){
-      this.setState({
-        activeButtonIds: this.state.activeButtonIds.concat([networkListId])
-      })
-    }
     const neededNWL = networkLists.filter((networkList) => {
       return networkList.id === networkListId
     })
@@ -50,7 +45,7 @@ class NetworkListButton extends PureComponent {
 
 
   renderNetworkLists () {
-    const { networkLists } = this.props
+    const { networkLists, oneContact } = this.props
     const { activeButtonIds } = this.state
     return networkLists.map((networkList) => {
       return (
