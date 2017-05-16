@@ -1,4 +1,8 @@
 import React from 'react'
+
+// used in ~/components/sortContact/SortContactContainer.js
+export const formFieldsContactDetails = [ 'firstName', 'lastName', 'companyRole', 'companyName' ]
+
 // used in ~/components/sortContact/ContactDetails.js
 export const formDataContactDetails = [
   {
