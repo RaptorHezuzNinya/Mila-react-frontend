@@ -53,7 +53,7 @@ class NetworkListButton extends PureComponent {
           <FlatButton
             name={networkList.name}
             onClick={this.handleNetworkButtonClick.bind(this, networkList.id)}
-            className={activeButtonIds.includes(networkList.id) ? 'network-list-btn-clicked' : 'network-list-btn'}
+            className={oneContact[0].networkListIds.includes(networkList.id) ? 'network-list-btn-clicked' : 'network-list-btn'}
             label={networkList.title}>
             <ListIcon className='list-icon' />
           </FlatButton>
@@ -65,7 +65,6 @@ class NetworkListButton extends PureComponent {
   render () {
     const { snackOpen } = this.state
     const { oneContact } = this.props
-    console.log('DO I RERENDER', this.state.activeButtonIds)
     return (
       <div className='network-lists-holder'>
         {this.renderNetworkLists()}
