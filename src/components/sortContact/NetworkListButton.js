@@ -28,8 +28,14 @@ class NetworkListButton extends PureComponent {
   }
 
   handleNetworkButtonClick (networkListId) {
+    const { activeButtonIds } = this.state
     const { oneContact, networkLists } = this.props
     const theOneContactId = oneContact[0].id
+    if (!activeButtonIds.includes(networkListId)){
+      this.setState({
+        activeButtonIds: this.state.activeButtonIds.concat([networkListId])
+      })
+    }
     const neededNWL = networkLists.filter((networkList) => {
       return networkList.id === networkListId
     })
