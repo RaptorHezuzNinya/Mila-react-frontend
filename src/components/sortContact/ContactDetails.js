@@ -72,19 +72,14 @@ class ContactDetails extends PureComponent {
   }
 }
 
-const validate = (values) => {
-  const errors = {}
-  const requiredFields = [ 'firstName', 'lastName', 'companyRole', 'companyName' ]
-  requiredFields.forEach( (field) => {
+const warn = (values) => {
+  const warnings = {}
+  formFields.forEach( (field) => {
     if (!values[ field ]) {
-      errors[ field ] = 'Required'
+      warnings[ field ] = 'Required'
     }
   })
-  return errors
-}
-
-const onSubmitFail = (errors) => {
-  console.log(errors)
+  return warnings
 }
 
 const mapStateToProps = (state, ownProps) => {
