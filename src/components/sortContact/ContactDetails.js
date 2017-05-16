@@ -2,7 +2,8 @@ import React, { PureComponent, PropTypes } from 'react'
 import { Field, reduxForm } from 'redux-form'
 import { connect } from 'react-redux'
 import TextField from 'material-ui/TextField'
-import { formDataContactDetails as formData } from '../../helpers/formData'
+import { formDataContactDetails as formData, formFieldsContactDetails as formFields } from '../../helpers/formData'
+
 import './ContactDetails.sass'
 
 const styles = {
@@ -18,12 +19,12 @@ class ContactDetails extends PureComponent {
     oneContact: PropTypes.array.isRequired
   }
 
-  renderTextField = ({ input, label, multiLine, rows, rowsMax, maxChars, meta: { touched, error } }) => (
+  renderTextField = ({ input, label, multiLine, rows, rowsMax, maxChars, meta: { touched, warning } }) => (
     <TextField
       name={label}
       fullWidth={true}
       inputStyle={styles.input}
-      errorText={touched && error}
+      errorText={warning}
       {...input}
     />
   )
@@ -71,15 +72,14 @@ class ContactDetails extends PureComponent {
   }
 }
 
-const validate = (values) => {
-  const errors = {}
-  const requiredFields = [ 'firstName', 'lastName', 'companyRole', 'companyName' ]
-  requiredFields.forEach( (field) => {
+const warn = (values) => {
+  const warnings = {}
+  formFields.forEach( (field) => {
     if (!values[ field ]) {
-      errors[ field ] = 'Required'
+      warnings[ field ] = 'Required'
     }
   })
-  return errors
+  return warnings
 }
 
 const mapStateToProps = (state, ownProps) => {
@@ -96,5 +96,5 @@ const mapStateToProps = (state, ownProps) => {
 export default connect(mapStateToProps)(reduxForm({
   form: 'contactDetailsForm',
   enableReinitialize: true,
-  validate
+  warn,
 })(ContactDetails))

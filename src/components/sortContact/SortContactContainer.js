@@ -2,6 +2,7 @@ import React, { PureComponent, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { submit } from 'redux-form'
 import { updateContact } from '../../actions/contacts'
+import {formFieldsContactDetails as formFields} from '../../helpers/formData'
 import ContactCard from './ContactCard'
 import ProgressIndicator from '../ProgressIndicator'
 import NetworkListButton from './NetworkListButton'
@@ -9,8 +10,6 @@ import PageTitle from '../PageTitle'
 import NavigateContacts from './NavigateContacts'
 import Snackbar from 'material-ui/Snackbar'
 import './SortContactContainer.sass'
-
-import {SubmissionError} from 'redux-form'
 
 class SortContactContainer extends PureComponent {
   constructor(props){
@@ -45,33 +44,29 @@ class SortContactContainer extends PureComponent {
     })
   }
 
-  handleRemoteContactDetailSubmit = () => {
-    this.props.dispatch(submit('contactDetailsForm'))
+  onSubmit (values, dispatch, props) {
+    const initVal = props.initialValues
+    console.log('val before', values)
+    formFields.forEach((field) => {
+      if (!values[field]){
+        values[field] = initVal[field]
+      }
+      return values
+    })
+    if (props.dirty) {
+      return dispatch(updateContact(values, props.oneContact[0].id))
+      console.log('kom ik hier? props dirty?', props.dirty)
+    }
   }
 
-  onSubmit (values, dispatch, props) {
-    console.log('VALUES', values, 'ContactId', props.oneContact[0].id)
-
-    if (values.firstName === '') {
-     throw new SubmissionError({
-       firstName: 'Enter username',
-       _error: 'First name required'
-     })
-   } else if (values.lastName === '') {
-     throw new SubmissionError({
-      lastName: 'Wrong password',
-       _error: 'Login failed!'
-     })
-   } else {
-     dispatch(updateContact(values, props.oneContact[0].id))
-   }
+  handleRemoteContactDetailSubmit = () => {
+    this.props.dispatch(submit('contactDetailsForm'))
   }
 
   handleNextContact () {
     const { contactIndex, curContactNumb, totalContacts, completedProgress } = this.state
     const { addedContactIds } = this.props
     this.handleRemoteContactDetailSubmit()
-
     if (contactIndex >= (totalContacts - 1) ) return null
     const theCurrentContactId = this.getOneContact()
     if (addedContactIds.includes(theCurrentContactId[0].id)) {
@@ -110,19 +105,6 @@ class SortContactContainer extends PureComponent {
   }
 
   render () {
-    // ASYNC and AWAIT working example. I need this in handle next
-    // const fetchSomething = () => new Promise((resolve) => {
-    //   setTimeout(() => resolve('future value'), 500);
-    // });
-    //
-    // async function asyncFunction() {
-    //   const result = await fetchSomething(); // returns promise
-    //   console.log(result)
-    //
-    //   // waits for promise and uses promise result
-    //   return result + ' 2';
-    // }
-    // console.log(asyncFunction().then(result => console.log(result)))
 
     const { curContactNumb, totalContacts, completedProgress, snackOpen } = this.state
     const { dispatch } = this.props
