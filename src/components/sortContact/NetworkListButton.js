@@ -49,14 +49,17 @@ class NetworkListButton extends PureComponent {
     this.props.addNetworkListToContact(networkListId, theOneContactId)
   }
 
+
   renderNetworkLists () {
-    const { networkLists, } = this.props
+    const { networkLists } = this.props
+    const { activeButtonIds } = this.state
     return networkLists.map((networkList) => {
       return (
         <div className='network-list' key={networkList.id}>
           <FlatButton
+            name={networkList.name}
             onClick={this.handleNetworkButtonClick.bind(this, networkList.id)}
-            className='network-list-btn'
+            className={activeButtonIds.includes(networkList.id) ? 'network-list-btn-clicked' : 'network-list-btn'}
             label={networkList.title}>
             <ListIcon className='list-icon' />
           </FlatButton>
