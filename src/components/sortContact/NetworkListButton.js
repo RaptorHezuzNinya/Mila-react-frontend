@@ -71,6 +71,7 @@ class NetworkListButton extends PureComponent {
   render () {
     const { snackOpen } = this.state
     const { oneContact } = this.props
+    console.log('DO I RERENDER', this.state.activeButtonIds)
     return (
       <div className='network-lists-holder'>
         {this.renderNetworkLists()}

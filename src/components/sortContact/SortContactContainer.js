@@ -105,7 +105,7 @@ class SortContactContainer extends PureComponent {
   }
 
   render () {
-
+    console.log('do i render')
     const { curContactNumb, totalContacts, completedProgress, snackOpen } = this.state
     const { dispatch } = this.props
     return (
