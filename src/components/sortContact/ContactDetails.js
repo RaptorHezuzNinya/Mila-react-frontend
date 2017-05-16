@@ -2,7 +2,8 @@ import React, { PureComponent, PropTypes } from 'react'
 import { Field, reduxForm } from 'redux-form'
 import { connect } from 'react-redux'
 import TextField from 'material-ui/TextField'
-import { formDataContactDetails as formData } from '../../helpers/formData'
+import { formDataContactDetails as formData, formFieldsContactDetails as formFields } from '../../helpers/formData'
+
 import './ContactDetails.sass'
 
 const styles = {
