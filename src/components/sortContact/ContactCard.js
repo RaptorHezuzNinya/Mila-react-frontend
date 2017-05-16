@@ -5,12 +5,8 @@ import './ContactCard.sass'
 import { inlineContactCardStyles as styles } from '../../helpers/inlineStyles'
 
 class ContactCard extends PureComponent {
-  constructor(props) {
-    super(props)
-
-  }
-
   static propTypes = {
+    onSubmit: PropTypes.func.isRequired,
     oneContact: PropTypes.array.isRequired
   }
 

@@ -3,19 +3,12 @@ import { Field, reduxForm } from 'redux-form'
 import { connect } from 'react-redux'
 import TextField from 'material-ui/TextField'
 import { formDataContactDetails as formData, formFieldsContactDetails as formFields } from '../../helpers/formData'
-
+import { inlineContactDetailsStyles as styles } from '../../helpers/inlineStyles'
 import './ContactDetails.sass'
-
-const styles = {
-  input: {
-    fontFamily: 'Montserrat-Light',
-    fontSize: 14,
-    paddingLeft: 10
-  }
-}
 
 class ContactDetails extends PureComponent {
   static propTypes = {
+    onSubmit: PropTypes.func.isRequired,
     oneContact: PropTypes.array.isRequired
   }
 
