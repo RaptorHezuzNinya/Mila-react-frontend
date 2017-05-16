@@ -19,12 +19,12 @@ class ContactDetails extends PureComponent {
     oneContact: PropTypes.array.isRequired
   }
 
-  renderTextField = ({ input, label, multiLine, rows, rowsMax, maxChars, meta: { touched, error } }) => (
+  renderTextField = ({ input, label, multiLine, rows, rowsMax, maxChars, meta: { touched, warning } }) => (
     <TextField
       name={label}
       fullWidth={true}
       inputStyle={styles.input}
-      errorText={touched && error}
+      errorText={warning}
       {...input}
     />
   )
