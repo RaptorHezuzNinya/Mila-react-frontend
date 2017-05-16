@@ -17,7 +17,9 @@ class ContactDetails extends PureComponent {
       name={label}
       fullWidth={true}
       inputStyle={styles.input}
+      errorStyle={styles.errorStyle}
       errorText={warning}
+      style={styles.style}
       {...input}
     />
   )
