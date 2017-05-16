@@ -11,9 +11,10 @@ class NetworkListButton extends PureComponent {
   constructor(props) {
     super(props)
     this.state = {
-      snackOpen: false
+      snackOpen: false,
     }
   }
+
   static propTypes = {
     networkLists: PropTypes.array.isRequired,
     oneContact: PropTypes.array.isRequired
@@ -26,6 +27,7 @@ class NetworkListButton extends PureComponent {
   }
 
   handleNetworkButtonClick (networkListId) {
+    const { activeButtonIds } = this.state
     const { oneContact, networkLists } = this.props
     const theOneContactId = oneContact[0].id
     const neededNWL = networkLists.filter((networkList) => {
@@ -41,14 +43,17 @@ class NetworkListButton extends PureComponent {
     this.props.addNetworkListToContact(networkListId, theOneContactId)
   }
 
+
   renderNetworkLists () {
-    const { networkLists, } = this.props
+    const { networkLists, oneContact } = this.props
+    const { activeButtonIds } = this.state
     return networkLists.map((networkList) => {
       return (
         <div className='network-list' key={networkList.id}>
           <FlatButton
+            name={networkList.name}
             onClick={this.handleNetworkButtonClick.bind(this, networkList.id)}
-            className='network-list-btn'
+            className={oneContact[0].networkListIds.includes(networkList.id) ? 'network-list-btn-clicked' : 'network-list-btn'}
             label={networkList.title}>
             <ListIcon className='list-icon' />
           </FlatButton>

@@ -6,7 +6,7 @@
 
   .network-list
     padding: 5px
-    .network-list-btn
+    .network-list-btn, .network-list-btn-clicked
       box-shadow: 0 1px 7px -1px $blueC
       width: 225px
       background-color: $steelC !important
@@ -14,7 +14,7 @@
       span
         text-transform: none !important
         +mont-light($blueA)
-
+        +f(14px !important)
       .list-icon
         color: $greenA !important
         position: absolute
@@ -22,7 +22,13 @@
         top: 0px
         padding: 6px 10px
         border-right: 1px solid $border1
-        
+
+    .network-list-btn-clicked
+      background-color: $blueA !important
+      span
+        +mont-light($steelC)
+
+
   .snackbar
     div
       text-align: center

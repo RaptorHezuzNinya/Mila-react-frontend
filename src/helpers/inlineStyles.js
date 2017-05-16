@@ -1,3 +1,19 @@
+// imported in ~/components/sortContact/SortContactContainer.js
+export const inlineContactDetailsStyles = {
+  input: {
+    paddingLeft: 10,
+  },
+  style: {
+    height: 45,
+    fontFamily: 'Montserrat-Light',
+    fontSize: 14
+  },
+  errorStyle: {
+    fontFamily: 'Montserrat-Light',
+    fontSize: 10,
+    textAlign: 'center'
+  }
+}
 // imported in ~/components/MenuDrawer.js
 export const inlineMenuDrawerStyles = {
   containerStyle: {
