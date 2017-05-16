@@ -48,7 +48,7 @@ class ContactDetails extends PureComponent {
               <TextField
                 name='email'
                 inputStyle={styles.input}
-                style={styles.txtfield}
+                style={styles.style}
                 value={contact.email}
                 fullWidth={true} />
             </div>
