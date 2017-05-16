@@ -11,9 +11,11 @@ class NetworkListButton extends PureComponent {
   constructor(props) {
     super(props)
     this.state = {
-      snackOpen: false
+      snackOpen: false,
+      activeButtonIds: []
     }
   }
+
   static propTypes = {
     networkLists: PropTypes.array.isRequired,
     oneContact: PropTypes.array.isRequired
