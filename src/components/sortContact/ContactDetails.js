@@ -101,5 +101,5 @@ export default connect(mapStateToProps)(reduxForm({
   form: 'contactDetailsForm',
   enableReinitialize: true,
   validate,
-  onSubmitFail
+  onSubmitFail,
 })(ContactDetails))

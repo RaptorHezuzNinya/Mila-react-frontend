@@ -45,8 +45,9 @@ class SortContactContainer extends PureComponent {
 
   onSubmit (values, dispatch, props) {
     const initVal = props.initialValues
+    console.log('DIRTY', props.dirty)
     console.log('initval', initVal, 'values', values)
-    if (JSON.stringify(initVal) !== JSON.stringify(values)) {
+    if (props.dirty) {
       console.log('kom ik hier')
       return dispatch(updateContact(values, props.oneContact[0].id))
     }
