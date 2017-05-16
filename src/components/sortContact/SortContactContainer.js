@@ -46,11 +46,16 @@ class SortContactContainer extends PureComponent {
 
   onSubmit (values, dispatch, props) {
     const initVal = props.initialValues
-    console.log('DIRTY', props.dirty)
-    console.log('initval', initVal, 'values', values)
+    console.log('val before', values)
+    formFields.forEach((field) => {
+      if (!values[field]){
+        values[field] = initVal[field]
+      }
+      return values
+    })
     if (props.dirty) {
-      console.log('kom ik hier')
       return dispatch(updateContact(values, props.oneContact[0].id))
+      console.log('kom ik hier? props dirty?', props.dirty)
     }
   }
 
