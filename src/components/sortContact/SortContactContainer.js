@@ -55,7 +55,6 @@ class SortContactContainer extends PureComponent {
     })
     if (props.dirty) {
       return dispatch(updateContact(values, props.oneContact[0].id))
-      console.log('kom ik hier? props dirty?', props.dirty)
     }
   }
 
@@ -105,9 +104,7 @@ class SortContactContainer extends PureComponent {
   }
 
   render () {
-    console.log('do i render')
     const { curContactNumb, totalContacts, completedProgress, snackOpen } = this.state
-    const { dispatch } = this.props
     return (
       <div className='sort-contact-wrapper'>
         <div className='progress-indicator-wrapper'>
