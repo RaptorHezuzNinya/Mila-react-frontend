@@ -12,7 +12,6 @@ class NetworkListButton extends PureComponent {
     super(props)
     this.state = {
       snackOpen: false,
-      activeButtonIds: []
     }
   }
 
