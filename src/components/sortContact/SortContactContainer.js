@@ -30,6 +30,22 @@ class SortContactContainer extends PureComponent {
     addedContactIds: PropTypes.array.isRequired
   }
 
+  componentDidMount () {
+    window.addEventListener('keydown', this.handleKeyContainerPress.bind(this))
+  }
+  componentWillUnmount(){
+    window.removeEventListener('keydown', console.log('UNMOUNTED'))
+  }
+
+  handleKeyContainerPress (event) {
+    console.log(event.keyCode)
+    if (event.keyCode === 37) {
+      this.handlePrevContact()
+    } else if (event.keyCode === 39 ) {
+      this.handleNextContact()
+    }
+  }
+
   handleRequestClose = () => {
     this.setState({
       snackOpen: false,
