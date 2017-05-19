@@ -20,6 +20,29 @@ class NetworkListButton extends PureComponent {
     oneContact: PropTypes.array.isRequired
   }
 
+  componentDidMount () {
+    window.addEventListener('keydown', this.handleKeyPress.bind(this))
+  }
+  componentWillUnmount () {
+    console.log('do i get called, and when')
+  }
+
+  handleKeyPress (event) {
+    const { networkLists } = this.props
+    const newValueObject = networkLists.map((list, index) => {
+	    return Object.assign({...list}, {buttonCode: index + 49})
+    })
+    const findTheOneObj = (buttonCode) => newValueObject.filter((object) => {
+      return object.buttonCode === buttonCode
+    })
+    const registeredButtonCodes = newValueObject.map((list) => {
+      return list.buttonCode
+    })
+    if (registeredButtonCodes.includes(event.keyCode)) {
+      this.handleNetworkButtonClick(findTheOneObj(event.keyCode)[0].id)
+    }
+  }
+
   handleRequestClose = () => {
     this.setState({
       snackOpen: false,
