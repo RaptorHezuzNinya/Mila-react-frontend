@@ -33,6 +33,7 @@ class SortContactContainer extends PureComponent {
   componentDidMount () {
     window.addEventListener('keydown', this.handleContainerKeyPress.bind(this))
   }
+
   componentWillUnmount(){
     window.removeEventListener('keydown', console.log('UNMOUNTED'))
   }
