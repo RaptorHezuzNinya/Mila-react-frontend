@@ -21,10 +21,11 @@ class NetworkListButton extends PureComponent {
   }
 
   componentDidMount () {
-    window.addEventListener('keydown', this.handleKeyPress.bind(this))
+    window.addEventListener('keydown', this.handleKeyPress.bind(this), console.log('MOUNT'))
   }
-  componentWillUnmount () {
-    console.log('do i get called, and when')
+
+  componentWillUnmount(){
+    window.removeEventListener('keydown', console.log('UNMOUNTED'))
   }
 
   handleKeyPress (event) {
