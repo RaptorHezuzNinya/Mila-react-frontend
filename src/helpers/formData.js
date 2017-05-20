@@ -25,7 +25,7 @@ import NetworkIcon from 'material-ui/svg-icons/action/view-list'
 import ListSettingsIcon from 'material-ui/svg-icons/action/settings'
 export const dataTopMenu = (currentRoute) => [
   {
-    route: '/newcontacts',
+    route: '/sortcontact',
     iconComp: <NewContactIcon className={ currentRoute === '/sortcontact' ? 'icon active-icon' : 'icon'}/>,
     title: 'New Contacts'
   },
