@@ -5,8 +5,6 @@
 .sort-contact-wrapper
   display: flex
   flex-wrap: wrap
-  // +breakpoint($brp-m)
-  //   width: 500px
 
   .progress-indicator-wrapper
     flex: 0 0 100%
@@ -17,11 +15,10 @@
 
 
   .contact-card-wrapper
-    flex: 0 0 100%
+    display: flex
     margin-bottom: 20px
-    // +breakpoint($brp-m)
-    //   flex: 0 0 60%
-
+    +breakpoint($brp-land)
+      justify-content: center
 
   .network-lists-wrapper
     flex: 0 0 100%
