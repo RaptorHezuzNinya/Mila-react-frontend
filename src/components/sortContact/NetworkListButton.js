@@ -51,7 +51,7 @@ class NetworkListButton extends PureComponent {
     })
   }
 
-  handleNetworkButtonClick (networkListId) {
+  handleNetworkButtonClick(networkListId) {
     const { oneContact, networkLists } = this.props
     const theOneContactId = oneContact[0].id
     const neededNWL = networkLists.filter((networkList) => {
@@ -67,7 +67,7 @@ class NetworkListButton extends PureComponent {
     this.props.addNetworkListToContact(networkListId, theOneContactId)
   }
 
-  renderNetworkLists () {
+  renderNetworkLists() {
     const { networkLists, oneContact } = this.props
     const { activeButtonIds } = this.state
     return networkLists.map((networkList, index) => {
@@ -87,7 +87,7 @@ class NetworkListButton extends PureComponent {
     })
   }
 
-  render () {
+  render() {
     const { snackOpen } = this.state
     const { oneContact } = this.props
     return (
