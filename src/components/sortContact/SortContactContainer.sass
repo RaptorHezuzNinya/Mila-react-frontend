@@ -5,23 +5,27 @@
 .sort-contact-wrapper
   display: flex
   flex-wrap: wrap
-  // +breakpoint($brp-m)
-  //   width: 500px
 
   .progress-indicator-wrapper
     flex: 0 0 100%
+    +breakpoint($brp-m)
+      display: flex
+      flex-wrap: wrap
+      margin-bottom: 15px
+
     // ProgressIndicator.js imported in SortContactContainer.js
     .progress-indicator-holder
       padding: 10px 15px 15px
       margin-bottom: 10px
-
+      +breakpoint($brp-m)
+        flex: 0 0 75%
+        margin: auto
 
   .contact-card-wrapper
-    flex: 0 0 100%
+    display: flex
     margin-bottom: 20px
-    // +breakpoint($brp-m)
-    //   flex: 0 0 60%
-
+    +breakpoint($brp-land)
+      justify-content: center
 
   .network-lists-wrapper
     flex: 0 0 100%

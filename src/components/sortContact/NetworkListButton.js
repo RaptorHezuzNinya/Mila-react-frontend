@@ -13,6 +13,7 @@ class NetworkListButton extends PureComponent {
     this.state = {
       snackOpen: false,
     }
+    this.handleKeyPress = this.handleKeyPress.bind(this)
   }
 
   static propTypes = {
@@ -20,15 +21,15 @@ class NetworkListButton extends PureComponent {
     oneContact: PropTypes.array.isRequired
   }
 
-  componentDidMount () {
-    window.addEventListener('keydown', this.handleKeyPress.bind(this), console.log('MOUNT'))
+  componentDidMount() {
+    window.addEventListener('keydown', this.handleKeyPress, console.log('MOUNT'))
   }
 
-  componentWillUnmount(){
-    window.removeEventListener('keydown', console.log('UNMOUNTED'))
+  componentWillUnmount() {
+    window.removeEventListener('keydown', this.handleKeyPress, console.log('UNMOUNTED'))
   }
 
-  handleKeyPress (event) {
+  handleKeyPress(event) {
     const { networkLists } = this.props
     const newValueObject = networkLists.map((list, index) => {
 	    return Object.assign({...list}, {buttonCode: index + 49})
@@ -50,7 +51,7 @@ class NetworkListButton extends PureComponent {
     })
   }
 
-  handleNetworkButtonClick (networkListId) {
+  handleNetworkButtonClick(networkListId) {
     const { oneContact, networkLists } = this.props
     const theOneContactId = oneContact[0].id
     const neededNWL = networkLists.filter((networkList) => {
@@ -66,7 +67,7 @@ class NetworkListButton extends PureComponent {
     this.props.addNetworkListToContact(networkListId, theOneContactId)
   }
 
-  renderNetworkLists () {
+  renderNetworkLists() {
     const { networkLists, oneContact } = this.props
     const { activeButtonIds } = this.state
     return networkLists.map((networkList, index) => {
@@ -86,7 +87,7 @@ class NetworkListButton extends PureComponent {
     })
   }
 
-  render () {
+  render() {
     const { snackOpen } = this.state
     const { oneContact } = this.props
     return (

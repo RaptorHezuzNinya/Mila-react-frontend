@@ -32,17 +32,19 @@ class NetworkList extends PureComponent {
 
     };
     // this.onRowSelection = this.onRowSelection.bind(this);
+    this.onResize = this.onResize.bind(this)
   }
 
 
   componentDidMount() {
-    window.addEventListener('resize', this.onResize.bind(this))
+    window.addEventListener('resize', this.onResize)
     this.onResize()
   }
   // FIXME: need to add componentWillUnmount to remove eventlistener
-  // componentWillUnmount() {
-  //   document.removeEventListener('resize', null)
-  // }
+  
+  componentWillUnmount() {
+    document.removeEventListener('resize', this.onResize)
+  }
 
   onResize = () => {
     const width = document.documentElement.clientWidth
