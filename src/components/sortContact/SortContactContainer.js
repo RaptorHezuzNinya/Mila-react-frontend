@@ -157,9 +157,15 @@ class SortContactContainer extends PureComponent {
           />
         </div>
         { this.renderSnackBar() }
+
+
         <Media query='(min-width: 769px)' render={() => (
-          <Footer holderClass='footer-holder'/>
+          <HintFooter
+            holderClass='footer-holder'
+            hintText='hint-text'/>
         )}/>
+
+
       </div>
     )
   }
