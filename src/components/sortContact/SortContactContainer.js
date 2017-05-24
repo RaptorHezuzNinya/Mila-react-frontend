@@ -4,6 +4,7 @@ import { submit } from 'redux-form'
 import { updateContact } from '../../actions/contacts'
 import {formFieldsContactDetails as formFields} from '../../helpers/formData'
 import Media from 'react-media'
+import ZeroContacts from './ZeroContacts'
 import ContactCard from './ContactCard'
 import ProgressIndicator from '../ProgressIndicator'
 import NetworkListButton from './NetworkListButton'
@@ -132,6 +133,7 @@ class SortContactContainer extends PureComponent {
 
   render () {
     const { curContactNumb, totalContacts, completedProgress, snackOpen } = this.state
+    // if (this.props.contacts === []) return <ZeroContacts />
     return (
       <div className='sort-contact-wrapper'>
         <div className='progress-indicator-wrapper'>
