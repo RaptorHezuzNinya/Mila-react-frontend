@@ -25,6 +25,7 @@ class SortContactContainer extends PureComponent {
     }
     this.handleNextContact = this.handleNextContact.bind(this)
     this.handlePrevContact = this.handlePrevContact.bind(this)
+    this.handleContainerKeyPress = this.handleContainerKeyPress.bind(this)
   }
 
   static propTypes = {
@@ -33,11 +34,11 @@ class SortContactContainer extends PureComponent {
   }
 
   componentDidMount () {
-    window.addEventListener('keydown', this.handleContainerKeyPress.bind(this))
+    window.addEventListener('keydown', this.handleContainerKeyPress)
   }
 
   componentWillUnmount(){
-    window.removeEventListener('keydown', console.log('UNMOUNTED'))
+    window.removeEventListener('keydown', this.handleContainerKeyPress)
   }
 
   handleContainerKeyPress (event) {
