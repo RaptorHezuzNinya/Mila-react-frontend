@@ -3,12 +3,14 @@ import { connect } from 'react-redux'
 import { submit } from 'redux-form'
 import { updateContact } from '../../actions/contacts'
 import {formFieldsContactDetails as formFields} from '../../helpers/formData'
+import Media from 'react-media'
 import ContactCard from './ContactCard'
 import ProgressIndicator from '../ProgressIndicator'
 import NetworkListButton from './NetworkListButton'
 import PageTitle from '../PageTitle'
 import NavigateContacts from './NavigateContacts'
 import Snackbar from 'material-ui/Snackbar'
+import HintFooter from './HintFooter'
 import './SortContactContainer.sass'
 
 class SortContactContainer extends PureComponent {
@@ -119,6 +121,13 @@ class SortContactContainer extends PureComponent {
       onRequestClose={this.handleRequestClose} />
     )
   }
+  
+  // NOTE i need to create renderHintText function that i will pass to HintFooter which will show different mila hints if a user clicks on next contact.
+
+  // renderHintText() {
+  //   const hints = ['Tip #1: Use keyboard shortcuts to sort contacts faster!', 'Tip #2: Use left and right arrow keys to sort next contact']
+  //
+  // }
 
   render () {
     const { curContactNumb, totalContacts, completedProgress, snackOpen } = this.state
@@ -148,6 +157,15 @@ class SortContactContainer extends PureComponent {
           />
         </div>
         { this.renderSnackBar() }
+
+
+        <Media query='(min-width: 769px)' render={() => (
+          <HintFooter
+            holderClass='footer-holder'
+            hintText='hint-text'/>
+        )}/>
+
+
       </div>
     )
   }

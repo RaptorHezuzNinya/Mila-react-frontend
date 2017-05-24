@@ -18,7 +18,7 @@
       padding: 10px 15px 15px
       margin-bottom: 10px
       +breakpoint($brp-m)
-        flex: 0 0 75%
+        flex: 0 0 625px
         margin: auto
 
   .contact-card-wrapper
@@ -36,3 +36,16 @@
     div
       text-align: center
       +mont-light($steelC)
+
+  // Footer.js imported in SortContactContainer.js
+  .footer-holder
+    height: 125px
+    background-color: $greenB
+    position: absolute
+    bottom: 0
+    width: 100%
+    .hint-text
+      text-align: center
+      padding: 38px 50px
+      +mont-light($steelC)
+      +f(14px)

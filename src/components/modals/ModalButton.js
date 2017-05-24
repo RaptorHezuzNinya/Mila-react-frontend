@@ -7,7 +7,8 @@ import './ModalButton.sass'
 class ModalButton extends PureComponent {
   static propTypes = {
     label: PropTypes.string.isRequired,
-    usedClassName: PropTypes.string.isRequired
+    usedClassName: PropTypes.string.isRequired,
+    modal: PropTypes.string.isRequired
   }
 
   openModal = () => {

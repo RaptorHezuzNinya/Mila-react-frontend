@@ -2,6 +2,7 @@ import React, { PureComponent, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { addContactToNetworklist } from '../../actions/networklists'
 import { addNetworkListToContact } from '../../actions/contacts'
+// import ModalButton from '../modals/ModalButton'
 import Snackbar from 'material-ui/Snackbar'
 import FlatButton from 'material-ui/FlatButton'
 import ListIcon from 'material-ui/svg-icons/action/list'
@@ -12,6 +13,7 @@ class NetworkListButton extends PureComponent {
     super(props)
     this.state = {
       snackOpen: false,
+      // createNetworkListModal: 'CREATE_NETWORKLIST_MODAL'
     }
     this.handleKeyPress = this.handleKeyPress.bind(this)
   }
@@ -93,6 +95,7 @@ class NetworkListButton extends PureComponent {
     return (
       <div className='network-lists-holder'>
         {this.renderNetworkLists()}
+        {/* <ModalButton usedClassName='create-nwl-sortcontact' label='Add List' modal={createNetworkListModal}/> */}
         <Snackbar
           className='snackbar'
           open={snackOpen}
