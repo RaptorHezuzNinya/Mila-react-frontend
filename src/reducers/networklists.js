@@ -9,7 +9,7 @@ const initialState = [
     contactIds: []
   },
   {
-    id: 3,
+    id: 2,
     title: 'Business Int',
     description: 'The VIP list is used for people who have asked questions about our product and want to try our next update',
     contactIds: []
