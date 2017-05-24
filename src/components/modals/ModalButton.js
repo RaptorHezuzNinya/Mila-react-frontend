@@ -16,13 +16,14 @@ class ModalButton extends PureComponent {
   }
 
   render(){
-    if (!this.props.modal) return null;
+    const { modal, holderClass, usedClassName, openModal, label } = this.props
+    if (!modal) return null;
     return (
-      <div>
+      <div className={holderClass === undefined ? '' : holderClass}>
         <FlatButton
-          className={this.props.usedClassName}
+          className={usedClassName}
           onClick={this.openModal}
-          label={this.props.label} />
+          label={label} />
       </div>
     )
   }

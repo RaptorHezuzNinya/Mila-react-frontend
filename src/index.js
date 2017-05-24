@@ -21,7 +21,7 @@ ReactDOM.render(
   <Provider store={store}>
     <Router history={history}>
       <Route path="/" component={App}>
-      <IndexRoute component={Network} />
+      <IndexRoute component={Onboarding} />
         <Route path={routes.onboardingPath} component={Onboarding} />
         <Route path={routes.sortContactPath} component={SortContactContainer} />
         <Route path={routes.myNetworkPath} component={Network} />
