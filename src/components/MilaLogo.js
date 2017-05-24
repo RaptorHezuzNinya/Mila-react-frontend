@@ -6,7 +6,7 @@ import './Navigation.sass'
 const MilaLogo = (props) => {
 
   return (
-    <Link to='/'>
+    <Link to='/mynetwork'>
       <div className='wrapper-logo'>
         <img className='logo-mila' src={milaLogo} />
       </div>
