@@ -20,37 +20,60 @@ const initialState = [
   //   description: 'The VIP list is used for people who have asked questions about our product and want to try our next update',
   //   contactIds: []
   // },
-  {
-    id: 5,
-    title: 'All',
-    description: 'The VIP list is used for people who have asked questions about our product and want to try our next update',
-    contactIds: []
-  },
+  // {
+  //   id: 3,
+  //   title: 'All',
+  //   description: 'The VIP list is used for people who have asked questions about our product and want to try our next update',
+  //   contactIds: []
+  // },
 ]
 
-export default function networklists(state = initialState, { type, payload } = {}) {
+const networklist = (state = {}, { type, payload } = {}) => {
   switch (type) {
+    case CREATE_NETWORKLIST:
+    console.log(payload, 'networklist payload')
+    return {
+      id: payload.id,
+      title: payload.networkList.title,
+      description: payload.networkList.description,
+      contactIds: []
+    }
+
+    default:
+      return state
+
+  }
+}
+
+const networklists = (state = initialState, action) => {
+  switch (action.type) {
 
     case UPDATE_NETWORKLIST:
       return state.map((networklist) => {
-        if (networklist.id === payload.id) {
-          return Object.assign({}, payload)
+        if (networklist.id === action.payload.id) {
+          return Object.assign({}, action.payload)
         }
         return networklist
       })
 
     case CREATE_NETWORKLIST:
-      const newNetworkList = Object.assign({}, payload)
-        return [newNetworkList].concat(state)
+
+    // console.log(action.payload, 'networklists action.payload')
+      // const newNetworkList = Object.assign({}, action.payload)
+      //   return [newNetworkList].concat(state)
+      return [
+        ...state,
+        networklist(undefined, action)
+      ]
 
     case DELETE_NETWORKLIST: //FIXME when api, key needs to be networklist.id
-      return state.filter((networklist) => networklist.title !== payload )
+      return state.filter((networklist) => networklist.title !== action.payload )
 
     case ADD_CONTACT_TO_NETWORKLIST:
       return state.map(networkList => {
-        if (networkList.id === payload.networkListId){
+        if (networkList.id === action.payload.networkListId){
           let newContactIdsArray = networkList.contactIds.slice()
-          newContactIdsArray.splice(0, 0, payload.contactId)
+          newContactIdsArray.splice(0, 0, action.payload.contactId)
           return {...networkList, contactIds: newContactIdsArray}
         }
         return networkList
@@ -61,15 +84,4 @@ export default function networklists(state = initialState, { type, payload } = {
   }
 }
 
-// case INCR_STEP_INDEX:
-//   return {...state, stepIndex: payload + 1}
-
-// zo werkt hij met boolean
-// case ADD_CONTACT_TO_NETWORKLIST:
-// console.log(payload)
-//   return state.map(networkList => {
-//     if (networkList.id === payload.networkListId){
-//       return {...networkList, contactIds: payload.oneId}//Object.assign({}, networkList)
-//     }
-//     return networkList
-//   })
+export default networklists
