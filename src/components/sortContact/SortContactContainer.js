@@ -122,7 +122,7 @@ class SortContactContainer extends PureComponent {
       onRequestClose={this.handleRequestClose} />
     )
   }
-  
+
   // NOTE i need to create renderHintText function that i will pass to HintFooter which will show different mila hints if a user clicks on next contact.
 
   // renderHintText() {
