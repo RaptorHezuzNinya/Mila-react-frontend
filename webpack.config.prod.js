@@ -45,6 +45,7 @@ module.exports = {
       { test: /\.svg$/,         loader: "file-loader" },
       { test: /\.(png|gif)$/,   loader: "file-loader" },
       { test: /\.(sass|scss)$/, loader: 'style!css!sass'},
+      { test: /\.css$/,         loader: 'style-loader!css-loader'},
       { test: /\.json$/,        loader: "json-loader"}
     ]
   }
