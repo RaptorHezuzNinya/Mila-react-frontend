@@ -138,6 +138,7 @@ class SortContactContainer extends PureComponent {
 
   render () {
     const { curContactNumb, totalContacts, completedProgress, snackOpen } = this.state
+    console.log('currentContact', this.props.currentContact)
     // if (this.props.contacts === []) return <ZeroContacts />
     return (
       <div className='sort-contact-wrapper'>
@@ -182,7 +183,8 @@ class SortContactContainer extends PureComponent {
 const mapStateToProps = (state) => {
   return {
     contacts: state.contacts,
-    addedContactIds: state.sortContact.addedContactIds
+    addedContactIds: state.sortContact.addedContactIds,
+    currentContact: state.sortContact.theOneContact
   }
 }
 
