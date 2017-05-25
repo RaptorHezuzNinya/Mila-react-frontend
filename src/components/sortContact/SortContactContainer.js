@@ -1,7 +1,7 @@
 import React, { PureComponent, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { submit } from 'redux-form'
-import { updateContact } from '../../actions/contacts'
+import { updateContact, currentSortContact } from '../../actions/contacts'
 import {formFieldsContactDetails as formFields} from '../../helpers/formData'
 import Media from 'react-media'
 import ZeroContacts from './ZeroContacts'

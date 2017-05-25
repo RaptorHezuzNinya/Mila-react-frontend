@@ -27,3 +27,11 @@ export const addNetworkListToContact = (networkListId, contactId) => {
     }
   }
 }
+
+export const CURRENT_SORT_CONTACT = 'CURRENT_SORT_CONTACT'
+export const currentSortContact = (currentContact) => {
+  return {
+    type: CURRENT_SORT_CONTACT,
+    payload: currentContact
+  }
+}
