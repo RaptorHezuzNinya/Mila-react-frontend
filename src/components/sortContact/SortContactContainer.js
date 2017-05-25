@@ -64,9 +64,10 @@ class SortContactContainer extends PureComponent {
   getOneContact () {
     const { contacts } = this.props
     const { contactIndex } = this.state
-    return contacts.filter((contact, index) => {
+    const theNeededContact = contacts.filter((contact, index) => {
       return index === contactIndex
     })
+    return this.props.dispatch(currentSortContact(theNeededContact))
   }
 
   onSubmit (values, dispatch, props) {
