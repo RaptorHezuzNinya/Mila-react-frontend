@@ -33,6 +33,10 @@ class SortContactContainer extends PureComponent {
     contacts: PropTypes.array.isRequired,
     addedContactIds: PropTypes.array.isRequired
   }
+  componentWillMount() {
+    console.log('WILLMOUNT')
+    this.getOneContact()
+  }
 
   componentDidMount () {
     window.addEventListener('keydown', this.handleContainerKeyPress)
