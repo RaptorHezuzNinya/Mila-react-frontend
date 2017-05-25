@@ -2,7 +2,8 @@ import { ADD_CONTACT_TO_NETWORKLIST } from '../actions/networklists'
 import { CURRENT_SORT_CONTACT } from '../actions/contacts'
 
 const initialState = {
-  addedContactIds: []
+  addedContactIds: [],
+  theOneContact: []
 }
 
 export default function sortContactReducer(state = initialState, { type, payload } = {}) {
