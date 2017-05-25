@@ -15,8 +15,10 @@ export default function sortContactReducer(state = initialState, { type, payload
       return { ...state, addedContactIds: [...state.addedContactIds, payload.contactId] }
 
     case CURRENT_SORT_CONTACT:
-      return state
-      
+      // newCurrentContact = Object.assign({}, payload)
+      // return [newCurrentContact].concat(state)
+      return {...state, theOneContact: payload}
+
     default:
       return state
 
