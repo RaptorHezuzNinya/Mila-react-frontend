@@ -61,6 +61,7 @@ const networklists = (state = initialState, action) => {
     // console.log(action.payload, 'networklists action.payload')
       // const newNetworkList = Object.assign({}, action.payload)
       //   return [newNetworkList].concat(state)
+      // NOTE: maybe we can use {type, payload} = {} as params
       return [
         ...state,
         networklist(undefined, action)
