@@ -38,8 +38,24 @@
     flex: 0 0 100%
 
     .delete-btn
+      width: 225px
+      color: $greyB !important
+      border: 1px solid red !important
+
       span
+        +f(12px !important)
         text-transform: none !important
+        padding-right: 6px !important
+        +mont-light($greyB)
+        &:hover
+          text-decoration: underline
+      .not-icon
+        color: $greyB !important
+        position: absolute
+        left: 23px
+        top: 12px
+        width: 14px !important
+        height: 14px !important
 
   .snackbar
     div

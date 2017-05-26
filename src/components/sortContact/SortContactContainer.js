@@ -155,7 +155,6 @@ class SortContactContainer extends PureComponent {
           <FlatButton
             label="Don't save this contact (x)"
             className='delete-btn'
-
             labelPosition='before'
             hoverColor='none'
             disableTouchRipple={true}
