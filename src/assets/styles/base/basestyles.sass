@@ -2,6 +2,90 @@
 @import "./mixins.sass"
 @import "./breakpoints.sass"
 
+// Original Mila buttons from style guide
+// when using these button classes on  <FlatButton /> add hoverColor='none' attribute
+
+// button-large only to be used on light background $grey or $steelC
+.btn-l
+  border: 2px solid $steelB !important
+  border-radius: 30px !important
+  height: 60px !important
+  width: 240px
+  span
+    +f(15px !important)
+    +mont-reg($blueA)
+  &:hover
+    background-color: none !important
+    border-color: $greenA !important
+    span
+      color: $greenA
+
+// button-large-alternative ONLY to be used on backgrounds Mila green
+.btn-l-a
+  // border: 2px solid $steelB !important
+  background-color: $greyB !important
+  border-radius: 30px !important
+  height: 60px !important
+  width: 240px
+  box-shadow: 0px 4px 10px 0px rgba(41,47,54,0.2)
+  span
+    +f(15px !important)
+    +mont-reg($blueA)
+  &:hover
+    border: 2px solid $greenB !important
+    box-shadow: 0px 2px 5px 0px rgba(41,47,54,0.2)
+    span
+      color: $greenA
+
+// button-small-light ONLY to be used on Light backgrounds
+.btn-s
+  border: 2px solid $steelB !important
+  border-radius: 25px !important
+
+  height: 40px !important
+  width: 175px
+  span
+    +f(13px !important)
+    +mont-reg($blueA)
+  &:hover
+    background-color: none !important
+    border-color: $greenA !important
+    span
+      color: $greenA
+
+// button-small-alternative ONLY to be used on backgrounds Mila green
+.btn-s-a
+  // border: 2px solid $steelB !important
+  background-color: $greyB !important
+  border-radius: 30px !important
+  height: 40px !important
+  width: 175px
+  box-shadow: 0px 4px 10px 0px rgba(41,47,54,0.2)
+  span
+    +f(13px !important)
+    +mont-reg($blueA)
+  &:hover
+    border: 2px solid $greenB !important
+    box-shadow: 0px 2px 5px 0px rgba(41,47,54,0.2)
+    span
+      color: $greenA
+
+// button-small-dark ONLY to be used on Light backgrounds
+.btn-s-d
+  border: 2px solid $blueC !important
+  border-radius: 25px !important
+  height: 40px !important
+  width: 175px
+  span
+    +f(13px !important)
+    +mont-reg($greyB)
+  &:hover
+    background-color: none !important
+    border-color: $greenA !important
+    span
+      color: $greenA
+
+// MY BUTTONS CREATIONS
 .btn-green
   width: 150px
   height: 45px !important
