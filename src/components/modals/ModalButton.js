@@ -21,6 +21,7 @@ class ModalButton extends PureComponent {
     return (
       <div className={holderClass === undefined ? '' : holderClass}>
         <FlatButton
+          hoverColor='none'
           className={usedClassName}
           onClick={this.openModal}
           label={label} />
