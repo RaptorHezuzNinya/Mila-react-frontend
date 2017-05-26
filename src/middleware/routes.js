@@ -5,7 +5,7 @@ const routes = {
   myNetworkPath: '/mynetwork',
   settingsAccountPath: 'settings/account',
   settingsListPath: 'settings/list',
-  zeroContactsPath: 'zero-contacts'
+  loadingContactsPath: 'loading'
 }
 
 export default routes
