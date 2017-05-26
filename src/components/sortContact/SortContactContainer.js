@@ -153,13 +153,14 @@ class SortContactContainer extends PureComponent {
         </div>
         <div className='delete-wrapper'>
           <FlatButton
-            label="Don't save this contact"
+            label="Don't save this contact (x)"
             className='delete-btn'
-            labelPosition='before'
-            onClick={() => console.log('delete FB contact')}>
-            <NotIcon className='not-icon' />
 
-            <span>(x)</span>
+            labelPosition='before'
+            hoverColor='none'
+            disableTouchRipple={true}
+            onClick={() => console.log('delete FB contact')} >
+            <NotIcon className='not-icon' />
           </FlatButton>
         </div>
         { this.renderSnackBar() }
