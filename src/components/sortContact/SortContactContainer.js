@@ -43,12 +43,24 @@ class SortContactContainer extends PureComponent {
     window.removeEventListener('keydown', this.handleContainerKeyPress)
   }
 
-  handleContainerKeyPress (event) {
-    console.log(event.keyCode)
-    if (event.keyCode === 37) {
-      this.handlePrevContact()
-    } else if (event.keyCode === 39 ) {
-      this.handleNextContact()
+  // handleContainerKeyPress (event) {
+  //   console.log(event.keyCode)
+  //   if (event.keyCode === 37) {
+  //     this.handlePrevContact()
+  //   } else if (event.keyCode === 39 ) {
+  //     this.handleNextContact()
+  //   }
+  // }
+
+  handleContainerKeyPress(event) {
+    switch (event.keyCode) {
+      case 37:
+        return this.handlePrevContact()
+      case 39:
+        return this.handleNextContact()
+      default:
+        return
+
     }
   }
 
