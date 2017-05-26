@@ -12,7 +12,7 @@ import Network from './components/myNetwork/Network'
 import SettingsAccount from './components/settingsAccount/SettingsAccount'
 import SettingsList from './components/settingsList/SettingsList'
 
-import ZeroContacts from './components/sortContact/ZeroContacts'
+import LoadingContacts from './components/LoadingContacts'
 import './assets/styles/main.sass'
 import 'normalize.css'
 import './assets/styles/base/basestyles.sass'
@@ -30,7 +30,7 @@ ReactDOM.render(
         <Route path={routes.settingsAccountPath} component={SettingsAccount} />
         <Route path={routes.settingsListPath} component={SettingsList} />
 
-        <Route path={routes.zeroContactsPath} component={ZeroContacts} /> {/* this is more a loading screen doenst need on route but only for making the page*/}
+        <Route path={routes.loadingContactsPath} component={LoadingContacts} /> {/* this is more a loading screen doenst need on route but only for making the page*/}
 
       </Route>
     </Router>
