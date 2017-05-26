@@ -124,16 +124,8 @@ class SortContactContainer extends PureComponent {
     )
   }
 
-  // NOTE i need to create renderHintText function that i will pass to HintFooter which will show different mila hints if a user clicks on next contact.
-
-  // renderHintText() {
-  //   const hints = ['Tip #1: Use keyboard shortcuts to sort contacts faster!', 'Tip #2: Use left and right arrow keys to sort next contact']
-  //
-  // }
-
   render () {
     const { curContactNumb, totalContacts, completedProgress, snackOpen } = this.state
-    // if (this.props.contacts === []) return <ZeroContacts />
     return (
       <div className='sort-contact-wrapper'>
         <div className='progress-indicator-wrapper'>
@@ -161,13 +153,11 @@ class SortContactContainer extends PureComponent {
         </div>
         { this.renderSnackBar() }
 
-
         <Media query='(min-width: 769px)' render={() => (
           <HintFooter
             holderClass='footer-holder'
             hintText='hint-text'/>
         )}/>
-
 
       </div>
     )
