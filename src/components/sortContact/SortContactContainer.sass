@@ -13,7 +13,6 @@
       flex-wrap: wrap
       margin-bottom: 15px
 
-    // ProgressIndicator.js imported in SortContactContainer.js
     .progress-indicator-holder
       padding: 10px 15px 15px
       margin-bottom: 10px
@@ -32,12 +31,21 @@
     display: flex
     justify-content: center
 
+  .delete-wrapper
+    padding: 35px 0
+    display: flex
+    justify-content: center
+    flex: 0 0 100%
+
+    .delete-btn
+      span
+        text-transform: none !important
+
   .snackbar
     div
       text-align: center
       +mont-light($steelC)
 
-  // Footer.js imported in SortContactContainer.js
   .footer-holder
     height: 125px
     background-color: $greenB
