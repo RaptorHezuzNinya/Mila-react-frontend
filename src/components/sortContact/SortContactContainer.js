@@ -9,8 +9,10 @@ import ProgressIndicator from '../ProgressIndicator'
 import NetworkListButton from './NetworkListButton'
 import PageTitle from '../PageTitle'
 import NavigateContacts from './NavigateContacts'
-import Snackbar from 'material-ui/Snackbar'
 import HintFooter from './HintFooter'
+import Snackbar from 'material-ui/Snackbar'
+import FlatButton from 'material-ui/FlatButton'
+import NotIcon from 'material-ui/svg-icons/av/not-interested'
 import './SortContactContainer.sass'
 
 class SortContactContainer extends PureComponent {
@@ -138,7 +140,6 @@ class SortContactContainer extends PureComponent {
             color='#5DD9B2'
             completedProgress={completedProgress}/>
         </div>
-
         <NavigateContacts
           handleNextContact={this.handleNextContact}
           handlePrevContact={this.handlePrevContact} />
