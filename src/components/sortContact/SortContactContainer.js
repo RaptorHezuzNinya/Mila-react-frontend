@@ -1,7 +1,7 @@
 import React, { PureComponent, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { submit } from 'redux-form'
-import { updateContact } from '../../actions/contacts'
+import { updateContact, currentSortContact } from '../../actions/contacts'
 import {formFieldsContactDetails as formFields} from '../../helpers/formData'
 import Media from 'react-media'
 import ZeroContacts from './ZeroContacts'
@@ -33,6 +33,10 @@ class SortContactContainer extends PureComponent {
     contacts: PropTypes.array.isRequired,
     addedContactIds: PropTypes.array.isRequired
   }
+  componentWillMount() {
+    console.log('WILLMOUNT')
+    this.getOneContact()
+  }
 
   componentDidMount () {
     window.addEventListener('keydown', this.handleContainerKeyPress)
@@ -63,6 +67,7 @@ class SortContactContainer extends PureComponent {
     return contacts.filter((contact, index) => {
       return index === contactIndex
     })
+
   }
 
   onSubmit (values, dispatch, props) {
@@ -124,16 +129,9 @@ class SortContactContainer extends PureComponent {
     )
   }
 
-  // NOTE i need to create renderHintText function that i will pass to HintFooter which will show different mila hints if a user clicks on next contact.
-
-  // renderHintText() {
-  //   const hints = ['Tip #1: Use keyboard shortcuts to sort contacts faster!', 'Tip #2: Use left and right arrow keys to sort next contact']
-  //
-  // }
-
   render () {
     const { curContactNumb, totalContacts, completedProgress, snackOpen } = this.state
-    // if (this.props.contacts === []) return <ZeroContacts />
+
     return (
       <div className='sort-contact-wrapper'>
         <div className='progress-indicator-wrapper'>
@@ -168,7 +166,6 @@ class SortContactContainer extends PureComponent {
             hintText='hint-text'/>
         )}/>
 
-
       </div>
     )
   }
@@ -177,7 +174,8 @@ class SortContactContainer extends PureComponent {
 const mapStateToProps = (state) => {
   return {
     contacts: state.contacts,
-    addedContactIds: state.sortContact.addedContactIds
+    addedContactIds: state.sortContact.addedContactIds,
+    currentContact: state.sortContact.theOneContact
   }
 }
 
