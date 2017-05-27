@@ -46,7 +46,6 @@ class ContactDetails extends PureComponent {
           { this.renderFormFields()}
           <div className='dot'>•</div>
         </form>
-
       )
     })
   }
