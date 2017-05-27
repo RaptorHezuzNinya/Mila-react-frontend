@@ -21,7 +21,18 @@ class ContactCard extends PureComponent {
     })
   }
 
-  renderContactEmail () {
+  renderContactEmail() {
+    const { oneContact } = this.props
+    return oneContact.map((c) => {
+      return (
+        <div className='email-adress' key={c.id}>
+          <p>{c.email}</p>
+        </div>
+      )
+    })
+  }
+
+  renderEmailHeader () {
     const { oneContact } = this.props
     return oneContact.map((c) => {
       return (
