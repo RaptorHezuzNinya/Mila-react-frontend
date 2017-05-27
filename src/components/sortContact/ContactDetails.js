@@ -27,6 +27,7 @@ class ContactDetails extends PureComponent {
 
   renderFormFields = () => {
     return formData.map((form, index) => {
+
       return (
         <div key={form.name} className={`detail-item${index + 1}`}>
           <Field
