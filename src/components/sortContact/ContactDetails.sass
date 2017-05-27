@@ -12,13 +12,35 @@
     display: flex
     flex-wrap: wrap
 
-    .detail-item1, .detail-item2
-      flex: 1 0 50%
+    .detail-item1
+      flex: 1 0 45%
+      order: 1
       div
         input
+          width: 85% !important
+          font-family: 'Montserrat-Bold' !important
+
+          &:focus
+            font-family: 'Montserrat-Light' !important
+
+    .detail-item2
+      flex: 1 0 45%
+      order: 3
+      div
+        input
+          width: 85% !important
           font-family: 'Montserrat-Bold' !important
           &:focus
             font-family: 'Montserrat-Light' !important
 
-    .detail-item3, .detail-item4
+    .detail-item3
       flex: 1 0 100%
+      order: 4
+
+    .detail-item4
+      flex: 1 0 100%
+      order: 5
+
+    .dot
+      +f(30px)
+      order: 2
