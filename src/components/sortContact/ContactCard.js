@@ -52,6 +52,7 @@ class ContactCard extends PureComponent {
             <ContactDetails onSubmit={this.props.onSubmit} oneContact={oneContact} />
             {this.renderContactAvatar()}
             {this.renderContactEmail()}
+            {this.renderEmailHeader()}
           </div>
         </Paper>
       </div>
