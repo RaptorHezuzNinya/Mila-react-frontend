@@ -20,6 +20,7 @@ class ContactDetails extends PureComponent {
       errorStyle={styles.errorStyle}
       errorText={warning}
       style={styles.style}
+      underlineShow={false}
       {...input}
     />
   )
@@ -45,12 +46,13 @@ class ContactDetails extends PureComponent {
         <form className='details-form' onSubmit={handleSubmit(this.props.onSubmit)}>
             { this.renderFormFields()}
             <div className='detail-item5'>
-              <TextField
+              {/* <TextField
                 name='email'
                 inputStyle={styles.input}
                 style={styles.style}
                 value={contact.email}
-                fullWidth={true} />
+                fullWidth={true} /> */}
+              <p>{contact.email}</p>
             </div>
           </form>
         </div>
