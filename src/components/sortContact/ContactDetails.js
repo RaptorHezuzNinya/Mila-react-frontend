@@ -27,6 +27,7 @@ class ContactDetails extends PureComponent {
 
   renderFormFields = () => {
     return formData.map((form, index) => {
+
       return (
         <div key={form.name} className={`detail-item${index + 1}`}>
           <Field
@@ -42,20 +43,10 @@ class ContactDetails extends PureComponent {
     const { oneContact, handleSubmit } = this.props
     return oneContact.map((contact) => {
       return (
-        <div className='contact-details' key={contact.id}>
-        <form className='details-form' onSubmit={handleSubmit(this.props.onSubmit)}>
-            { this.renderFormFields()}
-            <div className='detail-item5'>
-              {/* <TextField
-                name='email'
-                inputStyle={styles.input}
-                style={styles.style}
-                value={contact.email}
-                fullWidth={true} /> */}
-              <p>{contact.email}</p>
-            </div>
-          </form>
-        </div>
+        <form className='details-form' key={contact.id} onSubmit={handleSubmit(this.props.onSubmit)}>
+          { this.renderFormFields()}
+        </form>
+
       )
     })
   }

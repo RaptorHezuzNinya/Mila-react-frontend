@@ -5,11 +5,11 @@ import avatar from '../assets/images/avatars/user-darkgreen.svg'
 const initialState = [
   {
     id: 11,
-    firstName: 'Naam1',
-    lastName: 'DePadrian',
+    firstName: 'Harry-Marc',
+    lastName: 'Menz',
     companyRole: 'CEO',
-    companyName: 'Compainay',
-    email: 'adrian@compainay.com',
+    companyName: 'Menziz Inc.',
+    email: 'harrymarc@menzcompany.com',
     avatar,
     message: 'Re: FoundedX - Exclusive invitation to lead the creative society',
     networkListIds: []
