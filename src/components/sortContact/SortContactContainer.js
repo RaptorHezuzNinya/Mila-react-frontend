@@ -9,8 +9,10 @@ import ProgressIndicator from '../ProgressIndicator'
 import NetworkListButton from './NetworkListButton'
 import PageTitle from '../PageTitle'
 import NavigateContacts from './NavigateContacts'
-import Snackbar from 'material-ui/Snackbar'
 import HintFooter from './HintFooter'
+import Snackbar from 'material-ui/Snackbar'
+import FlatButton from 'material-ui/FlatButton'
+import NotIcon from 'material-ui/svg-icons/av/not-interested'
 import './SortContactContainer.sass'
 
 class SortContactContainer extends PureComponent {
@@ -41,12 +43,24 @@ class SortContactContainer extends PureComponent {
     window.removeEventListener('keydown', this.handleContainerKeyPress)
   }
 
-  handleContainerKeyPress (event) {
-    console.log(event.keyCode)
-    if (event.keyCode === 37) {
-      this.handlePrevContact()
-    } else if (event.keyCode === 39 ) {
-      this.handleNextContact()
+  // handleContainerKeyPress (event) {
+  //   console.log(event.keyCode)
+  //   if (event.keyCode === 37) {
+  //     this.handlePrevContact()
+  //   } else if (event.keyCode === 39 ) {
+  //     this.handleNextContact()
+  //   }
+  // }
+
+  handleContainerKeyPress(event) {
+    switch (event.keyCode) {
+      case 37:
+        return this.handlePrevContact()
+      case 39:
+        return this.handleNextContact()
+      default:
+        return
+
     }
   }
 
@@ -138,7 +152,6 @@ class SortContactContainer extends PureComponent {
             color='#5DD9B2'
             completedProgress={completedProgress}/>
         </div>
-
         <NavigateContacts
           handleNextContact={this.handleNextContact}
           handlePrevContact={this.handlePrevContact} />
@@ -150,14 +163,23 @@ class SortContactContainer extends PureComponent {
             oneContact={this.getOneContact()}
           />
         </div>
+        <div className='delete-wrapper'>
+          <FlatButton
+            label="Don't save this contact (x)"
+            className='delete-btn'
+            labelPosition='before'
+            hoverColor='none'
+            disableTouchRipple={true}
+            onClick={() => console.log('delete FB contact')} >
+            <NotIcon className='not-icon' />
+          </FlatButton>
+        </div>
         { this.renderSnackBar() }
-
         <Media query='(min-width: 769px)' render={() => (
           <HintFooter
             holderClass='footer-holder'
             hintText='hint-text'/>
         )}/>
-
       </div>
     )
   }

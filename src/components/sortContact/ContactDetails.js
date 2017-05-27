@@ -20,6 +20,7 @@ class ContactDetails extends PureComponent {
       errorStyle={styles.errorStyle}
       errorText={warning}
       style={styles.style}
+      underlineShow={false}
       {...input}
     />
   )
@@ -41,19 +42,11 @@ class ContactDetails extends PureComponent {
     const { oneContact, handleSubmit } = this.props
     return oneContact.map((contact) => {
       return (
-        <div className='contact-details' key={contact.id}>
-        <form className='details-form' onSubmit={handleSubmit(this.props.onSubmit)}>
-            { this.renderFormFields()}
-            <div className='detail-item5'>
-              <TextField
-                name='email'
-                inputStyle={styles.input}
-                style={styles.style}
-                value={contact.email}
-                fullWidth={true} />
-            </div>
-          </form>
-        </div>
+        <form className='details-form' key={contact.id} onSubmit={handleSubmit(this.props.onSubmit)}>
+          { this.renderFormFields()}
+          <div className='dot'>•</div>
+        </form>
+
       )
     })
   }

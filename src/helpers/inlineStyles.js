@@ -1,10 +1,10 @@
 // imported in ~/components/sortContact/SortContactContainer.js
 export const inlineContactDetailsStyles = {
   input: {
-    paddingLeft: 10,
+    paddingLeft: 20,
   },
   style: {
-    height: 45,
+    height: 34,
     fontFamily: 'Montserrat-Light',
     fontSize: 14
   },
