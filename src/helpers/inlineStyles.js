@@ -4,7 +4,7 @@ export const inlineContactDetailsStyles = {
     paddingLeft: 10,
   },
   style: {
-    height: 45,
+    height: 35,
     fontFamily: 'Montserrat-Light',
     fontSize: 14
   },
