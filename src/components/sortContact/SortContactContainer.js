@@ -47,22 +47,21 @@ class SortContactContainer extends PureComponent {
 
   handleContainerKeyPress (event) {
     const { contactDetailsForm } = this.props
-    let activeArray = []
-
+    let arr = []
     let activeField
+
     formFields.forEach((field) => {
-      activeField = _.get(contactDetailsForm.fields, [field, 'active'])
-      return [activeArray].concat(activeField)
+      activeField = _.get(contactDetailsForm.fields, [field, 'active'], false)
+      return arr.push(activeField)
     })
-    console.log('second', activeArray)
-    // if (!activeField) {
-    //   if (event.keyCode === 37) {
-    //     return this.handlePrevContact()
-    //   } else if (event.keyCode === 39 ) {
-    //     return this.handleNextContact()
-    //   }
-    //   return
-    // }
+    if (arr.includes(true)) {
+      return
+    }
+    else if (event.keyCode === 37) {
+      return this.handlePrevContact()
+    } else if (event.keyCode === 39 ) {
+      return this.handleNextContact()
+    }
   }
 
   handleRequestClose = () => {
