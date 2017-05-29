@@ -127,7 +127,8 @@ class NetworkListButton extends PureComponent {
 
 const mapStateToProps = (state) => {
   return {
-    networkLists: state.networkLists
+    networkLists: state.networkLists,
+    contactDetailsForm: state.form.contactDetailsForm
   }
 }
 
