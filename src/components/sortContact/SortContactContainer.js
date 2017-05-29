@@ -47,9 +47,9 @@ class SortContactContainer extends PureComponent {
 
   handleContainerKeyPress (event) {
     const { contactDetailsForm } = this.props
+    console.log(event.keyCode)
     let arr = []
     let activeField
-
     formFields.forEach((field) => {
       activeField = _.get(contactDetailsForm.fields, [field, 'active'], false)
       return arr.push(activeField)
@@ -61,6 +61,8 @@ class SortContactContainer extends PureComponent {
       return this.handlePrevContact()
     } else if (event.keyCode === 39 ) {
       return this.handleNextContact()
+    } else if (event.keyCode === 88) {
+      return this.handleDeleteContact()
     }
   }
 
