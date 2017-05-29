@@ -188,4 +188,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(SortContactContainer)
+export default connect(mapStateToProps, { updateContact, deleteContact, submit})(SortContactContainer)
