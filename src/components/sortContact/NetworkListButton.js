@@ -113,14 +113,12 @@ class NetworkListButton extends PureComponent {
         <Media query='(min-width: 769px)' render={() => (
           <ModalButton holderClass='modal-btn-holder' usedClassName='btn-s-a' label='Add List' modal={createNetworkListModal}/>
         )}/>
-
         <Snackbar
           className='snackbar'
           open={snackOpen}
           autoHideDuration={3000}
           message={`${oneContact[0].firstName} already added`}
           onRequestClose={this.handleRequestClose} />
-
       </div>
     </div>
     )
