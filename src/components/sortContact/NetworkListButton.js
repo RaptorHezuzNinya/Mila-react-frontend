@@ -35,18 +35,29 @@ class NetworkListButton extends PureComponent {
   }
 
   handleKeyPress(event) {
-    const { networkLists } = this.props
-    const newValueObject = networkLists.map((list, index) => {
-	    return Object.assign({...list}, {buttonCode: index + 49})
+    const { contactDetailsForm } = this.props
+    let arr = []
+    let activeField
+    formFields.forEach((field) => {
+      activeField = _.get(contactDetailsForm.fields, [field, 'active'], false)
+      return arr.push(activeField)
     })
-    const findTheOneObj = (buttonCode) => newValueObject.filter((object) => {
-      return object.buttonCode === buttonCode
-    })
-    const registeredButtonCodes = newValueObject.map((list) => {
-      return list.buttonCode
-    })
-    if (registeredButtonCodes.includes(event.keyCode)) {
-      this.handleNetworkButtonClick(findTheOneObj(event.keyCode)[0].id)
+    if (arr.includes(true)) {
+      return
+    } else {
+      const { networkLists } = this.props
+      const newValueObject = networkLists.map((list, index) => {
+  	    return Object.assign({...list}, {buttonCode: index + 49})
+      })
+      const findTheOneObj = (buttonCode) => newValueObject.filter((object) => {
+        return object.buttonCode === buttonCode
+      })
+      const registeredButtonCodes = newValueObject.map((list) => {
+        return list.buttonCode
+      })
+      if (registeredButtonCodes.includes(event.keyCode)) {
+        this.handleNetworkButtonClick(findTheOneObj(event.keyCode)[0].id)
+      }
     }
   }
 
