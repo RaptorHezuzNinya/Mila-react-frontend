@@ -164,12 +164,15 @@ class SortContactContainer extends PureComponent {
         <NavigateContacts
           handleNextContact={this.handleNextContact}
           handlePrevContact={this.handlePrevContact} />
+
         <div className='contact-card-wrapper'>
           <ContactCard onSubmit={this.onSubmit} oneContact={this.getOneContact()} />
         </div>
-        <div>
+
+        <div className='delete-card-wrapper'>
           <DeleteCard />
         </div>
+
 
         <div className='network-lists-wrapper'>
           <NetworkListButton
