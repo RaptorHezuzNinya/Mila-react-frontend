@@ -1,8 +1,9 @@
 import React, { PureComponent, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { submit } from 'redux-form'
-import { updateContact } from '../../actions/contacts'
+import { updateContact, deleteContact } from '../../actions/contacts'
 import {formFieldsContactDetails as formFields} from '../../helpers/formData'
+import _ from 'lodash'
 import Media from 'react-media'
 import ContactCard from './ContactCard'
 import ProgressIndicator from '../ProgressIndicator'
@@ -28,6 +29,7 @@ class SortContactContainer extends PureComponent {
     this.handleNextContact = this.handleNextContact.bind(this)
     this.handlePrevContact = this.handlePrevContact.bind(this)
     this.handleContainerKeyPress = this.handleContainerKeyPress.bind(this)
+    this.handleDeleteContact = this.handleDeleteContact.bind(this)
   }
 
   static propTypes = {
@@ -43,24 +45,22 @@ class SortContactContainer extends PureComponent {
     window.removeEventListener('keydown', this.handleContainerKeyPress)
   }
 
-  // handleContainerKeyPress (event) {
-  //   console.log(event.keyCode)
-  //   if (event.keyCode === 37) {
-  //     this.handlePrevContact()
-  //   } else if (event.keyCode === 39 ) {
-  //     this.handleNextContact()
-  //   }
-  // }
+  handleContainerKeyPress (event) {
+    const { contactDetailsForm } = this.props
+    let arr = []
+    let activeField
 
-  handleContainerKeyPress(event) {
-    switch (event.keyCode) {
-      case 37:
-        return this.handlePrevContact()
-      case 39:
-        return this.handleNextContact()
-      default:
-        return
-
+    formFields.forEach((field) => {
+      activeField = _.get(contactDetailsForm.fields, [field, 'active'], false)
+      return arr.push(activeField)
+    })
+    if (arr.includes(true)) {
+      return
+    }
+    else if (event.keyCode === 37) {
+      return this.handlePrevContact()
+    } else if (event.keyCode === 39 ) {
+      return this.handleNextContact()
     }
   }
 
@@ -80,7 +80,7 @@ class SortContactContainer extends PureComponent {
 
   onSubmit (values, dispatch, props) {
     const initVal = props.initialValues
-    console.log('val before', values)
+    // console.log('val before', values)
     formFields.forEach((field) => {
       if (!values[field]){
         values[field] = initVal[field]
@@ -93,7 +93,12 @@ class SortContactContainer extends PureComponent {
   }
 
   handleRemoteContactDetailSubmit = () => {
-    this.props.dispatch(submit('contactDetailsForm'))
+    this.props.submit('contactDetailsForm')
+  }
+
+  handleDeleteContact() {
+    const theCurrentContact = this.getOneContact()
+    return this.props.deleteContact(theCurrentContact)
   }
 
   handleNextContact () {
@@ -170,7 +175,7 @@ class SortContactContainer extends PureComponent {
             labelPosition='before'
             hoverColor='none'
             disableTouchRipple={true}
-            onClick={() => console.log('delete FB contact')} >
+            onClick={this.handleDeleteContact} >
             <NotIcon className='not-icon' />
           </FlatButton>
         </div>
@@ -188,8 +193,9 @@ class SortContactContainer extends PureComponent {
 const mapStateToProps = (state) => {
   return {
     contacts: state.contacts,
-    addedContactIds: state.sortContact.addedContactIds
+    addedContactIds: state.sortContact.addedContactIds,
+    contactDetailsForm: state.form.contactDetailsForm
   }
 }
 
-export default connect(mapStateToProps)(SortContactContainer)
+export default connect(mapStateToProps, { updateContact, deleteContact, submit})(SortContactContainer)

@@ -2,6 +2,8 @@ import React, { PureComponent, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { addContactToNetworklist } from '../../actions/networklists'
 import { addNetworkListToContact } from '../../actions/contacts'
+import {formFieldsContactDetails as formFields} from '../../helpers/formData'
+import _ from 'lodash'
 import Media from 'react-media'
 import ModalButton from '../modals/ModalButton'
 import Snackbar from 'material-ui/Snackbar'
@@ -33,18 +35,29 @@ class NetworkListButton extends PureComponent {
   }
 
   handleKeyPress(event) {
-    const { networkLists } = this.props
-    const newValueObject = networkLists.map((list, index) => {
-	    return Object.assign({...list}, {buttonCode: index + 49})
+    const { contactDetailsForm } = this.props
+    let arr = []
+    let activeField
+    formFields.forEach((field) => {
+      activeField = _.get(contactDetailsForm.fields, [field, 'active'], false)
+      return arr.push(activeField)
     })
-    const findTheOneObj = (buttonCode) => newValueObject.filter((object) => {
-      return object.buttonCode === buttonCode
-    })
-    const registeredButtonCodes = newValueObject.map((list) => {
-      return list.buttonCode
-    })
-    if (registeredButtonCodes.includes(event.keyCode)) {
-      this.handleNetworkButtonClick(findTheOneObj(event.keyCode)[0].id)
+    if (arr.includes(true)) {
+      return
+    } else {
+      const { networkLists } = this.props
+      const newValueObject = networkLists.map((list, index) => {
+  	    return Object.assign({...list}, {buttonCode: index + 49})
+      })
+      const findTheOneObj = (buttonCode) => newValueObject.filter((object) => {
+        return object.buttonCode === buttonCode
+      })
+      const registeredButtonCodes = newValueObject.map((list) => {
+        return list.buttonCode
+      })
+      if (registeredButtonCodes.includes(event.keyCode)) {
+        this.handleNetworkButtonClick(findTheOneObj(event.keyCode)[0].id)
+      }
     }
   }
 
@@ -100,14 +113,12 @@ class NetworkListButton extends PureComponent {
         <Media query='(min-width: 769px)' render={() => (
           <ModalButton holderClass='modal-btn-holder' usedClassName='btn-s-a' label='Add List' modal={createNetworkListModal}/>
         )}/>
-
         <Snackbar
           className='snackbar'
           open={snackOpen}
           autoHideDuration={3000}
           message={`${oneContact[0].firstName} already added`}
           onRequestClose={this.handleRequestClose} />
-
       </div>
     </div>
     )
@@ -116,7 +127,8 @@ class NetworkListButton extends PureComponent {
 
 const mapStateToProps = (state) => {
   return {
-    networkLists: state.networkLists
+    networkLists: state.networkLists,
+    contactDetailsForm: state.form.contactDetailsForm
   }
 }
 
