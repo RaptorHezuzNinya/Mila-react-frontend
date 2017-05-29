@@ -83,7 +83,12 @@ class SortContactContainer extends PureComponent {
   }
 
   handleRemoteContactDetailSubmit = () => {
-    this.props.dispatch(submit('contactDetailsForm'))
+    this.props.submit('contactDetailsForm')
+  }
+
+  handleDeleteContact() {
+    const theCurrentContact = this.getOneContact()
+    return this.props.deleteContact(theCurrentContact)
   }
 
   handleNextContact () {
