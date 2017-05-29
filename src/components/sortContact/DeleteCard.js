@@ -1,10 +1,12 @@
 import React from 'react'
 
-const DeleteCard = (props) => {
+const DeleteCard = () => {
   return (
     <div className='delete-card-holder'>
-      <h2>Ok!</h2>
-      <p>This contact will be kept out of my records.</p>
+      <div className='delete-card'>
+        <h2>Ok!</h2>
+        <p>This contact will be kept out of my records.</p>
+      </div>
     </div>
   )
 }
