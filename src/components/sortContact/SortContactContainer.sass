@@ -26,6 +26,28 @@
     +breakpoint($brp-land)
       justify-content: center
 
+  .delete-card-wrapper
+    flex: 0 0 100%
+    justify-content: center
+    display: flex
+    .delete-card-holder
+      flex: 0 0 420px
+      border-radius: 4px
+      height: 190px
+      background-color: $greenC
+      .delete-card
+        padding: 42px
+        color: $greyB
+        text-align: center
+        h2
+          +mont-bold($greyB)
+          +f(32px)
+          margin-bottom: 0
+          letter-spacing: 0.8px
+        p
+          +mont-light($greyB)
+          +f(14px)
+
   .network-lists-wrapper
     flex: 0 0 100%
     display: flex

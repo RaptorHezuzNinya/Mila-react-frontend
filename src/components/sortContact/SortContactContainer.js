@@ -6,6 +6,7 @@ import {formFieldsContactDetails as formFields} from '../../helpers/formData'
 import _ from 'lodash'
 import Media from 'react-media'
 import ContactCard from './ContactCard'
+import DeleteCard from './DeleteCard'
 import ProgressIndicator from '../ProgressIndicator'
 import NetworkListButton from './NetworkListButton'
 import PageTitle from '../PageTitle'
@@ -47,9 +48,10 @@ class SortContactContainer extends PureComponent {
 
   handleContainerKeyPress (event) {
     const { contactDetailsForm } = this.props
+    console.log(event.keyCode)
+    // if (contactDetailsForm.fields === null) return NOTE i prolly need to ascape this shit when the emprty contact is being rendered
     let arr = []
     let activeField
-
     formFields.forEach((field) => {
       activeField = _.get(contactDetailsForm.fields, [field, 'active'], false)
       return arr.push(activeField)
@@ -61,6 +63,8 @@ class SortContactContainer extends PureComponent {
       return this.handlePrevContact()
     } else if (event.keyCode === 39 ) {
       return this.handleNextContact()
+    } else if (event.keyCode === 88) {
+      return this.handleDeleteContact()
     }
   }
 
@@ -160,9 +164,16 @@ class SortContactContainer extends PureComponent {
         <NavigateContacts
           handleNextContact={this.handleNextContact}
           handlePrevContact={this.handlePrevContact} />
+
         <div className='contact-card-wrapper'>
           <ContactCard onSubmit={this.onSubmit} oneContact={this.getOneContact()} />
         </div>
+
+        <div className='delete-card-wrapper'>
+          <DeleteCard />
+        </div>
+
+
         <div className='network-lists-wrapper'>
           <NetworkListButton
             oneContact={this.getOneContact()}
