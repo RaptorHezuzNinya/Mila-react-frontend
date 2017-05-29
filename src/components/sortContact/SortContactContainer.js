@@ -28,6 +28,7 @@ class SortContactContainer extends PureComponent {
     this.handleNextContact = this.handleNextContact.bind(this)
     this.handlePrevContact = this.handlePrevContact.bind(this)
     this.handleContainerKeyPress = this.handleContainerKeyPress.bind(this)
+    this.handleDeleteContact = this.handleDeleteContact.bind(this)
   }
 
   static propTypes = {
@@ -165,7 +166,7 @@ class SortContactContainer extends PureComponent {
             labelPosition='before'
             hoverColor='none'
             disableTouchRipple={true}
-            onClick={() => console.log('delete FB contact')} >
+            onClick={this.handleDeleteContact} >
             <NotIcon className='not-icon' />
           </FlatButton>
         </div>
