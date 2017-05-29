@@ -48,6 +48,7 @@ class SortContactContainer extends PureComponent {
   handleContainerKeyPress (event) {
     const { contactDetailsForm } = this.props
     console.log(event.keyCode)
+    // if (contactDetailsForm.fields === null) return NOTE i prolly need to ascape this shit when the emprty contact is being rendered
     let arr = []
     let activeField
     formFields.forEach((field) => {
@@ -165,6 +166,7 @@ class SortContactContainer extends PureComponent {
         <div className='contact-card-wrapper'>
           <ContactCard onSubmit={this.onSubmit} oneContact={this.getOneContact()} />
         </div>
+
         <div className='network-lists-wrapper'>
           <NetworkListButton
             oneContact={this.getOneContact()}
