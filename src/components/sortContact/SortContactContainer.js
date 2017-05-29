@@ -6,6 +6,7 @@ import {formFieldsContactDetails as formFields} from '../../helpers/formData'
 import _ from 'lodash'
 import Media from 'react-media'
 import ContactCard from './ContactCard'
+import DeleteCard from './DeleteCard'
 import ProgressIndicator from '../ProgressIndicator'
 import NetworkListButton from './NetworkListButton'
 import PageTitle from '../PageTitle'
@@ -165,6 +166,9 @@ class SortContactContainer extends PureComponent {
           handlePrevContact={this.handlePrevContact} />
         <div className='contact-card-wrapper'>
           <ContactCard onSubmit={this.onSubmit} oneContact={this.getOneContact()} />
+        </div>
+        <div>
+          <DeleteCard />
         </div>
 
         <div className='network-lists-wrapper'>
