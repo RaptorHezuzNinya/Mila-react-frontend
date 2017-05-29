@@ -45,15 +45,24 @@ class SortContactContainer extends PureComponent {
     window.removeEventListener('keydown', this.handleContainerKeyPress)
   }
 
-  handleContainerKeyPress(event) {
-    switch (event.keyCode) {
-      case 37:
-        return this.handlePrevContact()
-      case 39:
-        return this.handleNextContact()
-      default:
-        return
-    }
+  handleContainerKeyPress (event) {
+    const { contactDetailsForm } = this.props
+    let activeArray = []
+
+    let activeField
+    formFields.forEach((field) => {
+      activeField = _.get(contactDetailsForm.fields, [field, 'active'])
+      return [activeArray].concat(activeField)
+    })
+    console.log('second', activeArray)
+    // if (!activeField) {
+    //   if (event.keyCode === 37) {
+    //     return this.handlePrevContact()
+    //   } else if (event.keyCode === 39 ) {
+    //     return this.handleNextContact()
+    //   }
+    //   return
+    // }
   }
 
   handleRequestClose = () => {
@@ -72,7 +81,7 @@ class SortContactContainer extends PureComponent {
 
   onSubmit (values, dispatch, props) {
     const initVal = props.initialValues
-    console.log('val before', values)
+    // console.log('val before', values)
     formFields.forEach((field) => {
       if (!values[field]){
         values[field] = initVal[field]
