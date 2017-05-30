@@ -151,14 +151,24 @@ class SortContactContainer extends PureComponent {
   }
 
   render () {
-    const { curContactNumb, totalContacts, completedProgress, snackOpen } = this.state
+    const { curContactNumb, totalContacts, completedProgress, snackOpen, isDeleted } = this.state
+
+    let whichCard = !isDeleted
+      ? <div className='contact-card-wrapper'>
+          <ContactCard onSubmit={this.onSubmit} oneContact={this.getOneContact()} />
+        </div>
+      : <div className='delete-card-wrapper'>
+          <DeleteCard />
+        </div>
+
     return (
       <div className='sort-contact-wrapper'>
         <div className='progress-indicator-wrapper'>
           <PageTitle
             titleClassName='sortcontact-title'
             pageTitleContentH2={`${curContactNumb} / ${totalContacts} new contacts`}
-            pageTitleContentH3='since your last visit' />
+            pageTitleContentH3='since your last visit'
+          />
           <ProgressIndicator
             mode='determinate'
             holderClass='progress-indicator-holder'
