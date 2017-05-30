@@ -27,15 +27,21 @@
       justify-content: center
 
   .delete-card-wrapper
-    flex: 0 0 100%
-    justify-content: center
     display: flex
+    margin-bottom: 20px
+    +breakpoint($brp-land)
+      justify-content: center
+
     .delete-card-holder
-      flex: 0 0 420px
+      display: flex
       border-radius: 4px
       height: 190px
-      background-color: $greenC
+      justify-content: center
+      padding: 0 5px 5px
+      +breakpoint($brp-land)
+        flex: 0 0 420px
       .delete-card
+        background-color: $greenC
         padding: 42px
         color: $greyB
         text-align: center
@@ -53,7 +59,7 @@
     display: flex
     justify-content: center
 
-  .delete-wrapper
+  .delete-btn-wrapper
     padding: 35px 0
     display: flex
     justify-content: center
@@ -62,7 +68,6 @@
     .delete-btn
       width: 225px
       color: $greyB !important
-      // border: 1px solid red !important
 
       span
         +f(12px !important)

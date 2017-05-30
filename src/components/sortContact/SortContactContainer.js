@@ -22,10 +22,12 @@ class SortContactContainer extends PureComponent {
     super(props)
     this.state = {
       snackOpen: false,
+      snackDelete: false,
       contactIndex: 0,
       curContactNumb: 1,
       totalContacts: this.props.contacts.length,
-      completedProgress: 100 / this.props.contacts.length
+      completedProgress: 100 / this.props.contacts.length,
+      isDeleted: false
     }
     this.handleNextContact = this.handleNextContact.bind(this)
     this.handlePrevContact = this.handlePrevContact.bind(this)
@@ -102,10 +104,14 @@ class SortContactContainer extends PureComponent {
 
   handleDeleteContact() {
     const theCurrentContact = this.getOneContact()
-    return this.props.deleteContact(theCurrentContact)
+    this.setState({
+      snackDelete: true,
+      isDeleted: true
+    })
+    this.props.deleteContact(theCurrentContact)
   }
 
-  handleNextContact () {
+  handleNextContact() {
     const { contactIndex, curContactNumb, totalContacts, completedProgress } = this.state
     const { addedContactIds } = this.props
     this.handleRemoteContactDetailSubmit()
@@ -124,7 +130,7 @@ class SortContactContainer extends PureComponent {
     }
   }
 
-  handlePrevContact () {
+  handlePrevContact() {
     const { contactIndex, curContactNumb, totalContacts, completedProgress } = this.state
     if (contactIndex === 0) return null
     this.setState({
@@ -134,27 +140,31 @@ class SortContactContainer extends PureComponent {
     })
   }
 
-  renderSnackBar () {
-    const currentContact = this.getOneContact()
-    return (
-    <Snackbar
-      className='snackbar'
-      autoHideDuration={3000}
-      message={`Assign ${currentContact[0].firstName} to a list before pressing next`}
-      open={this.state.snackOpen}
-      onRequestClose={this.handleRequestClose} />
-    )
+  handleUndo() {
+    console.log('Undo works with second snackbar')
   }
 
+
   render () {
-    const { curContactNumb, totalContacts, completedProgress, snackOpen } = this.state
+    const { curContactNumb, totalContacts, completedProgress, snackOpen, snackDelete, isDeleted } = this.state
+    const currentContact = this.getOneContact()
+
+    let whichCard = !isDeleted
+      ? <div className='contact-card-wrapper'>
+          <ContactCard onSubmit={this.onSubmit} oneContact={this.getOneContact()} />
+        </div>
+      : <div className='delete-card-wrapper'>
+          <DeleteCard />
+        </div>
+
     return (
       <div className='sort-contact-wrapper'>
         <div className='progress-indicator-wrapper'>
           <PageTitle
             titleClassName='sortcontact-title'
             pageTitleContentH2={`${curContactNumb} / ${totalContacts} new contacts`}
-            pageTitleContentH3='since your last visit' />
+            pageTitleContentH3='since your last visit'
+          />
           <ProgressIndicator
             mode='determinate'
             holderClass='progress-indicator-holder'
@@ -163,23 +173,15 @@ class SortContactContainer extends PureComponent {
         </div>
         <NavigateContacts
           handleNextContact={this.handleNextContact}
-          handlePrevContact={this.handlePrevContact} />
-
-        <div className='contact-card-wrapper'>
-          <ContactCard onSubmit={this.onSubmit} oneContact={this.getOneContact()} />
-        </div>
-
-        <div className='delete-card-wrapper'>
-          <DeleteCard />
-        </div>
-
-
+          handlePrevContact={this.handlePrevContact}
+        />
+        {whichCard}
         <div className='network-lists-wrapper'>
           <NetworkListButton
             oneContact={this.getOneContact()}
           />
         </div>
-        <div className='delete-wrapper'>
+        <div className='delete-btn-wrapper'>
           <FlatButton
             label="Don't save this contact (x)"
             className='delete-btn'
@@ -190,11 +192,28 @@ class SortContactContainer extends PureComponent {
             <NotIcon className='not-icon' />
           </FlatButton>
         </div>
-        { this.renderSnackBar() }
+        <Snackbar
+          className='snackbar-delete'
+          autoHideDuration={3000}
+          message={`${currentContact[0].firstName} is deleted`}
+          open={snackDelete}
+          onRequestClose={this.handleRequestClose}
+          onActionTouchTap={this.handleUndo}
+          action="undo"
+        />
+        <Snackbar
+          className='snackbar'
+          autoHideDuration={3000}
+          message={`Assign ${currentContact[0].firstName} to a list before pressing next`}
+          open={this.state.snackOpen}
+          onRequestClose={this.handleRequestClose}
+        />
+
         <Media query='(min-width: 769px)' render={() => (
           <HintFooter
             holderClass='footer-holder'
-            hintText='hint-text'/>
+            hintText='hint-text'
+          />
         )}/>
       </div>
     )
