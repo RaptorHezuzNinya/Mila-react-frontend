@@ -25,7 +25,8 @@ class SortContactContainer extends PureComponent {
       contactIndex: 0,
       curContactNumb: 1,
       totalContacts: this.props.contacts.length,
-      completedProgress: 100 / this.props.contacts.length
+      completedProgress: 100 / this.props.contacts.length,
+      isDeleted: false
     }
     this.handleNextContact = this.handleNextContact.bind(this)
     this.handlePrevContact = this.handlePrevContact.bind(this)
@@ -102,7 +103,10 @@ class SortContactContainer extends PureComponent {
 
   handleDeleteContact() {
     const theCurrentContact = this.getOneContact()
-    return this.props.deleteContact(theCurrentContact)
+    this.setState({
+      isDeleted: true
+    })
+    this.props.deleteContact(theCurrentContact)
   }
 
   handleNextContact () {
