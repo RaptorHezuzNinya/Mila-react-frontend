@@ -177,17 +177,9 @@ class SortContactContainer extends PureComponent {
         </div>
         <NavigateContacts
           handleNextContact={this.handleNextContact}
-          handlePrevContact={this.handlePrevContact} />
-
-        <div className='contact-card-wrapper'>
-          <ContactCard onSubmit={this.onSubmit} oneContact={this.getOneContact()} />
-        </div>
-
-        <div className='delete-card-wrapper'>
-          <DeleteCard />
-        </div>
-
-
+          handlePrevContact={this.handlePrevContact}
+        />
+        {whichCard}
         <div className='network-lists-wrapper'>
           <NetworkListButton
             oneContact={this.getOneContact()}
@@ -208,7 +200,8 @@ class SortContactContainer extends PureComponent {
         <Media query='(min-width: 769px)' render={() => (
           <HintFooter
             holderClass='footer-holder'
-            hintText='hint-text'/>
+            hintText='hint-text'
+          />
         )}/>
       </div>
     )
