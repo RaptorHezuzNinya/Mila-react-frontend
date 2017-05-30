@@ -111,7 +111,7 @@ class SortContactContainer extends PureComponent {
     this.props.deleteContact(theCurrentContact)
   }
 
-  handleNextContact () {
+  handleNextContact() {
     const { contactIndex, curContactNumb, totalContacts, completedProgress } = this.state
     const { addedContactIds } = this.props
     this.handleRemoteContactDetailSubmit()
@@ -130,7 +130,7 @@ class SortContactContainer extends PureComponent {
     }
   }
 
-  handlePrevContact () {
+  handlePrevContact() {
     const { contactIndex, curContactNumb, totalContacts, completedProgress } = this.state
     if (contactIndex === 0) return null
     this.setState({
@@ -138,6 +138,10 @@ class SortContactContainer extends PureComponent {
       curContactNumb: curContactNumb - 1,
       completedProgress: completedProgress - (100 / totalContacts)
     })
+  }
+
+  handleUndo() {
+    console.log('Undo works with second snackbar')
   }
 
 
