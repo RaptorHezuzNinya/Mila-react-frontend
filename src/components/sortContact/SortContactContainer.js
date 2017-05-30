@@ -181,7 +181,7 @@ class SortContactContainer extends PureComponent {
             oneContact={this.getOneContact()}
           />
         </div>
-        <div className='delete-wrapper'>
+        <div className='delete-btn-wrapper'>
           <FlatButton
             label="Don't save this contact (x)"
             className='delete-btn'
@@ -193,9 +193,10 @@ class SortContactContainer extends PureComponent {
           </FlatButton>
         </div>
         <Snackbar
+          className='snackbar-delete'
           autoHideDuration={3000}
           message={`${currentContact[0].firstName} is deleted`}
-          open={this.state.snackOpen}
+          open={snackDelete}
           onRequestClose={this.handleRequestClose}
           onActionTouchTap={this.handleUndo}
           action="undo"
@@ -204,7 +205,7 @@ class SortContactContainer extends PureComponent {
           className='snackbar'
           autoHideDuration={3000}
           message={`Assign ${currentContact[0].firstName} to a list before pressing next`}
-          open={snackDelete}
+          open={this.state.snackOpen}
           onRequestClose={this.handleRequestClose}
         />
 
