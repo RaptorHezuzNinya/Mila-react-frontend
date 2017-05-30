@@ -140,20 +140,10 @@ class SortContactContainer extends PureComponent {
     })
   }
 
-  renderSnackBar () {
-    const currentContact = this.getOneContact()
-    return (
-    <Snackbar
-      className='snackbar'
-      autoHideDuration={3000}
-      message={`Assign ${currentContact[0].firstName} to a list before pressing next`}
-      open={this.state.snackOpen}
-      onRequestClose={this.handleRequestClose} />
-    )
-  }
 
   render () {
-    const { curContactNumb, totalContacts, completedProgress, snackOpen, isDeleted } = this.state
+    const { curContactNumb, totalContacts, completedProgress, snackOpen, snackDelete, isDeleted } = this.state
+    const currentContact = this.getOneContact()
 
     let whichCard = !isDeleted
       ? <div className='contact-card-wrapper'>
@@ -198,7 +188,22 @@ class SortContactContainer extends PureComponent {
             <NotIcon className='not-icon' />
           </FlatButton>
         </div>
-        { this.renderSnackBar() }
+        <Snackbar
+          autoHideDuration={3000}
+          message={`${currentContact[0].firstName} is deleted`}
+          open={this.state.snackOpen}
+          onRequestClose={this.handleRequestClose}
+          onActionTouchTap={this.handleUndo}
+          action="undo"
+        />
+        <Snackbar
+          className='snackbar'
+          autoHideDuration={3000}
+          message={`Assign ${currentContact[0].firstName} to a list before pressing next`}
+          open={snackDelete}
+          onRequestClose={this.handleRequestClose}
+        />
+
         <Media query='(min-width: 769px)' render={() => (
           <HintFooter
             holderClass='footer-holder'
