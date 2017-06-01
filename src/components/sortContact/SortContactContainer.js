@@ -196,7 +196,7 @@ class SortContactContainer extends PureComponent {
         <Snackbar
           className='snackbar-delete'
           autoHideDuration={3000}
-          message={`${currentContact[0].firstName} is deleted`}
+          message={`${!currentContact[0] ? null : currentContact[0].firstName} is deleted`}
           open={snackDelete}
           onRequestClose={this.handleRequestClose}
           onActionTouchTap={this.handleUndo}
@@ -205,7 +205,7 @@ class SortContactContainer extends PureComponent {
         <Snackbar
           className='snackbar'
           autoHideDuration={3000}
-          message={`Assign ${currentContact[0].firstName} to a list before pressing next`}
+          message={`Assign ${!currentContact[0] ? null : currentContact[0].firstName} to a list before pressing next`}
           open={this.state.snackOpen}
           onRequestClose={this.handleRequestClose}
         />
