@@ -1,96 +1,96 @@
-import { UPDATE_CONTACT, DELETE_CONTACT, ADD_NETWORKLIST_TO_CONTACT } from '../actions/contacts'
+import { UPDATE_CONTACT, DELETE_CONTACT, ADD_NETWORKLIST_TO_CONTACT, REQUEST_CONTACTS, RECEIVE_CONTACTS } from '../actions/contacts'
 
 import avatar from '../assets/images/avatars/user-darkgreen.svg'
 
-const initialState = [
-  {
-    id: 11,
-    firstName: 'Harry-Marc',
-    lastName: 'Menz',
-    companyRole: 'CEO',
-    companyName: 'Menziz Inc.',
-    email: 'harrymarc@menzcompany.com',
-    avatar,
-    message: 'Re: FoundedX - Exclusive invitation to lead the creative society',
-    networkListIds: []
-  },
-  {
-    id: 22,
-    firstName: 'Naam2',
-    lastName: 'BlaBla',
-    companyRole: 'CEO',
-    companyName: 'Compainay',
-    email: 'tanja@compainay.com',
-    avatar,
-    message: 'Re: FoundedX - Exclusive invitation to lead the creative society',
-    networkListIds: []
-  },
-  {
-    id: 13,
-    firstName: 'Ward3',
-    lastName: 'BlaBla',
-    companyRole: 'CEO',
-    companyName: 'Compainay',
-    email: 'tanja@compainay.com',
-    avatar,
-    message: 'Re: FoundedX - Exclusive invitation to lead the creative society',
-    networkListIds: []
-  },
-  {
-    id: 47,
-    firstName: 'Andreas',
-    lastName: 'BlaBla',
-    companyRole: 'CEO',
-    companyName: 'Compainay',
-    email: 'tanja@compainay.com',
-    avatar,
-    message: 'Re: FoundedX - Exclusive invitation to lead the creative society',
-    networkListIds: []
-  },
-  {
-    id: 59,
-    firstName: 'Wouter',
-    lastName: 'BlaBla',
-    companyRole: 'CEO',
-    companyName: 'Compainay',
-    email: 'tanja@compainay.com',
-    avatar,
-    message: 'Re: FoundedX - Exclusive invitation to lead the creative society',
-    networkListIds: []
-  },
-  {
-    id: 65,
-    firstName: 'Rembert',
-    lastName: 'BlaBla',
-    companyRole: 'CEO',
-    companyName: 'Compainay',
-    email: 'tanja@compainay.com',
-    avatar,
-    message: 'Re: FoundedX - Exclusive invitation to lead the creative society',
-    networkListIds: []
-  },
-  {
-    id: 71,
-    firstName: 'Math',
-    lastName: 'BlaBla',
-    companyRole: 'CEO',
-    companyName: 'Compainay',
-    email: 'tanja@compainay.com',
-    avatar,
-    message: 'Re: FoundedX - Exclusive invitation to lead the creative society',
-    networkListIds: []
-  },
-  {
-    id: 85,
-    firstName: 'Math',
-    lastName: 'BlaBla',
-    companyRole: 'CEO',
-    companyName: 'Compainay',
-    email: 'tanja@compainay.com',
-    avatar,
-    message: 'Re: FoundedX - Exclusive invitation to lead the creative society',
-    networkListIds: []
-  },
+// const initialState = [
+  // {
+  //   id: 11,
+  //   firstName: 'Harry-Marc',
+  //   lastName: 'Menz',
+  //   companyRole: 'CEO',
+  //   companyName: 'Menziz Inc.',
+  //   email: 'harrymarc@menzcompany.com',
+  //   avatar,
+  //   message: 'Re: FoundedX - Exclusive invitation to lead the creative society',
+  //   networkListIds: []
+  // },
+  // {
+  //   id: 22,
+  //   firstName: 'Naam2',
+  //   lastName: 'BlaBla',
+  //   companyRole: 'CEO',
+  //   companyName: 'Compainay',
+  //   email: 'tanja@compainay.com',
+  //   avatar,
+  //   message: 'Re: FoundedX - Exclusive invitation to lead the creative society',
+  //   networkListIds: []
+  // },
+  // {
+  //   id: 13,
+  //   firstName: 'Ward3',
+  //   lastName: 'BlaBla',
+  //   companyRole: 'CEO',
+  //   companyName: 'Compainay',
+  //   email: 'tanja@compainay.com',
+  //   avatar,
+  //   message: 'Re: FoundedX - Exclusive invitation to lead the creative society',
+  //   networkListIds: []
+  // },
+  // {
+  //   id: 47,
+  //   firstName: 'Andreas',
+  //   lastName: 'BlaBla',
+  //   companyRole: 'CEO',
+  //   companyName: 'Compainay',
+  //   email: 'tanja@compainay.com',
+  //   avatar,
+  //   message: 'Re: FoundedX - Exclusive invitation to lead the creative society',
+  //   networkListIds: []
+  // },
+  // {
+  //   id: 59,
+  //   firstName: 'Wouter',
+  //   lastName: 'BlaBla',
+  //   companyRole: 'CEO',
+  //   companyName: 'Compainay',
+  //   email: 'tanja@compainay.com',
+  //   avatar,
+  //   message: 'Re: FoundedX - Exclusive invitation to lead the creative society',
+  //   networkListIds: []
+  // },
+  // {
+  //   id: 65,
+  //   firstName: 'Rembert',
+  //   lastName: 'BlaBla',
+  //   companyRole: 'CEO',
+  //   companyName: 'Compainay',
+  //   email: 'tanja@compainay.com',
+  //   avatar,
+  //   message: 'Re: FoundedX - Exclusive invitation to lead the creative society',
+  //   networkListIds: []
+  // },
+  // {
+  //   id: 71,
+  //   firstName: 'Math',
+  //   lastName: 'BlaBla',
+  //   companyRole: 'CEO',
+  //   companyName: 'Compainay',
+  //   email: 'tanja@compainay.com',
+  //   avatar,
+  //   message: 'Re: FoundedX - Exclusive invitation to lead the creative society',
+  //   networkListIds: []
+  // },
+  // {
+  //   id: 85,
+  //   firstName: 'Math',
+  //   lastName: 'BlaBla',
+  //   companyRole: 'CEO',
+  //   companyName: 'Compainay',
+  //   email: 'tanja@compainay.com',
+  //   avatar,
+  //   message: 'Re: FoundedX - Exclusive invitation to lead the creative society',
+  //   networkListIds: []
+  // },
   // {
   //   id: 9,
   //   firstName: 'Math',

@@ -27,3 +27,19 @@ export const addNetworkListToContact = (networkListId, contactId) => {
     }
   }
 }
+
+export const REQUEST_CONTACTS = 'REQUEST_CONTACTS'
+const requestContacts = () => {
+  return {
+    type: REQUEST_CONTACTS,
+  }
+}
+
+export const RECEIVE_CONTACTS = 'RECEIVE_CONTACTS'
+const receiveContacts = (json) => {
+  return {
+    type: RECEIVE_CONTACTS,
+    payload: json.data.childeren.map(child => child.data)
+
+  }
+}
