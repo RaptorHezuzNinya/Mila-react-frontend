@@ -86,6 +86,7 @@ class NetworkListButton extends PureComponent {
   renderNetworkLists() {
     const { networkLists, oneContact } = this.props
     const { activeButtonIds } = this.state
+
     return networkLists.map((networkList, index) => {
       return (
         <div className='network-list' key={networkList.id}>
@@ -93,7 +94,7 @@ class NetworkListButton extends PureComponent {
             labelPosition='before'
             name={networkList.name}
             onClick={this.handleNetworkButtonClick.bind(this, networkList.id)}
-            className={oneContact[0].networkListIds.includes(networkList.id) ? 'network-list-btn-clicked' : 'network-list-btn'}
+            // className={oneContact[0].networkListIds.includes(networkList.id) ? 'network-list-btn-clicked' : 'network-list-btn'}
             label={networkList.title}>
             <ListIcon className='list-icon' />
             <span className='button-number'>{index + 1}</span>
@@ -117,7 +118,7 @@ class NetworkListButton extends PureComponent {
           className='snackbar'
           open={snackOpen}
           autoHideDuration={3000}
-          message={`${oneContact[0].firstName} already added`}
+          message={`${!oneContact[0] ? null : oneContact[0].firstName} already added`}
           onRequestClose={this.handleRequestClose} />
       </div>
     </div>
