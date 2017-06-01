@@ -261,14 +261,17 @@ import avatar from '../assets/images/avatars/user-darkgreen.svg'
   //   avatar,
   //   message: 'Re: FoundedX - Exclusive invitation to lead the creative society'
   // }
-]
+// ]
 
+const initialState = {
+  isFetching: false,
+  contacts: []
+}
 
 export default function contacts(state = initialState, { type, payload } = {}) {
   switch (type) {
 
     case UPDATE_CONTACT :
-
       return state.map((contact) => {
         if (contact.id === payload.contactId) {
           const updatedContactAttributes = payload.contactFields
@@ -292,6 +295,12 @@ export default function contacts(state = initialState, { type, payload } = {}) {
         }
         return contact
       })
+
+    case REQUEST_CONTACTS :
+      return Object.assign({}, state, {isFetching: true})
+
+    case RECEIVE_CONTACTS :
+      return Object.assign({}, state, {isFetching: false, contacts: payload})
 
     default :
       return state
