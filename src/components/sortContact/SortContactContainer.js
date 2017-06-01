@@ -217,7 +217,6 @@ class SortContactContainer extends PureComponent {
           open={this.state.snackOpen}
           onRequestClose={this.handleRequestClose}
         />
-
         <Media query='(min-width: 769px)' render={() => (
           <HintFooter
             holderClass='footer-holder'
