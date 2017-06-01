@@ -79,6 +79,7 @@
     "webpack-hot-middleware": "2.12.1"
   },
   "dependencies": {
+    "axios": "^0.16.1",
     "babel-plugin-transform-object-rest-spread": "^6.20.2",
     "babel-polyfill": "^6.23.0",
     "breakpoint-sass": "^2.7.1",
