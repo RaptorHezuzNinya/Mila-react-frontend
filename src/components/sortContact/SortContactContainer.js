@@ -223,10 +223,10 @@ class SortContactContainer extends PureComponent {
 
 const mapStateToProps = (state) => {
   return {
-    contacts: state.contacts,
+    contacts: state.contacts.contacts,
     addedContactIds: state.sortContact.addedContactIds,
     contactDetailsForm: state.form.contactDetailsForm
   }
 }
 
-export default connect(mapStateToProps, { updateContact, deleteContact, submit})(SortContactContainer)
+export default connect(mapStateToProps, { updateContact, deleteContact, submit, fetchContacts})(SortContactContainer)
