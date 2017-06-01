@@ -6,6 +6,7 @@ const initialState = {
 
 export default function sortContactReducer(state = initialState, { type, payload } = {}) {
   switch (type) {
+
     case ADD_CONTACT_TO_NETWORKLIST :
       if (state.addedContactIds.includes(payload.contactId)) {
         return state
