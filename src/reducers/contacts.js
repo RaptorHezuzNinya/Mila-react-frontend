@@ -265,7 +265,7 @@ import avatar from '../assets/images/avatars/user-darkgreen.svg'
 
 const initialState = {
   isFetching: false,
-  contacts: []
+  contactItems: []
 }
 
 export default function contacts(state = initialState, { type, payload } = {}) {
@@ -287,7 +287,7 @@ export default function contacts(state = initialState, { type, payload } = {}) {
       return state.filter((contact) => (mappedIds.indexOf(contact.id) === -1 ))
 
     case ADD_NETWORKLIST_TO_CONTACT :
-      return state.contacts.map(contact => {
+      return state.contactItems.map(contact => {
         if (contact.id === payload.contactId){
           let newNetworkListIdsArray = contact.networkListIds.slice()
           newNetworkListIdsArray.splice(0, 0, payload.networkListId)
@@ -300,7 +300,7 @@ export default function contacts(state = initialState, { type, payload } = {}) {
       return Object.assign({}, state, {isFetching: true})
 
     case RECEIVE_CONTACTS :
-      return Object.assign({}, state, {isFetching: false, contacts: payload})
+      return Object.assign({}, state, {isFetching: false, contactItems: payload})
 
     default :
       return state
