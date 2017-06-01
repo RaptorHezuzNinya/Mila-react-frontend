@@ -31,10 +31,6 @@ class LoadingContacts extends PureComponent {
     )
   }
 }
-const mapStateToProps = (state) => {
-  return {
-    loading: state.contacts.isFetching
-  }
-}
+const mapStateToProps = ({loading}) => ({loading})
 
 export default connect(mapStateToProps)(LoadingContacts)
