@@ -210,7 +210,7 @@ class SortContactContainer extends PureComponent {
         <Snackbar
           className='snackbar'
           autoHideDuration={3000}
-          message={`Assign ${!currentContact[0] ? null : currentContact[0].firstName} to a list before pressing next`}
+          // message={`Assign ${!currentContact[0] ? null : currentContact[0].firstName} to a list before pressing next`}
           open={this.state.snackOpen}
           onRequestClose={this.handleRequestClose}
         />
