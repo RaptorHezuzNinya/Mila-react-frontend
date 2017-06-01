@@ -6,7 +6,7 @@ export const undo = () => {
 }
 
 export const REDO = 'REDO'
-export const undo = () => {
+export const redo = () => {
   return {
     type: REDO
   }
