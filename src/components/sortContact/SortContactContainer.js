@@ -1,7 +1,7 @@
 import React, { PureComponent, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { submit } from 'redux-form'
-import { updateContact, deleteContact } from '../../actions/contacts'
+import { updateContact, deleteContact, fetchContacts } from '../../actions/contacts'
 import {formFieldsContactDetails as formFields} from '../../helpers/formData'
 import _ from 'lodash'
 import Media from 'react-media'
@@ -41,6 +41,7 @@ class SortContactContainer extends PureComponent {
   }
 
   componentDidMount () {
+    this.props.fetchContacts()
     window.addEventListener('keydown', this.handleContainerKeyPress)
   }
 
