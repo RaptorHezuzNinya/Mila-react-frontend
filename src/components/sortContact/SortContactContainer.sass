@@ -22,6 +22,7 @@
 
   .contact-card-wrapper
     display: flex
+    flex: 0 0 100%
     margin-bottom: 20px
     +breakpoint($brp-land)
       justify-content: center
@@ -89,14 +90,15 @@
       text-align: center
       +mont-light($steelC)
 
-  .footer-holder
-    height: 125px
-    background-color: $greenB
-    position: absolute
-    bottom: 0
-    width: 100%
-    .hint-text
-      text-align: center
-      padding: 38px 50px
-      +mont-light($steelC)
-      +f(14px)
+.footer-holder
+  height: 125px
+  background-color: $greenB
+  left: 0
+  position: absolute
+  bottom: 0
+  width: 100%
+  .hint-text
+    text-align: center
+    padding: 38px 50px
+    +mont-light($steelC)
+    +f(14px)
