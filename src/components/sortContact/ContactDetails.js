@@ -39,8 +39,9 @@ class ContactDetails extends PureComponent {
   }
 
   renderContactDetails () {
-    const { oneContact, handleSubmit } = this.props
-    return oneContact.map((contact) => {
+    const { currentContact, handleSubmit } = this.props
+    console.log(currentContact)
+    return currentContact.map((contact) => {
       return (
         <form className='details-form' key={contact.id} onSubmit={handleSubmit(this.props.onSubmit)}>
           { this.renderFormFields()}
@@ -51,6 +52,8 @@ class ContactDetails extends PureComponent {
   }
 
   render () {
+    const { currentContact } = this.props
+    if (!currentContact) return null
     return (
       <div className='contact-details-holder'>
         {this.renderContactDetails()}
@@ -70,14 +73,15 @@ const warn = (values) => {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  if (!ownProps.oneContact[0]) return {}
+  if (!state.sortContact.present[0]) return {}
   return {
     initialValues: {
-      firstName: ownProps.oneContact[0].firstName,
-      lastName: ownProps.oneContact[0].lastName,
-      companyName: ownProps.oneContact[0].companyName,
-      companyRole: ownProps.oneContact[0].companyRole,
-    }
+      firstName: state.sortContact.present[0].firstName,
+      lastName: state.sortContact.present[0].lastName,
+      companyName: state.sortContact.present[0].companyName,
+      companyRole: state.sortContact.present[0].companyRole,
+    },
+    currentContact: state.sortContact.present[0]
   }
 }
 
