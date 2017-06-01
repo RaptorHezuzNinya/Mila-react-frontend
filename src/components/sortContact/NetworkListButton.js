@@ -95,6 +95,7 @@ class NetworkListButton extends PureComponent {
             name={networkList.name}
             onClick={this.handleNetworkButtonClick.bind(this, networkList.id)}
             // className={oneContact[0].networkListIds.includes(networkList.id) ? 'network-list-btn-clicked' : 'network-list-btn'}
+            className='network-list-btn'
             label={networkList.title}>
             <ListIcon className='list-icon' />
             <span className='button-number'>{index + 1}</span>
