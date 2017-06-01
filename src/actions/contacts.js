@@ -1,4 +1,5 @@
 import fetch from 'isomorphic-fetch'
+import axios from 'axios'
 
 const rootUrl = 'http://localhost:3000/'
 export const UPDATE_CONTACT = 'UPDATE_CONTACT'
@@ -36,8 +37,8 @@ export const FETCH_CONTACTS = 'FETCH_CONTACTS'
 export const fetchContacts = () => {
   return (dispatch) => {
     dispatch(requestContacts())
-    return fetch('http://localhost:3000/contacts?_page=1&_limit=25')
-      .then((response) => response.json())
+    return axios.get('http://localhost:3000/contacts?_page=1&_limit=25')
+      .then((response) => response.data)
       .then((json) => dispatch(receiveContacts(json)))
   }
 }
