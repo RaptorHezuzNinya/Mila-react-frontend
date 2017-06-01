@@ -37,7 +37,7 @@ class SortContactContainer extends PureComponent {
 
   static propTypes = {
     contacts: PropTypes.array,
-    addedContactIds: PropTypes.array.isRequired
+    // addedContactIds: PropTypes.array.isRequired
   }
 
 
@@ -85,13 +85,13 @@ class SortContactContainer extends PureComponent {
     })
   }
 
-  getOneContact () {
-    const { contacts } = this.props
-    const { contactIndex } = this.state
-    return contacts.filter((contact, index) => {
-      return index === contactIndex
-    })
-  }
+  // getOneContact () {
+  //   const { contacts } = this.props
+  //   const { contactIndex } = this.state
+  //   return contacts.filter((contact, index) => {
+  //     return index === contactIndex
+  //   })
+  // }
 
   onSubmit (values, dispatch, props) {
     const initVal = props.initialValues
