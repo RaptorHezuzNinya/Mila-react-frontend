@@ -9,50 +9,47 @@ class ContactCard extends PureComponent {
   static propTypes = {
     onSubmit: PropTypes.func.isRequired
   }
-  //
-  // renderContactAvatar () {
-  //   const { currentContact } = this.props
-  //   return currentContact.map((c) => {
-  //     return (
-  //       <div className='avatar-holder' key={c.id}>
-  //         <img src={c.avatar} alt='user avatar'/>
-  //       </div>
-  //     )
-  //   })
-  // }
-  //
-  // renderContactEmail() {
-  //   const { currentContact } = this.props
-  //   return currentContact.map((c) => {
-  //     return (
-  //       <div className='email-adress' key={c.id}>
-  //         <p>{c.email}</p>
-  //       </div>
-  //     )
-  //   })
-  // }
-  //
-  // renderEmailHeader () {
-  //   const { currentContact } = this.props
-  //   return currentContact.map((c) => {
-  //     return (
-  //       <div className='email-header-holder' key={c.id}>
-  //         <p>{c.message}</p>
-  //       </div>
-  //     )
-  //   })
-  // }
+
+  renderContactAvatar () {
+    const { currentContact } = this.props
+      if (!currentContact) return null
+      return (
+        <div className='avatar-holder'>
+          <img src={currentContact.avatar} alt='user avatar'/>
+        </div>
+      )
+
+  }
+
+  renderContactEmail() {
+    const { currentContact } = this.props
+    if (!currentContact) return null
+    return (
+      <div className='email-adress'>
+        <p>{currentContact.email}</p>
+      </div>
+    )
+  }
+
+  renderEmailHeader () {
+    const { currentContact } = this.props
+    if (!currentContact) return null
+    return (
+      <div className='email-header-holder'>
+        <p>{currentContact.message}</p>
+      </div>
+    )
+  }
 
   render () {
-    console.log(this.props.currentContact)
     return (
       <div className='contact-card-holder'>
         <Paper style={styles.paper} zDepth={2}>
           <div className='paper-content-holder'>
             <ContactDetails onSubmit={this.props.onSubmit} />
-            {/* {this.renderContactAvatar()}
+            {this.renderContactAvatar()}
             {this.renderContactEmail()}
-            {this.renderEmailHeader()} */}
+            {this.renderEmailHeader()}
           </div>
         </Paper>
       </div>

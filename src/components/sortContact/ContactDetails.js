@@ -40,15 +40,13 @@ class ContactDetails extends PureComponent {
 
   renderContactDetails () {
     const { currentContact, handleSubmit } = this.props
-    console.log(currentContact)
-    return currentContact.map((contact) => {
       return (
-        <form className='details-form' key={contact.id} onSubmit={handleSubmit(this.props.onSubmit)}>
+        <form className='details-form' onSubmit={handleSubmit(this.props.onSubmit)}>
           { this.renderFormFields()}
           <div className='dot'>•</div>
         </form>
       )
-    })
+
   }
 
   render () {
