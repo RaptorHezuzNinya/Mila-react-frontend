@@ -1,3 +1,6 @@
+import fetch from 'isomorphic-fetch'
+
+const rootUrl = 'http://localhost:3000/'
 export const UPDATE_CONTACT = 'UPDATE_CONTACT'
 export const updateContact = (contactFields, contactId) => {
   return {
