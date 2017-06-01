@@ -1,4 +1,4 @@
-import { UPDATE_CONTACT, DELETE_CONTACT, ADD_NETWORKLIST_TO_CONTACT, REQUEST_CONTACTS, RECEIVE_CONTACTS } from '../actions/contacts'
+import { UPDATE_CONTACT, DELETE_CONTACT, ADD_NETWORKLIST_TO_CONTACT } from '../actions/contacts'
 
 import avatar from '../assets/images/avatars/user-darkgreen.svg'
 
@@ -264,8 +264,7 @@ import avatar from '../assets/images/avatars/user-darkgreen.svg'
 // ]
 
 const initialState = {
-  isFetching: false,
-  contactItems: []
+
 }
 
 export default function contacts(state = initialState, { type, payload } = {}) {
@@ -296,11 +295,7 @@ export default function contacts(state = initialState, { type, payload } = {}) {
         return contact
       })
 
-    case REQUEST_CONTACTS :
-      return Object.assign({}, state, {isFetching: true})
 
-    case RECEIVE_CONTACTS :
-      return Object.assign({}, state, {isFetching: false, contactItems: payload})
 
     default :
       return state
