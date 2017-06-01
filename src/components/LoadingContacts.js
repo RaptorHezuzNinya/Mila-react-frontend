@@ -33,7 +33,7 @@ class LoadingContacts extends PureComponent {
 }
 const mapStateToProps = (state) => {
   return {
-    loading: state.loading
+    loading: state.contacts.isFetching
   }
 }
 
