@@ -156,11 +156,10 @@ class SortContactContainer extends PureComponent {
 
   render () {
     const { curContactNumb, totalContacts, completedProgress, snackOpen, snackDelete, isDeleted } = this.state
-    const currentContact = this.getOneContact()
 
     let whichCard = !isDeleted
       ? <div className='contact-card-wrapper'>
-          <ContactCard onSubmit={this.onSubmit} oneContact={this.getOneContact()} />
+          <ContactCard onSubmit={this.onSubmit} />
         </div>
       : <div className='delete-card-wrapper'>
           <DeleteCard />
@@ -186,9 +185,7 @@ class SortContactContainer extends PureComponent {
         />
         {whichCard}
         <div className='network-lists-wrapper'>
-          <NetworkListButton
-            oneContact={this.getOneContact()}
-          />
+          <NetworkListButton />
         </div>
         <div className='delete-btn-wrapper'>
           <FlatButton
@@ -204,7 +201,7 @@ class SortContactContainer extends PureComponent {
         <Snackbar
           className='snackbar-delete'
           autoHideDuration={3000}
-          message={`${!currentContact[0] ? null : currentContact[0].firstName} is deleted`}
+          // message={`${!currentContact[0] ? null : currentContact[0].firstName} is deleted`}
           open={snackDelete}
           onRequestClose={this.handleRequestClose}
           onActionTouchTap={this.handleUndo}
