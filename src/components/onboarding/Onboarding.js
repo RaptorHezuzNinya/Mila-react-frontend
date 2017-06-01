@@ -1,4 +1,4 @@
-import React, { PureComponent, PropTypes } from 'react'
+import React, { PureComponent } from 'react'
 import Media from 'react-media'
 import OnboardingDeskModal from '../modals/OnboardingDeskModal'
 import OnboardingStepper from './OnboardingStepper'
