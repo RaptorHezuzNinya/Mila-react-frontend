@@ -37,8 +37,9 @@ export const FETCH_CONTACTS = 'FETCH_CONTACTS'
 export const fetchContacts = () => {
   return (dispatch) => {
     dispatch(requestContacts())
-    return axios.get('http://localhost:3000/contacts?_page=1&_limit=25')
+    return axios.get(`${rootUrl}contacts?_page=1&_limit=25`)
       .then((response) => response.data)
+      .catch((error) => console.log(error))
       .then((json) => dispatch(receiveContacts(json)))
   }
 }
