@@ -40,17 +40,17 @@ class SortContactContainer extends PureComponent {
     // addedContactIds: PropTypes.array.isRequired
   }
 
-
-  componentWillReceiveProps(){
-    this.setState({
-      totalContacts: this.props.contacts.length,
-      completedProgress: 100 / this.props.contacts.length
-    })
-    console.log(this.props.contacts.length)
-  }
   componentDidMount() {
     this.props.fetchContacts()
     window.addEventListener('keydown', this.handleContainerKeyPress)
+  }
+
+  componentWillReceiveProps(){
+    this.setState({
+      totalContacts: this.props.totalContacts.length,
+      completedProgress: 100 / this.props.totalContacts.length
+    })
+    console.log(this.props.contacts.length)
   }
 
   componentWillUnmount(){
