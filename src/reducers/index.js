@@ -6,13 +6,15 @@ import modal from './modal'
 import onboarding from './onboarding'
 import userReducer from './userReducer'
 import sortContactReducer from './sortContactReducer'
+import loadingReducer from './loadingReducer'
 
 module.exports = {
+  form: formReducer,
   contacts,
   networkLists,
   modal,
   onboarding,
-  sortContact: sortContactReducer,
   user: userReducer,
-  form: formReducer
+  sortContact: sortContactReducer,
+  loading: loadingReducer
 }

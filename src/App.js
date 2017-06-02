@@ -3,6 +3,7 @@ import classNames from 'classNames'
 import Navigation from './components/Navigation'
 import MenuDrawer from './components/MenuDrawer'
 import ModalRoot from './components/modals/ModalRoot'
+import LoadingContacts from './components/LoadingContacts'
 // Material UI Components
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import muiTheme from './assets/styles/theme'
@@ -28,7 +29,6 @@ class App extends Component {
   }
 
   handleOpenMenuDrawer () {
-    console.log('clicked')
     this.setState({
       openDrawer: !this.state.openDrawer
     })
@@ -47,6 +47,7 @@ class App extends Component {
           <Navigation handleOpenMenuDrawer={this.handleOpenMenuDrawer}/>
           <MenuDrawer handleOpenMenuDrawer={this.handleOpenMenuDrawer} openDrawer={this.state.openDrawer}/>
           <ModalRoot />
+          <LoadingContacts />
           <div className={contentClass}>
             {this.props.children}
           </div>
