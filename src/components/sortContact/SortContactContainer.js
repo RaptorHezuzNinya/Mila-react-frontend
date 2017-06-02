@@ -86,14 +86,6 @@ class SortContactContainer extends PureComponent {
     })
   }
 
-  // getOneContact () {
-  //   const { contacts } = this.props
-  //   const { contactIndex } = this.state
-  //   return contacts.filter((contact, index) => {
-  //     return index === contactIndex
-  //   })
-  // }
-
   onSubmit (values, dispatch, props) {
     const initVal = props.initialValues
     // console.log('val before', values)
@@ -158,7 +150,8 @@ class SortContactContainer extends PureComponent {
 
   render () {
     const { curContactNumb, totalContacts, completedProgress, snackOpen, snackDelete, isDeleted } = this.state
-    console.log(this.props.totalContacts.length)
+    const { currentContact } = this.props
+    console.log('WAT ZIT ER IN CONTACTS', this.props.contacts)
     let whichCard = !isDeleted
       ? <div className='contact-card-wrapper'>
           <ContactCard onSubmit={this.onSubmit} />
