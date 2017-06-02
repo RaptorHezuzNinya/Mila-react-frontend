@@ -265,7 +265,7 @@ import avatar from '../assets/images/avatars/user-darkgreen.svg'
 // ]
 
 const initialState = {
-
+  totalContacts: []
 }
 
 export default function contacts(state = initialState, { type, payload } = {}) {
@@ -296,6 +296,8 @@ export default function contacts(state = initialState, { type, payload } = {}) {
         return contact
       })
 
+    case RECEIVE_CONTACTS :
+      return {...state, totalContacts: payload}
 
 
     default :
