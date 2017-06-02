@@ -1,3 +1,21 @@
+export const inlineNavigateContactsStyles = {
+  iconStyleNext: {
+    color: '#f2f6fa',
+    fontSize: 40,
+    display: 'flex',
+    justifyContent: 'flex-end'
+  },
+  iconStylePrev: {
+    color: '#f2f6fa',
+    fontSize: 40,
+    display: 'flex',
+    justifyContent: 'flex-start'
+  },
+  button: {
+    height: 100,
+    width: 100
+  }
+}
 // imported in ~/components/sortContact/SortContactContainer.js
 export const inlineContactDetailsStyles = {
   input: {
