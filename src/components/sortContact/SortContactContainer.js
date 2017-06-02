@@ -156,7 +156,7 @@ class SortContactContainer extends PureComponent {
 
   render () {
     const { curContactNumb, totalContacts, completedProgress, snackOpen, snackDelete, isDeleted } = this.state
-
+    console.log(this.props.totalContacts.length)
     let whichCard = !isDeleted
       ? <div className='contact-card-wrapper'>
           <ContactCard onSubmit={this.onSubmit} />
@@ -228,6 +228,7 @@ class SortContactContainer extends PureComponent {
 const mapStateToProps = (state) => {
   return {
     contacts: state.sortContact.present.contacts,
+    totalContacts: state.contacts.totalContacts,
     addedContactIds: state.sortContact.addedContactIds,
     contactDetailsForm: state.form.contactDetailsForm,
 
