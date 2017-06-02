@@ -23,7 +23,7 @@ class NetworkListButton extends PureComponent {
 
   static propTypes = {
     networkLists: PropTypes.array.isRequired,
-    oneContact: PropTypes.array.isRequired
+    // oneContact: PropTypes.array.isRequired
   }
 
   componentDidMount() {
