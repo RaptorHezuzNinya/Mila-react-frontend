@@ -42,7 +42,7 @@ class ContactCard extends PureComponent {
   }
 
   render () {
-    console.log(this.props.currentContact)
+
     return (
       <div className='contact-card-holder'>
         <Paper style={styles.paper} zDepth={2}>
