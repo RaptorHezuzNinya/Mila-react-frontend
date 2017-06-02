@@ -32,16 +32,21 @@ export function undoable(reducer) {
 
       default:
         const newPresent = reducer(present, action)
+
+        console.log('present:', present, 'newPresent:', newPresent)
+        console.log('state', state)
+
         if (present === newPresent) {
           return state
         }
         const neededPresent = newPresent.contacts.slice(0, 1)
         const neededFuture = newPresent.contacts.slice(1)
-        console.log('newPresent', newPresent)
+        // console.log('newPresent', newPresent)
         return {
           past: [...past, present],
           present: neededPresent[0],
-          future: neededFuture
+          future: neededFuture,
+
         }
     }
   }
