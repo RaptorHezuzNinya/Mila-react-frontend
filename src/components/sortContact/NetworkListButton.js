@@ -109,7 +109,7 @@ class NetworkListButton extends PureComponent {
 
   render() {
     const { snackOpen, createNetworkListModal } = this.state
-    const { oneContact } = this.props
+    const { currentContact } = this.props
     return (
       <div>
       <div className='network-lists-holder'>
@@ -121,7 +121,7 @@ class NetworkListButton extends PureComponent {
           className='snackbar'
           open={snackOpen}
           autoHideDuration={3000}
-          // message={`${!oneContact[0] ? null : oneContact[0].firstName} already added`}
+          message={`${!currentContact ? null : currentContact.firstName} already added`}
           onRequestClose={this.handleRequestClose} />
       </div>
     </div>
@@ -131,6 +131,7 @@ class NetworkListButton extends PureComponent {
 
 const mapStateToProps = (state) => {
   return {
+    currentContact: state.sortContact.present,
     networkLists: state.networkLists,
     contactDetailsForm: state.form.contactDetailsForm
   }
