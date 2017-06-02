@@ -70,15 +70,15 @@ const warn = (values) => {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  if (!state.sortContact.present[0]) return {}
+  if (!ownProps.currentContact) return {}
   return {
     initialValues: {
-      firstName: state.sortContact.present[0].firstName,
-      lastName: state.sortContact.present[0].lastName,
-      companyName: state.sortContact.present[0].companyName,
-      companyRole: state.sortContact.present[0].companyRole,
+      firstName: ownProps.currentContact.firstName,
+      lastName: ownProps.currentContact.lastName,
+      companyName: ownProps.currentContact.companyName,
+      companyRole: ownProps.currentContact.companyRole,
     },
-    currentContact: state.sortContact.present[0]
+    currentContact: ownProps.currentContact
   }
 }
 
