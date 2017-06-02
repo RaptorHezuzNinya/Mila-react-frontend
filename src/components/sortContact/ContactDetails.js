@@ -70,7 +70,7 @@ const warn = (values) => {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  if (!ownProps.currentContact) return {}
+
   return {
     initialValues: {
       firstName: ownProps.currentContact.firstName,

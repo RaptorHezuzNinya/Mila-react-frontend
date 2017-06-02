@@ -59,7 +59,7 @@ class ContactCard extends PureComponent {
 }
 const mapStateToProps = (state) => {
   return {
-    currentContact: state.sortContact.present[0]
+    currentContact: state.sortContact.present
   }
 }
 export default connect(mapStateToProps)(ContactCard)

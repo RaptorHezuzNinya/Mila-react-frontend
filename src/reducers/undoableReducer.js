@@ -40,7 +40,7 @@ export function undoable(reducer) {
         console.log('newPresent', newPresent)
         return {
           past: [...past, present],
-          present: neededPresent,
+          present: neededPresent[0],
           future: neededFuture
         }
     }
