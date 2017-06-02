@@ -42,11 +42,12 @@ class ContactCard extends PureComponent {
   }
 
   render () {
+    console.log(this.props.currentContact)
     return (
       <div className='contact-card-holder'>
         <Paper style={styles.paper} zDepth={2}>
           <div className='paper-content-holder'>
-            <ContactDetails onSubmit={this.props.onSubmit} />
+            <ContactDetails onSubmit={this.props.onSubmit} currentContact={this.props.currentContact}/>
             {this.renderContactAvatar()}
             {this.renderContactEmail()}
             {this.renderEmailHeader()}

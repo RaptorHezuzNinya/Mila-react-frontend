@@ -9,7 +9,7 @@ import './ContactDetails.sass'
 class ContactDetails extends PureComponent {
   static propTypes = {
     onSubmit: PropTypes.func.isRequired,
-    // oneContact: PropTypes.array.isRequired
+    currentContact: PropTypes.array.isRequired
   }
 
   renderTextField = ({ input, label, multiLine, rows, rowsMax, maxChars, meta: { touched, warning } }) => (
