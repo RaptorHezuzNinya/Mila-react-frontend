@@ -1,5 +1,5 @@
 import { LOADING_CONTACTS, LOADING_CONTACTS_DONE } from '../actions/loading'
-import { REQUEST_CONTACTS, RECEIVE_CONTACTS } from '../actions/contacts'
+import { REQUEST_CONTACTS, RECEIVE_CONTACTS } from '../actions/sortContacts'
 
 export default function loadingReducer(state = false, {type} = {}) {
   switch (type) {

@@ -1,5 +1,5 @@
 import { ADD_CONTACT_TO_NETWORKLIST } from '../actions/networklists'
-import { REQUEST_CONTACTS, RECEIVE_CONTACTS } from '../actions/contacts'
+import { REQUEST_CONTACTS, RECEIVE_CONTACTS } from '../actions/sortContacts'
 import { undoable } from './undoableReducer'
 
 const initialState = {
