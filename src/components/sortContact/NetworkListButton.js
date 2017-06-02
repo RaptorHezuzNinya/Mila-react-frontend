@@ -68,19 +68,21 @@ class NetworkListButton extends PureComponent {
   }
 
   handleNetworkButtonClick(networkListId) {
-    const { oneContact, networkLists } = this.props
-    const theOneContactId = oneContact[0].id
+    const { currentContact, networkLists } = this.props
+
     const neededNWL = networkLists.filter((networkList) => {
       return networkList.id === networkListId
     })
-    const match = neededNWL[0].contactIds.includes(theOneContactId)
+
+    const match = neededNWL[0].contactIds.includes(currentContact.id)
     if (match) {
       return this.setState({
         snackOpen: true
       })
+    } else {
+      this.props.addContactToNetworklist(currentContact.id, networkListId)
+      // this.props.addNetworkListToContact(networkListId, currentContact.id)
     }
-    this.props.addContactToNetworklist(theOneContactId, networkListId)
-    this.props.addNetworkListToContact(networkListId, theOneContactId)
   }
 
   renderNetworkLists() {
