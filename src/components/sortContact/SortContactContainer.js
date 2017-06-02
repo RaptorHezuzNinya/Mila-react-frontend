@@ -60,28 +60,6 @@ class SortContactContainer extends PureComponent {
     window.removeEventListener('keydown', this.handleContainerKeyPress)
   }
 
-  handleContainerKeyPress(event) {
-    const { contactDetailsForm } = this.props
-    console.log(event.keyCode)
-    // if (contactDetailsForm.fields === null) return NOTE i prolly need to ascape this shit when the emprty contact is being rendered
-    let arr = []
-    let activeField
-    formFields.forEach((field) => {
-      activeField = _.get(contactDetailsForm.fields, [field, 'active'], false)
-      return arr.push(activeField)
-    })
-    if (arr.includes(true)) {
-      return
-    }
-    else if (event.keyCode === 37) {
-      return this.handlePrevContact()
-    } else if (event.keyCode === 39 ) {
-      return this.handleNextContact()
-    } else if (event.keyCode === 88) {
-      return this.handleDeleteContact()
-    }
-  }
-
   handleRequestClose = () => {
     this.setState({
       snackOpen: false,
@@ -115,11 +93,34 @@ class SortContactContainer extends PureComponent {
     this.props.deleteContact(theCurrentContact)
   }
 
+  handleContainerKeyPress(event) {
+    const { contactDetailsForm } = this.props
+    console.log(event.keyCode)
+    // if (contactDetailsForm.fields === null) return NOTE i prolly need to ascape this shit when the emprty contact is being rendered
+    let arr = []
+    let activeField
+    formFields.forEach((field) => {
+      activeField = _.get(contactDetailsForm.fields, [field, 'active'], false)
+      return arr.push(activeField)
+    })
+    if (arr.includes(true)) {
+      return
+    }
+    else if (event.keyCode === 37) {
+      return this.handlePrevContact()
+    } else if (event.keyCode === 39 ) {
+      return this.handleNextContact()
+    } else if (event.keyCode === 88) {
+      return this.handleDeleteContact()
+    }
+  }
+
   handleNextContact() {
     const { contactIndex, curContactNumb, totalContacts, completedProgress } = this.state
     const { addedContactIds } = this.props
+
     return this.props.redo()
-    
+
     this.handleRemoteContactDetailSubmit()
     if (contactIndex >= (totalContacts - 1) ) return null
     const theCurrentContactId = this.getOneContact()
@@ -146,15 +147,14 @@ class SortContactContainer extends PureComponent {
     })
   }
 
-  handleUndo() {
-    console.log('Undo works with second snackbar')
-  }
-
-
+  // handleUndo() {
+  //   console.log('Undo works with second snackbar')
+  // }
+  
   render () {
     const { curContactNumb, totalContacts, completedProgress, snackOpen, snackDelete, isDeleted } = this.state
     const { currentContact } = this.props
-    console.log('WAT ZIT ER IN CONTACTS', this.props.contacts)
+
     let whichCard = !isDeleted
       ? <div className='contact-card-wrapper'>
           <ContactCard onSubmit={this.onSubmit} />
