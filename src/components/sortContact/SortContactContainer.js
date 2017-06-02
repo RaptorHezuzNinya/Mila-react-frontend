@@ -47,19 +47,18 @@ class SortContactContainer extends PureComponent {
     window.addEventListener('keydown', this.handleContainerKeyPress)
   }
 
-  componentWillReceiveProps(){
+  componentWillReceiveProps() {
     this.setState({
       totalContacts: this.props.totalContacts.length,
       completedProgress: 100 / this.props.totalContacts.length
     })
-    console.log(this.props.contacts.length)
   }
 
-  componentWillUnmount(){
+  componentWillUnmount() {
     window.removeEventListener('keydown', this.handleContainerKeyPress)
   }
 
-  handleContainerKeyPress (event) {
+  handleContainerKeyPress(event) {
     const { contactDetailsForm } = this.props
     console.log(event.keyCode)
     // if (contactDetailsForm.fields === null) return NOTE i prolly need to ascape this shit when the emprty contact is being rendered
@@ -125,6 +124,7 @@ class SortContactContainer extends PureComponent {
   handleNextContact() {
     const { contactIndex, curContactNumb, totalContacts, completedProgress } = this.state
     const { addedContactIds } = this.props
+    return this.props.redo()
     this.handleRemoteContactDetailSubmit()
     if (contactIndex >= (totalContacts - 1) ) return null
     const theCurrentContactId = this.getOneContact()
