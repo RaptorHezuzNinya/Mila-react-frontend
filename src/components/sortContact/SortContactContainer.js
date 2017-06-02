@@ -173,7 +173,6 @@ class SortContactContainer extends PureComponent {
           <PageTitle
             titleClassName='sortcontact-title'
             pageTitleContentH2={`${curContactNumb} / ${totalContacts} new contacts`}
-            pageTitleContentH3='since your last visit'
           />
           <ProgressIndicator
             mode='determinate'
