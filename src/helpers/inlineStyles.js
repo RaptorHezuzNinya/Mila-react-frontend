@@ -1,3 +1,4 @@
+// imported in ~/components/sortContact/NavigateContacts.js
 export const inlineNavigateContactsStyles = {
   iconStyleNext: {
     color: '#f2f6fa',

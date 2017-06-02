@@ -8,9 +8,11 @@ const initialState = {
 }
 
 const sortContactReducer = (state = initialState, { type, payload } = {}) => {
+
   switch (type) {
 
     case ADD_CONTACT_TO_NETWORKLIST :
+    return console.log('STATE', state)
       if (state.addedContactIds.includes(payload.contactId)) {
         return state
       }
@@ -20,6 +22,7 @@ const sortContactReducer = (state = initialState, { type, payload } = {}) => {
       //   return {...state}
 
       case RECEIVE_CONTACTS :
+        console.log('sortcontact State', state)
         return {...state, contacts: payload}
 
     default:
