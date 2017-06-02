@@ -39,14 +39,13 @@ class ContactDetails extends PureComponent {
   }
 
   renderContactDetails () {
-    const { currentContact, handleSubmit } = this.props
-      return (
-        <form className='details-form' onSubmit={handleSubmit(this.props.onSubmit)}>
-          { this.renderFormFields()}
-          <div className='dot'>•</div>
-        </form>
-      )
-
+    const { handleSubmit } = this.props
+    return (
+      <form className='details-form' onSubmit={handleSubmit(this.props.onSubmit)}>
+        { this.renderFormFields()}
+        <div className='dot'>•</div>
+      </form>
+    )
   }
 
   render () {
