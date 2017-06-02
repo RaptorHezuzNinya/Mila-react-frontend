@@ -1,4 +1,5 @@
 import { UPDATE_CONTACT, DELETE_CONTACT, ADD_NETWORKLIST_TO_CONTACT } from '../actions/contacts'
+import { RECEIVE_CONTACTS } from '../actions/sortContacts'
 
 import avatar from '../assets/images/avatars/user-darkgreen.svg'
 
