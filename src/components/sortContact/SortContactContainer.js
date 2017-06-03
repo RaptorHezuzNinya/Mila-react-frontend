@@ -132,10 +132,8 @@ class SortContactContainer extends PureComponent {
       totalContacts,
       completedProgress,
     } = this.state;
-    const { addedContactIds } = this.props;
-
-    // return this.props.redo();
-
+    // const { addedContactIds } = this.props;
+    return this.props.redo();
     this.handleRemoteContactDetailSubmit();
     if (contactIndex >= totalContacts - 1) return null;
     const theCurrentContactId = this.getOneContact();
@@ -145,6 +143,7 @@ class SortContactContainer extends PureComponent {
         curContactNumb: curContactNumb + 1,
         completedProgress: completedProgress + 100 / totalContacts,
       });
+      return this.props.redo();
     } else {
       return this.setState({
         snackOpen: true,
@@ -159,6 +158,7 @@ class SortContactContainer extends PureComponent {
       totalContacts,
       completedProgress,
     } = this.state;
+    return this.props.undo();
     if (contactIndex === 0) return null;
     this.setState({
       contactIndex: contactIndex - 1,
@@ -181,7 +181,6 @@ class SortContactContainer extends PureComponent {
       isDeleted,
     } = this.state;
     const { currentContact } = this.props;
-
     let whichCard = !isDeleted
       ? <div className="contact-card-wrapper">
           <ContactCard onSubmit={this.onSubmit} />
