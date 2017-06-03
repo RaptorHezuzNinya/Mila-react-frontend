@@ -55,6 +55,12 @@ class SortContactContainer extends PureComponent {
   }
 
   componentWillReceiveProps() {
+    console.log(
+      'totalcontacts',
+      this.props.totalContacts,
+      'addedcontactIDs',
+      this.props.addedContactIds
+    );
     this.setState({
       totalContacts: this.props.totalContacts.length,
       completedProgress: 100 / this.props.totalContacts.length,
@@ -98,7 +104,7 @@ class SortContactContainer extends PureComponent {
     this.props.deleteContact(theCurrentContact);
   }
 
-  handleContainerKeyPress(event) {
+  handleContainerKeyPress = event => {
     const { contactDetailsForm } = this.props;
     console.log(event.keyCode);
     // if (contactDetailsForm.fields === null) return NOTE i prolly need to ascape this shit when the emprty contact is being rendered
@@ -117,7 +123,7 @@ class SortContactContainer extends PureComponent {
     } else if (event.keyCode === 88) {
       return this.handleDeleteContact();
     }
-  }
+  };
 
   handleNextContact() {
     const {
