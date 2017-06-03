@@ -3,13 +3,14 @@ import { REQUEST_CONTACTS, RECEIVE_CONTACTS } from '../actions/sortContacts';
 import { undoable } from './undoableReducer';
 
 const initialState = {
-  contacts: [],
+  totalSortContacts: [],
   addedContactIds: [],
 };
 
 const sortContactReducer = (state = initialState, { type, payload } = {}) => {
   switch (type) {
     case ADD_CONTACT_TO_NETWORKLIST:
+      return console.log('STATE in reducer', state);
       if (state.addedContactIds.includes(payload.contactId)) {
         return state;
       }
@@ -22,8 +23,7 @@ const sortContactReducer = (state = initialState, { type, payload } = {}) => {
 
 
     case RECEIVE_CONTACTS:
-      console.log('sortcontact State', state);
-      return { ...state, contacts: payload };
+      return { ...state, totalSortContacts: payload };
 
     default:
       return state;

@@ -5,6 +5,7 @@ export function undoable(reducer) {
     past: [],
     present: reducer(undefined, {}),
     future: [],
+    sortingData: reducer(undefined, {}),
   };
 
   return (state = initialState, action) => {
@@ -23,28 +24,27 @@ export function undoable(reducer) {
       case REDO:
         const next = future[0];
         const newFuture = future.slice(1);
+        const sortingState = state.sortingData;
         return {
           past: [...past, present],
           present: next,
           future: newFuture,
+          sortingData: { ...sortingState },
         };
 
       default:
         const newPresent = reducer(present, action);
-
-        console.log('present:', present, 'newPresent:', newPresent);
-        console.log('state', state);
-
+        console.log('present', present, 'newPresent', newPresent);
         if (present === newPresent) {
           return state;
         }
-        const neededPresent = newPresent.contacts.slice(0, 1);
-        const neededFuture = newPresent.contacts.slice(1);
-        // console.log('newPresent', newPresent)
+        const neededPresent = newPresent.totalSortContacts.slice(0, 1);
+        const neededFuture = newPresent.totalSortContacts.slice(1);
         return {
-          past: [...past, present],
+          past: [...past],
           present: neededPresent[0],
           future: neededFuture,
+          sortingData: { ...newPresent },
         };
     }
   };
