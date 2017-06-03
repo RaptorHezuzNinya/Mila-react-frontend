@@ -91,6 +91,7 @@
     "material-ui": "^0.17.0",
     "normalize.css": "^5.0.0",
     "prettier": "1.31.1",
+    "prop-types": "^15.5.10",
     "react": "^15.4.1",
     "react-dom": "^15.2.0",
     "react-media": "^1.5.1",

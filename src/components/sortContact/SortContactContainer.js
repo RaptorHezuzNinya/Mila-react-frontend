@@ -1,4 +1,5 @@
-import React, { PureComponent, PropTypes } from 'react';
+import React, { PureComponent } from 'react';
+import { PropTypes } from 'prop-types';
 import { connect } from 'react-redux';
 import { submit } from 'redux-form';
 import { updateContact, deleteContact } from '../../actions/contacts';
