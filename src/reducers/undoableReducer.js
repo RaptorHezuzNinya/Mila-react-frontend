@@ -34,7 +34,7 @@ export function undoable(reducer) {
 
       default:
         const newPresent = reducer(present, action);
-        console.log('present', present, 'newPresent', newPresent);
+        // console.log('present', present, 'newPresent', newPresent);
         if (present === newPresent) {
           return state;
         }
@@ -42,7 +42,7 @@ export function undoable(reducer) {
         const neededFuture = newPresent.totalSortContacts.slice(1);
         return {
           past: [...past],
-          present: neededPresent[0],
+          present: {neededPresent[0], ...newPresent},
           future: neededFuture,
           sortingData: { ...newPresent },
         };

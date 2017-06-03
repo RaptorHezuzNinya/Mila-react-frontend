@@ -10,7 +10,7 @@ const initialState = {
 const sortContactReducer = (state = initialState, { type, payload } = {}) => {
   switch (type) {
     case ADD_CONTACT_TO_NETWORKLIST:
-      return console.log('STATE in reducer', state);
+      console.log('STATE in reducer', state);
       if (state.addedContactIds.includes(payload.contactId)) {
         return state;
       }
