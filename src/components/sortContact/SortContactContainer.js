@@ -253,8 +253,8 @@ class SortContactContainer extends PureComponent {
 const mapStateToProps = state => {
   return {
     currentContact: state.sortContact.present,
-    totalContacts: state.contacts.totalContacts,
-    addedContactIds: state.sortContact.addedContactIds,
+    totalContacts: state.sortContact.sortingData.totalSortContacts,
+    addedContactIds: state.sortContact.sortingData.addedContactIds,
     contactDetailsForm: state.form.contactDetailsForm,
   };
 };
