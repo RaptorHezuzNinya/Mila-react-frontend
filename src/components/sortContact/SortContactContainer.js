@@ -55,12 +55,12 @@ class SortContactContainer extends PureComponent {
   }
 
   componentWillReceiveProps() {
-    console.log(
-      'totalcontacts',
-      this.props.totalContacts,
-      'addedcontactIDs',
-      this.props.addedContactIds
-    );
+    // console.log(
+    //   'totalcontacts',
+    //   this.props.totalContacts,
+    //   'addedcontactIDs',
+    //   this.props.addedContactIds
+    // );
     this.setState({
       totalContacts: this.props.totalContacts.length,
       completedProgress: 100 / this.props.totalContacts.length,

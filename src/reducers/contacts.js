@@ -37,9 +37,9 @@ export default function contacts(state = initialState, { type, payload } = {}) {
         }
         return contact;
       });
+    // case RECEIVE_CONTACTS:
+    //   return { ...state, totalContacts: payload };
 
-    case RECEIVE_CONTACTS:
-      return { ...state, totalContacts: payload };
 
     default:
       return state;
