@@ -1,18 +1,17 @@
-import { LOADING_CONTACTS, LOADING_CONTACTS_DONE } from '../actions/loading'
-import { REQUEST_CONTACTS, RECEIVE_CONTACTS } from '../actions/sortContacts'
+import { LOADING_CONTACTS, LOADING_CONTACTS_DONE } from '../actions/loading';
+import { REQUEST_CONTACTS, RECEIVE_CONTACTS } from '../actions/sortContacts';
 
-export default function loadingReducer(state = false, {type} = {}) {
+export default function loadingReducer(state = false, { type } = {}) {
   switch (type) {
+    case LOADING_CONTACTS:
+    case REQUEST_CONTACTS:
+      return true;
 
-    case LOADING_CONTACTS :
-    case REQUEST_CONTACTS :
-      return true
-
-    case LOADING_CONTACTS_DONE :
-    case RECEIVE_CONTACTS :
-      return false
+    case LOADING_CONTACTS_DONE:
+    case RECEIVE_CONTACTS:
+      return false;
 
     default:
-      return state
+      return state;
   }
 }
