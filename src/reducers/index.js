@@ -1,20 +1,20 @@
-import { reducer as formReducer } from 'redux-form'
+import { reducer as formReducer } from 'redux-form';
 
-import contacts from './contacts'
-import networkLists from './networklists'
-import modal from './modal'
-import onboarding from './onboarding'
-import userReducer from './userReducer'
-import sortContactReducer from './sortContactReducer'
-import loadingReducer from './loadingReducer'
+import contactsReducer from './contactsReducer';
+import networkLists from './networklists';
+import modal from './modal';
+import onboarding from './onboarding';
+import userReducer from './userReducer';
+import sortContactReducer from './sortContactReducer';
+import loadingReducer from './loadingReducer';
 
 module.exports = {
   form: formReducer,
-  contacts,
+  contacts: contactsReducer,
   networkLists,
   modal,
   onboarding,
   user: userReducer,
   sortContact: sortContactReducer,
-  loading: loadingReducer
-}
+  loading: loadingReducer,
+};
