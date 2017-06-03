@@ -29,7 +29,7 @@ export default function contacts(state = initialState, { type, payload } = {}) {
       return state.filter(contact => mappedIds.indexOf(contact.id) === -1);
 
     case ADD_NETWORKLIST_TO_CONTACT:
-      return state.contactItems.map(contact => {
+      return state.totalContacts.map(contact => {
         if (contact.id === payload.contactId) {
           let newNetworkListIdsArray = contact.networkListIds.slice();
           newNetworkListIdsArray.splice(0, 0, payload.networkListId);
