@@ -9,8 +9,7 @@
     "start": "node devServer.js",
     "lint": "eslint src",
     "test": "mocha test/setup.js --recursive src/*.test.js src/**/*.test.js src/**/**/*.test.js",
-    "test:watch": "mocha -w test/setup.js -G --recursive src/*.test.js src/**/*.test.js src/**/**/*.test.js",
-    "prettify": "prettier --single-quote --trailing-comma all --write {app,__{tests,mocks}__}/**/*.js"
+    "test:watch": "mocha -w test/setup.js -G --recursive src/*.test.js src/**/*.test.js src/**/**/*.test.js"
   },
   "node": "v6.9",
   "repository": {
