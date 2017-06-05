@@ -157,13 +157,13 @@ class SortContactContainer extends PureComponent {
       totalContacts,
       completedProgress,
     } = this.state;
-    return this.props.undo();
     if (contactIndex === 0) return null;
     this.setState({
       contactIndex: contactIndex - 1,
       curContactNumb: curContactNumb - 1,
       completedProgress: completedProgress - 100 / totalContacts,
     });
+    return this.props.undo();
   }
 
   // handleUndo() {
