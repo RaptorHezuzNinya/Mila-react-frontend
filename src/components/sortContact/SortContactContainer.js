@@ -29,6 +29,7 @@ class SortContactContainer extends PureComponent {
     deleteContact: PropTypes.func.isRequired,
     contactDetailsForm: PropTypes.object.isRequired,
     redo: PropTypes.func.isRequired,
+    addedContactIds: PropTypes.array.isRequired,
     // addedContactIds: PropTypes.array.isRequired
   };
 
@@ -45,8 +46,8 @@ class SortContactContainer extends PureComponent {
     };
     this.handleNextContact = this.handleNextContact.bind(this);
     this.handlePrevContact = this.handlePrevContact.bind(this);
-    // this.handleContainerKeyPress = this.handleContainerKeyPress.bind(this);
     this.handleDeleteContact = this.handleDeleteContact.bind(this);
+    // this.handleContainerKeyPress = this.handleContainerKeyPress.bind(this);
   }
 
   componentDidMount() {
