@@ -1,19 +1,19 @@
 import { UNDO, REDO } from '../actions/undoable';
-
 import { ADD_CONTACT_TO_NETWORKLIST } from '../actions/networklists';
-export const undoable = sortContactReducer => {
-  const sortContactReducerConst = sortContactReducer(undefined, {});
+import { ADD_NETWORKLIST_TO_CONTACT } from '../actions/contacts';
+
+export const undoable = reducer => {
   const initialState = {
     past: [],
-    present: sortContactReducer(undefined, {}),
+    present: reducer(undefined, {}),
     future: [],
-    sortingData: sortContactReducerConst,
+    sortingData: reducer(undefined, {}),
   };
 
   return (state = initialState, action) => {
     const { past, present, future } = state;
-
     const sortingState = state.sortingData;
+
     switch (action.type) {
       case UNDO:
         const previous = past[past.length - 1];
@@ -28,7 +28,6 @@ export const undoable = sortContactReducer => {
       case REDO:
         const next = future[0];
         const newFuture = future.slice(1);
-
         return {
           past: [...past, present],
           present: next,
@@ -53,25 +52,32 @@ export const undoable = sortContactReducer => {
           },
         };
 
-      default:
-        const newPresent = sortContactReducer(present, action);
-        console.log(
-          'present',
-          present,
-          'newPresent',
-          newPresent,
-          'state',
-          state
-        );
-        if (present === newPresent) {
-          console.log('ITS EQUAL');
+      case ADD_NETWORKLIST_TO_CONTACT:
+        console.log('state sortContactReducer', state);
+        if (state.present.id === action.payload.contactId) {
+          let newIdArr = state.present.networkListIds.slice();
+          newIdArr.splice(0, 0, action.payload.networkListId);
+          return {
+            ...state,
+            present: {
+              ...state.present,
+              networkListIds: [...newIdArr],
+            },
+          };
           return state;
         }
-        console.log('AFTER ===');
+
+      default:
+        const newPresent = reducer(present, action);
+
+        console.log(present, 'present', newPresent, 'newPresent');
+        if (present === newPresent) {
+          return state;
+        }
         const neededPresent = newPresent.totalSortContacts.slice(0, 1);
         const neededFuture = newPresent.totalSortContacts.slice(1);
         return {
-          past: [...past, present],
+          past: [...past],
           present: neededPresent[0],
           future: neededFuture,
           sortingData: { ...newPresent },

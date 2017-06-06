@@ -1,11 +1,4 @@
-import {
-  UPDATE_CONTACT,
-  DELETE_CONTACT,
-  ADD_NETWORKLIST_TO_CONTACT,
-} from '../actions/contacts';
-import { RECEIVE_CONTACTS } from '../actions/sortContacts';
-
-import avatar from '../assets/images/avatars/user-darkgreen.svg';
+import { UPDATE_CONTACT, DELETE_CONTACT } from '../actions/contacts';
 
 const initialState = {
   totalContacts: [],
@@ -27,9 +20,6 @@ const contactsReducer = (state = initialState, { type, payload } = {}) => {
         return contact.id;
       });
       return state.filter(contact => mappedIds.indexOf(contact.id) === -1);
-    // case RECEIVE_CONTACTS:
-    //   return { ...state, totalContacts: payload };
-
 
     default:
       return state;

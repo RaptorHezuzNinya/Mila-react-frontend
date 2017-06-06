@@ -5,6 +5,7 @@ import { addContactToNetworklist } from '../../actions/networklists';
 import { addNetworkListToContact } from '../../actions/contacts';
 import { formFieldsContactDetails as formFields } from '../../helpers/formData';
 import _ from 'lodash';
+import classNames from 'classNames';
 import Media from 'react-media';
 import ModalButton from '../modals/ModalButton';
 import Snackbar from 'material-ui/Snackbar';
@@ -18,6 +19,7 @@ class NetworkListButton extends PureComponent {
     addContactToNetworklist: PropTypes.func.isRequired,
     addNetworkListToContact: PropTypes.func.isRequired,
     currentContact: PropTypes.object.isRequired,
+    contactDetailsForm: PropTypes.object.isRequired,
   };
 
   constructor(props) {
@@ -26,7 +28,6 @@ class NetworkListButton extends PureComponent {
       snackOpen: false,
       createNetworkListModal: 'CREATE_NETWORKLIST_MODAL',
     };
-    this.handleKeyPress = this.handleKeyPress.bind(this);
   }
 
   componentDidMount() {
@@ -41,11 +42,17 @@ class NetworkListButton extends PureComponent {
     window.removeEventListener(
       'keydown',
       this.handleKeyPress,
-      console.log('UNMOUNTED')
+      console.log('UNMOUNT remove handler')
     );
   }
 
-  handleKeyPress(event) {
+  handleRequestClose = () => {
+    this.setState({
+      snackOpen: false,
+    });
+  };
+
+  handleKeyPress = event => {
     const { contactDetailsForm } = this.props;
     let arr = [];
     let activeField;
@@ -68,25 +75,16 @@ class NetworkListButton extends PureComponent {
         return list.buttonCode;
       });
       if (registeredButtonCodes.includes(event.keyCode)) {
-        this.handleNetworkButtonClick(findTheOneObj(event.keyCode)[0].id);
+        return this.handleNetworkButtonClick(findTheOneObj(event.keyCode)[0]);
       }
     }
-  }
-
-  handleRequestClose = () => {
-    this.setState({
-      snackOpen: false,
-    });
   };
 
-  handleNetworkButtonClick = networkList => event => {
-    event.preventDefault();
-    // networklist list is hier 1 networklist the pressed nwl
+  handleNetworkButtonClick(networkList, event) {
     const { currentContact, networkLists } = this.props;
     const neededNWL = networkLists.filter(list => {
       return list.id === networkList.id;
     });
-
     const match = neededNWL[0].contactIds.includes(currentContact.id);
     if (match) {
       return this.setState({
@@ -96,23 +94,28 @@ class NetworkListButton extends PureComponent {
       this.props.addContactToNetworklist(currentContact.id, networkList.id);
       this.props.addNetworkListToContact(networkList.id, currentContact.id);
     }
-  };
+  }
 
   renderNetworkLists = (networkList, index) => {
-    const { networkLists } = this.props;
-    // const { activeButtonIds } = this.state;
+    const { currentContact } = this.props;
+    if (!currentContact.networkListIds) return null;
+    const networkButton = classNames({
+      'network-list-btn': true,
+      'network-list-btn-clicked': currentContact.networkListIds.includes(
+        networkList.id
+      ),
+    });
     return (
       <div className="network-list" key={networkList.id}>
         <FlatButton
           labelPosition="before"
           name={networkList.name}
-          onClick={this.handleNetworkButtonClick(networkList)}
-          // className={oneContact[0].networkListIds.includes(networkList.id) ? 'network-list-btn-clicked' : 'network-list-btn'}
-          className="network-list-btn"
+          onClick={this.handleNetworkButtonClick.bind(this, networkList)}
+          className={networkButton}
           label={networkList.title}
         >
           <ListIcon className="list-icon" />
-          <span className="button-number">{index + 1}</span>
+          <span className="button-number">{1 + index}</span>
         </FlatButton>
       </div>
     );
