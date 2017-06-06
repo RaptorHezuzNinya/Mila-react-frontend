@@ -96,7 +96,7 @@ class NetworkListButton extends PureComponent {
     }
   }
 
-  renderNetworkLists(networkList, index) {
+  renderNetworkLists = (networkList, index) => {
     const { currentContact } = this.props;
     if (!currentContact.networkListIds) return null;
     const networkButton = classNames({
@@ -119,7 +119,7 @@ class NetworkListButton extends PureComponent {
         </FlatButton>
       </div>
     );
-  }
+  };
 
   render() {
     const { snackOpen, createNetworkListModal } = this.state;
@@ -127,7 +127,7 @@ class NetworkListButton extends PureComponent {
     return (
       <div>
         <div className="network-lists-holder">
-          {networkLists.map(this.renderNetworkLists.bind(this))}
+          {networkLists.map(this.renderNetworkLists)}
           <Media
             query="(min-width: 769px)"
             render={() => (
