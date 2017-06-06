@@ -19,6 +19,7 @@ class NetworkListButton extends PureComponent {
     addContactToNetworklist: PropTypes.func.isRequired,
     addNetworkListToContact: PropTypes.func.isRequired,
     currentContact: PropTypes.object.isRequired,
+    contactDetailsForm: PropTypes.object.isRequired,
   };
 
   constructor(props) {
