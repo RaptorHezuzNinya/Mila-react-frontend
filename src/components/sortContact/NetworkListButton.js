@@ -42,11 +42,17 @@ class NetworkListButton extends PureComponent {
     window.removeEventListener(
       'keydown',
       this.handleKeyPress,
-      console.log('UNMOUNTED')
+      console.log('UNMOUNT remove handler')
     );
   }
 
-  handleKeyPress(event) {
+  handleRequestClose = () => {
+    this.setState({
+      snackOpen: false,
+    });
+  };
+
+  handleKeyPress = event => {
     const { contactDetailsForm } = this.props;
     let arr = [];
     let activeField;
