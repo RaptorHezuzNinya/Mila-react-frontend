@@ -1,27 +1,39 @@
 {
-  "ecmaFeatures": {
-    "jsx": true,
-    "modules": true
+  "extends": [
+    "plugin:react/recommended",
+    "prettier",
+    "prettier/react"
+  ],
+  "parser": "babel-eslint",
+  "plugins": [
+    "react",
+    "prettier"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 2016,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
   },
   "env": {
-    "browser": true,
+    "es6": true,
     "node": true
   },
-  "parser": "babel-eslint",
-  "rules": {
-    "quotes": [2, "single"],
-    "strict": [2, "never"],
-    "babel/generator-star-spacing": 1,
-    "babel/new-cap": 0,
-    "babel/object-shorthand": 1,
-    "babel/arrow-parens": 1,
-    "babel/no-await-in-loop": 1,
-    "react/jsx-uses-react": 2,
-    "react/jsx-uses-vars": 2,
-    "react/react-in-jsx-scope": 2
+  "globals": {
+    "window": true
   },
-  "plugins": [
-    "babel",
-    "react"
-  ]
+  "rules": {
+    "prettier/prettier": ["error", {"trailingComma": true, "singleQuote": true}],
+    "no-console": 0,
+    "react/sort-comp": [1, {
+      "order": [
+        "type-annotations",
+        "static-methods",
+        "lifecycle",
+        "everything-else",
+        "render"
+      ]
+    }]
+  }
 }

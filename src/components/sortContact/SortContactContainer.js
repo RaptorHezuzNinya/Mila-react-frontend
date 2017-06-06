@@ -1,27 +1,40 @@
-import React, { PureComponent, PropTypes } from 'react'
-import { connect } from 'react-redux'
-import { submit } from 'redux-form'
-import { updateContact, deleteContact } from '../../actions/contacts'
-import { fetchContacts } from '../../actions/sortContacts'
-import { undo, redo } from '../../actions/undoable'
-import {formFieldsContactDetails as formFields} from '../../helpers/formData'
-import _ from 'lodash'
-import Media from 'react-media'
-import ContactCard from './ContactCard'
-import DeleteCard from './DeleteCard'
-import ProgressIndicator from '../ProgressIndicator'
-import NetworkListButton from './NetworkListButton'
-import PageTitle from '../PageTitle'
-import NavigateContacts from './NavigateContacts'
-import HintFooter from './HintFooter'
-import Snackbar from 'material-ui/Snackbar'
-import FlatButton from 'material-ui/FlatButton'
-import NotIcon from 'material-ui/svg-icons/av/not-interested'
-import './SortContactContainer.sass'
+import React, { PureComponent } from 'react';
+import { PropTypes } from 'prop-types';
+import { connect } from 'react-redux';
+import { submit } from 'redux-form';
+import { updateContact, deleteContact } from '../../actions/contacts';
+import { fetchContacts } from '../../actions/sortContacts';
+import { undo, redo } from '../../actions/undoable';
+import { formFieldsContactDetails as formFields } from '../../helpers/formData';
+import _ from 'lodash';
+import Media from 'react-media';
+import ContactCard from './ContactCard';
+import DeleteCard from './DeleteCard';
+import ProgressIndicator from '../ProgressIndicator';
+import NetworkListButton from './NetworkListButton';
+import PageTitle from '../PageTitle';
+import NavigateContacts from './NavigateContacts';
+import HintFooter from './HintFooter';
+import Snackbar from 'material-ui/Snackbar';
+import FlatButton from 'material-ui/FlatButton';
+import NotIcon from 'material-ui/svg-icons/av/not-interested';
+import './SortContactContainer.sass';
 
 class SortContactContainer extends PureComponent {
-  constructor(props){
-    super(props)
+  static propTypes = {
+    submit: PropTypes.func.isRequired,
+    currentContact: PropTypes.object.isRequired,
+    totalContacts: PropTypes.array.isRequired,
+    fetchContacts: PropTypes.func.isRequired,
+    deleteContact: PropTypes.func.isRequired,
+    contactDetailsForm: PropTypes.object.isRequired,
+    redo: PropTypes.func.isRequired,
+    addedContactIds: PropTypes.array.isRequired,
+    // addedContactIds: PropTypes.array.isRequired
+  };
+
+  constructor(props) {
+    super(props);
     this.state = {
       snackOpen: false,
       snackDelete: false,
@@ -29,212 +42,227 @@ class SortContactContainer extends PureComponent {
       curContactNumb: 1,
       totalContacts: null,
       completedProgress: 4,
-      isDeleted: false
-    }
-    this.handleNextContact = this.handleNextContact.bind(this)
-    this.handlePrevContact = this.handlePrevContact.bind(this)
-    this.handleContainerKeyPress = this.handleContainerKeyPress.bind(this)
-    this.handleDeleteContact = this.handleDeleteContact.bind(this)
-  }
-
-  static propTypes = {
-    contacts: PropTypes.array,
-    // addedContactIds: PropTypes.array.isRequired
+      isDeleted: false,
+    };
+    this.handleNextContact = this.handleNextContact.bind(this);
+    this.handlePrevContact = this.handlePrevContact.bind(this);
+    this.handleDeleteContact = this.handleDeleteContact.bind(this);
+    // this.handleContainerKeyPress = this.handleContainerKeyPress.bind(this);
   }
 
   componentDidMount() {
-    this.props.fetchContacts()
-    window.addEventListener('keydown', this.handleContainerKeyPress)
+    this.props.fetchContacts();
+    window.addEventListener('keydown', this.handleContainerKeyPress);
   }
 
   componentWillReceiveProps() {
+    console.log('when??');
     this.setState({
       totalContacts: this.props.totalContacts.length,
-      completedProgress: 100 / this.props.totalContacts.length
-    })
+    });
   }
 
   componentWillUnmount() {
-    window.removeEventListener('keydown', this.handleContainerKeyPress)
-  }
-
-  handleContainerKeyPress(event) {
-    const { contactDetailsForm } = this.props
-    console.log(event.keyCode)
-    // if (contactDetailsForm.fields === null) return NOTE i prolly need to ascape this shit when the emprty contact is being rendered
-    let arr = []
-    let activeField
-    formFields.forEach((field) => {
-      activeField = _.get(contactDetailsForm.fields, [field, 'active'], false)
-      return arr.push(activeField)
-    })
-    if (arr.includes(true)) {
-      return
-    }
-    else if (event.keyCode === 37) {
-      return this.handlePrevContact()
-    } else if (event.keyCode === 39 ) {
-      return this.handleNextContact()
-    } else if (event.keyCode === 88) {
-      return this.handleDeleteContact()
-    }
+    window.removeEventListener('keydown', this.handleContainerKeyPress);
   }
 
   handleRequestClose = () => {
     this.setState({
       snackOpen: false,
-    })
-  }
+    });
+  };
 
-  // getOneContact () {
-  //   const { contacts } = this.props
-  //   const { contactIndex } = this.state
-  //   return contacts.filter((contact, index) => {
-  //     return index === contactIndex
-  //   })
-  // }
-
-  onSubmit (values, dispatch, props) {
-    const initVal = props.initialValues
+  onSubmit(values, dispatch, props) {
+    const initVal = props.initialValues;
     // console.log('val before', values)
-    formFields.forEach((field) => {
-      if (!values[field]){
-        values[field] = initVal[field]
+    formFields.forEach(field => {
+      if (!values[field]) {
+        values[field] = initVal[field];
       }
-      return values
-    })
+      return values;
+    });
     if (props.dirty) {
-      return dispatch(updateContact(values, props.oneContact[0].id))
+      return dispatch(updateContact(values, props.oneContact[0].id));
     }
   }
 
   handleRemoteContactDetailSubmit = () => {
-    this.props.submit('contactDetailsForm')
-  }
+    this.props.submit('contactDetailsForm');
+  };
 
   handleDeleteContact() {
-    const theCurrentContact = this.getOneContact()
+    const theCurrentContact = this.getOneContact();
     this.setState({
       snackDelete: true,
-      isDeleted: true
-    })
-    this.props.deleteContact(theCurrentContact)
+      isDeleted: true,
+    });
+    this.props.deleteContact(theCurrentContact);
   }
 
+  handleContainerKeyPress = event => {
+    const { contactDetailsForm } = this.props;
+    console.log(event.keyCode);
+    // if (contactDetailsForm.fields === null) return NOTE i prolly need to ascape this shit when the emprty contact is being rendered
+    let arr = [];
+    let activeField;
+    formFields.forEach(field => {
+      activeField = _.get(contactDetailsForm.fields, [field, 'active'], false);
+      return arr.push(activeField);
+    });
+    if (arr.includes(true)) {
+      return;
+    } else if (event.keyCode === 37) {
+      return this.handlePrevContact();
+    } else if (event.keyCode === 39) {
+      return this.handleNextContact();
+    } else if (event.keyCode === 88) {
+      return this.handleDeleteContact();
+    }
+  };
+
   handleNextContact() {
-    const { contactIndex, curContactNumb, totalContacts, completedProgress } = this.state
-    const { addedContactIds } = this.props
-    return this.props.redo()
-    this.handleRemoteContactDetailSubmit()
-    if (contactIndex >= (totalContacts - 1) ) return null
-    const theCurrentContactId = this.getOneContact()
-    if (addedContactIds.includes(theCurrentContactId[0].id)) {
+    const {
+      contactIndex,
+      curContactNumb,
+      totalContacts,
+      completedProgress,
+    } = this.state;
+    const { addedContactIds, currentContact } = this.props;
+    this.handleRemoteContactDetailSubmit();
+    if (contactIndex >= totalContacts - 1) return null;
+    if (addedContactIds.includes(currentContact.id)) {
+      console.log(
+        'in if compled and totalcontacts',
+        completedProgress,
+        totalContacts,
+        contactIndex
+      );
       this.setState({
+        completedProgress: completedProgress + 100 / totalContacts,
         contactIndex: contactIndex + 1,
         curContactNumb: curContactNumb + 1,
-        completedProgress: completedProgress + (100 / totalContacts)
-      })
+      });
+      return this.props.redo();
     } else {
       return this.setState({
-        snackOpen: true
-      })
+        snackOpen: true,
+      });
     }
   }
 
   handlePrevContact() {
-    const { contactIndex, curContactNumb, totalContacts, completedProgress } = this.state
-    if (contactIndex === 0) return null
+    const {
+      contactIndex,
+      curContactNumb,
+      totalContacts,
+      completedProgress,
+    } = this.state;
+    if (contactIndex === 0) return null;
     this.setState({
       contactIndex: contactIndex - 1,
       curContactNumb: curContactNumb - 1,
-      completedProgress: completedProgress - (100 / totalContacts)
-    })
+      completedProgress: completedProgress - 100 / totalContacts,
+    });
+    return this.props.undo();
   }
 
-  handleUndo() {
-    console.log('Undo works with second snackbar')
-  }
+  // handleUndo() {
+  //   console.log('Undo works with second snackbar')
+  // }
 
-
-  render () {
-    const { curContactNumb, totalContacts, completedProgress, snackOpen, snackDelete, isDeleted } = this.state
-    console.log(this.props.totalContacts.length)
+  render() {
+    const {
+      curContactNumb,
+      totalContacts,
+      completedProgress,
+      snackOpen,
+      snackDelete,
+      isDeleted,
+    } = this.state;
+    const { currentContact } = this.props;
     let whichCard = !isDeleted
-      ? <div className='contact-card-wrapper'>
+      ? <div className="contact-card-wrapper">
           <ContactCard onSubmit={this.onSubmit} />
         </div>
-      : <div className='delete-card-wrapper'>
+      : <div className="delete-card-wrapper">
           <DeleteCard />
-        </div>
+        </div>;
 
     return (
-      <div className='sort-contact-wrapper'>
-        <div className='progress-indicator-wrapper'>
+      <div className="sort-contact-wrapper">
+        <div className="progress-indicator-wrapper">
           <PageTitle
-            titleClassName='sortcontact-title'
+            titleClassName="sortcontact-title"
             pageTitleContentH2={`${curContactNumb} / ${totalContacts} new contacts`}
-            pageTitleContentH3='since your last visit'
           />
           <ProgressIndicator
-            mode='determinate'
-            holderClass='progress-indicator-holder'
-            color='#5DD9B2'
-            completedProgress={completedProgress}/>
+            mode="determinate"
+            holderClass="progress-indicator-holder"
+            color="#5DD9B2"
+            completedProgress={completedProgress}
+          />
         </div>
         <NavigateContacts
           handleNextContact={this.handleNextContact}
           handlePrevContact={this.handlePrevContact}
         />
         {whichCard}
-        <div className='network-lists-wrapper'>
+        <div className="network-lists-wrapper">
           <NetworkListButton />
         </div>
-        <div className='delete-btn-wrapper'>
+        <div className="delete-btn-wrapper">
           <FlatButton
             label="Don't save this contact (x)"
-            className='delete-btn'
-            labelPosition='before'
-            hoverColor='none'
+            className="delete-btn"
+            labelPosition="before"
+            hoverColor="none"
             disableTouchRipple={true}
-            onClick={this.handleDeleteContact} >
-            <NotIcon className='not-icon' />
+            onClick={this.handleDeleteContact}
+          >
+            <NotIcon className="not-icon" />
           </FlatButton>
         </div>
         <Snackbar
-          className='snackbar-delete'
+          className="snackbar-delete"
           autoHideDuration={3000}
-          // message={`${!currentContact[0] ? null : currentContact[0].firstName} is deleted`}
+          message={`${!currentContact ? null : currentContact.firstName} is deleted`}
           open={snackDelete}
           onRequestClose={this.handleRequestClose}
           onActionTouchTap={this.handleUndo}
           action="undo"
         />
         <Snackbar
-          className='snackbar'
+          className="snackbar"
           autoHideDuration={3000}
-          // message={`Assign ${!currentContact[0] ? null : currentContact[0].firstName} to a list before pressing next`}
-          open={this.state.snackOpen}
+          message={`Assign ${!currentContact ? null : currentContact.firstName} to a list before pressing next`}
+          open={snackOpen}
           onRequestClose={this.handleRequestClose}
         />
-        <Media query='(min-width: 769px)' render={() => (
-          <HintFooter
-            holderClass='footer-holder'
-            hintText='hint-text'
-          />
-        )}/>
+        <Media
+          query="(min-width: 769px)"
+          render={() => (
+            <HintFooter holderClass="footer-holder" hintText="hint-text" />
+          )}
+        />
       </div>
-    )
+    );
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
-    contacts: state.sortContact.present.contacts,
-    totalContacts: state.contacts.totalContacts,
-    addedContactIds: state.sortContact.addedContactIds,
+    currentContact: state.sortContact.present,
+    totalContacts: state.sortContact.sortingData.totalSortContacts,
+    addedContactIds: state.sortContact.sortingData.addedContactIds,
     contactDetailsForm: state.form.contactDetailsForm,
+  };
+};
 
-  }
-}
-
-export default connect(mapStateToProps, { updateContact, deleteContact, submit, fetchContacts, undo, redo})(SortContactContainer)
+export default connect(mapStateToProps, {
+  updateContact,
+  deleteContact,
+  submit,
+  fetchContacts,
+  undo,
+  redo,
+})(SortContactContainer);
