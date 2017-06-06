@@ -5,6 +5,7 @@ import { addContactToNetworklist } from '../../actions/networklists';
 import { addNetworkListToContact } from '../../actions/contacts';
 import { formFieldsContactDetails as formFields } from '../../helpers/formData';
 import _ from 'lodash';
+import classNames from 'classNames';
 import Media from 'react-media';
 import ModalButton from '../modals/ModalButton';
 import Snackbar from 'material-ui/Snackbar';
@@ -101,14 +102,22 @@ class NetworkListButton extends PureComponent {
   renderNetworkLists = (networkList, index) => {
     const { networkLists, currentContact } = this.props;
     // const { activeButtonIds } = this.state;
+    if (!currentContact.networkListIds) return null;
+
+    const networkButton = classNames({
+      'network-list-btn': true,
+      'network-list-btn-clicked': currentContact.networkListIds.includes(
+        networkList.id
+      ),
+    });
     return (
       <div className="network-list" key={networkList.id}>
         <FlatButton
           labelPosition="before"
           name={networkList.name}
           onClick={this.handleNetworkButtonClick(networkList)}
-          // className={oneContact[0].networkListIds.includes(networkList.id) ? 'network-list-btn-clicked' : 'network-list-btn'}
-          className="network-list-btn"
+          className={networkButton}
+          // className="network-list-btn"
           label={networkList.title}
         >
           <ListIcon className="list-icon" />
