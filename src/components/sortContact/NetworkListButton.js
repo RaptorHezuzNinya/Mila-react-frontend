@@ -94,9 +94,9 @@ class NetworkListButton extends PureComponent {
       this.props.addContactToNetworklist(currentContact.id, networkList.id);
       this.props.addNetworkListToContact(networkList.id, currentContact.id);
     }
-  };
+  }
 
-  renderNetworkLists = (networkList, index) => {
+  renderNetworkLists(networkList, index) {
     const { currentContact } = this.props;
     if (!currentContact.networkListIds) return null;
     const networkButton = classNames({
