@@ -99,7 +99,7 @@ class NetworkListButton extends PureComponent {
   };
 
   renderNetworkLists = (networkList, index) => {
-    const { networkLists } = this.props;
+    const { networkLists, currentContact } = this.props;
     // const { activeButtonIds } = this.state;
     return (
       <div className="network-list" key={networkList.id}>
