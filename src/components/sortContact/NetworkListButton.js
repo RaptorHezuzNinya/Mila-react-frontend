@@ -28,7 +28,7 @@ class NetworkListButton extends PureComponent {
       snackOpen: false,
       createNetworkListModal: 'CREATE_NETWORKLIST_MODAL',
     };
-    this.handleKeyPress = this.handleKeyPress.bind(this);
+    // this.handleKeyPress = this.handleKeyPress.bind(this);
   }
 
   componentDidMount() {
