@@ -128,7 +128,7 @@ class NetworkListButton extends PureComponent {
   render() {
     const { snackOpen, createNetworkListModal } = this.state;
     const { currentContact, networkLists } = this.props;
-    console.log('currentContact', currentContact.networkListIds);
+
     return (
       <div>
         <div className="network-lists-holder">
