@@ -110,25 +110,24 @@ class NetworkListButton extends PureComponent {
         <FlatButton
           labelPosition="before"
           name={networkList.name}
-          onClick={this.handleNetworkButtonClick(networkList)}
+          onClick={this.handleNetworkButtonClick.bind(this, networkList)}
           className={networkButton}
           label={networkList.title}
         >
           <ListIcon className="list-icon" />
-          <span className="button-number">{index + 1}</span>
+          <span className="button-number">{1 + index}</span>
         </FlatButton>
       </div>
     );
-  };
+  }
 
   render() {
     const { snackOpen, createNetworkListModal } = this.state;
     const { currentContact, networkLists } = this.props;
-
     return (
       <div>
         <div className="network-lists-holder">
-          {networkLists.map(this.renderNetworkLists)}
+          {networkLists.map(this.renderNetworkLists.bind(this))}
           <Media
             query="(min-width: 769px)"
             render={() => (
