@@ -115,7 +115,6 @@ class NetworkListButton extends PureComponent {
           name={networkList.name}
           onClick={this.handleNetworkButtonClick(networkList)}
           className={networkButton}
-          // className="network-list-btn"
           label={networkList.title}
         >
           <ListIcon className="list-icon" />
