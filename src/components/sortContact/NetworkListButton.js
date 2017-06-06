@@ -75,25 +75,16 @@ class NetworkListButton extends PureComponent {
         return list.buttonCode;
       });
       if (registeredButtonCodes.includes(event.keyCode)) {
-        this.handleNetworkButtonClick(findTheOneObj(event.keyCode)[0].id);
+        return this.handleNetworkButtonClick(findTheOneObj(event.keyCode)[0]);
       }
     }
-  }
-
-  handleRequestClose = () => {
-    this.setState({
-      snackOpen: false,
-    });
   };
 
-  handleNetworkButtonClick = networkList => event => {
-    event.preventDefault();
-    // networklist list is hier 1 networklist the pressed nwl
+  handleNetworkButtonClick(networkList, event) {
     const { currentContact, networkLists } = this.props;
     const neededNWL = networkLists.filter(list => {
       return list.id === networkList.id;
     });
-
     const match = neededNWL[0].contactIds.includes(currentContact.id);
     if (match) {
       return this.setState({
