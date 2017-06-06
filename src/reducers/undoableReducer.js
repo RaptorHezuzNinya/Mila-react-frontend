@@ -77,7 +77,7 @@ export const undoable = reducer => {
         const neededPresent = newPresent.totalSortContacts.slice(0, 1);
         const neededFuture = newPresent.totalSortContacts.slice(1);
         return {
-          past: [...past, present],
+          past: [...past],
           present: neededPresent[0],
           future: neededFuture,
           sortingData: { ...newPresent },
