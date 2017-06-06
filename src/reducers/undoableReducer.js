@@ -67,7 +67,7 @@ export const undoable = sortContactReducer => {
           console.log('ITS EQUAL');
           return state;
         }
-        console.log('YOLOSWAG');
+        console.log('AFTER ===');
         const neededPresent = newPresent.totalSortContacts.slice(0, 1);
         const neededFuture = newPresent.totalSortContacts.slice(1);
         return {
