@@ -1,24 +1,30 @@
-import { createStore, combineReducers, applyMiddleware, compose } from 'redux'
-import ReduxThunk from 'redux-thunk'
-import { browserHistory } from 'react-router'
-import { syncHistoryWithStore, routerReducer, routerMiddleware } from 'react-router-redux'
+import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
+import ReduxThunk from 'redux-thunk';
+import { browserHistory } from 'react-router';
+import {
+  syncHistoryWithStore,
+  routerReducer,
+  routerMiddleware,
+} from 'react-router-redux';
 
-import * as reducers from './reducers'
+import * as reducers from './reducers';
 
-const baseHistory = browserHistory
-const routingMiddleware = routerMiddleware(baseHistory)
-const reducer = combineReducers(Object.assign({}, reducers, { routing: routerReducer }))
+const baseHistory = browserHistory;
+const routingMiddleware = routerMiddleware(baseHistory);
+const reducer = combineReducers(
+  Object.assign({}, reducers, { routing: routerReducer })
+);
 
-const devTools = window.devToolsExtension ? window.devToolsExtension() : (f) => f
+const devTools = window.devToolsExtension ? window.devToolsExtension() : f => f;
 
 const enhancer = compose(
   applyMiddleware(routingMiddleware),
   applyMiddleware(ReduxThunk),
   devTools
-)
+);
 
-const store = createStore(reducer, enhancer)
+const store = createStore(reducer, enhancer);
 
-export const history = syncHistoryWithStore(baseHistory, store)
+export const history = syncHistoryWithStore(baseHistory, store);
 
-export default store
+export default store;
