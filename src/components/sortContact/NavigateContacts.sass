@@ -3,14 +3,57 @@
 @import "../../assets/styles/base/breakpoints.sass"
 
 .navigate-contacts-holder
+  display: flex
+  margin-bottom: 20px
+  flex: 0 0 100%
+  +breakpoint($brp-land)
+    align-items: center
+    justify-content: center
+
   .contact-navigate-next
+    background-color: $blueB
+    opacity: 0.6
     position: absolute
     right: 0
-    +breakpoint($brp-m)
-      top: 240px
+    border-radius: 2px
+    top: 89px
+    button
+      padding: 5px !important
+      height: 44px !important
+      width: 39px !important
+      +breakpoint($brp-land)
+        padding: 0px !important
+      div
+        span
+          +f(35px !important)
+          color: $steelC !important
+          +breakpoint($brp-land)
+            +f(45px !important)
+
+    +breakpoint($brp-land)
+      display: flex
+      position: static
 
   .contact-navigate-prev
+    background-color: $blueB
+    opacity: 0.6
     position: absolute
     left: 0
-    +breakpoint($brp-m)
-      top: 240px
+    top: 89px
+    border-radius: 2px
+    button
+      padding: 5px !important
+      height: 44px !important
+      width: 39px !important
+      +breakpoint($brp-land)
+        padding: 0px !important
+      div
+        span
+          +f(35px !important)
+          color: $steelC !important
+          opacity: 1
+          +breakpoint($brp-land)
+            +f(45px !important)
+    +breakpoint($brp-land)
+      display: flex
+      position: static

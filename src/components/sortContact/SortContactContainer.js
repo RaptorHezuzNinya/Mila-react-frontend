@@ -201,8 +201,9 @@ class SortContactContainer extends PureComponent {
         <NavigateContacts
           handleNextContact={this.handleNextContact}
           handlePrevContact={this.handlePrevContact}
-        />
-        {whichCard}
+        >
+          {whichCard}
+        </NavigateContacts>
         <div className="network-lists-wrapper">
           <NetworkListButton />
         </div>
