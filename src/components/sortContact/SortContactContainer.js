@@ -72,7 +72,8 @@ class SortContactContainer extends PureComponent {
     });
   };
 
-  onSubmit(values, dispatch, props) {
+  onSubmit = (values, dispatch, props) => {
+    const { currentContact } = this.props;
     const initVal = props.initialValues;
     // console.log('val before', values)
     formFields.forEach(field => {
@@ -82,9 +83,9 @@ class SortContactContainer extends PureComponent {
       return values;
     });
     if (props.dirty) {
-      return dispatch(updateContact(values, props.oneContact[0].id));
+      return dispatch(updateContact(values, currentContact));
     }
-  }
+  };
 
   handleRemoteContactDetailSubmit = () => {
     this.props.submit('contactDetailsForm');
@@ -101,7 +102,7 @@ class SortContactContainer extends PureComponent {
 
   handleContainerKeyPress = event => {
     const { contactDetailsForm } = this.props;
-    console.log(event.keyCode);
+
     // if (contactDetailsForm.fields === null) return NOTE i prolly need to ascape this shit when the emprty contact is being rendered
     let arr = [];
     let activeField;
@@ -120,7 +121,7 @@ class SortContactContainer extends PureComponent {
     }
   };
 
-  handleNextContact() {
+  async handleNextContact() {
     const {
       contactIndex,
       curContactNumb,
@@ -128,15 +129,9 @@ class SortContactContainer extends PureComponent {
       completedProgress,
     } = this.state;
     const { addedContactIds, currentContact } = this.props;
-    this.handleRemoteContactDetailSubmit();
+    await this.handleRemoteContactDetailSubmit();
     if (contactIndex >= totalContacts - 1) return null;
     if (addedContactIds.includes(currentContact.id)) {
-      console.log(
-        'in if compled and totalcontacts',
-        completedProgress,
-        totalContacts,
-        contactIndex
-      );
       this.setState({
         completedProgress: completedProgress + 100 / totalContacts,
         contactIndex: contactIndex + 1,

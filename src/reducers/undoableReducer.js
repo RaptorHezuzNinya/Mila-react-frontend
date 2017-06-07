@@ -1,6 +1,9 @@
 import { UNDO, REDO } from '../actions/undoable';
 import { ADD_CONTACT_TO_NETWORKLIST } from '../actions/networklists';
-import { ADD_NETWORKLIST_TO_CONTACT } from '../actions/contacts';
+import {
+  ADD_NETWORKLIST_TO_CONTACT,
+  UPDATE_CONTACT,
+} from '../actions/contacts';
 
 export const undoable = reducer => {
   const initialState = {
@@ -62,6 +65,21 @@ export const undoable = reducer => {
             present: {
               ...state.present,
               networkListIds: [...newIdArr],
+            },
+          };
+          return state;
+        }
+
+      case UPDATE_CONTACT:
+        console.log(state, action.payload);
+        console.log('state present', state.present);
+        if (state.present.id === action.payload.contact.id) {
+          const updatedContactAttributes = action.payload.contactFields;
+          return {
+            ...state,
+            present: {
+              ...state.present,
+              ...updatedContactAttributes,
             },
           };
           return state;
