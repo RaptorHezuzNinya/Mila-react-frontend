@@ -72,7 +72,8 @@ class SortContactContainer extends PureComponent {
     });
   };
 
-  onSubmit(values, dispatch, props) {
+  onSubmit = (values, dispatch, props) => {
+    const { currentContact } = this.props;
     const initVal = props.initialValues;
     // console.log('val before', values)
     formFields.forEach(field => {
@@ -82,9 +83,9 @@ class SortContactContainer extends PureComponent {
       return values;
     });
     if (props.dirty) {
-      return dispatch(updateContact(values, props.oneContact[0].id));
+      return dispatch(updateContact(values, currentContact));
     }
-  }
+  };
 
   handleRemoteContactDetailSubmit = () => {
     this.props.submit('contactDetailsForm');
