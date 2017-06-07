@@ -1,18 +1,31 @@
-import React, { PureComponent, PropTypes } from 'react'
-import { Field, reduxForm } from 'redux-form'
-import { connect } from 'react-redux'
-import TextField from 'material-ui/TextField'
-import { formDataContactDetails as formData, formFieldsContactDetails as formFields } from '../../helpers/formData'
-import { inlineContactDetailsStyles as styles } from '../../helpers/inlineStyles'
-import './ContactDetails.sass'
+import React, { PureComponent, PropTypes } from 'react';
+import { Field, reduxForm } from 'redux-form';
+import { connect } from 'react-redux';
+import TextField from 'material-ui/TextField';
+import {
+  formDataContactDetails as formData,
+  formFieldsContactDetails as formFields,
+} from '../../helpers/formData';
+import {
+  inlineContactDetailsStyles as styles,
+} from '../../helpers/inlineStyles';
+import './ContactDetails.sass';
 
 class ContactDetails extends PureComponent {
   static propTypes = {
     onSubmit: PropTypes.func.isRequired,
-    currentContact: PropTypes.object.isRequired
-  }
+    currentContact: PropTypes.object.isRequired,
+  };
 
-  renderTextField = ({ input, label, multiLine, rows, rowsMax, maxChars, meta: { touched, warning } }) => (
+  renderTextField = ({
+    input,
+    label,
+    multiLine,
+    rows,
+    rowsMax,
+    maxChars,
+    meta: { touched, warning },
+  }) => (
     <TextField
       name={label}
       fullWidth={true}
@@ -23,7 +36,7 @@ class ContactDetails extends PureComponent {
       underlineShow={false}
       {...input}
     />
-  )
+  );
 
   renderFormFields = () => {
     return formData.map((form, index) => {
@@ -32,45 +45,48 @@ class ContactDetails extends PureComponent {
           <Field
             name={form.name}
             label={form.name}
-            component={ this.renderTextField } />
+            component={this.renderTextField}
+          />
         </div>
-      )
-    })
-  }
+      );
+    });
+  };
 
-  renderContactDetails () {
-    const { handleSubmit } = this.props
+  renderContactDetails() {
+    const { handleSubmit } = this.props;
     return (
-      <form className='details-form' onSubmit={handleSubmit(this.props.onSubmit)}>
-        { this.renderFormFields()}
-        <div className='dot'>•</div>
+      <form
+        className="details-form"
+        onSubmit={handleSubmit(this.props.onSubmit)}
+      >
+        {this.renderFormFields()}
+        <div className="dot">•</div>
       </form>
-    )
+    );
   }
 
-  render () {
-    const { currentContact } = this.props
-    if (!currentContact) return null
+  render() {
+    const { currentContact } = this.props;
+    if (!currentContact) return null;
     return (
-      <div className='contact-details-holder'>
+      <div className="contact-details-holder">
         {this.renderContactDetails()}
       </div>
-    )
+    );
   }
 }
 
-const warn = (values) => {
-  const warnings = {}
-  formFields.forEach( (field) => {
-    if (!values[ field ]) {
-      warnings[ field ] = 'Required'
+const warn = values => {
+  const warnings = {};
+  formFields.forEach(field => {
+    if (!values[field]) {
+      warnings[field] = 'Required';
     }
-  })
-  return warnings
-}
+  });
+  return warnings;
+};
 
 const mapStateToProps = (state, ownProps) => {
-
   return {
     initialValues: {
       firstName: ownProps.currentContact.firstName,
@@ -78,12 +94,14 @@ const mapStateToProps = (state, ownProps) => {
       companyName: ownProps.currentContact.companyName,
       companyRole: ownProps.currentContact.companyRole,
     },
-    currentContact: ownProps.currentContact
-  }
-}
+    currentContact: ownProps.currentContact,
+  };
+};
 
-export default connect(mapStateToProps)(reduxForm({
-  form: 'contactDetailsForm',
-  enableReinitialize: true,
-  warn,
-})(ContactDetails))
+export default connect(mapStateToProps)(
+  reduxForm({
+    form: 'contactDetailsForm',
+    enableReinitialize: true,
+    warn,
+  })(ContactDetails)
+);
