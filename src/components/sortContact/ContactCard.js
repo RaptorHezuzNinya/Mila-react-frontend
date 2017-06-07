@@ -8,6 +8,7 @@ import { inlineContactCardStyles as styles } from '../../helpers/inlineStyles';
 class ContactCard extends PureComponent {
   static propTypes = {
     onSubmit: PropTypes.func.isRequired,
+    currentContact: PropTypes.object.isRequired,
   };
 
   renderContactAvatar() {
