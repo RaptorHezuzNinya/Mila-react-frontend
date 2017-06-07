@@ -29,6 +29,7 @@ class SortContactContainer extends PureComponent {
     deleteContact: PropTypes.func.isRequired,
     contactDetailsForm: PropTypes.object,
     redo: PropTypes.func.isRequired,
+    undo: PropTypes.func.isRequired,
     addedContactIds: PropTypes.array.isRequired,
     // addedContactIds: PropTypes.array.isRequired
   };
