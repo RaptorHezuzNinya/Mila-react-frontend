@@ -1,22 +1,5 @@
 // imported in ~/components/sortContact/NavigateContacts.js
-export const inlineNavigateContactsStyles = {
-  iconStyleNext: {
-    color: '#f2f6fa',
-    fontSize: 40,
-    display: 'flex',
-    justifyContent: 'flex-end'
-  },
-  iconStylePrev: {
-    color: '#f2f6fa',
-    fontSize: 40,
-    display: 'flex',
-    justifyContent: 'flex-start'
-  },
-  button: {
-    height: 100,
-    width: 100
-  }
-}
+export const inlineNavigateContactsStyles = {};
 // imported in ~/components/sortContact/SortContactContainer.js
 export const inlineContactDetailsStyles = {
   input: {
@@ -25,39 +8,39 @@ export const inlineContactDetailsStyles = {
   style: {
     height: 34,
     fontFamily: 'Montserrat-Light',
-    fontSize: 14
+    fontSize: 14,
   },
   errorStyle: {
     fontFamily: 'Montserrat-Light',
     fontSize: 10,
-    textAlign: 'center'
-  }
-}
+    textAlign: 'center',
+  },
+};
 // imported in ~/components/MenuDrawer.js
 export const inlineMenuDrawerStyles = {
   containerStyle: {
     height: 'calc(100vh - 70px)',
     top: 70,
     width: 224,
-    backgroundColor: '#37414d'
+    backgroundColor: '#37414d',
   },
   link: {
-    textDecoration: 'none'
-  }
-}
+    textDecoration: 'none',
+  },
+};
 
 // imported in ~/components/onboarding/CreateListsContainer.js
 export const inlineCreateListsContainerStyles = {
   hint: {
     fontSize: 14,
-    fontFamily: 'Montserrat-Light'
+    fontFamily: 'Montserrat-Light',
   },
   inputStyle: {
     fontSize: 15,
     fontFamily: 'Montserrat-Light',
     color: '#292f36',
-  }
-}
+  },
+};
 // used in ~/components/NetworkListForm.js
 export const inlineNetworkListFormStyles = {
   hint: {
@@ -70,14 +53,14 @@ export const inlineNetworkListFormStyles = {
     fontFamily: 'Montserrat-Light',
     marginLeft: 15,
     color: '#292f36',
-  }
-}
+  },
+};
 // used in ~/components/onboarding/OnboardingStepper.js
 export const inlineOnboardingStepperStyles = {
   stepper: {
-    backgroundColor: '#ffffff'
-  }
-}
+    backgroundColor: '#ffffff',
+  },
+};
 
 // used in ~/components/modals/CreateNetworkListModal.js
 export const inlineCreateNetworkListModalStyles = {
@@ -88,9 +71,9 @@ export const inlineCreateNetworkListModalStyles = {
     color: '#737a80',
     fontSize: 14,
     fontWeight: 100,
-    fontFamily: 'Montserrat-Light'
-  }
-}
+    fontFamily: 'Montserrat-Light',
+  },
+};
 // used in ~/components/Navigation.js
 export const inlineNavigationStyles = {
   mediumIcon: {
@@ -100,7 +83,7 @@ export const inlineNavigationStyles = {
   title: {
     justifyContent: 'center',
     flex: '1 0 0',
-    height: '100%'
+    height: '100%',
   },
   iconStyleLeft: {
     marginLeft: 0,
@@ -108,7 +91,7 @@ export const inlineNavigationStyles = {
     marginTop: 0,
     display: 'flex',
     flex: '1 0 0',
-    justifyContent: 'flex-start'
+    justifyContent: 'flex-start',
   },
   iconStyleRight: {
     marginLeft: 0,
@@ -116,13 +99,13 @@ export const inlineNavigationStyles = {
     marginTop: 0,
     flex: '1 0 0',
     display: 'flex',
-    justifyContent: 'flex-end'
-  }
-}
+    justifyContent: 'flex-end',
+  },
+};
 
 // used in ~/components/sortContact/SortContact.js
 export const inlineContactCardStyles = {
   paper: {
-    flex: '0 0 100%'
-  }
-}
+    flex: '0 0 100%',
+  },
+};

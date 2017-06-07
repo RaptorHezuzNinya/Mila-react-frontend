@@ -1,4 +1,5 @@
-import React, { PureComponent, PropTypes } from 'react';
+import React, { PureComponent } from 'react';
+import { PropTypes } from 'prop-types';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import TextField from 'material-ui/TextField';
@@ -15,6 +16,7 @@ class ContactDetails extends PureComponent {
   static propTypes = {
     onSubmit: PropTypes.func.isRequired,
     currentContact: PropTypes.object.isRequired,
+    handleSubmit: PropTypes.func.isRequired,
   };
 
   renderTextField = ({

@@ -29,6 +29,7 @@ class SortContactContainer extends PureComponent {
     deleteContact: PropTypes.func.isRequired,
     contactDetailsForm: PropTypes.object,
     redo: PropTypes.func.isRequired,
+    undo: PropTypes.func.isRequired,
     addedContactIds: PropTypes.array.isRequired,
     // addedContactIds: PropTypes.array.isRequired
   };
@@ -87,9 +88,9 @@ class SortContactContainer extends PureComponent {
     }
   };
 
-  handleRemoteContactDetailSubmit = () => {
+  async handleRemoteContactDetailSubmit() {
     this.props.submit('contactDetailsForm');
-  };
+  }
 
   handleDeleteContact() {
     const theCurrentContact = this.getOneContact();
@@ -200,8 +201,9 @@ class SortContactContainer extends PureComponent {
         <NavigateContacts
           handleNextContact={this.handleNextContact}
           handlePrevContact={this.handlePrevContact}
-        />
-        {whichCard}
+        >
+          {whichCard}
+        </NavigateContacts>
         <div className="network-lists-wrapper">
           <NetworkListButton />
         </div>
