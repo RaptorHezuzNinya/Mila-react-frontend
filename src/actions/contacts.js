@@ -1,10 +1,10 @@
 export const UPDATE_CONTACT = 'UPDATE_CONTACT';
-export const updateContact = (contactFields, contactId) => {
+export const updateContact = (contactFields, contact) => {
   return {
     type: UPDATE_CONTACT,
     payload: {
       contactFields,
-      contactId,
+      contact,
     },
   };
 };
