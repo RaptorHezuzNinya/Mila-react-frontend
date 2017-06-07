@@ -5,20 +5,19 @@
 .sort-contact-wrapper
   display: flex
   flex-wrap: wrap
-
   .progress-indicator-wrapper
-    flex: 0 0 100%
-    +breakpoint($brp-m)
-      display: flex
-      flex-wrap: wrap
-      margin-bottom: 15px
-
+    display: flex
+    padding: 10px 5px
+    flex-wrap: wrap
+    flex: 1
+    justify-content: center
     .progress-indicator-holder
-      padding: 10px 0px 15px
-      margin-bottom: 10px
-      +breakpoint($brp-m)
+      display: flex
+      flex: 0 0 100%
+      padding-top: 5px
+      padding-bottom: 10px
+      +breakpoint($brp-land)
         flex: 0 0 420px
-        margin: auto
 
   .contact-card-wrapper
     display: flex
