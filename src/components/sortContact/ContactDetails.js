@@ -33,11 +33,12 @@ class ContactDetails extends PureComponent {
       name={label}
       fullWidth={true}
       hintText={!initialValues ? `${label}` : ''}
+      hintStyle={styles.hint}
       inputStyle={styles.input}
       errorStyle={styles.errorStyle}
       errorText={warning}
       style={styles.style}
-      underlineShow={false}
+      // underlineShow={initialValues === '' ? true : false}
       {...input}
     />
   );
