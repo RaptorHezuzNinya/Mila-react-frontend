@@ -99,7 +99,6 @@ class SortContactContainer extends PureComponent {
 
   handleContainerKeyPress = event => {
     const { contactDetailsForm } = this.props;
-
     // if (contactDetailsForm.fields === null) return NOTE i prolly need to ascape this shit when the emprty contact is being rendered
     let arr = [];
     let activeField;
@@ -117,6 +116,10 @@ class SortContactContainer extends PureComponent {
       return this.handleDeleteContact();
     }
   };
+
+  handleRemoteContactDetailSubmit() {
+    return this.props.submit('contactDetailsForm');
+  }
 
   async handleNextContact() {
     const {
