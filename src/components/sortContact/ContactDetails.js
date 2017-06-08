@@ -24,6 +24,7 @@ class ContactDetails extends PureComponent {
     label,
     multiLine,
     rows,
+    initialValues,
     rowsMax,
     maxChars,
     meta: { touched, warning },
@@ -31,6 +32,7 @@ class ContactDetails extends PureComponent {
     <TextField
       name={label}
       fullWidth={true}
+      hintText={!initialValues ? 'yolo' : ''}
       inputStyle={styles.input}
       errorStyle={styles.errorStyle}
       errorText={warning}
@@ -69,7 +71,8 @@ class ContactDetails extends PureComponent {
 
   render() {
     const { currentContact } = this.props;
-    if (!currentContact) return null;
+    console.log(this.props.initialValues);
+    // if (!currentContact) return null;
     return (
       <div className="contact-details-holder">
         {this.renderContactDetails()}
