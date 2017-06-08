@@ -88,10 +88,6 @@ class SortContactContainer extends PureComponent {
     }
   };
 
-  async handleRemoteContactDetailSubmit() {
-    this.props.submit('contactDetailsForm');
-  }
-
   handleDeleteContact() {
     const theCurrentContact = this.getOneContact();
     this.setState({
