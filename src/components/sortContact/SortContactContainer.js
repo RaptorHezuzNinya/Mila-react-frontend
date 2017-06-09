@@ -130,9 +130,7 @@ class SortContactContainer extends PureComponent {
       completedProgress,
     } = this.state;
     const { addedContactIds, currentContact } = this.props;
-
     await this.handleRemoteContactDetailSubmit();
-
     if (contactIndex >= totalContacts - 1) return null;
     if (addedContactIds.includes(currentContact.id)) {
       this.setState({
@@ -149,13 +147,14 @@ class SortContactContainer extends PureComponent {
     }
   }
 
-  handlePrevContact() {
+  async handlePrevContact() {
     const {
       contactIndex,
       curContactNumb,
       totalContacts,
       completedProgress,
     } = this.state;
+    await this.handleRemoteContactDetailSubmit();
     if (contactIndex === 0) return null;
     this.setState({
       contactIndex: contactIndex - 1,
