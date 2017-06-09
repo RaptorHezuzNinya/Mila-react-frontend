@@ -38,7 +38,7 @@ class ContactDetails extends PureComponent {
       errorStyle={styles.errorStyle}
       errorText={warning}
       style={styles.style}
-      // underlineShow={initialValues === '' ? true : false}
+      underlineShow={false}
       {...input}
     />
   );

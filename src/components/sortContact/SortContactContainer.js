@@ -137,6 +137,7 @@ class SortContactContainer extends PureComponent {
       this.setState({
         completedProgress: completedProgress + 100 / totalContacts,
         contactIndex: contactIndex + 1,
+
         curContactNumb: curContactNumb + 1,
       });
       return this.props.redo();
