@@ -3,6 +3,11 @@
 @import "../../assets/styles/base/breakpoints.sass"
 .global
   display: flex
+  position: relative
+  justify-content: space-around
+  overflow: hidden
+  +breakpoint($brp-xl)
+    flex: 0 0 100%
   .sort-contact-wrapper
     display: flex
     flex-wrap: wrap
@@ -96,44 +101,61 @@
         text-align: center
         +mont-light($steelC)
 
-  .yolo-paper
+  .future-wrapper
+    +breakpoint($brp-xl)
+    border-radius: 4px
+    cursor: pointer
+    justify-content: center
     display: flex
-    flex: 0 0 425px
-    height: 190px
-    .wrapper-main
+    position: absolute
+    padding-top: 49px
+    width: 500px
+    height: 82%
+    background-color: $blueB
+    opacity: 0.5
+    right: -150px
+    top: 50px
+    .yolo-paper
+      border-radius: 3px
       display: flex
-      flex-wrap: wrap
-      p
-        margin: 0
-      .future-details
+      flex: 0 0 425px
+      height: 190px
+      max-width: 425px
+      .wrapper-main
         display: flex
-        flex: 0 0 320px
         flex-wrap: wrap
         p
           margin: 0
-        .par1, .par2
-          flex: 0 0 160px
-        .par3
+        .future-details
+          display: flex
           flex: 0 0 320px
-        .par4
-          flex: 0 0 320px
-      .avatar-holder
-        width: 100px
-        height: 100px
-      .email-adress
-        flex: 0 0 100%
-      .email-header
-        background-color: $steelB
+          flex-wrap: wrap
+          p
+            margin: 0
+          .par1, .par2
+            flex: 0 0 160px
+          .par3
+            flex: 0 0 320px
+          .par4
+            flex: 0 0 320px
+        .avatar-holder
+          width: 100px
+          height: 100px
+        .email-adress
+          flex: 0 0 100%
+        .email-header
+          background-color: $steelB
 
   .footer-holder
+    +breakpoint($brp-m)
+    display: flex
+    justify-content: center
     height: 125px
     background-color: $greenB
-    left: 0
-    position: absolute
+    position: fixed
     bottom: 0
     width: 100%
     .hint-text
-      text-align: center
       padding: 38px 50px
       +mont-light($steelC)
       +f(14px)
