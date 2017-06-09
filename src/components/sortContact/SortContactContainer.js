@@ -10,6 +10,7 @@ import _ from 'lodash';
 import Media from 'react-media';
 import ContactCard from './ContactCard';
 import DeleteCard from './DeleteCard';
+import ShadowCard from './ShadowCard';
 import ProgressIndicator from '../ProgressIndicator';
 import NetworkListButton from './NetworkListButton';
 import PageTitle from '../PageTitle';
@@ -177,7 +178,7 @@ class SortContactContainer extends PureComponent {
       snackDelete,
       isDeleted,
     } = this.state;
-    const { currentContact } = this.props;
+    const { currentContact, futureContact } = this.props;
     let whichCard = !isDeleted
       ? <div className="contact-card-wrapper">
           <ContactCard onSubmit={this.onSubmit} />
@@ -200,12 +201,19 @@ class SortContactContainer extends PureComponent {
             completedProgress={completedProgress}
           />
         </div>
+
         <NavigateContacts
           handleNextContact={this.handleNextContact}
           handlePrevContact={this.handlePrevContact}
         >
           {whichCard}
         </NavigateContacts>
+
+        <Media
+          query="(min-width: 1280px)"
+          render={() => <ShadowCard futureContact={futureContact} />}
+        />
+
         <div className="network-lists-wrapper">
           <NetworkListButton />
         </div>
