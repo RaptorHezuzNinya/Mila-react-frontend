@@ -1,3 +1,4 @@
+[![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 ## How to get it going...
 bash...
 ```
@@ -14,5 +15,3 @@ bash...
 ```
 And upload the deploy folder to bitballoon.
 Creator: https://github.com/RaptorHezuzNinya
-
-[![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
