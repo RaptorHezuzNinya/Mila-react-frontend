@@ -186,13 +186,15 @@ class SortContactContainer extends PureComponent {
           <DeleteCard />
         </div>;
 
+    const lastPastContact = pastContact[pastContact.length - 1];
+
     return (
       <div className="global">
         <Media
           query="(min-width: 1280px)"
           render={() => (
             <div className="past-wrapper" onClick={this.handlePrevContact}>
-              <ShadowCard contact={pastContact} />
+              <ShadowCard contact={lastPastContact} />
             </div>
           )}
         />
@@ -254,10 +256,7 @@ class SortContactContainer extends PureComponent {
           query="(min-width: 1280px)"
           render={() => (
             <div className="future-wrapper" onClick={this.handleNextContact}>
-              <ShadowCard
-                contact={futureContact}
-                detailsClass="future-details"
-              />
+              <ShadowCard contact={futureContact} />
             </div>
           )}
         />
