@@ -240,18 +240,24 @@ class SortContactContainer extends PureComponent {
             open={snackOpen}
             onRequestClose={this.handleRequestClose}
           />
-          <Media
-            query="(min-width: 769px)"
-            render={() => (
-              <HintFooter holderClass="footer-holder" hintText="hint-text" />
-            )}
-          />
+
         </div>
 
         <Media
           query="(min-width: 1280px)"
           render={() => (
-            <ShadowCard contact={futureContact} detailsClass="future-details" />
+            <div className="future-wrapper" onClick={this.handleNextContact}>
+              <ShadowCard
+                contact={futureContact}
+                detailsClass="future-details"
+              />
+            </div>
+          )}
+        />
+        <Media
+          query="(min-width: 769px)"
+          render={() => (
+            <HintFooter holderClass="footer-holder" hintText="hint-text" />
           )}
         />
       </div>
