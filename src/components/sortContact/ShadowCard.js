@@ -13,7 +13,7 @@ class ShadowCard extends PureComponent {
     return (
       <Paper zDepth={2} className="yolo-paper">
         <div className="wrapper-main">
-          <div className={detailsClass}>
+          <div className="details">
             <p className="par1">{contact.firstName}</p>
             <p className="par2">{contact.lastName}</p>
             <p className="par3">{contact.companyName}</p>
@@ -22,11 +22,8 @@ class ShadowCard extends PureComponent {
           <div className="avatar-holder">
             <img src={contact.avatar} alt="user avatar" />
           </div>
-
           <p className="email-adress">{contact.email}</p>
-
           <p className="email-header">{contact.message}</p>
-
         </div>
       </Paper>
     );
