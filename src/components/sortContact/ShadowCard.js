@@ -4,30 +4,31 @@ import Paper from 'material-ui/Paper';
 
 class ShadowCard extends PureComponent {
   static propTypes = {
-    futureContact: PropTypes.object.isRequired,
+    contact: PropTypes.object.isRequired,
   };
 
   render() {
-    const { futureContact } = this.props;
-    if (!futureContact) return null;
+    const { contact, detailsClass } = this.props;
+    if (!contact) return null;
     return (
-      // <div className="contact-card-holder">
-      (
-        <Paper zDepth={2}>
-          <div className="paper-content-holder">
-            <div className="avatar-holder">
-              <img src={futureContact.avatar} alt="user avatar" />
-            </div>
-            <div className="email-adress">
-              <p>{futureContact.email}</p>
-            </div>
-            <div className="email-header-holder">
-              <p>{futureContact.message}</p>
-            </div>
+      <Paper zDepth={2} className="yolo-paper">
+        <div className="wrapper-main">
+          <div className={detailsClass}>
+            <p className="par1">{contact.firstName}</p>
+            <p className="par2">{contact.lastName}</p>
+            <p className="par3">{contact.companyName}</p>
+            <p className="par4">{contact.companyRole}</p>
           </div>
-        </Paper>
-      )
-      // </div>
+          <div className="avatar-holder">
+            <img src={contact.avatar} alt="user avatar" />
+          </div>
+
+          <p className="email-adress">{contact.email}</p>
+
+          <p className="email-header">{contact.message}</p>
+
+        </div>
+      </Paper>
     );
   }
 }
