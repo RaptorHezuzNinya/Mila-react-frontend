@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react';
 import { PropTypes } from 'prop-types';
 import Paper from 'material-ui/Paper';
-import DeleteCard from './DeleteCard';
 
 class ShadowCard extends PureComponent {
   static propTypes = {
@@ -9,7 +8,7 @@ class ShadowCard extends PureComponent {
   };
 
   render() {
-    const { contact, detailsClass } = this.props;
+    const { contact } = this.props;
     if (!contact) return null;
     return (
       <Paper zDepth={2} className="yolo-paper">
