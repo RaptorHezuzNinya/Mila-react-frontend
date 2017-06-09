@@ -188,67 +188,70 @@ class SortContactContainer extends PureComponent {
         </div>;
 
     return (
-      <div className="sort-contact-wrapper">
-        <div className="progress-indicator-wrapper">
-          <PageTitle
-            titleClassName="sortcontact-title"
-            pageTitleContentH2={`${curContactNumb} / ${totalContacts} new contacts`}
+      <div className="global">
+
+        <div className="sort-contact-wrapper">
+          <div className="progress-indicator-wrapper">
+            <PageTitle
+              titleClassName="sortcontact-title"
+              pageTitleContentH2={`${curContactNumb} / ${totalContacts} new contacts`}
+            />
+            <ProgressIndicator
+              mode="determinate"
+              holderClass="progress-indicator-holder"
+              color="#5DD9B2"
+              completedProgress={completedProgress}
+            />
+          </div>
+          <NavigateContacts
+            handleNextContact={this.handleNextContact}
+            handlePrevContact={this.handlePrevContact}
+          >
+            {whichCard}
+          </NavigateContacts>
+          <div className="network-lists-wrapper">
+            <NetworkListButton />
+          </div>
+          <div className="delete-btn-wrapper">
+            <FlatButton
+              label="Don't save this contact (x)"
+              className="delete-btn"
+              labelPosition="before"
+              hoverColor="none"
+              disableTouchRipple={true}
+              onClick={this.handleDeleteContact}
+            >
+              <NotIcon className="not-icon" />
+            </FlatButton>
+          </div>
+          <Snackbar
+            className="snackbar-delete"
+            autoHideDuration={3000}
+            message={`${!currentContact ? null : currentContact.firstName} is deleted`}
+            open={snackDelete}
+            onRequestClose={this.handleRequestClose}
+            onActionTouchTap={this.handleUndo}
+            action="undo"
           />
-          <ProgressIndicator
-            mode="determinate"
-            holderClass="progress-indicator-holder"
-            color="#5DD9B2"
-            completedProgress={completedProgress}
+          <Snackbar
+            className="snackbar"
+            autoHideDuration={3000}
+            message={`Assign ${!currentContact ? null : currentContact.firstName} to a list before pressing next`}
+            open={snackOpen}
+            onRequestClose={this.handleRequestClose}
+          />
+          <Media
+            query="(min-width: 769px)"
+            render={() => (
+              <HintFooter holderClass="footer-holder" hintText="hint-text" />
+            )}
           />
         </div>
-
-        <NavigateContacts
-          handleNextContact={this.handleNextContact}
-          handlePrevContact={this.handlePrevContact}
-        >
-          {whichCard}
-        </NavigateContacts>
 
         <Media
           query="(min-width: 1280px)"
-          render={() => <ShadowCard futureContact={futureContact} />}
-        />
-
-        <div className="network-lists-wrapper">
-          <NetworkListButton />
-        </div>
-        <div className="delete-btn-wrapper">
-          <FlatButton
-            label="Don't save this contact (x)"
-            className="delete-btn"
-            labelPosition="before"
-            hoverColor="none"
-            disableTouchRipple={true}
-            onClick={this.handleDeleteContact}
-          >
-            <NotIcon className="not-icon" />
-          </FlatButton>
-        </div>
-        <Snackbar
-          className="snackbar-delete"
-          autoHideDuration={3000}
-          message={`${!currentContact ? null : currentContact.firstName} is deleted`}
-          open={snackDelete}
-          onRequestClose={this.handleRequestClose}
-          onActionTouchTap={this.handleUndo}
-          action="undo"
-        />
-        <Snackbar
-          className="snackbar"
-          autoHideDuration={3000}
-          message={`Assign ${!currentContact ? null : currentContact.firstName} to a list before pressing next`}
-          open={snackOpen}
-          onRequestClose={this.handleRequestClose}
-        />
-        <Media
-          query="(min-width: 769px)"
           render={() => (
-            <HintFooter holderClass="footer-holder" hintText="hint-text" />
+            <ShadowCard contact={futureContact} detailsClass="future-details" />
           )}
         />
       </div>
