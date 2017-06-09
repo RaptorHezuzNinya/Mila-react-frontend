@@ -10,6 +10,7 @@ import _ from 'lodash';
 import Media from 'react-media';
 import ContactCard from './ContactCard';
 import DeleteCard from './DeleteCard';
+import ShadowCard from './ShadowCard';
 import ProgressIndicator from '../ProgressIndicator';
 import NetworkListButton from './NetworkListButton';
 import PageTitle from '../PageTitle';
@@ -88,10 +89,6 @@ class SortContactContainer extends PureComponent {
     }
   };
 
-  async handleRemoteContactDetailSubmit() {
-    this.props.submit('contactDetailsForm');
-  }
-
   handleDeleteContact() {
     const theCurrentContact = this.getOneContact();
     this.setState({
@@ -103,7 +100,6 @@ class SortContactContainer extends PureComponent {
 
   handleContainerKeyPress = event => {
     const { contactDetailsForm } = this.props;
-
     // if (contactDetailsForm.fields === null) return NOTE i prolly need to ascape this shit when the emprty contact is being rendered
     let arr = [];
     let activeField;
@@ -122,6 +118,10 @@ class SortContactContainer extends PureComponent {
     }
   };
 
+  handleRemoteContactDetailSubmit() {
+    return this.props.submit('contactDetailsForm');
+  }
+
   async handleNextContact() {
     const {
       contactIndex,
@@ -130,12 +130,15 @@ class SortContactContainer extends PureComponent {
       completedProgress,
     } = this.state;
     const { addedContactIds, currentContact } = this.props;
+
     await this.handleRemoteContactDetailSubmit();
+
     if (contactIndex >= totalContacts - 1) return null;
     if (addedContactIds.includes(currentContact.id)) {
       this.setState({
         completedProgress: completedProgress + 100 / totalContacts,
         contactIndex: contactIndex + 1,
+
         curContactNumb: curContactNumb + 1,
       });
       return this.props.redo();
@@ -175,7 +178,7 @@ class SortContactContainer extends PureComponent {
       snackDelete,
       isDeleted,
     } = this.state;
-    const { currentContact } = this.props;
+    const { currentContact, futureContact } = this.props;
     let whichCard = !isDeleted
       ? <div className="contact-card-wrapper">
           <ContactCard onSubmit={this.onSubmit} />
@@ -185,55 +188,71 @@ class SortContactContainer extends PureComponent {
         </div>;
 
     return (
-      <div className="sort-contact-wrapper">
-        <div className="progress-indicator-wrapper">
-          <PageTitle
-            titleClassName="sortcontact-title"
-            pageTitleContentH2={`${curContactNumb} / ${totalContacts} new contacts`}
-          />
-          <ProgressIndicator
-            mode="determinate"
-            holderClass="progress-indicator-holder"
-            color="#5DD9B2"
-            completedProgress={completedProgress}
-          />
-        </div>
-        <NavigateContacts
-          handleNextContact={this.handleNextContact}
-          handlePrevContact={this.handlePrevContact}
-        >
-          {whichCard}
-        </NavigateContacts>
-        <div className="network-lists-wrapper">
-          <NetworkListButton />
-        </div>
-        <div className="delete-btn-wrapper">
-          <FlatButton
-            label="Don't save this contact (x)"
-            className="delete-btn"
-            labelPosition="before"
-            hoverColor="none"
-            disableTouchRipple={true}
-            onClick={this.handleDeleteContact}
+      <div className="global">
+
+        <div className="sort-contact-wrapper">
+          <div className="progress-indicator-wrapper">
+            <PageTitle
+              titleClassName="sortcontact-title"
+              pageTitleContentH2={`${curContactNumb} / ${totalContacts} new contacts`}
+            />
+            <ProgressIndicator
+              mode="determinate"
+              holderClass="progress-indicator-holder"
+              color="#5DD9B2"
+              completedProgress={completedProgress}
+            />
+          </div>
+          <NavigateContacts
+            handleNextContact={this.handleNextContact}
+            handlePrevContact={this.handlePrevContact}
           >
-            <NotIcon className="not-icon" />
-          </FlatButton>
+            {whichCard}
+          </NavigateContacts>
+          <div className="network-lists-wrapper">
+            <NetworkListButton />
+          </div>
+          <div className="delete-btn-wrapper">
+            <FlatButton
+              label="Don't save this contact (x)"
+              className="delete-btn"
+              labelPosition="before"
+              hoverColor="none"
+              disableTouchRipple={true}
+              onClick={this.handleDeleteContact}
+            >
+              <NotIcon className="not-icon" />
+            </FlatButton>
+          </div>
+          <Snackbar
+            className="snackbar-delete"
+            autoHideDuration={3000}
+            message={`${!currentContact ? null : currentContact.firstName} is deleted`}
+            open={snackDelete}
+            onRequestClose={this.handleRequestClose}
+            onActionTouchTap={this.handleUndo}
+            action="undo"
+          />
+          <Snackbar
+            className="snackbar"
+            autoHideDuration={3000}
+            message={`Assign ${!currentContact ? null : currentContact.firstName} to a list before pressing next`}
+            open={snackOpen}
+            onRequestClose={this.handleRequestClose}
+          />
+
         </div>
-        <Snackbar
-          className="snackbar-delete"
-          autoHideDuration={3000}
-          message={`${!currentContact ? null : currentContact.firstName} is deleted`}
-          open={snackDelete}
-          onRequestClose={this.handleRequestClose}
-          onActionTouchTap={this.handleUndo}
-          action="undo"
-        />
-        <Snackbar
-          className="snackbar"
-          autoHideDuration={3000}
-          message={`Assign ${!currentContact ? null : currentContact.firstName} to a list before pressing next`}
-          open={snackOpen}
-          onRequestClose={this.handleRequestClose}
+
+        <Media
+          query="(min-width: 1280px)"
+          render={() => (
+            <div className="future-wrapper" onClick={this.handleNextContact}>
+              <ShadowCard
+                contact={futureContact}
+                detailsClass="future-details"
+              />
+            </div>
+          )}
         />
         <Media
           query="(min-width: 769px)"
@@ -248,6 +267,7 @@ class SortContactContainer extends PureComponent {
 
 const mapStateToProps = state => {
   return {
+    futureContact: state.sortContact.future[0],
     currentContact: state.sortContact.present,
     totalContacts: state.sortContact.sortingData.totalSortContacts,
     addedContactIds: state.sortContact.sortingData.addedContactIds,

@@ -32,7 +32,8 @@ class ContactDetails extends PureComponent {
     <TextField
       name={label}
       fullWidth={true}
-      hintText={!initialValues ? 'yolo' : ''}
+      hintText={!initialValues ? `${label}` : ''}
+      hintStyle={styles.hint}
       inputStyle={styles.input}
       errorStyle={styles.errorStyle}
       errorText={warning}

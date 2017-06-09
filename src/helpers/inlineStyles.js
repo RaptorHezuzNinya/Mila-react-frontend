@@ -2,6 +2,11 @@
 export const inlineNavigateContactsStyles = {};
 // imported in ~/components/sortContact/SortContactContainer.js
 export const inlineContactDetailsStyles = {
+  hint: {
+    paddingLeft: 20,
+    fontFamily: 'Montserrat-Light',
+    fontSize: 12
+  },
   input: {
     paddingLeft: 20,
   },
