@@ -1,7 +1,7 @@
 @import "../../assets/styles/base/colors.sass"
 @import "../../assets/styles/base/mixins.sass"
 @import "../../assets/styles/base/breakpoints.sass"
-.global
+.global-wrapper
   display: flex
   position: relative
   justify-content: space-around
@@ -101,8 +101,9 @@
         text-align: center
         +mont-light($steelC)
 
-  .future-wrapper
+  .future-wrapper, .past-wrapper
     +breakpoint($brp-xl)
+    z-index: 10
     border-radius: 4px
     cursor: pointer
     justify-content: center
@@ -112,21 +113,23 @@
     width: 500px
     height: 82%
     background-color: $blueB
-    opacity: 0.5
-    right: -150px
+    opacity: 0.4
     top: 50px
-    .yolo-paper
+    right: -225px
+
+    .contact-card-paper
+      opacity: 0.5
       border-radius: 3px
       display: flex
       flex: 0 0 425px
       height: 190px
       max-width: 425px
-      .wrapper-main
+      .details-holder
         display: flex
         flex-wrap: wrap
         p
           margin: 0
-        .future-details
+        .details
           display: flex
           flex: 0 0 320px
           flex-wrap: wrap
@@ -145,6 +148,8 @@
           flex: 0 0 100%
         .email-header
           background-color: $steelB
+  .past-wrapper
+    left: -225px
 
   .footer-holder
     +breakpoint($brp-m)

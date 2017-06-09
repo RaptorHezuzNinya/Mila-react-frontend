@@ -130,9 +130,7 @@ class SortContactContainer extends PureComponent {
       completedProgress,
     } = this.state;
     const { addedContactIds, currentContact } = this.props;
-
     await this.handleRemoteContactDetailSubmit();
-
     if (contactIndex >= totalContacts - 1) return null;
     if (addedContactIds.includes(currentContact.id)) {
       this.setState({
@@ -149,13 +147,14 @@ class SortContactContainer extends PureComponent {
     }
   }
 
-  handlePrevContact() {
+  async handlePrevContact() {
     const {
       contactIndex,
       curContactNumb,
       totalContacts,
       completedProgress,
     } = this.state;
+    await this.handleRemoteContactDetailSubmit();
     if (contactIndex === 0) return null;
     this.setState({
       contactIndex: contactIndex - 1,
@@ -178,7 +177,7 @@ class SortContactContainer extends PureComponent {
       snackDelete,
       isDeleted,
     } = this.state;
-    const { currentContact, futureContact } = this.props;
+    const { currentContact, futureContact, pastContact } = this.props;
     let whichCard = !isDeleted
       ? <div className="contact-card-wrapper">
           <ContactCard onSubmit={this.onSubmit} />
@@ -187,8 +186,18 @@ class SortContactContainer extends PureComponent {
           <DeleteCard />
         </div>;
 
+    const lastPastContact = pastContact[pastContact.length - 1];
+
     return (
-      <div className="global">
+      <div className="global-wrapper">
+        <Media
+          query="(min-width: 1280px)"
+          render={() => (
+            <div className="past-wrapper" onClick={this.handlePrevContact}>
+              <ShadowCard contact={lastPastContact} />
+            </div>
+          )}
+        />
 
         <div className="sort-contact-wrapper">
           <div className="progress-indicator-wrapper">
@@ -247,10 +256,7 @@ class SortContactContainer extends PureComponent {
           query="(min-width: 1280px)"
           render={() => (
             <div className="future-wrapper" onClick={this.handleNextContact}>
-              <ShadowCard
-                contact={futureContact}
-                detailsClass="future-details"
-              />
+              <ShadowCard contact={futureContact} />
             </div>
           )}
         />
@@ -267,6 +273,7 @@ class SortContactContainer extends PureComponent {
 
 const mapStateToProps = state => {
   return {
+    pastContact: state.sortContact.past,
     futureContact: state.sortContact.future[0],
     currentContact: state.sortContact.present,
     totalContacts: state.sortContact.sortingData.totalSortContacts,
