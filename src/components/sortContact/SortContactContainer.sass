@@ -1,109 +1,139 @@
 @import "../../assets/styles/base/colors.sass"
 @import "../../assets/styles/base/mixins.sass"
 @import "../../assets/styles/base/breakpoints.sass"
-
-.sort-contact-wrapper
+.global
   display: flex
-  flex-wrap: wrap
-  padding: 5px
-  .progress-indicator-wrapper
+  .sort-contact-wrapper
     display: flex
-
     flex-wrap: wrap
-    flex: 0 0 100%
-    justify-content: center
-    .progress-indicator-holder
+    padding: 5px
+
+    .progress-indicator-wrapper
+      display: flex
+      flex-wrap: wrap
+      flex: 0 0 100%
+      justify-content: center
+      .progress-indicator-holder
+        display: flex
+        flex: 0 0 100%
+        padding-top: 10px
+        padding-bottom: 15px
+        div
+          height: 6px !important
+        +breakpoint($brp-land)
+          flex: 0 0 420px
+          div
+            height: 7px !important
+
+    .contact-card-wrapper
       display: flex
       flex: 0 0 100%
-      padding-top: 10px
-      padding-bottom: 15px
-      div
-        height: 6px !important
       +breakpoint($brp-land)
-        flex: 0 0 420px
-        div
-          height: 7px !important
+        flex: 0 0 435px
+        display: flex
+        justify-content: center
 
-  .contact-card-wrapper
-    display: flex
-    flex: 0 0 100%
-    +breakpoint($brp-land)
-      flex: 0 0 435px
+    .delete-card-wrapper
+      display: flex
+      margin-bottom: 20px
+      +breakpoint($brp-land)
+        justify-content: center
+
+      .delete-card-holder
+        display: flex
+        border-radius: 4px
+        height: 190px
+        justify-content: center
+        padding: 0 5px 5px
+        +breakpoint($brp-land)
+          flex: 0 0 420px
+        .delete-card
+          background-color: $greenC
+          padding: 42px
+          color: $greyB
+          text-align: center
+          h2
+            +mont-bold($greyB)
+            +f(32px)
+            margin-bottom: 0
+            letter-spacing: 0.8px
+          p
+            +mont-light($greyB)
+            +f(14px)
+
+    .network-lists-wrapper
+      flex: 0 0 100%
       display: flex
       justify-content: center
 
-  .delete-card-wrapper
-    display: flex
-    margin-bottom: 20px
-    +breakpoint($brp-land)
-      justify-content: center
-
-    .delete-card-holder
+    .delete-btn-wrapper
+      padding: 35px 0
       display: flex
-      border-radius: 4px
-      height: 190px
       justify-content: center
-      padding: 0 5px 5px
-      +breakpoint($brp-land)
-        flex: 0 0 420px
-      .delete-card
-        background-color: $greenC
-        padding: 42px
-        color: $greyB
-        text-align: center
-        h2
-          +mont-bold($greyB)
-          +f(32px)
-          margin-bottom: 0
-          letter-spacing: 0.8px
-        p
-          +mont-light($greyB)
-          +f(14px)
+      flex: 0 0 100%
 
-  .network-lists-wrapper
-    flex: 0 0 100%
-    display: flex
-    justify-content: center
-
-  .delete-btn-wrapper
-    padding: 35px 0
-    display: flex
-    justify-content: center
-    flex: 0 0 100%
-
-    .delete-btn
-      width: 225px
-      color: $greyB !important
-
-      span
-        +f(12px !important)
-        text-transform: none !important
-        padding-right: 6px !important
-        +mont-light($greyB)
-        &:hover
-          text-decoration: underline
-      .not-icon
+      .delete-btn
+        width: 225px
         color: $greyB !important
-        position: absolute
-        left: 23px
-        top: 12px
-        width: 14px !important
-        height: 14px !important
 
-  .snackbar
-    div
+        span
+          +f(12px !important)
+          text-transform: none !important
+          padding-right: 6px !important
+          +mont-light($greyB)
+          &:hover
+            text-decoration: underline
+        .not-icon
+          color: $greyB !important
+          position: absolute
+          left: 23px
+          top: 12px
+          width: 14px !important
+          height: 14px !important
+
+    .snackbar
+      div
+        text-align: center
+        +mont-light($steelC)
+
+  .yolo-paper
+    display: flex
+    flex: 0 0 425px
+    height: 190px
+    .wrapper-main
+      display: flex
+      flex-wrap: wrap
+      p
+        margin: 0
+      .future-details
+        display: flex
+        flex: 0 0 320px
+        flex-wrap: wrap
+        p
+          margin: 0
+        .par1, .par2
+          flex: 0 0 160px
+        .par3
+          flex: 0 0 320px
+        .par4
+          flex: 0 0 320px
+      .avatar-holder
+        width: 100px
+        height: 100px
+      .email-adress
+        flex: 0 0 100%
+      .email-header
+        background-color: $steelB
+
+  .footer-holder
+    height: 125px
+    background-color: $greenB
+    left: 0
+    position: absolute
+    bottom: 0
+    width: 100%
+    .hint-text
       text-align: center
+      padding: 38px 50px
       +mont-light($steelC)
-
-.footer-holder
-  height: 125px
-  background-color: $greenB
-  left: 0
-  position: absolute
-  bottom: 0
-  width: 100%
-  .hint-text
-    text-align: center
-    padding: 38px 50px
-    +mont-light($steelC)
-    +f(14px)
+      +f(14px)
