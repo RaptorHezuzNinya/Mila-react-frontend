@@ -189,7 +189,7 @@ class SortContactContainer extends PureComponent {
     const lastPastContact = pastContact[pastContact.length - 1];
 
     return (
-      <div className="global">
+      <div className="global-wrapper">
         <Media
           query="(min-width: 1280px)"
           render={() => (

@@ -11,8 +11,8 @@ class ShadowCard extends PureComponent {
     const { contact } = this.props;
     if (!contact) return null;
     return (
-      <Paper zDepth={2} className="yolo-paper">
-        <div className="wrapper-main">
+      <Paper zDepth={2} className="contact-card-paper">
+        <div className="details-holder">
           <div className="details">
             <p className="par1">{contact.firstName}</p>
             <p className="par2">{contact.lastName}</p>
