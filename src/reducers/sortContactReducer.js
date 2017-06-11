@@ -1,5 +1,5 @@
 import { RECEIVE_CONTACTS } from '../actions/sortContacts';
-import { undoable } from './undoableReducer';
+import { prevNextAble } from './prevNextAbleReducer';
 import store from '../store';
 
 const initialState = {

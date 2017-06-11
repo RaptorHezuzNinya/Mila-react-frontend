@@ -5,7 +5,7 @@ import { submit } from 'redux-form';
 import { updateContact } from '../../actions/contacts';
 import { addContactToDeleted } from '../../actions/sortContacts';
 import { fetchContacts } from '../../actions/sortContacts';
-import { undo, redo } from '../../actions/undoable';
+import { undo, redo } from '../../actions/prevNextAble';
 import { formFieldsContactDetails as formFields } from '../../helpers/formData';
 import _ from 'lodash';
 import Media from 'react-media';
