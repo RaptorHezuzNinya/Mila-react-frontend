@@ -104,6 +104,7 @@ export const undoable = reducer => {
           present: neededPresent[0],
           future: neededFuture,
           sortingData: { ...newPresent },
+          deletedSortContacts: [],
         };
     }
   };
