@@ -10,7 +10,7 @@ import { formFieldsContactDetails as formFields } from '../../helpers/formData';
 import _ from 'lodash';
 import Media from 'react-media';
 import ContactCard from './ContactCard';
-import DeleteCard from './DeleteCard';
+import DeletedContactCard from './DeletedContactCard';
 import DummyCard from './DummyCard';
 import ProgressIndicator from '../ProgressIndicator';
 import NetworkListButton from './NetworkListButton';
@@ -187,7 +187,10 @@ class SortContactContainer extends PureComponent {
           <ContactCard onSubmit={this.onSubmit} />
         </div>
       : <div className="delete-card-wrapper">
-          <DeleteCard />
+          <DeletedContactCard
+            contact={currentContact}
+            deleteCopy="will be kept out of my records."
+          />
         </div>;
 
     const lastPastContact = pastContact[pastContact.length - 1];
