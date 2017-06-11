@@ -1,13 +1,13 @@
-export const UNDO = 'UNDO';
-export const undo = () => {
+export const PREV = 'PREV';
+export const prev = () => {
   return {
-    type: UNDO,
+    type: PREV,
   };
 };
 
-export const REDO = 'REDO';
-export const redo = () => {
+export const NEXT = 'NEXT';
+export const next = () => {
   return {
-    type: REDO,
+    type: NEXT,
   };
 };

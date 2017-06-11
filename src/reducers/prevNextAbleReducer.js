@@ -1,4 +1,4 @@
-import { UNDO, REDO } from '../actions/prevNextAble';
+import { PREV, NEXT } from '../actions/prevNextAble';
 import { ADD_CONTACT_TO_NETWORKLIST } from '../actions/networklists';
 import {
   ADD_NETWORKLIST_TO_CONTACT,
@@ -20,7 +20,7 @@ export const prevNextAble = reducer => {
     const sortingDataState = state.sortingData;
 
     switch (action.type) {
-      case UNDO:
+      case PREV:
         const previous = past[past.length - 1];
         const newPast = past.slice(0, past.length - 1);
         return {
@@ -28,9 +28,10 @@ export const prevNextAble = reducer => {
           present: previous,
           future: [present, ...future],
           sortingData: { ...sortingDataState },
+          deletedSortContacts: [...deletedSortContacts],
         };
 
-      case REDO:
+      case NEXT:
         const next = future[0];
         const newFuture = future.slice(1);
         return {

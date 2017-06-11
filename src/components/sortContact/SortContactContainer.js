@@ -5,7 +5,7 @@ import { submit } from 'redux-form';
 import { updateContact } from '../../actions/contacts';
 import { addContactToDeleted } from '../../actions/sortContacts';
 import { fetchContacts } from '../../actions/sortContacts';
-import { undo, redo } from '../../actions/prevNextAble';
+import { prev, next } from '../../actions/prevNextAble';
 import { formFieldsContactDetails as formFields } from '../../helpers/formData';
 import _ from 'lodash';
 import Media from 'react-media';
@@ -30,8 +30,8 @@ class SortContactContainer extends PureComponent {
     fetchContacts: PropTypes.func.isRequired,
     addContactToDeleted: PropTypes.func.isRequired,
     contactDetailsForm: PropTypes.object,
-    redo: PropTypes.func.isRequired,
-    undo: PropTypes.func.isRequired,
+    next: PropTypes.func.isRequired,
+    prev: PropTypes.func.isRequired,
     addedContactIds: PropTypes.array.isRequired,
   };
 
@@ -127,7 +127,7 @@ class SortContactContainer extends PureComponent {
       totalContacts,
       completedProgress,
     } = this.state;
-    const { addedContactIds, currentContact, redo } = this.props;
+    const { addedContactIds, currentContact, next } = this.props;
     await this.handleRemoteContactDetailSubmit();
     if (contactIndex >= totalContacts - 1) return null;
 
@@ -140,7 +140,7 @@ class SortContactContainer extends PureComponent {
         contactIndex: contactIndex + 1,
         curContactNumb: curContactNumb + 1,
       });
-      return redo();
+      return next();
     } else {
       return this.setState({
         snackOpen: true,
@@ -162,7 +162,7 @@ class SortContactContainer extends PureComponent {
       curContactNumb: curContactNumb - 1,
       completedProgress: completedProgress - 100 / totalContacts,
     });
-    return this.props.undo();
+    return this.props.prev();
   }
 
   handleUndo = () => {
@@ -291,6 +291,6 @@ export default connect(mapStateToProps, {
   addContactToDeleted,
   submit,
   fetchContacts,
-  undo,
-  redo,
+  prev,
+  next,
 })(SortContactContainer);
