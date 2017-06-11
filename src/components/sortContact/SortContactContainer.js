@@ -44,7 +44,6 @@ class SortContactContainer extends PureComponent {
       curContactNumb: 1,
       totalContacts: null,
       completedProgress: 4,
-      isDeleted: false,
     };
     this.handleNextContact = this.handleNextContact.bind(this);
     this.handlePrevContact = this.handlePrevContact.bind(this);
@@ -90,12 +89,11 @@ class SortContactContainer extends PureComponent {
   };
 
   handleDeleteContact() {
-    const theCurrentContact = this.getOneContact();
+    const { currentContact } = this.props;
     this.setState({
       snackDelete: true,
-      isDeleted: true,
     });
-    this.props.deleteContact(theCurrentContact);
+    this.props.addContactToDeleted(currentContact);
   }
 
   handleContainerKeyPress = event => {
