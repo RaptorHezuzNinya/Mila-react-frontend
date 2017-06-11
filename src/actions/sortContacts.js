@@ -23,7 +23,15 @@ export const fetchContacts = () => {
     return axios
       .get(`${rootUrl}contacts?_page=1&_limit=25`)
       .then(response => response.data)
-      .catch(error => console.log(error))
+      .catch(error => console.log(error)) // NOTE: need to add redux logger to catch errors
       .then(json => dispatch(receiveContacts(json)));
+  };
+};
+
+export const ADD_CONTACT_TO_DELETED = 'ADD_CONTACT_TO_DELETED';
+export const addContactToDeleted = contact => {
+  return {
+    type: ADD_CONTACT_TO_DELETED,
+    payload: contact,
   };
 };
