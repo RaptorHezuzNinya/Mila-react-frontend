@@ -1,6 +1,7 @@
 @import "../../assets/styles/base/colors.sass"
 @import "../../assets/styles/base/mixins.sass"
 @import "../../assets/styles/base/breakpoints.sass"
+
 .global-wrapper
   display: flex
   position: relative
@@ -121,33 +122,51 @@
       opacity: 0.5
       border-radius: 3px
       display: flex
-      flex: 0 0 425px
+      flex: 0 0 420px
       height: 190px
-      max-width: 425px
+      max-width: 420px
       .details-holder
         display: flex
         flex-wrap: wrap
         p
+          +mont-light($blueA)
           margin: 0
         .details
           display: flex
           flex: 0 0 320px
           flex-wrap: wrap
           p
+            line-height: 33px
+            +f(14px)
             margin: 0
           .par1, .par2
-            flex: 0 0 160px
-          .par3
+            padding-left: 20px
+            +mont-bold($blueA)
+            flex: 0 0 135px
+            height: 34px
+          .dot
+            flex: 0 0 10px
+            height: 34px
+            line-height: 28px
+            +f(40px)
+          .par3, .par4
+            padding-left: 20px
             flex: 0 0 320px
-          .par4
-            flex: 0 0 320px
+            height: 34px
         .avatar-holder
           width: 100px
           height: 100px
         .email-adress
+          +f(15px)
+          height: 34px
+          line-height: 33px
           flex: 0 0 100%
+          text-align: center
         .email-header
+          +f(15px)
+          padding: 10px
           background-color: $steelB
+
   .past-wrapper
     left: -225px
 
