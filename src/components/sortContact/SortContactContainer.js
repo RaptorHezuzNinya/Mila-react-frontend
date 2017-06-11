@@ -165,9 +165,12 @@ class SortContactContainer extends PureComponent {
     return this.props.undo();
   }
 
-  // handleUndo() {
-  //   console.log('Undo works with second snackbar')
-  // }
+  handleUndo = () => {
+    console.log('Undo works with second snackbar');
+    // return this.setState({
+    //   isDeleted: false,
+    // });
+  };
 
   render() {
     const {
@@ -176,10 +179,10 @@ class SortContactContainer extends PureComponent {
       completedProgress,
       snackOpen,
       snackDelete,
-      isDeleted,
     } = this.state;
+
     const { currentContact, futureContact, pastContact } = this.props;
-    let whichCard = !isDeleted
+    let whichCard = !currentContact.isDeleted
       ? <div className="contact-card-wrapper">
           <ContactCard onSubmit={this.onSubmit} />
         </div>
