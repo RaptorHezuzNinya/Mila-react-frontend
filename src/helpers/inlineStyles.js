@@ -5,7 +5,8 @@ export const inlineContactDetailsStyles = {
   hint: {
     paddingLeft: 20,
     fontFamily: 'Montserrat-Light',
-    fontSize: 12
+    lineHeight: 1,
+    fontSize: 12,
   },
   input: {
     paddingLeft: 20,
