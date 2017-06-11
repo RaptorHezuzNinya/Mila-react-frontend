@@ -10,7 +10,7 @@ import _ from 'lodash';
 import Media from 'react-media';
 import ContactCard from './ContactCard';
 import DeleteCard from './DeleteCard';
-import ShadowCard from './ShadowCard';
+import DummyCard from './DummyCard';
 import ProgressIndicator from '../ProgressIndicator';
 import NetworkListButton from './NetworkListButton';
 import PageTitle from '../PageTitle';
@@ -194,7 +194,7 @@ class SortContactContainer extends PureComponent {
           query="(min-width: 1280px)"
           render={() => (
             <div className="past-wrapper" onClick={this.handlePrevContact}>
-              <ShadowCard contact={lastPastContact} />
+              <DummyCard contact={lastPastContact} />
             </div>
           )}
         />
@@ -256,7 +256,7 @@ class SortContactContainer extends PureComponent {
           query="(min-width: 1280px)"
           render={() => (
             <div className="future-wrapper" onClick={this.handleNextContact}>
-              <ShadowCard contact={futureContact} />
+              <DummyCard contact={futureContact} />
             </div>
           )}
         />
