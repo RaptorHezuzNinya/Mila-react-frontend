@@ -2,7 +2,8 @@ import React, { PureComponent } from 'react';
 import { PropTypes } from 'prop-types';
 import { connect } from 'react-redux';
 import { submit } from 'redux-form';
-import { updateContact, deleteContact } from '../../actions/contacts';
+import { updateContact } from '../../actions/contacts';
+import { addContactToDeleted } from '../../actions/sortContacts';
 import { fetchContacts } from '../../actions/sortContacts';
 import { undo, redo } from '../../actions/undoable';
 import { formFieldsContactDetails as formFields } from '../../helpers/formData';
@@ -27,12 +28,11 @@ class SortContactContainer extends PureComponent {
     currentContact: PropTypes.object.isRequired,
     totalContacts: PropTypes.array.isRequired,
     fetchContacts: PropTypes.func.isRequired,
-    deleteContact: PropTypes.func.isRequired,
+    addContactToDeleted: PropTypes.func.isRequired,
     contactDetailsForm: PropTypes.object,
     redo: PropTypes.func.isRequired,
     undo: PropTypes.func.isRequired,
     addedContactIds: PropTypes.array.isRequired,
-    // addedContactIds: PropTypes.array.isRequired
   };
 
   constructor(props) {
