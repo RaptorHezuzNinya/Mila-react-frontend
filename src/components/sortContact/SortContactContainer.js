@@ -288,7 +288,7 @@ const mapStateToProps = state => {
 
 export default connect(mapStateToProps, {
   updateContact,
-  deleteContact,
+  addContactToDeleted,
   submit,
   fetchContacts,
   undo,
