@@ -5,6 +5,8 @@ import {
   ADD_CONTACT_TO_NETWORKLIST,
 } from '../actions/networklists';
 
+import { ADD_CONTACT_TO_DELETED } from '../actions/sortContacts';
+
 const initialState = [
   {
     id: 1,
