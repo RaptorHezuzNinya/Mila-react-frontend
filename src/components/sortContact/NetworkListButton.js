@@ -113,6 +113,7 @@ class NetworkListButton extends PureComponent {
           onClick={this.handleNetworkButtonClick.bind(this, networkList)}
           className={networkButton}
           label={networkList.title}
+          disabled={currentContact.isDeleted ? true : false}
         >
           <ListIcon className="list-icon" />
           <span className="button-number">{1 + index}</span>
