@@ -3,7 +3,10 @@ import { PropTypes } from 'prop-types';
 import { connect } from 'react-redux';
 import { submit } from 'redux-form';
 import { updateContact } from '../../actions/contacts';
-import { addContactToDeleted } from '../../actions/sortContacts';
+import {
+  addContactToDeleted,
+  undoAddContactToDeleted,
+} from '../../actions/sortContacts';
 import { fetchContacts } from '../../actions/sortContacts';
 import { prev, next } from '../../actions/prevNextAble';
 import { formFieldsContactDetails as formFields } from '../../helpers/formData';
@@ -168,9 +171,7 @@ class SortContactContainer extends PureComponent {
 
   handleUndo = () => {
     console.log('Undo works with second snackbar');
-    // return this.setState({
-    //   isDeleted: false,
-    // });
+    return this.props.undoAddContactToDeleted();
   };
 
   render() {
@@ -293,6 +294,7 @@ const mapStateToProps = state => {
 export default connect(mapStateToProps, {
   updateContact,
   addContactToDeleted,
+  undoAddContactToDeleted,
   submit,
   fetchContacts,
   prev,
