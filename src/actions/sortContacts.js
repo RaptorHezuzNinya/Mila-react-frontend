@@ -35,3 +35,10 @@ export const addContactToDeleted = contact => {
     payload: contact,
   };
 };
+
+export const UNDO_ADD_CONTACT_TO_DELETED = 'UNDO_ADD_CONTACT_TO_DELETED';
+export const undoAddContactToDeleted = () => {
+  return {
+    type: UNDO_ADD_CONTACT_TO_DELETED,
+  };
+};
