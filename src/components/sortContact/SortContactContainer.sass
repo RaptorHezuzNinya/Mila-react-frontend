@@ -41,24 +41,25 @@
 
     .delete-card-wrapper
       display: flex
-      margin-bottom: 20px
+      flex: 0 0 100%
+      justify-content: center
       +breakpoint($brp-land)
+        flex: 0 0 435px
         justify-content: center
-
       .delete-card-holder
         display: flex
         border-radius: 4px
         height: 190px
         justify-content: center
-        padding: 0 5px 5px
+        background-color: $greenC
         +breakpoint($brp-land)
           flex: 0 0 420px
         .delete-card
-          background-color: $greenC
           padding: 42px
           color: $greyB
           text-align: center
           h2
+            margin-top: 10px
             +mont-bold($greyB)
             +f(32px)
             margin-bottom: 0
