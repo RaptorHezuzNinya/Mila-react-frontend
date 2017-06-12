@@ -13,6 +13,7 @@ export const prevNextAble = reducer => {
     future: [],
     sortingData: reducer(undefined, {}),
     deletedSortContacts: [],
+    history: {},
   };
 
   return (state = initialState, action) => {
