@@ -98,11 +98,12 @@ export const prevNextAble = reducer => {
           ...state,
           present: { ...state.present, isDeleted: true, networkListIds: [] },
           deletedSortContacts: [...state.deletedSortContacts, action.payload],
+          // history: { ...state },
         };
 
       case UNDO_ADD_CONTACT_TO_DELETED:
         return {
-          ...state,
+          ...state.history,
         };
 
       default:
@@ -118,15 +119,14 @@ export const prevNextAble = reducer => {
           future: neededFuture,
           sortingData: { ...newPresent },
           deletedSortContacts: [],
-          history: {
-            past: [...past],
-            present: neededPresent[0],
-            future: neededFuture,
-            sortingData: { ...newPresent },
-            deletedSortContacts: [],
-            history: {},
-          },
+          history: {},
         };
     }
   };
 };
+// past: [...past],
+// present: neededPresent[0],
+// future: neededFuture,
+// sortingData: { ...newPresent },
+// deletedSortContacts: [],
+// history: {},
