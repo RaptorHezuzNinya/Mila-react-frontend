@@ -20,18 +20,6 @@ const initialState = [
     description: 'The VIP list is used for people who have asked questions about our product and want to try our next update',
     contactIds: [],
   },
-  // {
-  //   id: 4,
-  //   title: 'Friends',
-  //   description: 'The VIP list is used for people who have asked questions about our product and want to try our next update',
-  //   contactIds: []
-  // },
-  // {
-  //   id: 3,
-  //   title: 'All',
-  //   description: 'The VIP list is used for people who have asked questions about our product and want to try our next update',
-  //   contactIds: []
-  // },
 ];
 
 const networklist = (state = {}, { type, payload } = {}) => {
@@ -78,6 +66,10 @@ const networklists = (state = initialState, action) => {
         }
         return networkList;
       });
+
+    case ADD_CONTACT_TO_DELETED:
+      console.log(state, 'state in NWL RED');
+      return state;
 
     default:
       return state;
