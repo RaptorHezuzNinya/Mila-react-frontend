@@ -38,7 +38,7 @@ class SortContactContainer extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      snackOpen: false,
+      snackProceed: false,
       snackDelete: false,
       contactIndex: 0,
       curContactNumb: 1,
@@ -69,7 +69,8 @@ class SortContactContainer extends PureComponent {
 
   handleRequestClose = () => {
     this.setState({
-      snackOpen: false,
+      snackProceed: false,
+      snackDelete: false,
     });
   };
 
@@ -143,7 +144,7 @@ class SortContactContainer extends PureComponent {
       return next();
     } else {
       return this.setState({
-        snackOpen: true,
+        snackProceed: true,
       });
     }
   }
@@ -177,7 +178,7 @@ class SortContactContainer extends PureComponent {
       curContactNumb,
       totalContacts,
       completedProgress,
-      snackOpen,
+      snackProceed,
       snackDelete,
     } = this.state;
 
@@ -253,7 +254,7 @@ class SortContactContainer extends PureComponent {
             className="snackbar"
             autoHideDuration={3000}
             message={`Assign ${!currentContact ? null : currentContact.firstName} to a list before pressing next`}
-            open={snackOpen}
+            open={snackProceed}
             onRequestClose={this.handleRequestClose}
           />
 
