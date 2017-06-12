@@ -118,6 +118,14 @@ export const prevNextAble = reducer => {
           future: neededFuture,
           sortingData: { ...newPresent },
           deletedSortContacts: [],
+          history: {
+            past: [...past],
+            present: neededPresent[0],
+            future: neededFuture,
+            sortingData: { ...newPresent },
+            deletedSortContacts: [],
+            history: {},
+          },
         };
     }
   };
