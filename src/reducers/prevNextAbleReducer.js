@@ -25,6 +25,7 @@ export const prevNextAble = reducer => {
 
     switch (action.type) {
       case PREV:
+        const prevHistory = state.history.history;
         const previous = past[past.length - 1];
         const newPast = past.slice(0, past.length - 1);
         return {
@@ -33,6 +34,7 @@ export const prevNextAble = reducer => {
           future: [present, ...future],
           sortingData: { ...sortingDataState },
           deletedSortContacts: [...deletedSortContacts],
+          history: { ...prevHistory },
         };
 
       case NEXT:
