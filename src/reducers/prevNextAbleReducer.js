@@ -46,6 +46,7 @@ export const prevNextAble = reducer => {
           future: newFuture,
           sortingData: { ...sortingDataState },
           deletedSortContacts: [...deletedSortContacts],
+          history: { ...state },
         };
 
       case ADD_CONTACT_TO_NETWORKLIST:
@@ -93,11 +94,15 @@ export const prevNextAble = reducer => {
         }
 
       case ADD_CONTACT_TO_DELETED:
-        // console.log(state, action.payload);
         return {
           ...state,
-          present: { ...state.present, isDeleted: true },
+          present: { ...state.present, isDeleted: true, networkListIds: [] },
           deletedSortContacts: [...state.deletedSortContacts, action.payload],
+        };
+
+      case UNDO_ADD_CONTACT_TO_DELETED:
+        return {
+          ...state,
         };
 
       default:
