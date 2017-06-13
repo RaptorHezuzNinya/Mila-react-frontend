@@ -203,7 +203,10 @@ class SortContactContainer extends PureComponent {
           query="(min-width: 1280px)"
           render={() => (
             <div className="past-wrapper" onClick={this.handlePrevContact}>
-              <DummyCard contact={lastPastContact} />
+              <DummyCard
+                contact={lastPastContact}
+                paperClass="dummy-paper-prev"
+              />
             </div>
           )}
         />
@@ -265,16 +268,19 @@ class SortContactContainer extends PureComponent {
           query="(min-width: 1280px)"
           render={() => (
             <div className="future-wrapper" onClick={this.handleNextContact}>
-              <DummyCard contact={futureContact} />
+              <DummyCard
+                contact={futureContact}
+                paperClass="dummy-paper-next"
+              />
             </div>
           )}
         />
-        <Media
+        {/* <Media
           query="(min-width: 769px)"
           render={() => (
             <HintFooter holderClass="footer-holder" hintText="hint-text" />
           )}
-        />
+        /> */}
       </div>
     );
   }
