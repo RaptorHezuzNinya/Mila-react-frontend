@@ -5,13 +5,14 @@ import Paper from 'material-ui/Paper';
 class DummyCard extends PureComponent {
   static propTypes = {
     contact: PropTypes.object,
+    paperClass: PropTypes.string.isRequired,
   };
 
   render() {
-    const { contact } = this.props;
+    const { contact, paperClass } = this.props;
     if (!contact) return null;
     return (
-      <Paper zDepth={2} className="contact-card-paper">
+      <Paper zDepth={2} className={paperClass}>
         <div className="details-holder">
           <div className="details">
             <p className="par1">
