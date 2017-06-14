@@ -108,10 +108,3 @@ export const inlineNavigationStyles = {
     justifyContent: 'flex-end',
   },
 };
-
-// used in ~/components/sortContact/SortContact.js
-export const inlineContactCardStyles = {
-  paper: {
-    flex: '0 0 100%',
-  },
-};
