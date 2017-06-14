@@ -1,10 +1,13 @@
 @import "./breakpoints"
 
 .app
+  height: 100%
   .content
-    +breakpoint($brp-xl)
-      display: flex
-      justify-content: space-around
+    height: calc(100% - 70px)
+    // removed this for height 100% in sortContactContainer
+    // +breakpoint($brp-xl)
+    //   display: flex
+    //   justify-content: space-around
 
   .content-drawer-open-desk
     +breakpoint($brp-m)
