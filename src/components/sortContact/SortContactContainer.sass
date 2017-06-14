@@ -112,21 +112,21 @@
     display: flex
     position: absolute
     padding-top: 74px
-    width: 40%
+    width: 33%
     height: 82%
     top: 25px
     &:hover
       background-color: rgba(71, 166, 136, 0.3)
 
     .dummy-paper-prev, .dummy-paper-next
+      position: relative
       opacity: 0.2
       border-radius: 3px
       display: flex
-      position: relative
       flex: 0 0 420px
       height: 190px
       max-width: 420px
-      margin-right: 120px
+      // margin-right: 120px
       .details-holder
         display: flex
         flex-wrap: wrap
@@ -169,14 +169,14 @@
           padding: 10px
           background-color: $steelB
     .dummy-paper-prev
-      right: 50px
+      right: 125px
     .dummy-paper-next
-      left: 50px
+      left: 125px
 
   .past-wrapper
-    left: -225px
+    left: -115px
   .future-wrapper
-    right: -225px
+    right: -115px
 
   // .footer-holder
   //   +breakpoint($brp-m)
