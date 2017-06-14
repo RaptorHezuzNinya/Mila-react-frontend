@@ -19,7 +19,7 @@ class NetworkListButton extends PureComponent {
     addContactToNetworklist: PropTypes.func.isRequired,
     addNetworkListToContact: PropTypes.func.isRequired,
     currentContact: PropTypes.object.isRequired,
-    contactDetailsForm: PropTypes.object.isRequired,
+    contactDetailsForm: PropTypes.object,
   };
 
   constructor(props) {
@@ -113,6 +113,7 @@ class NetworkListButton extends PureComponent {
           onClick={this.handleNetworkButtonClick.bind(this, networkList)}
           className={networkButton}
           label={networkList.title}
+          disabled={currentContact.isDeleted ? true : false}
         >
           <ListIcon className="list-icon" />
           <span className="button-number">{1 + index}</span>

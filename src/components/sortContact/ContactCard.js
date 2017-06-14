@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import ContactDetails from './ContactDetails';
 import Paper from 'material-ui/Paper';
 import './ContactCard.sass';
-import { inlineContactCardStyles as styles } from '../../helpers/inlineStyles';
 
 class ContactCard extends PureComponent {
   static propTypes = {
@@ -45,7 +44,7 @@ class ContactCard extends PureComponent {
   render() {
     return (
       <div className="contact-card-holder">
-        <Paper style={styles.paper} zDepth={2}>
+        <Paper className="paper" zDepth={2}>
           <div className="paper-content-holder">
             <ContactDetails
               onSubmit={this.props.onSubmit}

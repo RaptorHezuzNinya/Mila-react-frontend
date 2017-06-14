@@ -5,36 +5,40 @@
 .contact-card-holder
   display: flex
   justify-content: center
-  // padding: 0 5px 5px
   height: 190px
   +breakpoint($brp-land)
     flex: 0 0 420px
 
-  .paper-content-holder
-    display: flex
-    height: 100%
-    flex-wrap: wrap
-
-    .avatar-holder
-      height: 100px
-
-    .email-adress
-      flex: 1 0 100%
-      height: 36px
-      text-align: center
-      p
-        +f(15px)
-        +mont-light($blueA)
-        margin: 0px 0px
-        padding: 10px
-
-    .email-header-holder
+  .paper
+    border-radius: 3px !important
+    
+    .paper-content-holder
       display: flex
-      flex: 0 0 100%
-      flex-direction: column-reverse
-      p
-        padding: 10px
-        +mont-light($blueA)
-        +f(15px)
-        background-color: $steelB
-        margin: 0
+      height: 100%
+      flex-wrap: wrap
+
+      .avatar-holder
+        height: 100px
+
+      .email-adress
+        flex: 1 0 100%
+        height: 36px
+        text-align: center
+        p
+          +f(15px)
+          +mont-light($blueA)
+          margin: 0px 0px
+          padding: 10px
+
+      .email-header-holder
+        display: flex
+        flex: 0 0 100%
+        flex-direction: column-reverse
+        p
+          border-bottom-left-radius: 3px
+          border-bottom-right-radius: 3px
+          padding: 10px
+          +mont-light($blueA)
+          +f(15px)
+          background-color: $steelC
+          margin: 0

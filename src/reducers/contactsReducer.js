@@ -1,4 +1,4 @@
-import { UPDATE_CONTACT, DELETE_CONTACT } from '../actions/contacts';
+import { DELETE_CONTACT } from '../actions/contacts';
 
 const initialState = {};
 

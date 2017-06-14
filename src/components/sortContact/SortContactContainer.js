@@ -2,14 +2,18 @@ import React, { PureComponent } from 'react';
 import { PropTypes } from 'prop-types';
 import { connect } from 'react-redux';
 import { submit } from 'redux-form';
-import { updateContact, deleteContact } from '../../actions/contacts';
+import { updateContact } from '../../actions/contacts';
+import {
+  addContactToDeleted,
+  undoAddContactToDeleted,
+} from '../../actions/sortContacts';
 import { fetchContacts } from '../../actions/sortContacts';
-import { undo, redo } from '../../actions/undoable';
+import { prev, next } from '../../actions/prevNextAble';
 import { formFieldsContactDetails as formFields } from '../../helpers/formData';
 import _ from 'lodash';
 import Media from 'react-media';
 import ContactCard from './ContactCard';
-import DeleteCard from './DeleteCard';
+import DeletedContactCard from './DeletedContactCard';
 import DummyCard from './DummyCard';
 import ProgressIndicator from '../ProgressIndicator';
 import NetworkListButton from './NetworkListButton';
@@ -27,24 +31,22 @@ class SortContactContainer extends PureComponent {
     currentContact: PropTypes.object.isRequired,
     totalContacts: PropTypes.array.isRequired,
     fetchContacts: PropTypes.func.isRequired,
-    deleteContact: PropTypes.func.isRequired,
+    addContactToDeleted: PropTypes.func.isRequired,
     contactDetailsForm: PropTypes.object,
-    redo: PropTypes.func.isRequired,
-    undo: PropTypes.func.isRequired,
+    next: PropTypes.func.isRequired,
+    prev: PropTypes.func.isRequired,
     addedContactIds: PropTypes.array.isRequired,
-    // addedContactIds: PropTypes.array.isRequired
   };
 
   constructor(props) {
     super(props);
     this.state = {
-      snackOpen: false,
+      snackProceed: false,
       snackDelete: false,
       contactIndex: 0,
       curContactNumb: 1,
       totalContacts: null,
       completedProgress: 4,
-      isDeleted: false,
     };
     this.handleNextContact = this.handleNextContact.bind(this);
     this.handlePrevContact = this.handlePrevContact.bind(this);
@@ -70,7 +72,8 @@ class SortContactContainer extends PureComponent {
 
   handleRequestClose = () => {
     this.setState({
-      snackOpen: false,
+      snackProceed: false,
+      snackDelete: false,
     });
   };
 
@@ -90,12 +93,11 @@ class SortContactContainer extends PureComponent {
   };
 
   handleDeleteContact() {
-    const theCurrentContact = this.getOneContact();
+    const { currentContact } = this.props;
     this.setState({
       snackDelete: true,
-      isDeleted: true,
     });
-    this.props.deleteContact(theCurrentContact);
+    this.props.addContactToDeleted(currentContact);
   }
 
   handleContainerKeyPress = event => {
@@ -129,20 +131,23 @@ class SortContactContainer extends PureComponent {
       totalContacts,
       completedProgress,
     } = this.state;
-    const { addedContactIds, currentContact } = this.props;
+    const { addedContactIds, currentContact, next } = this.props;
     await this.handleRemoteContactDetailSubmit();
     if (contactIndex >= totalContacts - 1) return null;
-    if (addedContactIds.includes(currentContact.id)) {
+
+    if (
+      addedContactIds.includes(currentContact.id) ||
+      currentContact.isDeleted
+    ) {
       this.setState({
         completedProgress: completedProgress + 100 / totalContacts,
         contactIndex: contactIndex + 1,
-
         curContactNumb: curContactNumb + 1,
       });
-      return this.props.redo();
+      return next();
     } else {
       return this.setState({
-        snackOpen: true,
+        snackProceed: true,
       });
     }
   }
@@ -161,29 +166,33 @@ class SortContactContainer extends PureComponent {
       curContactNumb: curContactNumb - 1,
       completedProgress: completedProgress - 100 / totalContacts,
     });
-    return this.props.undo();
+    return this.props.prev();
   }
 
-  // handleUndo() {
-  //   console.log('Undo works with second snackbar')
-  // }
+  handleUndo = () => {
+    console.log('Undo works with second snackbar');
+    return this.props.undoAddContactToDeleted();
+  };
 
   render() {
     const {
       curContactNumb,
       totalContacts,
       completedProgress,
-      snackOpen,
+      snackProceed,
       snackDelete,
-      isDeleted,
     } = this.state;
+
     const { currentContact, futureContact, pastContact } = this.props;
-    let whichCard = !isDeleted
+    let whichCard = !currentContact.isDeleted
       ? <div className="contact-card-wrapper">
           <ContactCard onSubmit={this.onSubmit} />
         </div>
       : <div className="delete-card-wrapper">
-          <DeleteCard />
+          <DeletedContactCard
+            contact={currentContact}
+            deleteCopy="will be kept out of my records."
+          />
         </div>;
 
     const lastPastContact = pastContact[pastContact.length - 1];
@@ -193,8 +202,15 @@ class SortContactContainer extends PureComponent {
         <Media
           query="(min-width: 1280px)"
           render={() => (
-            <div className="past-wrapper" onClick={this.handlePrevContact}>
-              <DummyCard contact={lastPastContact} />
+            <div
+              className="past-wrapper"
+              id="past-shadow"
+              onClick={this.handlePrevContact}
+            >
+              <DummyCard
+                contact={lastPastContact}
+                paperClass="dummy-paper-prev"
+              />
             </div>
           )}
         />
@@ -246,7 +262,7 @@ class SortContactContainer extends PureComponent {
             className="snackbar"
             autoHideDuration={3000}
             message={`Assign ${!currentContact ? null : currentContact.firstName} to a list before pressing next`}
-            open={snackOpen}
+            open={snackProceed}
             onRequestClose={this.handleRequestClose}
           />
 
@@ -255,17 +271,24 @@ class SortContactContainer extends PureComponent {
         <Media
           query="(min-width: 1280px)"
           render={() => (
-            <div className="future-wrapper" onClick={this.handleNextContact}>
-              <DummyCard contact={futureContact} />
+            <div
+              className="future-wrapper"
+              id="fut-shadow"
+              onClick={this.handleNextContact}
+            >
+              <DummyCard
+                contact={futureContact}
+                paperClass="dummy-paper-next"
+              />
             </div>
           )}
         />
-        <Media
+        {/* <Media
           query="(min-width: 769px)"
           render={() => (
             <HintFooter holderClass="footer-holder" hintText="hint-text" />
           )}
-        />
+        /> */}
       </div>
     );
   }
@@ -284,9 +307,10 @@ const mapStateToProps = state => {
 
 export default connect(mapStateToProps, {
   updateContact,
-  deleteContact,
+  addContactToDeleted,
+  undoAddContactToDeleted,
   submit,
   fetchContacts,
-  undo,
-  redo,
+  prev,
+  next,
 })(SortContactContainer);

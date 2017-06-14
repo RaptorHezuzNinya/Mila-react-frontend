@@ -1,41 +1,52 @@
-import { UNDO, REDO } from '../actions/undoable';
+import { PREV, NEXT } from '../actions/prevNextAble';
 import { ADD_CONTACT_TO_NETWORKLIST } from '../actions/networklists';
 import {
   ADD_NETWORKLIST_TO_CONTACT,
   UPDATE_CONTACT,
 } from '../actions/contacts';
+import {
+  ADD_CONTACT_TO_DELETED,
+  UNDO_ADD_CONTACT_TO_DELETED,
+} from '../actions/sortContacts';
 
-export const undoable = reducer => {
+export const prevNextAble = reducer => {
   const initialState = {
     past: [],
     present: reducer(undefined, {}),
     future: [],
     sortingData: reducer(undefined, {}),
+    deletedSortContacts: [],
+    history: {},
   };
 
   return (state = initialState, action) => {
-    const { past, present, future } = state;
-    const sortingState = state.sortingData;
+    const { past, present, future, deletedSortContacts } = state;
+    const sortingDataState = state.sortingData;
 
     switch (action.type) {
-      case UNDO:
+      case PREV:
+        const prevHistory = state.history.history;
         const previous = past[past.length - 1];
         const newPast = past.slice(0, past.length - 1);
         return {
           past: newPast,
           present: previous,
           future: [present, ...future],
-          sortingData: { ...sortingState },
+          sortingData: { ...sortingDataState },
+          deletedSortContacts: [...deletedSortContacts],
+          history: { ...prevHistory },
         };
 
-      case REDO:
+      case NEXT:
         const next = future[0];
         const newFuture = future.slice(1);
         return {
           past: [...past, present],
           present: next,
           future: newFuture,
-          sortingData: { ...sortingState },
+          sortingData: { ...sortingDataState },
+          deletedSortContacts: [...deletedSortContacts],
+          history: { ...state },
         };
 
       case ADD_CONTACT_TO_NETWORKLIST:
@@ -56,7 +67,6 @@ export const undoable = reducer => {
         };
 
       case ADD_NETWORKLIST_TO_CONTACT:
-        // console.log('state sortContactReducer', state);
         if (state.present.id === action.payload.contactId) {
           let newIdArr = state.present.networkListIds.slice();
           newIdArr.splice(0, 0, action.payload.networkListId);
@@ -71,8 +81,6 @@ export const undoable = reducer => {
         }
 
       case UPDATE_CONTACT:
-        // console.log(state, action.payload);
-        // console.log('state present', state.present);
         if (state.present.id === action.payload.contact.id) {
           const updatedContactAttributes = action.payload.contactFields;
           return {
@@ -85,10 +93,21 @@ export const undoable = reducer => {
           return state;
         }
 
+      case ADD_CONTACT_TO_DELETED:
+        return {
+          ...state,
+          present: { ...state.present, isDeleted: true, networkListIds: [] },
+          deletedSortContacts: [...state.deletedSortContacts, action.payload],
+          // history: { ...state },
+        };
+
+      case UNDO_ADD_CONTACT_TO_DELETED:
+        return {
+          ...state.history,
+        };
+
       default:
         const newPresent = reducer(present, action);
-
-        // console.log(present, 'present', newPresent, 'newPresent');
         if (present === newPresent) {
           return state;
         }
@@ -99,7 +118,15 @@ export const undoable = reducer => {
           present: neededPresent[0],
           future: neededFuture,
           sortingData: { ...newPresent },
+          deletedSortContacts: [],
+          history: {},
         };
     }
   };
 };
+// past: [...past],
+// present: neededPresent[0],
+// future: neededFuture,
+// sortingData: { ...newPresent },
+// deletedSortContacts: [],
+// history: {},

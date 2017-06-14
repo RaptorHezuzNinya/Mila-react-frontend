@@ -3,12 +3,14 @@
 @import "../../assets/styles/base/breakpoints.sass"
 
 .global-wrapper
-  display: flex
+  height: 100%
+  // display: flex
+  // justify-content: space-around
   position: relative
-  justify-content: space-around
   overflow: hidden
   +breakpoint($brp-xl)
     flex: 0 0 100%
+
   .sort-contact-wrapper
     display: flex
     flex-wrap: wrap
@@ -19,6 +21,7 @@
       flex-wrap: wrap
       flex: 0 0 100%
       justify-content: center
+
       .progress-indicator-holder
         display: flex
         flex: 0 0 100%
@@ -27,6 +30,8 @@
         div
           height: 6px !important
         +breakpoint($brp-land)
+          padding-top: 5px
+          padding-bottom: 20px
           flex: 0 0 420px
           div
             height: 7px !important
@@ -35,14 +40,16 @@
       display: flex
       flex: 0 0 100%
       +breakpoint($brp-land)
-        flex: 0 0 435px
+        flex: 0 0 440px
         display: flex
         justify-content: center
 
     .delete-card-wrapper
       display: flex
-      margin-bottom: 20px
+      flex: 0 0 100%
+      justify-content: center
       +breakpoint($brp-land)
+        flex: 0 0 440px
         justify-content: center
 
       .delete-card-holder
@@ -50,15 +57,16 @@
         border-radius: 4px
         height: 190px
         justify-content: center
-        padding: 0 5px 5px
+        background-color: $greenC
         +breakpoint($brp-land)
           flex: 0 0 420px
+
         .delete-card
-          background-color: $greenC
           padding: 42px
           color: $greyB
           text-align: center
           h2
+            margin-top: 10px
             +mont-bold($greyB)
             +f(32px)
             margin-bottom: 0
@@ -102,35 +110,37 @@
         text-align: center
         +mont-light($steelC)
 
-  .future-wrapper, .past-wrapper
+  .past-wrapper, .future-wrapper
     +breakpoint($brp-xl)
     z-index: 10
-    border-radius: 4px
+    border-radius: 5px
     cursor: pointer
     justify-content: center
     display: flex
     position: absolute
-    padding-top: 49px
-    width: 500px
-    height: 82%
-    background-color: $blueB
-    opacity: 0.4
-    top: 50px
-    right: -225px
+    width: 33%
+    height: calc(100vh - 120px)
+    top: 25px
+    &:hover
+      background-color: rgba(71, 166, 136, 0.3)
 
-    .contact-card-paper
-      opacity: 0.5
+    .dummy-paper-prev, .dummy-paper-next
+      position: relative
+      opacity: 0.2
       border-radius: 3px
       display: flex
       flex: 0 0 420px
       height: 190px
+      top: 74px
       max-width: 420px
+
       .details-holder
         display: flex
         flex-wrap: wrap
         p
           +mont-light($blueA)
           margin: 0
+
         .details
           display: flex
           flex: 0 0 320px
@@ -139,47 +149,63 @@
             line-height: 33px
             +f(14px)
             margin: 0
+
           .par1, .par2
             padding-left: 20px
             +mont-bold($blueA)
             flex: 0 0 135px
             height: 34px
+
           .dot
             flex: 0 0 10px
             height: 34px
             line-height: 28px
             +f(40px)
+
           .par3, .par4
             padding-left: 20px
             flex: 0 0 320px
             height: 34px
+
         .avatar-holder
           width: 100px
           height: 100px
+
         .email-adress
           +f(15px)
           height: 34px
           line-height: 33px
           flex: 0 0 100%
           text-align: center
+
         .email-header
           +f(15px)
           padding: 10px
           background-color: $steelB
 
-  .past-wrapper
-    left: -225px
+    .dummy-paper-prev
+      right: 25%
+    .dummy-paper-next
+      left: 25%
 
-  .footer-holder
-    +breakpoint($brp-m)
-    display: flex
-    justify-content: center
-    height: 125px
-    background-color: $greenB
-    position: fixed
-    bottom: 0
-    width: 100%
-    .hint-text
-      padding: 38px 50px
-      +mont-light($steelC)
-      +f(14px)
+  .past-wrapper
+    left: -115px
+  .future-wrapper
+    right: -115px
+
+  .custom-hover
+    background-color: rgba(71, 166, 136, 0.3)
+
+  // .footer-holder
+  //   +breakpoint($brp-m)
+  //   display: flex
+  //   justify-content: center
+  //   height: 125px
+  //   background-color: $greenB
+  //   position: fixed
+  //   bottom: 0
+  //   width: 100%
+  //   .hint-text
+  //     padding: 38px 50px
+  //     +mont-light($steelC)
+  //     +f(14px)

@@ -15,6 +15,6 @@ module.exports = {
   modal,
   onboarding,
   user: userReducer,
-  sortContact: sortContactReducer,
+  sortContact: sortContactReducer, // this reducer is wrapped by prevNextAbleReducer
   loading: loadingReducer,
 };
