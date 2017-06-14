@@ -11,49 +11,41 @@
     align-items: center
     justify-content: center
 
+  .custom-hover
+    background-color: rgba(71, 166, 136, 0.3)
+
+  .contact-navigate-prev, .contact-navigate-next
+    background-color: $blueB
+    opacity: 0.6
+    position: absolute
+    top: -75px
+    transition: all 0.2s ease-in-out;
+    border-radius: 2px
+    button
+      padding: 5px !important
+      height: 44px !important
+      width: 39px !important
+      +breakpoint($brp-land)
+        padding: 0px !important
+      div
+        span
+          +f(35px !important)
+          color: $steelC !important
+          +breakpoint($brp-land)
+            +f(45px !important)
+
+    +breakpoint($brp-land)
+      display: flex
+      position: static
   .contact-navigate-next
-    background-color: $blueB
-    opacity: 0.6
-    position: absolute
     right: 0
-    border-radius: 2px
-    top: -75px
-    button
-      padding: 5px !important
-      height: 44px !important
-      width: 39px !important
-      +breakpoint($brp-land)
-        padding: 0px !important
-      div
-        span
-          +f(35px !important)
-          color: $steelC !important
-          +breakpoint($brp-land)
-            +f(45px !important)
 
-    +breakpoint($brp-land)
-      display: flex
-      position: static
+  .move-right
+    +breakpoint($brp-xl)
+    &:hover
+      transform: translate(7px, 0)
 
-  .contact-navigate-prev
-    background-color: $blueB
-    opacity: 0.6
-    position: absolute
-    top: -75px
-    border-radius: 2px
-    button
-      padding: 5px !important
-      height: 44px !important
-      width: 39px !important
-      +breakpoint($brp-land)
-        padding: 0px !important
-      div
-        span
-          +f(35px !important)
-          color: $steelC !important
-          opacity: 1
-          +breakpoint($brp-land)
-            +f(45px !important)
-    +breakpoint($brp-land)
-      display: flex
-      position: static
+  .move-left
+    +breakpoint($brp-xl)
+    &:hover
+      transform: translate(-7px, 0)
