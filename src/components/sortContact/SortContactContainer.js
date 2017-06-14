@@ -202,7 +202,11 @@ class SortContactContainer extends PureComponent {
         <Media
           query="(min-width: 1280px)"
           render={() => (
-            <div className="past-wrapper" onClick={this.handlePrevContact}>
+            <div
+              className="past-wrapper"
+              id="past-shadow"
+              onClick={this.handlePrevContact}
+            >
               <DummyCard
                 contact={lastPastContact}
                 paperClass="dummy-paper-prev"
@@ -267,7 +271,11 @@ class SortContactContainer extends PureComponent {
         <Media
           query="(min-width: 1280px)"
           render={() => (
-            <div className="future-wrapper" onClick={this.handleNextContact}>
+            <div
+              className="future-wrapper"
+              id="fut-shadow"
+              onClick={this.handleNextContact}
+            >
               <DummyCard
                 contact={futureContact}
                 paperClass="dummy-paper-next"
