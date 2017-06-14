@@ -2,6 +2,11 @@ import React, { PropTypes } from 'react';
 import IconButton from 'material-ui/IconButton';
 import './NavigateContacts.sass';
 
+const hoverOutDiv = () => {
+  let addedClassElement = document.querySelector('.custom-hover');
+  addedClassElement.classList.remove('custom-hover');
+};
+
 const NavigateContacts = ({
   children,
   handleNextContact,
