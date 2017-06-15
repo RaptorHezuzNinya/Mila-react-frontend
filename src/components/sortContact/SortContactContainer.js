@@ -207,7 +207,7 @@ class SortContactContainer extends PureComponent {
         </div>;
 
     const lastPastContact = pastContact[pastContact.length - 1];
-
+    console.log(currentContact);
     return (
       <div className="global-wrapper">
         <Media
@@ -262,9 +262,12 @@ class SortContactContainer extends PureComponent {
           </div>
           <Snackbar
             className="snackbar-delete"
-            autoHideDuration={3000}
             message={`${!currentContact ? null : currentContact.firstName} is deleted`}
-            open={snackDelete}
+            open={
+              currentContact.isDeleted !== undefined
+                ? currentContact.isDeleted
+                : false
+            }
             onRequestClose={this.handleRequestClose}
             onActionTouchTap={this.handleUndo}
             action="undo"
