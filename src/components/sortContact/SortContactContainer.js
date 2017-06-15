@@ -93,9 +93,6 @@ class SortContactContainer extends PureComponent {
 
   handleDeleteContact() {
     const { currentContact } = this.props;
-    // this.setState({
-    //   snackDelete: true,
-    // });
     this.props.addContactToDeleted(currentContact);
   }
 
@@ -207,7 +204,7 @@ class SortContactContainer extends PureComponent {
         </div>;
 
     const lastPastContact = pastContact[pastContact.length - 1];
-    console.log(currentContact);
+
     return (
       <div className="global-wrapper">
         <Media
