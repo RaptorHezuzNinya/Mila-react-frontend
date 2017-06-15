@@ -102,9 +102,13 @@ export const prevNextAble = reducer => {
         };
 
       case UNDO_ADD_CONTACT_TO_DELETED:
-        return {
-          ...state.history,
-        };
+        // if (state.history === {}) {
+        //   return state;
+        // }
+        // return {
+        //   ...state.history,
+        // };
+        return state;
 
       default:
         const newPresent = reducer(present, action);
