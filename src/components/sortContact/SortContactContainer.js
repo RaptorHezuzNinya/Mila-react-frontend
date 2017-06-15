@@ -42,7 +42,7 @@ class SortContactContainer extends PureComponent {
     super(props);
     this.state = {
       snackProceed: false,
-      snackDelete: false,
+      // snackDelete: false,
       contactIndex: 0,
       curContactNumb: 1,
       totalContacts: null,
@@ -73,7 +73,6 @@ class SortContactContainer extends PureComponent {
   handleRequestClose = () => {
     this.setState({
       snackProceed: false,
-      snackDelete: false,
     });
   };
 
@@ -94,9 +93,9 @@ class SortContactContainer extends PureComponent {
 
   handleDeleteContact() {
     const { currentContact } = this.props;
-    this.setState({
-      snackDelete: true,
-    });
+    // this.setState({
+    //   snackDelete: true,
+    // });
     this.props.addContactToDeleted(currentContact);
   }
 
