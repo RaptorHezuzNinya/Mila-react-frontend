@@ -16,7 +16,6 @@ export const prevNextAble = reducer => {
     future: [],
     sortingData: reducer(undefined, {}),
     deletedSortContacts: [],
-    history: {},
   };
 
   return (state = initialState, action) => {
@@ -25,7 +24,6 @@ export const prevNextAble = reducer => {
 
     switch (action.type) {
       case PREV:
-        const prevHistory = state.history.history;
         const previous = past[past.length - 1];
         const newPast = past.slice(0, past.length - 1);
         return {
@@ -34,7 +32,6 @@ export const prevNextAble = reducer => {
           future: [present, ...future],
           sortingData: { ...sortingDataState },
           deletedSortContacts: [...deletedSortContacts],
-          history: { ...prevHistory },
         };
 
       case NEXT:
@@ -46,7 +43,6 @@ export const prevNextAble = reducer => {
           future: newFuture,
           sortingData: { ...sortingDataState },
           deletedSortContacts: [...deletedSortContacts],
-          history: { ...state },
         };
 
       case ADD_CONTACT_TO_NETWORKLIST:
@@ -123,14 +119,7 @@ export const prevNextAble = reducer => {
           future: neededFuture,
           sortingData: { ...newPresent },
           deletedSortContacts: [],
-          history: {},
         };
     }
   };
 };
-// past: [...past],
-// present: neededPresent[0],
-// future: neededFuture,
-// sortingData: { ...newPresent },
-// deletedSortContacts: [],
-// history: {},
