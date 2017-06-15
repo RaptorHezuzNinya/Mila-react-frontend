@@ -94,16 +94,14 @@ export const prevNextAble = reducer => {
           ...state,
           present: { ...state.present, isDeleted: true, networkListIds: [] },
           deletedSortContacts: [...state.deletedSortContacts, action.payload],
-          // history: { ...state },
+          tempHistory: { ...state },
         };
 
       case UNDO_ADD_CONTACT_TO_DELETED:
-        // if (state.history === {}) {
-        //   return state;
-        // }
-        // return {
-        //   ...state.history,
-        // };
+        if (state.tempHistory !== undefined) {
+          return { ...state.tempHistory };
+        }
+        console.log('return ik nu state?');
         return state;
 
       default:
