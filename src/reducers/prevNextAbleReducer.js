@@ -94,15 +94,16 @@ export const prevNextAble = reducer => {
           ...state,
           present: { ...state.present, isDeleted: true, networkListIds: [] },
           deletedSortContacts: [...state.deletedSortContacts, action.payload],
-          tempHistory: { ...state },
         };
 
       case UNDO_ADD_CONTACT_TO_DELETED:
-        if (state.tempHistory !== undefined) {
-          return { ...state.tempHistory };
-        }
-        console.log('return ik nu state?');
-        return state;
+        const oldDeletedPresent = state.deletedSortContacts.filter(object => {
+          return object.id === action.payload.id;
+        });
+        return {
+          ...state,
+          present: { ...oldDeletedPresent[0] },
+        };
 
       default:
         const newPresent = reducer(present, action);
