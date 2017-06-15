@@ -66,10 +66,15 @@ const networklists = (state = initialState, action) => {
         }
         return networkList;
       });
-
+    // if a user 'deletes' a contact and put the contact object in deletedSortContacts array in the sortcontact reducer we also want this ADD_CONTACT_TO_DELETED actions to delete the contact.id from the contactsIds array property in the networklist Object thats why we have this case here
     case ADD_CONTACT_TO_DELETED:
-      console.log(state, 'state in NWL RED');
-      return state;
+      const renewedObject = state.map(object => {
+        const newContactIdsArray = object.contactIds.filter(id => {
+          return id !== action.payload.id;
+        });
+        return { ...object, contactIds: [...newContactIdsArray] };
+      });
+      return [...renewedObject];
 
     default:
       return state;
