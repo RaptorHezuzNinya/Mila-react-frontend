@@ -191,7 +191,7 @@ class SortContactContainer extends PureComponent {
       snackProceed,
     } = this.state;
 
-    const { currentContact, futureContact, pastContact } = this.props;
+    const { currentContact, futureContact, pastContact, future } = this.props;
     let whichCard = !currentContact.isDeleted
       ? <div className="contact-card-wrapper">
           <ContactCard onSubmit={this.onSubmit} />
@@ -204,109 +204,110 @@ class SortContactContainer extends PureComponent {
         </div>;
 
     const lastPastContact = pastContact[pastContact.length - 1];
-
-    return (
-      <div className="global-wrapper">
-        <Media
-          query="(min-width: 1280px)"
-          render={() => (
-            <div
-              className="past-wrapper"
-              id="past-shadow"
-              onClick={this.handlePrevContact}
-            >
-              <DummyCard
-                contact={lastPastContact}
-                paperClass="dummy-paper-prev"
+    if (!future.length) {
+      return <div> yoloswag done sorting bitch </div>;
+    } else {
+      return (
+        <div className="global-wrapper">
+          <Media
+            query="(min-width: 1280px)"
+            render={() => (
+              <div
+                className="past-wrapper"
+                id="past-shadow"
+                onClick={this.handlePrevContact}
+              >
+                <DummyCard
+                  contact={lastPastContact}
+                  paperClass="dummy-paper-prev"
+                />
+              </div>
+            )}
+          />
+          <div className="sort-contact-wrapper">
+            <div className="progress-indicator-wrapper">
+              <PageTitle
+                titleClassName="sortcontact-title"
+                pageTitleContentH2={`${curContactNumb} / ${totalContacts} new contacts`}
+              />
+              <ProgressIndicator
+                mode="determinate"
+                holderClass="progress-indicator-holder"
+                color="#5DD9B2"
+                completedProgress={completedProgress}
               />
             </div>
-          )}
-        />
-
-        <div className="sort-contact-wrapper">
-          <div className="progress-indicator-wrapper">
-            <PageTitle
-              titleClassName="sortcontact-title"
-              pageTitleContentH2={`${curContactNumb} / ${totalContacts} new contacts`}
-            />
-            <ProgressIndicator
-              mode="determinate"
-              holderClass="progress-indicator-holder"
-              color="#5DD9B2"
-              completedProgress={completedProgress}
-            />
-          </div>
-          <NavigateContacts
-            handleNextContact={this.handleNextContact}
-            handlePrevContact={this.handlePrevContact}
-          >
-            {whichCard}
-          </NavigateContacts>
-          <div className="network-lists-wrapper">
-            <NetworkListButton />
-          </div>
-          <div className="delete-btn-wrapper">
-            <FlatButton
-              label="Don't save this contact (x)"
-              className="delete-btn"
-              labelPosition="before"
-              hoverColor="none"
-              disableTouchRipple={true}
-              onClick={this.handleDeleteContact}
+            <NavigateContacts
+              handleNextContact={this.handleNextContact}
+              handlePrevContact={this.handlePrevContact}
             >
-              <NotIcon className="not-icon" />
-            </FlatButton>
-          </div>
-          <Snackbar
-            className="snackbar-delete"
-            message={`${!currentContact ? null : currentContact.firstName} is deleted`}
-            open={
-              currentContact.isDeleted !== undefined
-                ? currentContact.isDeleted
-                : false
-            }
-            onRequestClose={this.handleRequestClose}
-            onActionTouchTap={this.handleUndo}
-            action="undo"
-          />
-          <Snackbar
-            className="snackbar"
-            autoHideDuration={3000}
-            message={`Assign ${!currentContact ? null : currentContact.firstName} to a list before pressing next`}
-            open={snackProceed}
-            onRequestClose={this.handleRequestClose}
-          />
-
-        </div>
-
-        <Media
-          query="(min-width: 1280px)"
-          render={() => (
-            <div
-              className="future-wrapper"
-              id="fut-shadow"
-              onClick={this.handleNextContact}
-            >
-              <DummyCard
-                contact={futureContact}
-                paperClass="dummy-paper-next"
-              />
+              {whichCard}
+            </NavigateContacts>
+            <div className="network-lists-wrapper">
+              <NetworkListButton />
             </div>
-          )}
-        />
-        {/* <Media
+            <div className="delete-btn-wrapper">
+              <FlatButton
+                label="Don't save this contact (x)"
+                className="delete-btn"
+                labelPosition="before"
+                hoverColor="none"
+                disableTouchRipple={true}
+                onClick={this.handleDeleteContact}
+              >
+                <NotIcon className="not-icon" />
+              </FlatButton>
+            </div>
+            <Snackbar
+              className="snackbar-delete"
+              message={`${!currentContact ? null : currentContact.firstName} is deleted`}
+              open={
+                currentContact.isDeleted !== undefined
+                  ? currentContact.isDeleted
+                  : false
+              }
+              onRequestClose={this.handleRequestClose}
+              onActionTouchTap={this.handleUndo}
+              action="undo"
+            />
+            <Snackbar
+              className="snackbar"
+              autoHideDuration={3000}
+              message={`Assign ${!currentContact ? null : currentContact.firstName} to a list before pressing next`}
+              open={snackProceed}
+              onRequestClose={this.handleRequestClose}
+            />
+          </div>
+          <Media
+            query="(min-width: 1280px)"
+            render={() => (
+              <div
+                className="future-wrapper"
+                id="fut-shadow"
+                onClick={this.handleNextContact}
+              >
+                <DummyCard
+                  contact={futureContact}
+                  paperClass="dummy-paper-next"
+                />
+              </div>
+            )}
+          />
+          {/* <Media
           query="(min-width: 769px)"
           render={() => (
             <HintFooter holderClass="footer-holder" hintText="hint-text" />
           )}
         /> */}
-      </div>
-    );
+        </div>
+      );
+    }
   }
 }
 
 const mapStateToProps = state => {
   return {
+    future: state.sortContact.future,
     pastContact: state.sortContact.past,
     futureContact: state.sortContact.future[0],
     currentContact: state.sortContact.present,
