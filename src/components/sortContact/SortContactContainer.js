@@ -183,7 +183,7 @@ class SortContactContainer extends PureComponent {
 
   handleUndo = () => {
     console.log('Undo works with second snackbar');
-    return this.props.undoAddContactToDeleted();
+    return this.props.undoAddContactToDeleted(this.props.currentContact);
   };
 
   render() {
