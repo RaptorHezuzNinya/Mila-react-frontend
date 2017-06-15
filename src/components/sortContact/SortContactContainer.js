@@ -102,21 +102,34 @@ class SortContactContainer extends PureComponent {
 
   handleContainerKeyPress = event => {
     const { contactDetailsForm } = this.props;
-    // if (contactDetailsForm.fields === null) return NOTE i prolly need to ascape this shit when the emprty contact is being rendered
-    let arr = [];
-    let activeField;
-    formFields.forEach(field => {
-      activeField = _.get(contactDetailsForm.fields, [field, 'active'], false);
-      return arr.push(activeField);
-    });
-    if (arr.includes(true)) {
-      return;
-    } else if (event.keyCode === 37) {
-      return this.handlePrevContact();
-    } else if (event.keyCode === 39) {
-      return this.handleNextContact();
-    } else if (event.keyCode === 88) {
-      return this.handleDeleteContact();
+    if (!contactDetailsForm) {
+      if (event.keyCode === 37) {
+        return this.handlePrevContact();
+      } else if (event.keyCode === 39) {
+        return this.handleNextContact();
+      } else {
+        return null;
+      }
+    } else {
+      let arr = [];
+      let activeField;
+      formFields.forEach(field => {
+        activeField = _.get(
+          contactDetailsForm.fields,
+          [field, 'active'],
+          false
+        );
+        return arr.push(activeField);
+      });
+      if (arr.includes(true)) {
+        return;
+      } else if (event.keyCode === 37) {
+        return this.handlePrevContact();
+      } else if (event.keyCode === 39) {
+        return this.handleNextContact();
+      } else if (event.keyCode === 88) {
+        return this.handleDeleteContact();
+      }
     }
   };
 
