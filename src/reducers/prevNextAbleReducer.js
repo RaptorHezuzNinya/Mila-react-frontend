@@ -107,6 +107,7 @@ export const prevNextAble = reducer => {
 
       default:
         const newPresent = reducer(present, action);
+        console.log('do i get here');
         if (present === newPresent) {
           return state;
         }
