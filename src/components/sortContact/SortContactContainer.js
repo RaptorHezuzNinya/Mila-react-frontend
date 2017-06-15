@@ -192,7 +192,6 @@ class SortContactContainer extends PureComponent {
       totalContacts,
       completedProgress,
       snackProceed,
-      snackDelete,
     } = this.state;
 
     const { currentContact, futureContact, pastContact } = this.props;
