@@ -13,6 +13,7 @@ import { formFieldsContactDetails as formFields } from '../../helpers/formData';
 import _ from 'lodash';
 import Media from 'react-media';
 import ContactCard from './ContactCard';
+import DoneSorting from './DoneSorting';
 import DeletedContactCard from './DeletedContactCard';
 import DummyCard from './DummyCard';
 import ProgressIndicator from '../ProgressIndicator';
@@ -205,7 +206,7 @@ class SortContactContainer extends PureComponent {
 
     const lastPastContact = pastContact[pastContact.length - 1];
     if (!future.length) {
-      return <div> yoloswag done sorting bitch </div>;
+      return <DoneSorting />;
     } else {
       return (
         <div className="global-wrapper">
