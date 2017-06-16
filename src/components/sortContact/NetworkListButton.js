@@ -54,6 +54,7 @@ class NetworkListButton extends PureComponent {
 
   handleKeyPress = event => {
     const { contactDetailsForm } = this.props;
+    if (!contactDetailsForm) return null;
     let arr = [];
     let activeField;
     formFields.forEach(field => {
