@@ -10,9 +10,23 @@ class NavigateContacts extends PureComponent {
     handleNextContact: PropTypes.func.isRequired,
   };
 
+  hoverInDiv(classToFind, classToAdd) {
+    console.log('classToFind', classToFind, classToAdd, 'classToAdd');
+    let shadowClass = document.getElementById(classToFind);
+    if (shadowClass === null) {
+      return null;
+    }
+    return shadowClass.classList.add(classToAdd);
+  }
+
   hoverOutDiv() {
     let addedClassElement = document.querySelector('.custom-hover');
-    addedClassElement.classList.remove('custom-hover');
+    if (addedClassElement === null) {
+      console.log('addedClassElement');
+      return null;
+    }
+    console.log('adding shit');
+    return addedClassElement.classList.remove('custom-hover');
   }
 
   render() {
@@ -21,11 +35,7 @@ class NavigateContacts extends PureComponent {
       <div className="navigate-contacts-holder">
         <div
           className="contact-navigate-prev move-left"
-          onMouseEnter={() => {
-            return document
-              .getElementById('past-shadow')
-              .classList.add('custom-hover');
-          }}
+          onMouseEnter={() => this.hoverInDiv('past-shadow', 'custom-hover')}
           onMouseOut={this.hoverOutDiv}
         >
           <IconButton
@@ -38,11 +48,7 @@ class NavigateContacts extends PureComponent {
         {children}
         <div
           className="contact-navigate-next move-right"
-          onMouseEnter={() => {
-            return document
-              .getElementById('fut-shadow')
-              .classList.add('custom-hover');
-          }}
+          onMouseEnter={() => this.hoverInDiv('fut-shadow', 'custom-hover')}
           onMouseOut={this.hoverOutDiv}
         >
           <IconButton
