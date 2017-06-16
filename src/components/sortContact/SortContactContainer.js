@@ -205,7 +205,7 @@ class SortContactContainer extends PureComponent {
         </div>;
 
     const lastPastContact = pastContact[pastContact.length - 1];
-    if (!future.length) {
+    if (true) {
       return <DoneSorting />;
     } else {
       return (
