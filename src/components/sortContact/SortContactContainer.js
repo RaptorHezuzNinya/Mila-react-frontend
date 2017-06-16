@@ -200,7 +200,7 @@ class SortContactContainer extends PureComponent {
             <div className="progress-indicator-wrapper">
               <PageTitle
                 titleClassName="sortcontact-title"
-                pageTitleContentH2={`${curContactNumb} / ${totalContacts} new contacts`}
+                pageTitleContentH2={`${curContactNumb} / ${totalContCount} new contacts`}
               />
               <ProgressIndicator
                 mode="determinate"
@@ -233,11 +233,7 @@ class SortContactContainer extends PureComponent {
             <Snackbar
               className="snackbar-delete"
               message={`${!currentContact ? null : currentContact.firstName} is deleted`}
-              open={
-                currentContact.isDeleted !== undefined
-                  ? currentContact.isDeleted
-                  : false
-              }
+              open={currentContact.isDeleted !== undefined ? currentContact.isDeleted : false}
               onRequestClose={this.handleRequestClose}
               onActionTouchTap={this.handleUndo}
               action="undo"
@@ -253,15 +249,8 @@ class SortContactContainer extends PureComponent {
           <Media
             query="(min-width: 1280px)"
             render={() => (
-              <div
-                className="future-wrapper"
-                id="fut-shadow"
-                onClick={this.handleNextContact}
-              >
-                <DummyCard
-                  contact={futureContact}
-                  paperClass="dummy-paper-next"
-                />
+              <div className="future-wrapper" id="fut-shadow" onClick={this.handleNextContact}>
+                <DummyCard contact={futureContact} paperClass="dummy-paper-next" />
               </div>
             )}
           />
@@ -272,22 +261,24 @@ class SortContactContainer extends PureComponent {
           )}
         /> */}
         </div>
-      );
+      )
     }
   }
 }
 
 const mapStateToProps = state => {
+  const sortingData = state.sortContact.sortingData
   return {
-    future: state.sortContact.future,
     pastContact: state.sortContact.past,
     futureContact: state.sortContact.future[0],
     currentContact: state.sortContact.present,
-    totalContacts: state.sortContact.sortingData.totalSortContacts,
-    addedContactIds: state.sortContact.sortingData.addedContactIds,
     contactDetailsForm: state.form.contactDetailsForm,
-  };
-};
+    totalContacts: sortingData.totalSortContacts,
+    addedContactIds: sortingData.addedContactIds,
+    doneSorting: sortingData.doneSorting,
+    deletedSortContacts: state.sortContact.deletedSortContacts
+  }
+}
 
 export default connect(mapStateToProps, {
   updateContact,
@@ -296,5 +287,5 @@ export default connect(mapStateToProps, {
   submit,
   fetchContacts,
   prev,
-  next,
-})(SortContactContainer);
+  next
+})(SortContactContainer)
