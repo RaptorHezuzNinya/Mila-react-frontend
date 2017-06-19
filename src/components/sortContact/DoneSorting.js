@@ -20,14 +20,13 @@ const DoneSorting = ({ deletedSortContacts, past }) => {
           <p className="done-text">Contacts added to your network</p>
         </div>
       </div>
-      {/* <div className="wrapper-btn"> */}
+
       <div className="button-holder">
         <FlatButton className="btn-l-a my-network" label="to my network" />
         <FlatButton className="btn-l-a" label="sort more contacts" />
       </div>
     </div>
   )
-  // </div>
 }
 
 export default DoneSorting
