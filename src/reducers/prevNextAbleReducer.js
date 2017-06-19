@@ -56,22 +56,21 @@ export const prevNextAble = reducer => {
         }
 
       case ADD_CONTACT_TO_NETWORKLIST:
-        if (state.sortingData.addedContactIds.includes(action.payload.contactId)) {
+        if (state.sortingData.addedContactIds.includes(action.payload.contact.id)) {
           return state
         }
         return {
           ...state,
-
           sortingData: {
             ...state.sortingData,
-            addedContactIds: [...state.sortingData.addedContactIds, action.payload.contactId]
+            addedContactIds: [...state.sortingData.addedContactIds, action.payload.contact.id]
           }
         }
 
       case ADD_NETWORKLIST_TO_CONTACT:
-        if (state.present.id === action.payload.contactId) {
+        if (state.present.id === action.payload.contact.id) {
           let newIdArr = state.present.networkListIds.slice()
-          newIdArr.splice(0, 0, action.payload.networkListId)
+          newIdArr.splice(0, 0, action.payload.networkList.id)
           return {
             ...state,
             present: {
@@ -80,6 +79,24 @@ export const prevNextAble = reducer => {
             }
           }
           return state
+        }
+      case RM_NETWORKLIST_FROM_CONTACT:
+        const newNwlIdsArr = state.present.networkListIds.filter(networkListId => {
+          return networkListId !== action.payload.networkList.id
+        })
+        const newAddedContactIdsArr = state.sortingData.addedContactIds.filter(contactId => {
+          return contactId !== action.payload.contact.id
+        })
+        return {
+          ...state,
+          present: {
+            ...state.present,
+            networkListIds: [...newNwlIdsArr]
+          },
+          sortingData: {
+            ...state.sortingData,
+            addedContactIds: [...newAddedContactIdsArr]
+          }
         }
 
       case UPDATE_CONTACT:
