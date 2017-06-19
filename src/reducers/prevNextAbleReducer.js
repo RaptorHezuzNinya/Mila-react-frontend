@@ -57,6 +57,7 @@ export const prevNextAble = reducer => {
         }
         return {
           ...state,
+
           sortingData: {
             ...state.sortingData,
             addedContactIds: [...state.sortingData.addedContactIds, action.payload.contactId]
@@ -108,7 +109,6 @@ export const prevNextAble = reducer => {
 
       default:
         const newPresent = reducer(present, action)
-
         if (present === newPresent) {
           return state
         }
