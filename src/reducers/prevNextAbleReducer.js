@@ -31,9 +31,7 @@ export const prevNextAble = reducer => {
       case NEXT:
         const next = future[0]
         const newFuture = future.slice(1)
-
         if (future.length === 0) {
-          console.log('future length == 0')
           return {
             ...state,
             past: [...past, present],

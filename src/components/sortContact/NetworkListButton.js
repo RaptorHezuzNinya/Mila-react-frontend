@@ -114,12 +114,12 @@ class NetworkListButton extends PureComponent {
           <span className="button-number">{1 + index}</span>
         </FlatButton>
       </div>
-    );
-  };
+    )
+  }
 
   render() {
-    const { snackOpen, createNetworkListModal } = this.state;
-    const { currentContact, networkLists } = this.props;
+    const { snackOpen, createNetworkListModal } = this.state
+    const { currentContact, networkLists } = this.props
     return (
       <div>
         <div className="network-lists-holder">
@@ -144,7 +144,7 @@ class NetworkListButton extends PureComponent {
           />
         </div>
       </div>
-    );
+    )
   }
 }
 
@@ -152,11 +152,11 @@ const mapStateToProps = state => {
   return {
     currentContact: state.sortContact.present,
     networkLists: state.networkLists,
-    contactDetailsForm: state.form.contactDetailsForm,
-  };
-};
+    contactDetailsForm: state.form.contactDetailsForm
+  }
+}
 
 export default connect(mapStateToProps, {
   addContactToNetworklist,
-  addNetworkListToContact,
-})(NetworkListButton);
+  addNetworkListToContact
+})(NetworkListButton)

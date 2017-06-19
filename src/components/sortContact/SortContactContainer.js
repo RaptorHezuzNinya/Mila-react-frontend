@@ -276,7 +276,7 @@ const mapStateToProps = state => {
     totalContacts: sortingData.totalSortContacts,
     addedContactIds: sortingData.addedContactIds,
     doneSorting: sortingData.doneSorting,
-    deletedSortContacts: state.sortContact.deletedSortContacts
+    deletedSortContacts: state.sortdeletedSortContacts
   }
 }
 
