@@ -1,37 +1,49 @@
-import React, { PureComponent } from 'react'
-import { PropTypes } from 'prop-types'
-import { connect } from 'react-redux'
-import { addContactToNetworklist } from '../../actions/networklists'
-import { addNetworkListToContact } from '../../actions/contacts'
-import { formFieldsContactDetails as formFields } from '../../helpers/formData'
-import _ from 'lodash'
-import classNames from 'classNames'
-import Media from 'react-media'
-import ModalButton from '../modals/ModalButton'
-import Snackbar from 'material-ui/Snackbar'
-import FlatButton from 'material-ui/FlatButton'
-import ListIcon from 'material-ui/svg-icons/action/list'
-import './NetworkListButton.sass'
+import React, { PureComponent } from 'react';
+import { PropTypes } from 'prop-types';
+import { connect } from 'react-redux';
+import {
+  addContactToNetworkList,
+  rmContactFromNetworkList,
+} from '../../actions/networklists';
+import {
+  addNetworkListToContact,
+  rmNetworkListFromContact,
+} from '../../actions/contacts';
+import { formFieldsContactDetails as formFields } from '../../helpers/formData';
+import _ from 'lodash';
+import classNames from 'classNames';
+import Media from 'react-media';
+import ModalButton from '../modals/ModalButton';
+import Snackbar from 'material-ui/Snackbar';
+import FlatButton from 'material-ui/FlatButton';
+import ListIcon from 'material-ui/svg-icons/action/list';
+import './NetworkListButton.sass';
 
 class NetworkListButton extends PureComponent {
   static propTypes = {
     networkLists: PropTypes.array.isRequired,
-    addContactToNetworklist: PropTypes.func.isRequired,
+    addContactToNetworkList: PropTypes.func.isRequired,
     addNetworkListToContact: PropTypes.func.isRequired,
     currentContact: PropTypes.object.isRequired,
-    contactDetailsForm: PropTypes.object
-  }
+    rmContactFromNetworkList: PropTypes.func.isRequired,
+    rmNetworkListFromContact: PropTypes.func.isRequired,
+    contactDetailsForm: PropTypes.object,
+  };
 
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       snackOpen: false,
-      createNetworkListModal: 'CREATE_NETWORKLIST_MODAL'
-    }
+      createNetworkListModal: 'CREATE_NETWORKLIST_MODAL',
+    };
   }
 
   componentDidMount() {
-    window.addEventListener('keydown', this.handleKeyPress, console.log('MOUNT'))
+    window.addEventListener(
+      'keydown',
+      this.handleKeyPress,
+      console.log('MOUNT')
+    );
   }
 
   componentWillUnmount() {
