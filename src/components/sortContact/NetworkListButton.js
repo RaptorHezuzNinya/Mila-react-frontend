@@ -89,7 +89,7 @@ class NetworkListButton extends PureComponent {
       })
     } else {
       this.props.addContactToNetworklist(currentContact.id, networkList.id)
-      this.props.addNetworkListToContact(networkList.id, currentContact.id)
+      return this.props.addNetworkListToContact(networkList.id, currentContact.id)
     }
   }
 

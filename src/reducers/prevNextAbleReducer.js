@@ -1,6 +1,10 @@
 import { PREV, NEXT } from '../actions/prevNextAble'
 import { ADD_CONTACT_TO_NETWORKLIST } from '../actions/networklists'
-import { ADD_NETWORKLIST_TO_CONTACT, UPDATE_CONTACT } from '../actions/contacts'
+import {
+  ADD_NETWORKLIST_TO_CONTACT,
+  UPDATE_CONTACT,
+  RM_NETWORKLIST_FROM_CONTACT
+} from '../actions/contacts'
 import { ADD_CONTACT_TO_DELETED, UNDO_ADD_CONTACT_TO_DELETED } from '../actions/sortContacts'
 
 export const prevNextAble = reducer => {
