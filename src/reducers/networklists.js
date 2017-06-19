@@ -2,7 +2,8 @@ import {
   CREATE_NETWORKLIST,
   UPDATE_NETWORKLIST,
   DELETE_NETWORKLIST,
-  ADD_CONTACT_TO_NETWORKLIST
+  ADD_CONTACT_TO_NETWORKLIST,
+  RM_CONTACT_FROM_NETWORKLIST
 } from '../actions/networklists'
 
 import { ADD_CONTACT_TO_DELETED } from '../actions/sortContacts'
@@ -60,18 +61,18 @@ const networklists = (state = initialState, action) => {
 
     case ADD_CONTACT_TO_NETWORKLIST:
       return state.map(networkList => {
-        if (networkList.id === action.payload.networkListId) {
+        if (networkList.id === action.payload.networkList.id) {
           let newContactIdsArray = networkList.contactIds.slice()
-          newContactIdsArray.splice(0, 0, action.payload.contactId)
+          newContactIdsArray.splice(0, 0, action.payload.contact.id)
           return { ...networkList, contactIds: newContactIdsArray }
         }
         return networkList
       })
     // if a user 'deletes' a contact and put the contact object in deletedSortContacts array in the sortcontact reducer we also want this ADD_CONTACT_TO_DELETED actions to delete the contact.id from the contactsIds array property in the networklist Object thats why we have this case here
     case ADD_CONTACT_TO_DELETED:
-      // const idCheck = state.map(object => {
-      //   return object.contactIds.includes(action.payload.id);
-      // });
+      // const idCheck = state.map(networkList => {
+      //   return networkList.contactIds.includes(action.payload.id)
+      // })
       // if (idCheck.includes(true)) {
       const renewedObject = state.map(object => {
         const newContactIdsArray = object.contactIds.filter(id => {
@@ -79,12 +80,22 @@ const networklists = (state = initialState, action) => {
         })
         return { ...object, contactIds: [...newContactIdsArray] }
       })
-      console.log('contact was assigned to any networklists')
       return [...renewedObject]
     // }
-    // console.log('contact wasnt assigned to any networklists');
-    // return state;
+    // return state
 
+
+    case RM_CONTACT_FROM_NETWORKLIST:
+      const updatedState = state.map(networkList => {
+        if (networkList.id === action.payload.networkList.id) {
+          const newContactIdsArr = networkList.contactIds.filter(contactId => {
+            return contactId !== action.payload.contact.id
+          })
+          return { ...networkList, contactIds: [...newContactIdsArr] }
+        }
+        return networkList
+      })
+      return updatedState
 
     default:
       return state
