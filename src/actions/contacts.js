@@ -18,12 +18,12 @@ export const deleteContact = contactId => {
 }
 
 export const ADD_NETWORKLIST_TO_CONTACT = 'ADD_NETWORKLIST_TO_CONTACT'
-export const addNetworkListToContact = (networkListId, contactId) => {
+export const addNetworkListToContact = (networkList, contact) => {
   return {
     type: ADD_NETWORKLIST_TO_CONTACT,
     payload: {
-      contactId,
-      networkListId
+      contact,
+      networkList
     }
   }
 }
