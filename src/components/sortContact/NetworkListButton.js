@@ -51,67 +51,70 @@ class NetworkListButton extends PureComponent {
       'keydown',
       this.handleKeyPress,
       console.log('UNMOUNT remove handler')
-    )
+    );
   }
 
   handleRequestClose = () => {
     this.setState({
-      snackOpen: false
-    })
-  }
+      snackOpen: false,
+    });
+  };
 
   handleKeyPress = event => {
-    const { contactDetailsForm } = this.props
-    if (!contactDetailsForm) return null
-    let arr = []
-    let activeField
+    const { contactDetailsForm } = this.props;
+    if (!contactDetailsForm) return null;
+    let arr = [];
+    let activeField;
     formFields.forEach(field => {
-      activeField = _.get(contactDetailsForm.fields, [field, 'active'], false)
-      return arr.push(activeField)
-    })
+      activeField = _.get(contactDetailsForm.fields, [field, 'active'], false);
+      return arr.push(activeField);
+    });
     if (arr.includes(true)) {
-      return
+      return;
     } else {
-      const { networkLists } = this.props
+      const { networkLists } = this.props;
       const newValueObject = networkLists.map((list, index) => {
-        return Object.assign({ ...list }, { buttonCode: index + 49 })
-      })
+        return Object.assign({ ...list }, { buttonCode: index + 49 });
+      });
       const findTheOneObj = buttonCode =>
         newValueObject.filter(object => {
-          return object.buttonCode === buttonCode
-        })
+          return object.buttonCode === buttonCode;
+        });
       const registeredButtonCodes = newValueObject.map(list => {
-        return list.buttonCode
-      })
+        return list.buttonCode;
+      });
       if (registeredButtonCodes.includes(event.keyCode)) {
-        return this.handleNetworkButtonClick(findTheOneObj(event.keyCode)[0])
+        return this.handleNetworkButtonClick(findTheOneObj(event.keyCode)[0]);
       }
     }
-  }
+  };
 
-  handleNetworkButtonClick(networkList) {
-    const { currentContact, networkLists } = this.props
-    const neededNWL = networkLists.filter(list => {
-      return list.id === networkList.id
-    })
-    const match = neededNWL[0].contactIds.includes(currentContact.id)
-    if (match) {
-      return this.setState({
-        snackOpen: true
-      })
+  async handleNetworkButtonClick(networkList) {
+    const { currentContact, networkLists } = this.props;
+    // console.log('networkList', networkList)
+    // const neededNWL = networkLists.filter(list => {
+    //   return list.id === networkList.id
+    // })
+    // console.log('networkList cotnactIds', networkList.contactIds)
+
+    if (!networkList.contactIds.includes(currentContact.id)) {
+      await this.props.addNetworkListToContact(networkList, currentContact);
+      return this.props.addContactToNetworkList(currentContact, networkList);
     } else {
-      this.props.addContactToNetworklist(currentContact.id, networkList.id)
-      return this.props.addNetworkListToContact(networkList.id, currentContact.id)
+      await this.props.rmContactFromNetworkList(currentContact, networkList);
+      return this.props.rmNetworkListFromContact(networkList, currentContact);
     }
   }
 
   renderNetworkLists = (networkList, index) => {
-    const { currentContact } = this.props
-    if (!currentContact.networkListIds) return null
+    const { currentContact } = this.props;
+    if (!currentContact.networkListIds) return null;
     const networkButton = classNames({
       'network-list-btn': true,
-      'network-list-btn-clicked': currentContact.networkListIds.includes(networkList.id)
-    })
+      'network-list-btn-clicked': currentContact.networkListIds.includes(
+        networkList.id
+      ),
+    });
     return (
       <div className="network-list" key={networkList.id}>
         <FlatButton
