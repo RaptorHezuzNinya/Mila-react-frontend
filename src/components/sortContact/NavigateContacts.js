@@ -42,13 +42,13 @@ const NavigateContacts = ({ handleNextContact, handlePrevContact, children }) =>
         </IconButton>
       </div>
     </div>
-  );
-};
+  )
+}
 
 NavigateContacts.propTypes = {
   children: PropTypes.object.isRequired,
   handlePrevContact: PropTypes.func.isRequired,
-  handleNextContact: PropTypes.func.isRequired,
-};
+  handleNextContact: PropTypes.func.isRequired
+}
 
-export default NavigateContacts;
+export default NavigateContacts
