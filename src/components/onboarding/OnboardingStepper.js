@@ -65,7 +65,15 @@ class OnboardingStepper extends PureComponent {
     const { listCount } = this.props
     switch (stepIndex) {
       case 0:
-        return <ScanningInbox />
+        return (
+          <StepContentCopy holderClass="scanning-inbox">
+            <h3>{'Hi #{username}!'}</h3>
+            <p className="parag-one">I am Mila. Nice to meet you.</p>
+            <p className="parag-two">
+              I’ve already started scanning your inbox in the background. From now on, it’s my job to keep track of all the valuable contacts in your inbox.
+            </p>
+          </StepContentCopy>
+        )
       case 1:
         return (
           <CreateListsContainer
@@ -75,7 +83,17 @@ class OnboardingStepper extends PureComponent {
           />
         )
       case 2:
-        return <StartSorting />
+        return (
+          <StepContentCopy holderClass="startsorting-holder">
+            <h3>Alright!</h3>
+            <p>
+              You can always sync your lists with any newsletter or sales tool. But let's worry about that later.
+            </p>
+            <p>
+              Lets's start sorting the 25 most interesting people I found!
+            </p>
+          </StepContentCopy>
+        )
       default:
         return history.push('/sortcontact')
     }
