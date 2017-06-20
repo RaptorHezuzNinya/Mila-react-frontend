@@ -1,80 +1,72 @@
-import React, { PureComponent, PropTypes } from 'react';
-import { connect } from 'react-redux';
-import { history } from '../../store';
-import Media from 'react-media';
-import classNames from 'classNames';
+import React, { PureComponent, PropTypes } from 'react'
+import { connect } from 'react-redux'
+import { history } from '../../store'
+import Media from 'react-media'
+import classNames from 'classNames'
 import {
   incrStepIndex,
   decrStepIndex,
   incrListCount,
   decrListCount,
   showProceedWarn,
-  hideProceedWarn,
-} from '../../actions/onboarding';
-import ScanningInbox from './ScanningInbox';
-import CreateListsContainer from './CreateListsContainer';
-import ProceedWarning from '../ProceedWarning';
-import StartSorting from './StartSorting';
-import { Step, Stepper, StepLabel, StepContent } from 'material-ui/Stepper';
-import FlatButton from 'material-ui/FlatButton';
-import './OnboardingStepper.sass';
-import {
-  inlineOnboardingStepperStyles as styles,
-} from '../../helpers/inlineStyles';
+  hideProceedWarn
+} from '../../actions/onboarding'
+import ScanningInbox from './ScanningInbox'
+import CreateListsContainer from './CreateListsContainer'
+import ProceedWarning from '../ProceedWarning'
+import StartSorting from './StartSorting'
+import { Step, Stepper, StepLabel, StepContent } from 'material-ui/Stepper'
+import FlatButton from 'material-ui/FlatButton'
+import './OnboardingStepper.sass'
+import { inlineOnboardingStepperStyles as styles } from '../../helpers/inlineStyles'
 
 class OnboardingStepper extends PureComponent {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
-      stepperwidth: 450,
-    };
-    this.disableProceedWarn = this.disableProceedWarn.bind(this);
-    this.addListCount = this.addListCount.bind(this);
-    this.lowerListCount = this.lowerListCount.bind(this);
+      stepperwidth: 450
+    }
+    this.disableProceedWarn = this.disableProceedWarn.bind(this)
+    this.addListCount = this.addListCount.bind(this)
+    this.lowerListCount = this.lowerListCount.bind(this)
   }
 
   handleNext = () => {
-    const {
-      stepIndex,
-      incrStepIndex,
-      listCount,
-      showProceedWarn,
-      proceedWarning,
-    } = this.props;
+    const { stepIndex, incrStepIndex, listCount, showProceedWarn, proceedWarning } = this.props
     if (stepIndex === 1 && listCount <= 1) {
-      return showProceedWarn();
+      return showProceedWarn()
     }
-    incrStepIndex(stepIndex);
-  };
+    incrStepIndex(stepIndex)
+  }
 
   handlePrev = () => {
-    const { stepIndex, decrStepIndex, hideProceedWarn } = this.props;
-    decrStepIndex(stepIndex);
+    const { stepIndex, decrStepIndex, hideProceedWarn } = this.props
+    decrStepIndex(stepIndex)
     if (stepIndex > 0) {
-      return hideProceedWarn();
+      return hideProceedWarn()
     }
-  };
+  }
 
   addListCount = () => {
-    const { listCount, incrListCount } = this.props;
-    incrListCount(listCount);
-  };
+    const { listCount, incrListCount } = this.props
+    return incrListCount(listCount)
+  }
 
   lowerListCount = () => {
-    const { listCount, decrListCount } = this.props;
-    decrListCount(listCount);
-  };
+    const { listCount, decrListCount } = this.props
+    return decrListCount(listCount)
+  }
 
   disableProceedWarn = () => {
-    const { hideProceedWarn } = this.props;
-    hideProceedWarn();
-  };
+    const { hideProceedWarn } = this.props
+    return hideProceedWarn()
+  }
 
   getStepContent(stepIndex) {
-    const { listCount } = this.props;
+    const { listCount } = this.props
     switch (stepIndex) {
       case 0:
-        return <ScanningInbox />;
+        return <ScanningInbox />
       case 1:
         return (
           <CreateListsContainer
@@ -82,54 +74,48 @@ class OnboardingStepper extends PureComponent {
             addListCount={this.addListCount}
             lowerListCount={this.lowerListCount}
           />
-        );
+        )
       case 2:
-        return <StartSorting />;
+        return <StartSorting />
       default:
-        return history.push('/sortcontact');
+        return history.push('/sortcontact')
     }
   }
 
   renderStepbutton = stepIndex => {
     switch (stepIndex) {
       case 0:
-        return 'Great!';
+        return 'Great!'
       case 1:
-        return 'Go to contacts';
+        return 'Go to contacts'
       case 2:
-        return 'Get Started!';
+        return 'Get Started!'
       default:
-        return 'Great!';
+        return 'Great!'
     }
-  };
+  }
 
   renderStepActions() {
-    const { stepIndex, listCount, proceedWarning } = this.props;
+    const { stepIndex, listCount, proceedWarning } = this.props
     const btnClass = classNames({
       'btn-green': true,
       'btn-desktop': stepIndex === 0 || stepIndex === 2,
-      'btn-desktop-step1': stepIndex === 1,
-    });
+      'btn-desktop-step1': stepIndex === 1
+    })
     const btnholderClass = classNames({
       'buttons-holder': true,
-      'buttons-holder-step1': stepIndex === 1 || stepIndex === 2,
-    });
-    let backBtn;
+      'buttons-holder-step1': stepIndex === 1 || stepIndex === 2
+    })
+    let backBtn
     if (stepIndex < 1) {
-      backBtn = null;
+      backBtn = null
     } else {
       backBtn = (
         <Media
           query="(min-width: 769px)"
-          render={() => (
-            <FlatButton
-              className="btn-grey"
-              label="Back"
-              onClick={this.handlePrev}
-            />
-          )}
+          render={() => <FlatButton className="btn-grey" label="Back" onClick={this.handlePrev} />}
         />
-      );
+      )
     }
     return (
       <div>
@@ -153,23 +139,19 @@ class OnboardingStepper extends PureComponent {
           </div>
         </div>
       </div>
-    );
+    )
   }
 
   render() {
-    const { finished, stepperwidth } = this.state;
-    const { orientation, stepIndex, listCount } = this.props;
+    const { finished, stepperwidth } = this.state
+    const { orientation, stepIndex, listCount } = this.props
     const stepWrapClass = classNames({
       'stepper-wrapper': true,
-      'step-wrap-step1-desk': stepIndex === 1,
-    });
+      'step-wrap-step1-desk': stepIndex === 1
+    })
     return (
       <div className={stepWrapClass}>
-        <Stepper
-          activeStep={stepIndex}
-          orientation={orientation}
-          style={styles.stepper}
-        >
+        <Stepper activeStep={stepIndex} orientation={orientation} style={styles.stepper}>
           <Step>
             <StepLabel className="steplabel">Scanning your inbox</StepLabel>
             <StepContent>
@@ -202,7 +184,7 @@ class OnboardingStepper extends PureComponent {
           )}
         />
       </div>
-    );
+    )
   }
 }
 
@@ -210,9 +192,9 @@ const mapStateToProps = state => {
   return {
     stepIndex: state.onboarding.stepIndex,
     listCount: state.onboarding.listCount,
-    proceedWarning: state.onboarding.proceedWarning,
-  };
-};
+    proceedWarning: state.onboarding.proceedWarning
+  }
+}
 
 export default connect(mapStateToProps, {
   incrStepIndex,
@@ -220,5 +202,5 @@ export default connect(mapStateToProps, {
   incrListCount,
   decrListCount,
   showProceedWarn,
-  hideProceedWarn,
-})(OnboardingStepper);
+  hideProceedWarn
+})(OnboardingStepper)
