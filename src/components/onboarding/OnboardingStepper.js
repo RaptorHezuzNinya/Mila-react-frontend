@@ -11,10 +11,9 @@ import {
   showProceedWarn,
   hideProceedWarn
 } from '../../actions/onboarding'
-import ScanningInbox from './ScanningInbox'
+import StepContentCopy from './StepContentCopy'
 import CreateListsContainer from './CreateListsContainer'
 import ProceedWarning from '../ProceedWarning'
-import StartSorting from './StartSorting'
 import { Step, Stepper, StepLabel, StepContent } from 'material-ui/Stepper'
 import FlatButton from 'material-ui/FlatButton'
 import './OnboardingStepper.sass'
