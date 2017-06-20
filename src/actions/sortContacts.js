@@ -21,7 +21,7 @@ export const fetchContacts = () => {
   return dispatch => {
     dispatch(requestContacts())
     return axios
-      .get(`${rootUrl}contacts?_page=1&_limit=5`)
+      .get(`${rootUrl}contacts?_page=1&_limit=25`)
       .then(response => response.data)
       .catch(error => console.log(error)) // NOTE: need to add redux logger to catch errors
       .then(json => dispatch(receiveContacts(json)))
