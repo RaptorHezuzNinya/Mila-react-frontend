@@ -32,8 +32,7 @@ class SortContactContainer extends PureComponent {
     addContactToDeleted: PropTypes.func.isRequired,
     contactDetailsForm: PropTypes.object,
     next: PropTypes.func.isRequired,
-    prev: PropTypes.func.isRequired,
-    addedContactIds: PropTypes.array.isRequired
+    prev: PropTypes.func.isRequired
   }
 
   constructor(props) {
@@ -48,7 +47,6 @@ class SortContactContainer extends PureComponent {
     this.handleNextContact = this.handleNextContact.bind(this)
     this.handlePrevContact = this.handlePrevContact.bind(this)
     this.handleDeleteContact = this.handleDeleteContact.bind(this)
-    // this.handleContainerKeyPress = this.handleContainerKeyPress.bind(this);
   }
 
   componentDidMount() {
@@ -277,7 +275,6 @@ const mapStateToProps = state => {
     currentContact: state.sortContact.present,
     contactDetailsForm: state.form.contactDetailsForm,
     totalContacts: sortingData.totalSortContacts,
-    addedContactIds: sortingData.addedContactIds,
     doneSorting: sortingData.doneSorting,
     deletedSortContacts: state.sortContact.deletedSortContacts
   }

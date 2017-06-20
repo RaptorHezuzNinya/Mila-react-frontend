@@ -20,6 +20,30 @@ const initialState = [
     title: 'Business Int',
     description: 'The VIP list is used for people who have asked questions about our product and want to try our next update',
     contactIds: []
+  },
+  {
+    id: 3,
+    title: 'Business Int',
+    description: 'The VIP list is used for people who have asked questions about our product and want to try our next update',
+    contactIds: []
+  },
+  {
+    id: 4,
+    title: 'Business Int',
+    description: 'The VIP list is used for people who have asked questions about our product and want to try our next update',
+    contactIds: []
+  },
+  {
+    id: 5,
+    title: 'Business Int',
+    description: 'The VIP list is used for people who have asked questions about our product and want to try our next update',
+    contactIds: []
+  },
+  {
+    id: 6,
+    title: 'Business Int',
+    description: 'The VIP list is used for people who have asked questions about our product and want to try our next update',
+    contactIds: []
   }
 ]
 
@@ -70,20 +94,19 @@ const networklists = (state = initialState, action) => {
       })
     // if a user 'deletes' a contact and put the contact object in deletedSortContacts array in the sortcontact reducer we also want this ADD_CONTACT_TO_DELETED actions to delete the contact.id from the contactsIds array property in the networklist Object thats why we have this case here
     case ADD_CONTACT_TO_DELETED:
-      // const idCheck = state.map(networkList => {
-      //   return networkList.contactIds.includes(action.payload.id)
-      // })
-      // if (idCheck.includes(true)) {
-      const renewedObject = state.map(object => {
-        const newContactIdsArray = object.contactIds.filter(id => {
-          return id !== action.payload.id
-        })
-        return { ...object, contactIds: [...newContactIdsArray] }
+      const idCheck = state.map(networkList => {
+        return networkList.contactIds.includes(action.payload.id)
       })
-      return [...renewedObject]
-    // }
-    // return state
-
+      if (idCheck.includes(true)) {
+        const renewedObject = state.map(object => {
+          const newContactIdsArray = object.contactIds.filter(id => {
+            return id !== action.payload.id
+          })
+          return { ...object, contactIds: [...newContactIdsArray] }
+        })
+        return [...renewedObject]
+      }
+      return state
 
     case RM_CONTACT_FROM_NETWORKLIST:
       const updatedState = state.map(networkList => {

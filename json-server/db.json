@@ -1080,25 +1080,26 @@
     },
     {
       "id": 99,
-      "firstName": "Fayette",
-      "lastName": "Obee",
+      "firstName": "Arie",
+      "lastName": "Maas",
       "email": "fobee2q@wix.com",
-      "companyRole": "Director of Sales",
+      "companyRole": "google",
       "companyName": "Quinu",
       "avatar": "https://robohash.org/quiutpossimus.jpg?size=100x100&set=set1",
       "message": "Re: FoundedX - Exclusive invitation to lead the creative society",
       "networkListIds": []
     },
     {
-      "id": 100,
-      "firstName": "Eilis",
-      "lastName": "Putterill",
-      "email": "eputterill2r@amazon.co.uk",
-      "companyRole": null,
-      "companyName": "Twinder",
-      "avatar": "https://robohash.org/rationearchitectoalias.bmp?size=100x100&set=set1",
-      "message": "Re: FoundedX - Exclusive invitation to lead the creative society",
-      "networkListIds": []
+      "firstName": "Arie",
+      "lastName": "Maas",
+      "companyRole": "google",
+      "id": 100
+    },
+    {
+      "firstName": "Arie",
+      "lastName": "Maas",
+      "companyRole": "google",
+      "id": 101
     }
   ],
   "networkLists": [

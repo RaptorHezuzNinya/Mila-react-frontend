@@ -25,7 +25,7 @@ class ContactDetails extends PureComponent {
     initialValues,
     rowsMax,
     maxChars,
-    meta: { touched, warning }
+    meta: { touched }
   }) => (
     <TextField
       name={label}
@@ -34,7 +34,7 @@ class ContactDetails extends PureComponent {
       hintStyle={styles.hint}
       inputStyle={styles.input}
       errorStyle={styles.errorStyle}
-      errorText={warning}
+      // errorText={warning}
       style={styles.style}
       underlineShow={false}
       {...input}
@@ -63,7 +63,6 @@ class ContactDetails extends PureComponent {
 
   render() {
     const { currentContact } = this.props
-    // if (!currentContact) return null;
     return (
       <div className="contact-details-holder">
         {this.renderContactDetails()}
@@ -72,15 +71,15 @@ class ContactDetails extends PureComponent {
   }
 }
 
-const warn = values => {
-  const warnings = {}
-  formFields.forEach(field => {
-    if (!values[field]) {
-      warnings[field] = 'Required'
-    }
-  })
-  return warnings
-}
+// const warn = values => {
+//   const warnings = {};
+//   formFields.forEach(field => {
+//     if (!values[field]) {
+//       warnings[field] = 'Required';
+//     }
+//   });
+//   return warnings;
+// };
 
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -97,7 +96,7 @@ const mapStateToProps = (state, ownProps) => {
 export default connect(mapStateToProps)(
   reduxForm({
     form: 'contactDetailsForm',
-    enableReinitialize: true,
-    warn
+    enableReinitialize: true
+    // warn,
   })(ContactDetails)
 )
