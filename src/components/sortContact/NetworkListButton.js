@@ -132,7 +132,7 @@ class NetworkListButton extends PureComponent {
             <ModalButton
               holderClass="modal-btn-holder"
               usedClassName="btn-s-a"
-              label="Save List"
+              label="Add List"
               modal={createNetworkListModal}
             />
           )}
