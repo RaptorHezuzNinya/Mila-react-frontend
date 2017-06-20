@@ -38,38 +38,35 @@ class CreateListsContainer extends PureComponent {
     this.props.disableProceedWarn()
   }
 
-  renderNetworkLists = () => {
-    return this.props.networkLists.map(networkList => {
+  renderNetworkLists = ({ networkLists } = this.props) => {
+    return networkLists.map(networkList => {
       return (
-        //FIXME when there is an api key needs to be .id
-        (
-          <li className="list-item" key={networkList.title}>
-            <span><ListIcon className="list-icon" /></span>
-            <p className="list-title">{networkList.title}</p>
-            <Media
-              query="(max-width: 769px)"
-              render={() => (
-                <span>
-                  <IconButton onClick={this.handleDeleteListClick.bind(this, networkList)}>
-                    <DeleteIcon />
-                  </IconButton>
-                </span>
-              )}
-            />
-            <Media
-              query="(min-width: 769px)"
-              render={() => (
-                <span>
-                  <FlatButton
-                    className="list-delete-btn"
-                    label="delete"
-                    onClick={this.handleDeleteListClick.bind(this, networkList)}
-                  />
-                </span>
-              )}
-            />
-          </li>
-        )
+        <li className="list-item" key={networkList.id}>
+          <span><ListIcon className="list-icon" /></span>
+          <p className="list-title">{networkList.title}</p>
+          <Media
+            query="(max-width: 769px)"
+            render={() => (
+              <span>
+                <IconButton onClick={this.handleDeleteListClick.bind(this, networkList)}>
+                  <DeleteIcon />
+                </IconButton>
+              </span>
+            )}
+          />
+          <Media
+            query="(min-width: 769px)"
+            render={() => (
+              <span>
+                <FlatButton
+                  className="list-delete-btn"
+                  label="delete"
+                  onClick={this.handleDeleteListClick.bind(this, networkList)}
+                />
+              </span>
+            )}
+          />
+        </li>
       )
     })
   }
