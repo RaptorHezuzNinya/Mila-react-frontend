@@ -3,7 +3,10 @@
 @import "../../assets/styles/base/breakpoints.sass"
 
 .network-lists-holder
-
+  +breakpoint($brp-xl)
+    display: flex
+    flex-wrap: wrap
+    flex: 0 0 470px
   .network-list
     padding: 5px
 
@@ -47,6 +50,8 @@
   .modal-btn-holder
     text-align: center
     margin-top: 15px
+    +breakpoint($brp-xl)
+      margin: 15px auto
 
   .snackbar
     div
