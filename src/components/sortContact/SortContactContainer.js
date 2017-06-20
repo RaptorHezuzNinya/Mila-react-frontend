@@ -58,7 +58,6 @@ class SortContactContainer extends PureComponent {
 
   componentWillReceiveProps() {
     const { totalContacts } = this.props
-    console.log('when??')
     this.setState({
       totalContCount: totalContacts.length
     })
@@ -128,11 +127,14 @@ class SortContactContainer extends PureComponent {
 
   async handleNextContact() {
     const { contactIndex, curContactNumb, totalContCount, completedProgress } = this.state
-    const { addedContactIds, currentContact, next } = this.props
+    const { networkLists, addedContactIds, currentContact, next } = this.props
     await this.handleRemoteContactDetailSubmit()
-    // if (contactIndex >= totalContCount - 1) return null
-
-    if (addedContactIds.includes(currentContact.id) || currentContact.isDeleted) {
+    // if (contactIndex > totalContCount - 1) return null
+    const contactAddedToNwl = networkLists.map(networkList => {
+      return networkList.contactIds.includes(currentContact.id)
+    })
+    console.log('contactAddedToNwl', contactAddedToNwl)
+    if (contactAddedToNwl.includes(true) || currentContact.isDeleted) {
       this.setState({
         completedProgress: completedProgress + 100 / totalContCount,
         contactIndex: contactIndex + 1,
@@ -269,6 +271,7 @@ class SortContactContainer extends PureComponent {
 const mapStateToProps = state => {
   const sortingData = state.sortContact.sortingData
   return {
+    networkLists: state.networkLists,
     pastContact: state.sortContact.past,
     futureContact: state.sortContact.future[0],
     currentContact: state.sortContact.present,

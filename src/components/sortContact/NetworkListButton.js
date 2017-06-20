@@ -1,8 +1,14 @@
 import React, { PureComponent } from 'react';
 import { PropTypes } from 'prop-types';
 import { connect } from 'react-redux';
-import { addContactToNetworklist } from '../../actions/networklists';
-import { addNetworkListToContact } from '../../actions/contacts';
+import {
+  addContactToNetworkList,
+  rmContactFromNetworkList,
+} from '../../actions/networklists';
+import {
+  addNetworkListToContact,
+  rmNetworkListFromContact,
+} from '../../actions/contacts';
 import { formFieldsContactDetails as formFields } from '../../helpers/formData';
 import _ from 'lodash';
 import classNames from 'classNames';
@@ -16,9 +22,11 @@ import './NetworkListButton.sass';
 class NetworkListButton extends PureComponent {
   static propTypes = {
     networkLists: PropTypes.array.isRequired,
-    addContactToNetworklist: PropTypes.func.isRequired,
+    addContactToNetworkList: PropTypes.func.isRequired,
     addNetworkListToContact: PropTypes.func.isRequired,
     currentContact: PropTypes.object.isRequired,
+    rmContactFromNetworkList: PropTypes.func.isRequired,
+    rmNetworkListFromContact: PropTypes.func.isRequired,
     contactDetailsForm: PropTypes.object,
   };
 
@@ -81,19 +89,20 @@ class NetworkListButton extends PureComponent {
     }
   };
 
-  handleNetworkButtonClick(networkList, event) {
+  async handleNetworkButtonClick(networkList) {
     const { currentContact, networkLists } = this.props;
-    const neededNWL = networkLists.filter(list => {
-      return list.id === networkList.id;
-    });
-    const match = neededNWL[0].contactIds.includes(currentContact.id);
-    if (match) {
-      return this.setState({
-        snackOpen: true,
-      });
+    // console.log('networkList', networkList)
+    // const neededNWL = networkLists.filter(list => {
+    //   return list.id === networkList.id
+    // })
+    // console.log('networkList cotnactIds', networkList.contactIds)
+
+    if (!networkList.contactIds.includes(currentContact.id)) {
+      await this.props.addNetworkListToContact(networkList, currentContact);
+      return this.props.addContactToNetworkList(currentContact, networkList);
     } else {
-      this.props.addContactToNetworklist(currentContact.id, networkList.id);
-      this.props.addNetworkListToContact(networkList.id, currentContact.id);
+      await this.props.rmContactFromNetworkList(currentContact, networkList);
+      return this.props.rmNetworkListFromContact(networkList, currentContact);
     }
   }
 
@@ -111,7 +120,7 @@ class NetworkListButton extends PureComponent {
         <FlatButton
           labelPosition="before"
           name={networkList.name}
-          onClick={this.handleNetworkButtonClick.bind(this, networkList)}
+          onClick={() => this.handleNetworkButtonClick(networkList)}
           className={networkButton}
           label={networkList.title}
           disabled={currentContact.isDeleted ? true : false}
@@ -163,6 +172,8 @@ const mapStateToProps = state => {
 };
 
 export default connect(mapStateToProps, {
-  addContactToNetworklist,
+  addContactToNetworkList,
   addNetworkListToContact,
+  rmNetworkListFromContact,
+  rmContactFromNetworkList,
 })(NetworkListButton);

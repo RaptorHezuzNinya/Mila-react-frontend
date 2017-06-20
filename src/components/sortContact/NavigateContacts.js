@@ -1,30 +1,25 @@
-import React, { PureComponent } from 'react';
-import { PropTypes } from 'prop-types';
-import IconButton from 'material-ui/IconButton';
-import './NavigateContacts.sass';
+import React, { PureComponent } from 'react'
+import { PropTypes } from 'prop-types'
+import IconButton from 'material-ui/IconButton'
+import './NavigateContacts.sass'
 
 const hoverInDiv = (classToFind, classToAdd) => {
-  let shadowClass = document.getElementById(classToFind);
+  let shadowClass = document.getElementById(classToFind)
   if (shadowClass !== null) {
-    return shadowClass.classList.add(classToAdd);
+    return shadowClass.classList.add(classToAdd)
   }
-  return null;
-};
+  return null
+}
 
 const hoverOutDiv = (classToFind, classToRemove) => {
-  let addedClassElement = document.querySelector(classToFind);
+  let addedClassElement = document.querySelector(classToFind)
   if (addedClassElement !== null) {
-    console.log(addedClassElement !== null);
-    return addedClassElement.classList.remove(classToRemove);
+    return addedClassElement.classList.remove(classToRemove)
   }
-  return null;
-};
+  return null
+}
 
-const NavigateContacts = ({
-  handleNextContact,
-  handlePrevContact,
-  children,
-}) => {
+const NavigateContacts = ({ handleNextContact, handlePrevContact, children }) => {
   return (
     <div className="navigate-contacts-holder">
       <div
@@ -47,13 +42,13 @@ const NavigateContacts = ({
         </IconButton>
       </div>
     </div>
-  );
-};
+  )
+}
 
 NavigateContacts.propTypes = {
   children: PropTypes.object.isRequired,
   handlePrevContact: PropTypes.func.isRequired,
-  handleNextContact: PropTypes.func.isRequired,
-};
+  handleNextContact: PropTypes.func.isRequired
+}
 
-export default NavigateContacts;
+export default NavigateContacts

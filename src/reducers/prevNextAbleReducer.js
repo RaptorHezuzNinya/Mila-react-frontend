@@ -1,6 +1,10 @@
 import { PREV, NEXT } from '../actions/prevNextAble'
 import { ADD_CONTACT_TO_NETWORKLIST } from '../actions/networklists'
-import { ADD_NETWORKLIST_TO_CONTACT, UPDATE_CONTACT } from '../actions/contacts'
+import {
+  ADD_NETWORKLIST_TO_CONTACT,
+  UPDATE_CONTACT,
+  RM_NETWORKLIST_FROM_CONTACT
+} from '../actions/contacts'
 import { ADD_CONTACT_TO_DELETED, UNDO_ADD_CONTACT_TO_DELETED } from '../actions/sortContacts'
 
 export const prevNextAble = reducer => {
@@ -31,9 +35,7 @@ export const prevNextAble = reducer => {
       case NEXT:
         const next = future[0]
         const newFuture = future.slice(1)
-
         if (future.length === 0) {
-          console.log('future length == 0')
           return {
             ...state,
             past: [...past, present],
@@ -54,21 +56,21 @@ export const prevNextAble = reducer => {
         }
 
       case ADD_CONTACT_TO_NETWORKLIST:
-        if (state.sortingData.addedContactIds.includes(action.payload.contactId)) {
+        if (state.sortingData.addedContactIds.includes(action.payload.contact.id)) {
           return state
         }
         return {
           ...state,
           sortingData: {
             ...state.sortingData,
-            addedContactIds: [...state.sortingData.addedContactIds, action.payload.contactId]
+            addedContactIds: [...state.sortingData.addedContactIds, action.payload.contact.id]
           }
         }
 
       case ADD_NETWORKLIST_TO_CONTACT:
-        if (state.present.id === action.payload.contactId) {
+        if (state.present.id === action.payload.contact.id) {
           let newIdArr = state.present.networkListIds.slice()
-          newIdArr.splice(0, 0, action.payload.networkListId)
+          newIdArr.splice(0, 0, action.payload.networkList.id)
           return {
             ...state,
             present: {
@@ -77,6 +79,24 @@ export const prevNextAble = reducer => {
             }
           }
           return state
+        }
+      case RM_NETWORKLIST_FROM_CONTACT:
+        const newNwlIdsArr = state.present.networkListIds.filter(networkListId => {
+          return networkListId !== action.payload.networkList.id
+        })
+        const newAddedContactIdsArr = state.sortingData.addedContactIds.filter(contactId => {
+          return contactId !== action.payload.contact.id
+        })
+        return {
+          ...state,
+          present: {
+            ...state.present,
+            networkListIds: [...newNwlIdsArr]
+          },
+          sortingData: {
+            ...state.sortingData,
+            addedContactIds: [...newAddedContactIdsArr]
+          }
         }
 
       case UPDATE_CONTACT:
@@ -110,7 +130,6 @@ export const prevNextAble = reducer => {
 
       default:
         const newPresent = reducer(present, action)
-
         if (present === newPresent) {
           return state
         }
