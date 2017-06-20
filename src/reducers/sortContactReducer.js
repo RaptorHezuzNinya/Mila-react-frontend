@@ -4,7 +4,6 @@ import store from '../store'
 
 const initialState = {
   totalSortContacts: [],
-  // addedContactIds: [],
   doneSorting: false
 }
 
