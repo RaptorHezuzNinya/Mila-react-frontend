@@ -55,18 +55,6 @@ export const prevNextAble = reducer => {
           deletedSortContacts: [...deletedSortContacts]
         }
 
-      case ADD_CONTACT_TO_NETWORKLIST:
-        if (state.sortingData.addedContactIds.includes(action.payload.contact.id)) {
-          return state
-        }
-        return {
-          ...state,
-          sortingData: {
-            ...state.sortingData,
-            addedContactIds: [...state.sortingData.addedContactIds, action.payload.contact.id]
-          }
-        }
-
       case ADD_NETWORKLIST_TO_CONTACT:
         if (state.present.id === action.payload.contact.id) {
           let newIdArr = state.present.networkListIds.slice()
@@ -84,18 +72,12 @@ export const prevNextAble = reducer => {
         const newNwlIdsArr = state.present.networkListIds.filter(networkListId => {
           return networkListId !== action.payload.networkList.id
         })
-        const newAddedContactIdsArr = state.sortingData.addedContactIds.filter(contactId => {
-          return contactId !== action.payload.contact.id
-        })
+
         return {
           ...state,
           present: {
             ...state.present,
             networkListIds: [...newNwlIdsArr]
-          },
-          sortingData: {
-            ...state.sortingData,
-            addedContactIds: [...newAddedContactIdsArr]
           }
         }
 
