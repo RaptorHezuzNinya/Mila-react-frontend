@@ -21,6 +21,15 @@ import './OnboardingStepper.sass'
 import { inlineOnboardingStepperStyles as styles } from '../../helpers/inlineStyles'
 
 class OnboardingStepper extends PureComponent {
+  static propTypes = {
+    incrStepIndex: PropTypes.func.isRequired,
+    decrStepIndex: PropTypes.func.isRequired,
+    incrListCount: PropTypes.func.isRequired,
+    decrListCount: PropTypes.func.isRequired,
+    showProceedWarn: PropTypes.func.isRequired,
+    hideProceedWarn: PropTypes.func.isRequired
+  }
+
   constructor(props) {
     super(props)
     this.state = {
@@ -29,6 +38,10 @@ class OnboardingStepper extends PureComponent {
     this.disableProceedWarn = this.disableProceedWarn.bind(this)
     this.addListCount = this.addListCount.bind(this)
     this.lowerListCount = this.lowerListCount.bind(this)
+  }
+
+  componentDidMount() {
+    this.props.requestNetworkLists()
   }
 
   handleNext = () => {
