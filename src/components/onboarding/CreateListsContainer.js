@@ -17,15 +17,20 @@ import './CreateListsContainer.sass'
 import { inlineCreateListsContainerStyles as styles } from '../../helpers/inlineStyles'
 
 class CreateListsContainer extends PureComponent {
+  static propTypes = {
+    addListCount: PropTypes.func.isRequired,
+    lowerListCount: PropTypes.func.isRequired,
+    disableProceedWarn: PropTypes.func.isRequired
+  }
+
   constructor(props) {
     super(props)
     this.handleTextFieldClick = this.handleTextFieldClick.bind(this)
     this.onSubmit = this.onSubmit.bind(this)
   }
-  static propTypes = {
-    addListCount: PropTypes.func.isRequired,
-    lowerListCount: PropTypes.func.isRequired,
-    disableProceedWarn: PropTypes.func.isRequired
+
+  componentDidMount() {
+    return this.props.requestContacts()
   }
 
   handleDeleteListClick(networkList) {
@@ -143,7 +148,8 @@ const afterSubmit = (result, dispatch) => {
 
 export default connect(mapStateToProps, {
   createNetworkList,
-  deleteNetworkList
+  deleteNetworkList,
+  requestNetworkLists
 })(
   reduxForm({
     form: 'onboardCreateNWL',
