@@ -1108,6 +1108,12 @@
       "title": "Business",
       "description": "The VIP list is used for people who have asked questions about our product and want to try our next update",
       "contactIds": []
+    },
+    {
+      "title": "Business dev",
+      "description": "THis should be a description ",
+      "contactIds": [],
+      "id": 2
     }
   ]
 }
