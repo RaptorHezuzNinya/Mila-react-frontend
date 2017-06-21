@@ -6,15 +6,13 @@ import './Onboarding.sass'
 
 class Onboarding extends PureComponent {
   render() {
-
     return (
       <div>
-        <Media query='(max-width: 769px)' render={() => (
-          <OnboardingStepper orientation='vertical'/>
-        )}/>
-        <Media query='(min-width: 769px)' render={() => (
-          <OnboardingDeskModal />
-        )}/>
+        <Media
+          query="(max-width: 769px)"
+          render={() => <OnboardingStepper orientation="vertical" />}
+        />
+        <Media query="(min-width: 769px)" render={() => <OnboardingDeskModal />} />
       </div>
     )
   }
