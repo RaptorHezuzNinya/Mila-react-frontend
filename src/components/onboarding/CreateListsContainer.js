@@ -1,7 +1,11 @@
 import React, { PureComponent, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { Field, reduxForm, reset } from 'redux-form'
-import { createNetworkList, deleteNetworkList } from '../../actions/networklists'
+import {
+  createNetworkList,
+  deleteNetworkList,
+  requestNetworkLists
+} from '../../actions/networklists'
 import Media from 'react-media'
 import ResponsiveContent from './ResponsiveContent'
 import FlatButton from 'material-ui/FlatButton'
