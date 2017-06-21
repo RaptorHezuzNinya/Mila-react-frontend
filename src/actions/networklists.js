@@ -59,8 +59,20 @@ export const requestNetworkLists = () => {
 
 export const FETCH_NETWORKLISTS = 'FETCH_NETWORKLISTS'
 export const fetchNetworkLists = () => {
-  return dispatch () => {
-
+  return dispatch => {
+    dispatch(requestNetworkLists())
+    return axios
+      .get(`${rootUrl}networkLists`)
+      .then(response => response.data)
+      .catch(error => console.log(error))
+      .then(json => dispatch(receiveNetworkLists(json)))
   }
+}
 
+export const RECEIVE_NETWORKLISTS = 'RECEIVE_NETWORKLISTS'
+export const receiveNetworkLists = json => {
+  return {
+    type: RECEIVE_NETWORKLISTS,
+    payload: json
+  }
 }
