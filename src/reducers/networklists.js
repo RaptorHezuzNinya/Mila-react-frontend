@@ -3,49 +3,13 @@ import {
   UPDATE_NETWORKLIST,
   DELETE_NETWORKLIST,
   ADD_CONTACT_TO_NETWORKLIST,
-  RM_CONTACT_FROM_NETWORKLIST
+  RM_CONTACT_FROM_NETWORKLIST,
+  RECEIVE_NETWORKLISTS
 } from '../actions/networklists'
 
 import { ADD_CONTACT_TO_DELETED } from '../actions/sortContacts'
 
-const initialState = [
-  {
-    id: 1,
-    title: 'Business',
-    description: 'The VIP list is used for people who have asked questions about our product and want to try our next update',
-    contactIds: []
-  },
-  {
-    id: 2,
-    title: 'Business Int',
-    description: 'The VIP list is used for people who have asked questions about our product and want to try our next update',
-    contactIds: []
-  }
-  // {
-  //   id: 3,
-  //   title: 'Business Int',
-  //   description: 'The VIP list is used for people who have asked questions about our product and want to try our next update',
-  //   contactIds: []
-  // },
-  // {
-  //   id: 4,
-  //   title: 'Business Int',
-  //   description: 'The VIP list is used for people who have asked questions about our product and want to try our next update',
-  //   contactIds: []
-  // },
-  // {
-  //   id: 5,
-  //   title: 'Business Int',
-  //   description: 'The VIP list is used for people who have asked questions about our product and want to try our next update',
-  //   contactIds: []
-  // },
-  // {
-  //   id: 6,
-  //   title: 'Business Int',
-  //   description: 'The VIP list is used for people who have asked questions about our product and want to try our next update',
-  //   contactIds: []
-  // }
-]
+const initialState = {}
 
 const networklist = (state = {}, { type, payload } = {}) => {
   switch (type) {
@@ -65,6 +29,9 @@ const networklist = (state = {}, { type, payload } = {}) => {
 
 const networklists = (state = initialState, action) => {
   switch (action.type) {
+    case RECEIVE_NETWORKLISTS:
+      return { ...state, networkLists: [...payload] }
+
     case UPDATE_NETWORKLIST:
       return state.map(networklist => {
         if (networklist.id === action.payload.id) {
