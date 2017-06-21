@@ -20,31 +20,31 @@ const initialState = [
     title: 'Business Int',
     description: 'The VIP list is used for people who have asked questions about our product and want to try our next update',
     contactIds: []
-  },
-  {
-    id: 3,
-    title: 'Business Int',
-    description: 'The VIP list is used for people who have asked questions about our product and want to try our next update',
-    contactIds: []
-  },
-  {
-    id: 4,
-    title: 'Business Int',
-    description: 'The VIP list is used for people who have asked questions about our product and want to try our next update',
-    contactIds: []
-  },
-  {
-    id: 5,
-    title: 'Business Int',
-    description: 'The VIP list is used for people who have asked questions about our product and want to try our next update',
-    contactIds: []
-  },
-  {
-    id: 6,
-    title: 'Business Int',
-    description: 'The VIP list is used for people who have asked questions about our product and want to try our next update',
-    contactIds: []
   }
+  // {
+  //   id: 3,
+  //   title: 'Business Int',
+  //   description: 'The VIP list is used for people who have asked questions about our product and want to try our next update',
+  //   contactIds: []
+  // },
+  // {
+  //   id: 4,
+  //   title: 'Business Int',
+  //   description: 'The VIP list is used for people who have asked questions about our product and want to try our next update',
+  //   contactIds: []
+  // },
+  // {
+  //   id: 5,
+  //   title: 'Business Int',
+  //   description: 'The VIP list is used for people who have asked questions about our product and want to try our next update',
+  //   contactIds: []
+  // },
+  // {
+  //   id: 6,
+  //   title: 'Business Int',
+  //   description: 'The VIP list is used for people who have asked questions about our product and want to try our next update',
+  //   contactIds: []
+  // }
 ]
 
 const networklist = (state = {}, { type, payload } = {}) => {

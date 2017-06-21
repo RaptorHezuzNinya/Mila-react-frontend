@@ -1,3 +1,5 @@
+import axios from 'axios'
+const rootUrl = 'http://localhost:3000/'
 export const CREATE_NETWORKLIST = 'CREATE_NETWORKLIST'
 let nextNWLId = 3
 export const createNetworkList = networkList => {
