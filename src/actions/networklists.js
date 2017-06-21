@@ -49,3 +49,18 @@ export const rmContactFromNetworkList = (contact, networkList) => {
     }
   }
 }
+
+export const REQUEST_NETWORKLISTS = 'REQUEST_NETWORKLISTS'
+export const requestNetworkLists = () => {
+  return {
+    type: REQUEST_NETWORKLISTS
+  }
+}
+
+export const FETCH_NETWORKLISTS = 'FETCH_NETWORKLISTS'
+export const fetchNetworkLists = () => {
+  return dispatch () => {
+
+  }
+
+}
